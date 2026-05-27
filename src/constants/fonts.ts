@@ -9,6 +9,6 @@ const fonts: { [key: string]: { [key: string]: string } } = {
     regular: "Cairo-Regular",
     bold: "Cairo-Bold",
   },
-};
+} as const;
 
 export default fonts;
