@@ -1,8 +1,8 @@
 import { fontStyles } from "@/constants";
-import { TypographyVariant } from "@/types";
+import { Language, TypographyVariant } from "@/types";
 import { StyleProp, Text, TextStyle } from "react-native";
 type TypographyProps = {
-  language: "en" | "ar";
+  language?: Language;
   variant: TypographyVariant;
   children: React.ReactNode;
   style?: StyleProp<TextStyle>;
