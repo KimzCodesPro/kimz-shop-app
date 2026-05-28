@@ -2,7 +2,7 @@ import { fontStyles } from "@/constants";
 import { Language, TypographyVariant } from "@/types";
 import { StyleProp, Text, TextStyle } from "react-native";
 type TypographyProps = {
-  language: Language;
+  language?: Language;
   variant: TypographyVariant;
   children: React.ReactNode;
   style?: StyleProp<TextStyle>;
