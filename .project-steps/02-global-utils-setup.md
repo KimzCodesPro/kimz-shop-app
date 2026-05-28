@@ -1,8 +1,6 @@
 - Added responsive scaling utility at `src/utils/scaling.ts` with three helpers — `HS` (horizontal), `VS` (vertical), `FS` (font, with dampening factor, default `0.5`) — based on a 440 × 956 designer mockup
-- Used `shortDimension` / `longDimension` so scaling stays consistent across orientations
-- Defined a `ScalingMethods` type and initialized `scalingMethods` as a single object (declared once at module top, populated, then `export default`) so consumers import a single namespace: `scalingMethods.HS(16)`
-- Added `__DEV__`-gated console logging that prints device size, scale ratios, and sample HS/VS/FS values at app start
-- Added `src/utils/index.ts` barrel re-exporting `scalingMethods`
 - Introduced `Language` type (`"en" | "ar"`) in `src/types/language.ts` and re-exported via `src/types/index.ts`
+- Added `src/constants/radius.ts` — design tokens (`xs`/`sm`/`md`/`iput`/`lg`/`xl`/`2xl`/`full`) scaled with `HS`
+- Added `src/constants/spacing.ts` — `space4`…`space48` tokens, each `{ width: HS(n), height: VS(n) }` so spacing scales independently per axis
 - Made `language` a required prop on `Typography` (defaults to `"ar"`); component now reads styles from `fontStyles[language][variant]`
-- Kept `src/utils/scaling-interactive.html` as a standalone reference page for visualizing the scaling math
+- Updated `src/constants/fontStyles.ts` to scale through the new utility — `fontSize` now uses `FS` and `lineHeight` uses `VS` for every variant (hero/xlarge/large/... × bold/regular) across both `en` and `ar`, replacing the previous raw pixel values
