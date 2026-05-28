@@ -97,16 +97,6 @@ const fontStyles = {
       fontSize: 10,
       lineHeight: 14,
     },
-    monoMd: {
-      fontFamily: fonts["en"].regular,
-      fontSize: 12,
-      lineHeight: 16,
-    },
-    monoSm: {
-      fontFamily: fonts["en"].regular,
-      fontSize: 10,
-      lineHeight: 14,
-    },
   },
   ar: {
     heroBold: {
@@ -201,16 +191,6 @@ const fontStyles = {
     },
     xsmallLight: {
       fontFamily: fonts["ar"].light,
-      fontSize: 9,
-      lineHeight: 13,
-    },
-    monoMd: {
-      fontFamily: fonts["ar"].regular,
-      fontSize: 11,
-      lineHeight: 15,
-    },
-    monoSm: {
-      fontFamily: fonts["ar"].regular,
       fontSize: 9,
       lineHeight: 13,
     },
