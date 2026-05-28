@@ -1,0 +1,6 @@
+- Added responsive scaling utility at `src/utils/scaling.ts` with three helpers — `HS` (horizontal), `VS` (vertical), `FS` (font, with dampening factor, default `0.5`) — based on a 440 × 956 designer mockup
+- Introduced `Language` type (`"en" | "ar"`) in `src/types/language.ts` and re-exported via `src/types/index.ts`
+- Added `src/constants/radius.ts` — design tokens (`xs`/`sm`/`md`/`iput`/`lg`/`xl`/`2xl`/`full`) scaled with `HS`
+- Added `src/constants/spacing.ts` — `space4`…`space48` tokens, each `{ width: HS(n), height: VS(n) }` so spacing scales independently per axis
+- Made `language` a required prop on `Typography` (defaults to `"ar"`); component now reads styles from `fontStyles[language][variant]`
+- Updated `src/constants/fontStyles.ts` to scale through the new utility — `fontSize` now uses `FS` and `lineHeight` uses `VS` for every variant (hero/xlarge/large/... × bold/regular) across both `en` and `ar`, replacing the previous raw pixel values
