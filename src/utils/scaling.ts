@@ -16,6 +16,14 @@ import { Dimensions } from "react-native";
 //   • Small Android (360×740) → values shrink ~18-23%
 // ============================================================================
 
+type ScalingMethods = {
+  HS: (size: number) => number;
+  VS: (size: number) => number;
+  FS: (size: number, factor?: number) => number;
+};
+
+let scalingMethods = {} as ScalingMethods;
+
 const guidelineBaseWidth = 440;
 const guidelineBaseHeight = 956;
 
@@ -50,14 +58,6 @@ const [shortDimension, longDimension] =
 //   aspect ratio locked. Otherwise the shape gets distorted on devices
 //   where width and height scale by different ratios.
 // ============================================================================
-
-type ScalingMethods = {
-  HS: (size: number) => number;
-  VS: (size: number) => number;
-  FS: (size: number, factor?: number) => number;
-};
-
-let scalingMethods = {} as ScalingMethods;
 
 scalingMethods.HS = (size: number) =>
   Math.round((shortDimension / guidelineBaseWidth) * size);
