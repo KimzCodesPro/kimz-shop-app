@@ -26,6 +26,14 @@ const { width, height } = Dimensions.get("window");
 const [shortDimension, longDimension] =
   width < height ? [width, height] : [height, width];
 
+type ScalingMethods = {
+  HS: (size: number) => number;
+  VS: (size: number) => number;
+  FS: (size: number, factor?: number) => number;
+};
+
+let scalingMethods = {} as ScalingMethods;
+
 // ============================================================================
 // HS — HORIZONTAL SCALE  (think: LEFT ↔ RIGHT)
 // ============================================================================
@@ -50,14 +58,6 @@ const [shortDimension, longDimension] =
 //   aspect ratio locked. Otherwise the shape gets distorted on devices
 //   where width and height scale by different ratios.
 // ============================================================================
-
-type ScalingMethods = {
-  HS: (size: number) => number;
-  VS: (size: number) => number;
-  FS: (size: number, factor?: number) => number;
-};
-
-let scalingMethods = {} as ScalingMethods;
 
 scalingMethods.HS = (size: number) =>
   Math.round((shortDimension / guidelineBaseWidth) * size);
