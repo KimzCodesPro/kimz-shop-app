@@ -17,6 +17,4 @@ export type TypographyVariant =
   | "smallLight"
   | "xsmallBold"
   | "xsmallRegular"
-  | "xsmallLight"
-  | "monoMd"
-  | "monoSm";
+  | "xsmallLight";
