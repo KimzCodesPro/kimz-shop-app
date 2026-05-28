@@ -29,26 +29,3 @@ next=$(printf "%02d" $((10#${last:--1} + 1)))
 new_name="${next}-${branch}"
 git branch -m "$branch" "$new_name"
 echo "Renamed branch: $branch → $new_name"
-
-# Create a notes file for this branch in .project-steps/
-notes_dir=".project-steps"
-notes_file="$notes_dir/${new_name}.md"
-if [ ! -f "$notes_file" ]; then
-  mkdir -p "$notes_dir"
-  {
-    echo "# ${new_name}"
-    echo ""
-    echo "## What I did"
-    echo "- "
-    echo ""
-    echo "## Why"
-    echo "- "
-    echo ""
-    echo "## Key files"
-    echo "- "
-    echo ""
-    echo "## Recording notes"
-    echo "- "
-  } > "$notes_file"
-  echo "Created notes: $notes_file"
-fi
