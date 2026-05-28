@@ -16,6 +16,14 @@ import { Dimensions } from "react-native";
 //   • Small Android (360×740) → values shrink ~18-23%
 // ============================================================================
 
+type ScalingMethods = {
+  HS: (size: number) => number;
+  VS: (size: number) => number;
+  FS: (size: number, factor?: number) => number;
+};
+
+let scalingMethods = {} as ScalingMethods;
+
 const guidelineBaseWidth = 440;
 const guidelineBaseHeight = 956;
 
@@ -25,14 +33,6 @@ const guidelineBaseHeight = 956;
 const { width, height } = Dimensions.get("window");
 const [shortDimension, longDimension] =
   width < height ? [width, height] : [height, width];
-
-type ScalingMethods = {
-  HS: (size: number) => number;
-  VS: (size: number) => number;
-  FS: (size: number, factor?: number) => number;
-};
-
-let scalingMethods = {} as ScalingMethods;
 
 // ============================================================================
 // HS — HORIZONTAL SCALE  (think: LEFT ↔ RIGHT)
