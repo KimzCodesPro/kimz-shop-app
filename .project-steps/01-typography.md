@@ -1,0 +1,6 @@
+- Replaced `useTypography` hook with a static `fontStyles` constant keyed by language (`en` / `ar`)
+- Moved file from `src/hooks/useTypography.ts` → `src/constants/fontStyles.ts`; removed `src/hooks/index.ts`
+- Added `src/constants/index.ts` barrel exporting `fonts` and `fontStyles`
+- Added `Language` type (`"en" | "ar"`) in `src/types/language.ts` and re-exported via `src/types/index.ts`
+- Updated `Typography` component to accept a `language` prop (defaults to `"ar"`) and pull styles from `fontStyles[language]` instead of the hook
+- Marked the `fontStyles` object `as const` so variant style objects keep their literal types
