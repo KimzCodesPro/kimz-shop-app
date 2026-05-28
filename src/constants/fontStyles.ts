@@ -99,16 +99,6 @@ const fontStyles = {
       fontSize: FS(10),
       lineHeight: VS(14),
     },
-    monoMd: {
-      fontFamily: fonts["en"].regular,
-      fontSize: FS(12),
-      lineHeight: VS(10),
-    },
-    monoSm: {
-      fontFamily: fonts["en"].regular,
-      fontSize: FS(12),
-      lineHeight: VS(10),
-    },
   },
   ar: {
     heroBold: {
@@ -205,16 +195,6 @@ const fontStyles = {
       fontFamily: fonts["ar"].light,
       fontSize: FS(9),
       lineHeight: VS(13),
-    },
-    monoMd: {
-      fontFamily: fonts["ar"].regular,
-      fontSize: FS(12),
-      lineHeight: VS(10),
-    },
-    monoSm: {
-      fontFamily: fonts["ar"].regular,
-      fontSize: FS(12),
-      lineHeight: VS(10),
     },
   },
 } as const;
