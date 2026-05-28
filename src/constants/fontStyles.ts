@@ -102,12 +102,12 @@ const fontStyles = {
     monoMd: {
       fontFamily: fonts["en"].regular,
       fontSize: FS(12),
-      lineHeight: VS(10),
+      lineHeight: VS(16),
     },
     monoSm: {
       fontFamily: fonts["en"].regular,
-      fontSize: FS(12),
-      lineHeight: VS(10),
+      fontSize: FS(10),
+      lineHeight: VS(14),
     },
   },
   ar: {
@@ -208,13 +208,13 @@ const fontStyles = {
     },
     monoMd: {
       fontFamily: fonts["ar"].regular,
-      fontSize: FS(12),
-      lineHeight: VS(10),
+      fontSize: FS(11),
+      lineHeight: VS(15),
     },
     monoSm: {
       fontFamily: fonts["ar"].regular,
-      fontSize: FS(12),
-      lineHeight: VS(10),
+      fontSize: FS(9),
+      lineHeight: VS(13),
     },
   },
 } as const;
