@@ -1,11 +1,10 @@
 import { fontStyles } from "@/constants";
 import { Language, TypographyVariant } from "@/types";
-import { StyleProp, Text, TextStyle } from "react-native";
-type TypographyProps = {
+import { Text, TextProps } from "react-native";
+
+type TypographyProps = TextProps & {
   language?: Language;
   variant: TypographyVariant;
-  children: React.ReactNode;
-  style?: StyleProp<TextStyle>;
   color?: string;
 };
 
@@ -15,11 +14,14 @@ const Typography = ({
   children,
   style,
   color,
+  ...rest
 }: TypographyProps) => {
   const typography = fontStyles[language];
 
   return (
-    <Text style={[typography[variant], { color }, style]}>{children}</Text>
+    <Text {...rest} style={[typography[variant], { color }, style]}>
+      {children}
+    </Text>
   );
 };
 
