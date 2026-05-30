@@ -1,0 +1,10 @@
+- Integrated Redux Toolkit: added `src/store/index.ts` with `combineReducers` over three slices (`theme`, `translation`, `userPreferences`) and `configureStore` wired to `redux-devtools-expo-dev-plugin`
+- Added typed store helpers — `RootState`, `AppDispatch`, `useAppDispatch`, `useAppSelector` in `src/store/index.ts`, plus `withTypes` variants in `src/store/hooks.ts`
+- `themeSlice` seeds state from `colors.json`; `translationSlice` seeds from `translation.json` — both static, no reducers
+- `userPreferencesSlice` holds `{ language, theme }` with `setLanguage` / `setTheme` reducers (typed via `PayloadAction<Language>` / `PayloadAction<Theme>`)
+- Added `useTheme`, `useTranslation`, `useUserPreferences` hooks; `useUserPreferences` returns state spread plus bound `setLanguage` / `setTheme` dispatchers
+- Persisted **only** the `userPreferences` slice with `redux-persist` — wrapped that reducer with `persistReducer` (key `"userPreferences"`, AsyncStorage), leaving `theme`/`translation` to load fresh from JSON each launch
+- Added `serializableCheck.ignoredActions` for redux-persist actions and a `persistor` exported from the store; wrapped the app in `<PersistGate>` in `src/app/_layout.tsx`
+- Added versioned migrations (`version: 0` + `createMigrate`) in standalone `src/store/migrations.ts` (sibling of `index.ts`/`hooks.ts`)
+- Built language (English / العربية) and theme (Light / Dark) buttons in `src/app/index.tsx` driven by `useUserPreferences`
+- Added `light` / `dark` translation keys to `translation.json` (en + ar) so `t()` stays type-safe
