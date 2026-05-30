@@ -2,13 +2,17 @@
   "ar": {
     "dir": "rtl",
     "keys": {
-      "hello": "مرحبا"
+      "hello": "مرحبا",
+      "light": "فاتح",
+      "dark": "داكن"
     }
   },
   "en": {
     "dir": "ltr",
     "keys": {
-      "hello": "Hello"
+      "hello": "Hello",
+      "light": "Light",
+      "dark": "Dark"
     }
   }
 }

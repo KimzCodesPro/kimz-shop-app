@@ -1,31 +1,41 @@
 import { Typography } from "@/components/ui/display";
-import { useTranslation } from "@/hooks";
-import { useAppDispatch } from "@/store/hooks";
-import { setLanguage } from "@/store/userPreferences/userPreferencesSlice";
+import { useTheme, useTranslation, useUserPreferences } from "@/hooks";
 import { Pressable, StyleSheet, View } from "react-native";
 export default function Index() {
   const { t, language } = useTranslation();
-  const dispatch = useAppDispatch();
+  const color = useTheme();
+  const { setLanguage, setTheme } = useUserPreferences();
+
   return (
     <View style={styles.container}>
-      <Typography variant="heroBold" language={language}>
+      <Typography
+        variant="heroBold"
+        language={language}
+        color={color.success.tint}
+      >
         {t("hello")}
       </Typography>
       <View style={styles.buttons}>
-        <Pressable
-          style={styles.button}
-          onPress={() => dispatch(setLanguage("en"))}
-        >
+        <Pressable style={styles.button} onPress={() => setLanguage("en")}>
           <Typography variant="normalBold" language="en">
             English
           </Typography>
         </Pressable>
-        <Pressable
-          style={styles.button}
-          onPress={() => dispatch(setLanguage("ar"))}
-        >
+        <Pressable style={styles.button} onPress={() => setLanguage("ar")}>
           <Typography variant="normalBold" language="ar">
             العربية
+          </Typography>
+        </Pressable>
+      </View>
+      <View style={styles.buttons}>
+        <Pressable style={styles.button} onPress={() => setTheme("light")}>
+          <Typography variant="normalBold" language={language}>
+            light
+          </Typography>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => setTheme("dark")}>
+          <Typography variant="normalBold" language={language}>
+            dark
           </Typography>
         </Pressable>
       </View>

@@ -19,6 +19,7 @@ const userPreferencesSlice = createSlice({
       state.language = action.payload;
     },
     setTheme: (state, action: PayloadAction<Theme>) => {
+      console.log("setting theme to", action.payload);
       state.theme = action.payload;
     },
   },
