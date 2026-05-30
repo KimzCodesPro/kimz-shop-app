@@ -21,7 +21,7 @@ module.exports = defineConfig([
       // Enforce the Rules of Hooks: only call hooks at the top level and from React functions.
       "react-hooks/rules-of-hooks": "error",
       // Disallow inline `style={{...}}` props; use StyleSheet.create for performance and consistency.
-      // "react-native/no-inline-styles": "warn",
+      "react-native/no-inline-styles": "error",
     },
   },
   {
