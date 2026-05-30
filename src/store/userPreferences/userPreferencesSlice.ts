@@ -1,5 +1,5 @@
 import { Language, Theme } from "@/types";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type InitialStateType = {
   language: Language;
@@ -7,14 +7,23 @@ type InitialStateType = {
 };
 
 const initialState: InitialStateType = {
-  language: "ar",
+  language: "en",
   theme: "light",
 };
 
 const userPreferencesSlice = createSlice({
   name: "userPreferences",
   initialState,
-  reducers: {},
+  reducers: {
+    setLanguage: (state, action: PayloadAction<Language>) => {
+      state.language = action.payload;
+    },
+    setTheme: (state, action: PayloadAction<Theme>) => {
+      state.theme = action.payload;
+    },
+  },
 });
+
+export const { setLanguage, setTheme } = userPreferencesSlice.actions;
 
 export default userPreferencesSlice.reducer;
