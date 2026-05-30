@@ -1,0 +1,14 @@
+{
+  "ar": {
+    "dir": "rtl",
+    "keys": {
+      "hello": "مرحبا"
+    }
+  },
+  "en": {
+    "dir": "ltr",
+    "keys": {
+      "hello": "Hello"
+    }
+  }
+}
