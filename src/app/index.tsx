@@ -2,6 +2,7 @@ import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
 import { useTheme, useTranslation, useUserPreferences } from "@/hooks";
 import { Pressable, StyleSheet, View } from "react-native";
+
 export default function Index() {
   const { t, language } = useTranslation();
   const color = useTheme();
