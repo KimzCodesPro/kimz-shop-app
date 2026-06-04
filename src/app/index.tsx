@@ -1,3 +1,4 @@
+import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
 import { useTheme, useTranslation, useUserPreferences } from "@/hooks";
 import { Pressable, StyleSheet, View } from "react-native";
@@ -8,6 +9,7 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
+      <Icon name="chevron" size={24} color={color.primary.base} isRTL />
       <Typography
         variant="heroBold"
         language={language}
