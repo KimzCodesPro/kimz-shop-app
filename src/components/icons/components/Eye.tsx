@@ -1,5 +1,5 @@
 import Svg, { Path } from "react-native-svg";
-import IconProps from "../type";
+import { IconProps } from "../type";
 
 function Eye({ size, color, style }: IconProps) {
   return (
