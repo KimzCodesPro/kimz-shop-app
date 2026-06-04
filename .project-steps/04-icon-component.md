@@ -1,0 +1,6 @@
+- Built a reusable SVG icon system under `src/components/icons/`, backed by `react-native-svg`
+- Each icon is its own component in `src/components/icons/components/` (`Eye`, `EyeOff`, `Lock`, `User`, `Chevron`) — an `<Svg>` with `viewBox="0 0 24 24"`, taking `size` (default 24), `color` (as `stroke`), and `style`
+- Registered all icons in `src/components/icons/components/iconList.ts` as a single `as const` map (`eye`, `eye-off`, `lock`, `user`, `chevron`) — the one place to add new icons
+- `Icon.tsx` is the public entry: looks up `iconList[name]`, renders a fallback `<Text>` if the name is missing, and supports RTL flipping via `isRTL` (`transform: scaleX(-1)`)
+- `type.ts` derives `IconName` (`keyof typeof iconList`) and exports the shared `IconProps` (`size`, `color`, `style`) used by every icon component for type safety
+- `index.ts` re-exports `Icon` (default) plus the `IconName` / `IconProps` types as the module's barrel
