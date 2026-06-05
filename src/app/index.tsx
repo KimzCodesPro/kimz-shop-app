@@ -1,45 +1,44 @@
 import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
+import { TextInput } from "@/components/ui/inputs";
 import { useTheme, useTranslation, useUserPreferences } from "@/hooks";
 import { Pressable, StyleSheet, View } from "react-native";
 
 export default function Index() {
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
   const color = useTheme();
   const { setLanguage, setTheme } = useUserPreferences();
 
   return (
     <View style={styles.container}>
+      <TextInput
+        label="Email Address"
+        icon="mail"
+        placeholder="Enter your email address"
+      />
+      <TextInput
+        label="Password"
+        icon="lock"
+        placeholder="Enter your password"
+      />
       <Icon name="chevron" size={24} color={color.primary.base} isRTL />
-      <Typography
-        variant="heroBold"
-        language={language}
-        color={color.success.tint}
-      >
+      <Typography variant="heroBold" color={color.success.tint}>
         {t("hello")}
       </Typography>
       <View style={styles.buttons}>
         <Pressable style={styles.button} onPress={() => setLanguage("en")}>
-          <Typography variant="normalBold" language="en">
-            English
-          </Typography>
+          <Typography variant="normalBold">English</Typography>
         </Pressable>
         <Pressable style={styles.button} onPress={() => setLanguage("ar")}>
-          <Typography variant="normalBold" language="ar">
-            العربية
-          </Typography>
+          <Typography variant="normalBold">العربية</Typography>
         </Pressable>
       </View>
       <View style={styles.buttons}>
         <Pressable style={styles.button} onPress={() => setTheme("light")}>
-          <Typography variant="normalBold" language={language}>
-            light
-          </Typography>
+          <Typography variant="normalBold">light</Typography>
         </Pressable>
         <Pressable style={styles.button} onPress={() => setTheme("dark")}>
-          <Typography variant="normalBold" language={language}>
-            dark
-          </Typography>
+          <Typography variant="normalBold">dark</Typography>
         </Pressable>
       </View>
     </View>
