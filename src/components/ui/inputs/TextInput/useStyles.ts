@@ -12,18 +12,18 @@ const useStyles = (status: StatusType) => {
 
   const styles = StyleSheet.create({
     wrapper: {
-      width: "100%",
+      alignSelf: "stretch",
+    },
+    label: {
+      marginBottom: VS(8),
     },
     inputWrapper: {
-      marginTop: VS(12),
+      height: VS(52),
       gap: VS(13),
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",
-      width: "100%",
-      height: VS(52),
       paddingHorizontal: HS(13),
-      paddingVertical: VS(13),
       borderWidth: 1,
       borderRadius: radius.input,
       borderColor:
@@ -35,6 +35,7 @@ const useStyles = (status: StatusType) => {
       backgroundColor: theme.background.base,
     },
     inputText: {
+      alignSelf: "stretch",
       ...fontStyles.smallRegular,
       color: theme.text.primary,
       lineHeight: 0,
