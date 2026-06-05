@@ -11,13 +11,13 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <TextInput />
+      <TextInput
+        label="Email Address"
+        icon="mail"
+        placeholder="Enter your email address"
+      />
       <Icon name="chevron" size={24} color={color.primary.base} isRTL />
-      <Typography
-        variant="heroBold"
-        language={language}
-        color={color.success.tint}
-      >
+      <Typography variant="heroBold" color={color.success.tint}>
         {t("hello")}
       </Typography>
       <View style={styles.buttons}>

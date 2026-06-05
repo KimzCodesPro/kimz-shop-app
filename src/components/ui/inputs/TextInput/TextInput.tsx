@@ -4,28 +4,40 @@ import { TextInput as NativeTextInput, View } from "react-native";
 import useStyles from "./useStyles";
 
 type TextInputProps = {
-  type: "password" | "text";
+  type?: "password" | "text";
   states?: "default" | "error" | "focused";
   label: string;
   icon: IconName;
   placeholder: string;
-  helperText?: string;
+  errorMessage?: string;
 };
 
-const TextInput = ({ type, states = "default" }: TextInputProps) => {
+const TextInput = ({
+  type = "text",
+  states = "default",
+  label,
+  icon,
+  placeholder,
+  errorMessage,
+}: TextInputProps) => {
   const { styles, theme } = useStyles();
   return (
     <View style={styles.wrapper}>
       <Typography variant="normalBold" color={theme.text.primary}>
-        Email Address
+        {label}
       </Typography>
       <View style={styles.inputWrapper}>
-        <Icon name="mail" size={20} color={theme.text.tertiary} />
+        <Icon name={icon} size={20} color={theme.text.tertiary} />
         <NativeTextInput
-          placeholder="Enter your email address"
+          placeholder={placeholder}
           placeholderTextColor={theme.text.tertiary}
           style={styles.inputText}
         />
+        {errorMessage && (
+          <Typography variant="xsmallRegular" color={theme.danger.base}>
+            {errorMessage}
+          </Typography>
+        )}
       </View>
     </View>
   );
