@@ -1,6 +1,5 @@
 import { Text } from "react-native";
 import iconList from "./components/iconList";
-
 type IconProps = {
   name: keyof typeof iconList;
   size?: number;

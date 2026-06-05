@@ -1,9 +1,8 @@
-import { fontStyles } from "@/constants";
-import { Language, TypographyVariant } from "@/types";
+import useFontStyles from "@/hooks/useFontStyles";
+import { TypographyVariant } from "@/types";
 import { TextProps } from "@expo/ui/jetpack-compose";
 import { StyleProp, Text, TextStyle } from "react-native";
 type TypographyProps = TextProps & {
-  language: Language;
   variant: TypographyVariant;
   children: React.ReactNode;
   style?: StyleProp<TextStyle>;
@@ -11,14 +10,13 @@ type TypographyProps = TextProps & {
 };
 
 const Typography = ({
-  language = "ar",
   variant,
   children,
   style,
   color,
   ...reset
 }: TypographyProps) => {
-  const typography = fontStyles[language];
+  const typography = useFontStyles();
 
   return (
     <Text style={[typography[variant], { color }, style]} {...reset}>

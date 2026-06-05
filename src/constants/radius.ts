@@ -5,7 +5,7 @@ const radius = {
   xs: HS(4),
   sm: HS(8),
   md: HS(12),
-  iput: HS(15),
+  input: HS(15),
   lg: HS(16),
   xl: HS(24),
   "2xl": HS(30),
