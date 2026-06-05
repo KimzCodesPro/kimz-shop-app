@@ -16,6 +16,11 @@ export default function Index() {
         icon="mail"
         placeholder="Enter your email address"
       />
+      <TextInput
+        label="Password"
+        icon="lock"
+        placeholder="Enter your password"
+      />
       <Icon name="chevron" size={24} color={color.primary.base} isRTL />
       <Typography variant="heroBold" color={color.success.tint}>
         {t("hello")}
