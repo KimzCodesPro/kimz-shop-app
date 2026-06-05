@@ -27,26 +27,18 @@ export default function Index() {
       </Typography>
       <View style={styles.buttons}>
         <Pressable style={styles.button} onPress={() => setLanguage("en")}>
-          <Typography variant="normalBold" language="en">
-            English
-          </Typography>
+          <Typography variant="normalBold">English</Typography>
         </Pressable>
         <Pressable style={styles.button} onPress={() => setLanguage("ar")}>
-          <Typography variant="normalBold" language="ar">
-            العربية
-          </Typography>
+          <Typography variant="normalBold">العربية</Typography>
         </Pressable>
       </View>
       <View style={styles.buttons}>
         <Pressable style={styles.button} onPress={() => setTheme("light")}>
-          <Typography variant="normalBold" language={language}>
-            light
-          </Typography>
+          <Typography variant="normalBold">light</Typography>
         </Pressable>
         <Pressable style={styles.button} onPress={() => setTheme("dark")}>
-          <Typography variant="normalBold" language={language}>
-            dark
-          </Typography>
+          <Typography variant="normalBold">dark</Typography>
         </Pressable>
       </View>
     </View>
