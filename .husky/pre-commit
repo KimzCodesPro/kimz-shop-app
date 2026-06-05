@@ -1,0 +1,9 @@
+echo "Running lint..."
+npm run lint || {
+  echo
+  echo "❌ Lint failed — fix the problems listed above (file:line:column) before committing."
+  echo "   Tip: run 'npm run lint -- --fix' to auto-fix what's fixable."
+  exit 1
+}
+
+echo "Lint passed. Proceeding with commit."
