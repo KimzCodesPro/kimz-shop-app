@@ -10,6 +10,12 @@ const useStyles = (status: StatusType) => {
   const theme = useTheme();
   const fontStyles = useFontStyles();
 
+  const borderStatusColor = {
+    error: theme.danger.base,
+    focused: theme.primary.base,
+    default: theme.border.default,
+  };
+
   const styles = StyleSheet.create({
     wrapper: {
       alignSelf: "stretch",
@@ -26,12 +32,7 @@ const useStyles = (status: StatusType) => {
       paddingHorizontal: HS(13),
       borderWidth: 1,
       borderRadius: radius.input,
-      borderColor:
-        status === "error"
-          ? theme.danger.base
-          : status === "focused"
-            ? theme.primary.base
-            : theme.border.default,
+      borderColor: borderStatusColor[status],
       backgroundColor: theme.background.base,
     },
     inputText: {

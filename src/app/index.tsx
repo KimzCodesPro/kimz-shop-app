@@ -10,11 +10,14 @@ export default function Index() {
   const { setLanguage, setTheme } = useUserPreferences();
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[styles.container, { backgroundColor: color.background.base }]}
+    >
       <TextInput
         label="Email Address"
         icon="mail"
         placeholder="Enter your email address"
+        errorMessage="Invalid email address"
       />
       <TextInput
         label="Password"
