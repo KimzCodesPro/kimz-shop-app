@@ -13,7 +13,7 @@ const useStyle = (size: SizeType, variant: VariantType, active: boolean) => {
     primary: color.primary.base,
     chip: color.background.base,
     link: color.background.base,
-    ghost: active ? color.primary.base : color.primary.base,
+    ghost: active ? color.primary.base : color.background.base,
     danger: color.background.base,
   };
 
@@ -21,7 +21,7 @@ const useStyle = (size: SizeType, variant: VariantType, active: boolean) => {
     primary: color.primary.base,
     chip: color.primary.base,
     link: color.background.base,
-    ghost: active ? color.border.default : color.primary.base,
+    ghost: active ? color.primary.base : color.border.default,
     danger: color.background.base,
   };
 
