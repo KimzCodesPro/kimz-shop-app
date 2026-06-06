@@ -43,12 +43,11 @@ const TextInput = ({
 
   const { styles, theme } = useStyles(status);
 
-  const IconStatusColor =
-    status === "error"
-      ? theme.danger.base
-      : status === "focused"
-        ? theme.primary.base
-        : theme.text.tertiary;
+  const iconStatusColor = {
+    error: theme.danger.base,
+    focused: theme.primary.base,
+    default: theme.text.tertiary,
+  };
 
   return (
     <View style={[styles.wrapper, viewStyle]}>
@@ -60,7 +59,7 @@ const TextInput = ({
         {label}
       </Typography>
       <View style={styles.inputWrapper}>
-        <Icon name={icon} size={20} color={IconStatusColor} />
+        <Icon name={icon} size={20} color={iconStatusColor[status]} />
         <NativeTextInput
           value={value}
           onChangeText={onChangeText}
@@ -83,7 +82,7 @@ const TextInput = ({
       </View>
       {errorMessage && (
         <Typography
-          variant="xsmallRegular"
+          variant="smallRegular"
           color={theme.danger.base}
           style={styles.errorMessage}
         >

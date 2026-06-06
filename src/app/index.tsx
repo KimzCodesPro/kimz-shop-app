@@ -24,6 +24,7 @@ export default function Index() {
         label="Email Address"
         icon="mail"
         placeholder="Enter your email address"
+        errorMessage="Invalid email address"
       />
       <TextInput
         label="Password"
