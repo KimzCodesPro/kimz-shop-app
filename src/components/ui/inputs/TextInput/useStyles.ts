@@ -24,8 +24,8 @@ const useStyles = (status: StatusType) => {
       alignItems: "center",
       justifyContent: "space-between",
       paddingHorizontal: HS(13),
-      borderWidth: 1,
-      borderRadius: radius.input,
+      borderWidth: HS(1),
+      borderRadius: radius.md,
       borderColor:
         status === "error"
           ? theme.danger.base
