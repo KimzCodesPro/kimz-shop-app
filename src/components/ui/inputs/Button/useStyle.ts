@@ -5,7 +5,7 @@ import { StyleSheet } from "react-native";
 import { SizeType, VariantType } from "./types";
 const { VS, HS } = scalingMethods;
 
-const useStyle = (size: SizeType, variant: VariantType, active: boolean) => {
+const useStyle = (size: SizeType, variant: VariantType) => {
   const color = useTheme();
   const buttonHeight = size === "sm" ? VS(39) : VS(49);
 
@@ -13,7 +13,7 @@ const useStyle = (size: SizeType, variant: VariantType, active: boolean) => {
     primary: color.primary.base,
     chip: color.background.base,
     link: color.background.base,
-    ghost: active ? color.primary.base : color.background.base,
+    ghost: color.background.base,
     danger: color.background.base,
   };
 
@@ -21,7 +21,7 @@ const useStyle = (size: SizeType, variant: VariantType, active: boolean) => {
     primary: color.primary.base,
     chip: color.primary.base,
     link: color.background.base,
-    ghost: active ? color.primary.base : color.border.default,
+    ghost: color.border.default,
     danger: color.background.base,
   };
 

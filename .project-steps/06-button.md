@@ -1,0 +1,8 @@
+- Built a reusable `Button` component under `src/components/ui/inputs/Button/`, exported via the inputs barrel (`src/components/ui/inputs/index.ts`)
+- `Button.tsx` is the public entry: a `TouchableOpacity` wrapping a `Typography` label, with props `title`, `onPress`, `active` (default `false`), `size` (default `lg`), and `variant` (default `primary`)
+- `types.ts` defines the two driving unions — `SizeType` (`sm` | `lg`) and `VariantType` (`primary` | `chip` | `link` | `ghost` | `danger`)
+- Text styling is variant-driven in the component: size maps to a `Typography` variant (`smallBold` for `sm`, else `normalBold`), and a `typographyColorVariant` map picks the label color per variant (with `ghost` flipping on `active`)
+- `useStyle.ts` hook centralizes layout/theming: pulls colors from `useTheme()`, scales height with `scalingMethods` (`VS(39)` for `sm`, `VS(49)` for `lg`), and selects `backgroundColor`/`borderColor` via per-variant maps (`ghost` toggles on `active`)
+- Border radius is variant-aware — `radius.full` for `chip` (pill shape), `radius.sm` otherwise; border width via `HS(1)`
+- Hook returns `{ styles, color }` so the component can reuse the theme palette for its text colors
+- Integrated into `src/app/index.tsx` with state management to demo the variants; minor `TextInput/useStyles.ts` tweak alongside
