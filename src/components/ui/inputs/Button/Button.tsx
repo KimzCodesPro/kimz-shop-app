@@ -6,7 +6,6 @@ import useStyle from "./useStyle";
 type ButtonProps = {
   title: string;
   onPress: () => void;
-  active?: boolean;
   size?: SizeType;
   variant?: VariantType;
 };
@@ -14,11 +13,11 @@ type ButtonProps = {
 const Button = ({
   title,
   onPress,
-  active = false,
+
   size = "lg",
   variant = "primary",
 }: ButtonProps) => {
-  const { styles, color } = useStyle(size, variant, active);
+  const { styles, color } = useStyle(size, variant);
 
   const typographySizeVariant = size === "sm" ? "smallBold" : "normalBold";
 
@@ -26,7 +25,7 @@ const Button = ({
     primary: color.text.onPrimary,
     chip: color.primary.base,
     link: color.primary.base,
-    ghost: active ? color.text.onPrimary : color.text.primary,
+    ghost: color.text.primary,
     danger: color.danger.base,
   };
 
