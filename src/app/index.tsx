@@ -1,18 +1,25 @@
 import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
-import { TextInput } from "@/components/ui/inputs";
+import { Button, TextInput } from "@/components/ui/inputs";
 import { useTheme, useTranslation, useUserPreferences } from "@/hooks";
-import { Pressable, StyleSheet, View } from "react-native";
+import { useState } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   const { t } = useTranslation();
   const color = useTheme();
   const { setLanguage, setTheme } = useUserPreferences();
+  const [inc, setInc] = useState(0);
+
+  const handlePress = () => {
+    setInc((prev) => prev + 1);
+  };
 
   return (
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
+      <Text>{inc}</Text>
       <TextInput
         label="Email Address"
         icon="mail"
@@ -24,6 +31,7 @@ export default function Index() {
         icon="lock"
         placeholder="Enter your password"
       />
+      <Button title="Login" onPress={handlePress} size="lg" variant="primary" />
       <Icon name="chevron" size={24} color={color.primary.base} isRTL />
       <Typography variant="heroBold" color={color.success.tint}>
         {t("hello")}
