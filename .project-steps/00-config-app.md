@@ -6,7 +6,7 @@
 - Moved `assets/` → `src/assets/` (images, tab icons, expo icon SVG, branding PNGs)
 - Updated `app.json` for the new asset paths
 - Added **ESLint** config (`eslint.config.js`) and `lint` + `type-check` npm scripts
-- Added **Husky** with a `pre-push` hook that runs `lint` + `type-check` before every push
-- Added `.husky/post-checkout` hook that auto-prefixes new branches with `NN-` (tutorial step numbering)
+- Added **Husky** with a `pre-commit` hook that runs `lint` + `type-check` before every commit (blocks the commit if either fails)
+- Added `.husky/post-checkout` hook that auto-prefixes new branches with `NN-` (tutorial step numbering), picking the lowest free slot so it fills gaps instead of just `max + 1`
 
 by kimzcode
