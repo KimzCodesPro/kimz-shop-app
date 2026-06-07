@@ -27,6 +27,8 @@ const useStyle = (size: SizeType, variant: VariantType) => {
 
   const styles = StyleSheet.create({
     button: {
+      flexDirection: "row",
+      gap: HS(10),
       alignSelf: "stretch",
       height: buttonHeight,
       borderRadius: variant === "chip" ? radius.full : radius.sm,

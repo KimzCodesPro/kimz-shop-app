@@ -1,3 +1,4 @@
+import Icon, { IconName } from "@/components/icons";
 import { Typography } from "@/components/ui/display";
 import { TouchableOpacity } from "react-native";
 import { SizeType, VariantType } from "./types";
@@ -5,6 +6,7 @@ import useStyle from "./useStyle";
 
 type ButtonProps = {
   title: string;
+  icon?: IconName;
   onPress: () => void;
   size?: SizeType;
   variant?: VariantType;
@@ -13,7 +15,7 @@ type ButtonProps = {
 const Button = ({
   title,
   onPress,
-
+  icon,
   size = "lg",
   variant = "primary",
 }: ButtonProps) => {
@@ -31,6 +33,9 @@ const Button = ({
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.button}>
+      {icon && (
+        <Icon name={icon} size={20} color={typographyColorVariant[variant]} />
+      )}
       <Typography
         variant={typographySizeVariant}
         color={typographyColorVariant[variant]}
