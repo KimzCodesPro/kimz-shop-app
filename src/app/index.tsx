@@ -31,8 +31,14 @@ export default function Index() {
         icon="lock"
         placeholder="Enter your password"
       />
-      <Button title="Login" onPress={handlePress} size="lg" variant="primary" />
-      <Icon name="chevron" size={24} color={color.primary.base} isRTL />
+      <Button
+        title="Login"
+        onPress={handlePress}
+        size="lg"
+        variant="primary"
+        icon="mail"
+      />
+      <Icon name="chevron" size={24} color={color.primary.base} />
       <Typography variant="heroBold" color={color.success.tint}>
         {t("hello")}
       </Typography>
