@@ -1,6 +1,7 @@
 import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
 import { Button, TextInput } from "@/components/ui/inputs";
+import { TopBar } from "@/components/ui/navigations";
 import { useTheme, useTranslation, useUserPreferences } from "@/hooks";
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
@@ -37,6 +38,13 @@ export default function Index() {
         size="lg"
         variant="primary"
         icon="mail"
+      />
+      <TopBar
+        title="Home"
+        onAction={{
+          iconName: "chevron",
+          onPress: () => console.log("Settings pressed"),
+        }}
       />
       <Icon name="chevron" size={24} color={color.primary.base} />
       <Typography variant="heroBold" color={color.success.tint}>
