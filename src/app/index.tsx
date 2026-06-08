@@ -18,6 +18,8 @@ export default function Index() {
         icon="mail"
         placeholder="Enter your email address"
         errorMessage="Invalid email address"
+        clearInput={() => console.log("clear input")}
+        value="sdasd"
       />
       <TextInput
         label="Password"
