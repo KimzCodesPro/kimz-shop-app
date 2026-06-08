@@ -20,6 +20,7 @@ type TextInputProps = {
   value?: string;
   viewStyle?: StyleProp<ViewStyle>;
   onChangeText?: (text: string) => void;
+  clearInput?: () => void;
 };
 
 const TextInput = ({
@@ -30,6 +31,7 @@ const TextInput = ({
   errorMessage,
   value,
   onChangeText,
+  clearInput,
   viewStyle,
 }: TextInputProps) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -70,6 +72,13 @@ const TextInput = ({
           style={styles.inputText}
           secureTextEntry={type === "password" && !passwordVisible}
         />
+
+        {clearInput && value ? (
+          <Pressable onPress={clearInput}>
+            <Icon name="close" size={16} color={theme.text.tertiary} />
+          </Pressable>
+        ) : null}
+
         {type === "password" && (
           <Pressable onPress={() => setPasswordVisible((prev) => !prev)}>
             <Icon

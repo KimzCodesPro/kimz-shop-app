@@ -1,4 +1,5 @@
 import Chevron from "./Chevron";
+import Close from "./Close";
 import Eye from "./Eye";
 import EyeOff from "./EyeOff";
 import Lock from "./Lock";
@@ -12,6 +13,7 @@ const icons = {
   user: User,
   chevron: Chevron,
   mail: Mail,
+  close: Close,
 } as const;
 
 export default icons;

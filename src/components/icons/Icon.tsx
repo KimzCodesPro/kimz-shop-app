@@ -3,6 +3,7 @@ import iconList from "./components/iconList";
 
 type IconProps = {
   name: keyof typeof iconList;
+  style?: StyleProp<ViewStyle>;
   size?: number;
   color?: string;
   isRTL?: boolean;
