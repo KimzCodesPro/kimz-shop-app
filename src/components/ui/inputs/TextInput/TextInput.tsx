@@ -48,14 +48,14 @@ const TextInput = ({
   const iconStatusColor = {
     error: theme.danger.base,
     focused: theme.primary.base,
-    default: theme.text.tertiary,
+    default: theme.foreground.tertiary,
   };
 
   return (
     <View style={[styles.wrapper, viewStyle]}>
       <Typography
         variant="normalBold"
-        color={theme.text.primary}
+        color={theme.foreground.primary}
         style={styles.label}
       >
         {label}
@@ -68,14 +68,14 @@ const TextInput = ({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
-          placeholderTextColor={theme.text.tertiary}
+          placeholderTextColor={theme.foreground.tertiary}
           style={styles.inputText}
           secureTextEntry={type === "password" && !passwordVisible}
         />
 
         {clearInput && value ? (
           <Pressable onPress={clearInput}>
-            <Icon name="close" size={16} color={theme.text.tertiary} />
+            <Icon name="close" size={16} color={theme.foreground.tertiary} />
           </Pressable>
         ) : null}
 
@@ -84,7 +84,7 @@ const TextInput = ({
             <Icon
               name={passwordVisible ? "eye-off" : "eye"}
               size={20}
-              color={theme.text.tertiary}
+              color={theme.foreground.tertiary}
             />
           </Pressable>
         )}

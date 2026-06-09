@@ -38,7 +38,7 @@ const useStyles = (status: StatusType) => {
     inputText: {
       alignSelf: "stretch",
       ...fontStyles.smallRegular,
-      color: theme.text.primary,
+      color: theme.foreground.primary,
       lineHeight: 0,
       flex: 1,
     },

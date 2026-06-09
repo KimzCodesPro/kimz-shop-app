@@ -7,7 +7,6 @@ type IconProps = {
   size?: number;
   color?: string;
   isRTL?: boolean;
-  style?: StyleProp<ViewStyle>;
 };
 
 const Icon = ({
