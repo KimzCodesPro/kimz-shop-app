@@ -36,6 +36,7 @@ export default function Index() {
       />
       <Button
         title="Login"
+        loading={{ indicator: true, text: "Logging in..." }}
         onPress={handlePress}
         size="lg"
         variant="primary"
