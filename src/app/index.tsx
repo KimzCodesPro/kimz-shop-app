@@ -1,6 +1,6 @@
 import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
-import { Button, TextInput } from "@/components/ui/inputs";
+import { Button, Switch, TextInput } from "@/components/ui/inputs";
 import { TopBar } from "@/components/ui/navigations";
 import { useTheme, useTranslation, useUserPreferences } from "@/hooks";
 import { useState } from "react";
@@ -10,6 +10,7 @@ export default function Index() {
   const { t } = useTranslation();
   const color = useTheme();
   const { setLanguage, setTheme } = useUserPreferences();
+  const [switchValue, setSwitchValue] = useState(false);
   const [inc, setInc] = useState(0);
 
   const handlePress = () => {
@@ -21,6 +22,10 @@ export default function Index() {
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
       <Text>{inc}</Text>
+      <Switch
+        value={switchValue}
+        onValueChange={() => setSwitchValue((prev) => !prev)}
+      />
       <TextInput
         label="Email Address"
         icon="mail"

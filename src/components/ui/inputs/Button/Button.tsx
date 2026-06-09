@@ -1,6 +1,11 @@
 import Icon, { IconName } from "@/components/icons";
 import { Typography } from "@/components/ui/display";
-import { ActivityIndicator, TouchableOpacity } from "react-native";
+import {
+  ActivityIndicator,
+  StyleProp,
+  TouchableOpacity,
+  ViewStyle,
+} from "react-native";
 import { SizeType, VariantType } from "./types";
 import useStyle from "./useStyle";
 
@@ -12,6 +17,7 @@ type ButtonProps = {
   variant?: VariantType;
   disabled?: boolean;
   loading?: { indicator: boolean; text?: string };
+  style?: StyleProp<ViewStyle>;
 };
 
 const Button = ({
@@ -22,6 +28,7 @@ const Button = ({
   variant = "primary",
   disabled = false,
   loading = { indicator: false },
+  style,
 }: ButtonProps) => {
   const { styles, color } = useStyle(size, variant);
 
@@ -38,7 +45,7 @@ const Button = ({
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={styles.button}
+      style={[styles.button, style]}
       disabled={disabled || loading.indicator}
     >
       {!loading.indicator && icon && (
