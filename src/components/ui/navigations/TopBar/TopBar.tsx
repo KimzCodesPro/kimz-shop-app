@@ -38,14 +38,14 @@ const TopBar = ({ title, onAction, canGoBack, forceBack }: TopBarProps) => {
           <Icon
             name="chevron"
             size={22}
-            color={colors.text.primary}
+            color={colors.foreground.primary}
             isRTL={isRTL}
           />
         </Pressable>
       ) : (
         <View />
       )}
-      <Typography variant="mediumBold" color={colors.text.primary}>
+      <Typography variant="mediumBold" color={colors.foreground.primary}>
         {title}
       </Typography>
       {onAction ? (
@@ -53,7 +53,7 @@ const TopBar = ({ title, onAction, canGoBack, forceBack }: TopBarProps) => {
           <Icon
             name={onAction.iconName}
             size={22}
-            color={colors.text.primary}
+            color={colors.foreground.primary}
           />
         </Pressable>
       ) : (
