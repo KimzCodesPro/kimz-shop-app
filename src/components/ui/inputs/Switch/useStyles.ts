@@ -1,0 +1,31 @@
+import { radius } from "@/constants";
+import { useTheme } from "@/hooks";
+import { scalingMethods } from "@/utils";
+import { StyleSheet } from "react-native";
+const { HS, VS } = scalingMethods;
+
+const useStyles = (value: boolean) => {
+  const colors = useTheme();
+  const styles = StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: value ? "flex-end" : "flex-start",
+      width: HS(36),
+      height: VS(20),
+      borderRadius: radius.full,
+      backgroundColor: value ? colors.primary.base : colors.border.default,
+      paddingHorizontal: HS(2),
+    },
+    indicator: {
+      width: HS(16),
+      height: VS(16),
+      borderRadius: radius.full,
+      backgroundColor: colors.background.card,
+    },
+  });
+
+  return { styles, colors };
+};
+
+export default useStyles;
