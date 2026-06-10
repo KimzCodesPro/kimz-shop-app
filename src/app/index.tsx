@@ -25,6 +25,7 @@ export default function Index() {
       <Switch
         value={switchValue}
         onValueChange={() => setSwitchValue((prev) => !prev)}
+        disabled={false}
       />
       <TextInput
         label="Email Address"
