@@ -24,7 +24,7 @@ export default function Index() {
       <Text>{inc}</Text>
       <Switch
         value={switchValue}
-        onValueChange={() => setSwitchValue((prev) => !prev)}
+        onChange={() => setSwitchValue((prev) => !prev)}
         disabled={false}
       />
       <TextInput
