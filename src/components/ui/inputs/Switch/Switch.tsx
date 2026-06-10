@@ -5,12 +5,17 @@ type SwitchProps = {
   value: boolean;
   onValueChange: () => void;
   style?: StyleProp<ViewStyle>;
+  disabled?: boolean;
 };
 
-const Switch = ({ value, onValueChange, style }: SwitchProps) => {
-  const { styles } = useStyles(value);
+const Switch = ({ value, onValueChange, style, disabled }: SwitchProps) => {
+  const { styles } = useStyles(value, disabled);
   return (
-    <Pressable style={[styles.container, style]} onPress={onValueChange}>
+    <Pressable
+      style={[styles.container, style]}
+      onPress={onValueChange}
+      disabled={disabled}
+    >
       <View style={styles.indicator} />
     </Pressable>
   );

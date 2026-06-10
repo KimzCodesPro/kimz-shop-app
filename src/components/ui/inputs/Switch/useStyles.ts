@@ -1,10 +1,10 @@
-import { radius } from "@/constants";
+import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 const { HS, VS } = scalingMethods;
 
-const useStyles = (value: boolean) => {
+const useStyles = (value: boolean, disabled?: boolean) => {
   const colors = useTheme();
   const styles = StyleSheet.create({
     container: {
@@ -15,7 +15,9 @@ const useStyles = (value: boolean) => {
       height: VS(20),
       borderRadius: radius.full,
       backgroundColor: value ? colors.primary.base : colors.border.default,
-      paddingHorizontal: HS(2),
+      paddingHorizontal: HS(spacing.space4.width),
+
+      opacity: disabled ? 0.8 : 1,
     },
     indicator: {
       width: HS(16),
