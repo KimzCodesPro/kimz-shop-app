@@ -3,17 +3,17 @@ import useStyles from "./useStyles";
 
 type SwitchProps = {
   value: boolean;
-  onValueChange: () => void;
+  onChange: () => void;
   style?: StyleProp<ViewStyle>;
   disabled?: boolean;
 };
 
-const Switch = ({ value, onValueChange, style, disabled }: SwitchProps) => {
+const Switch = ({ value, onChange, style, disabled }: SwitchProps) => {
   const { styles } = useStyles(value, disabled);
   return (
     <Pressable
       style={[styles.container, style]}
-      onPress={onValueChange}
+      onPress={onChange}
       disabled={disabled}
     >
       <View style={styles.indicator} />

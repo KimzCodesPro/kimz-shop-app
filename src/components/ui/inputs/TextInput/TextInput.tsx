@@ -19,7 +19,7 @@ type TextInputProps = {
   type?: "password" | "text";
   value?: string;
   viewStyle?: StyleProp<ViewStyle>;
-  onChangeText?: (text: string) => void;
+  onChange?: (text: string) => void;
   clearInput?: () => void;
 };
 
@@ -30,7 +30,7 @@ const TextInput = ({
   placeholder,
   errorMessage,
   value,
-  onChangeText,
+  onChange,
   clearInput,
   viewStyle,
 }: TextInputProps) => {
@@ -64,7 +64,7 @@ const TextInput = ({
         <Icon name={icon} size={20} color={iconStatusColor[status]} />
         <NativeTextInput
           value={value}
-          onChangeText={onChangeText}
+          onChangeText={onChange}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}

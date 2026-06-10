@@ -1,6 +1,6 @@
 import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
-import { Button, Switch, TextInput } from "@/components/ui/inputs";
+import { Button, Radio, Switch, TextInput } from "@/components/ui/inputs";
 import { TopBar } from "@/components/ui/navigations";
 import { useTheme, useTranslation, useUserPreferences } from "@/hooks";
 import { useState } from "react";
@@ -21,12 +21,19 @@ export default function Index() {
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
+      <Radio
+        value={false}
+        onChange={() => setSwitchValue((prev) => !prev)}
+        disabled={true}
+      />
       <Text>{inc}</Text>
+
       <Switch
         value={switchValue}
-        onValueChange={() => setSwitchValue((prev) => !prev)}
+        onChange={() => setSwitchValue((prev) => !prev)}
         disabled={false}
       />
+
       <TextInput
         label="Email Address"
         icon="mail"
