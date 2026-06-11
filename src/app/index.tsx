@@ -22,9 +22,9 @@ export default function Index() {
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
       <Radio
-        value={false}
+        value={true}
         onChange={() => setSwitchValue((prev) => !prev)}
-        disabled={true}
+        disabled={false}
       />
       <Text>{inc}</Text>
 

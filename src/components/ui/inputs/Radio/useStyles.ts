@@ -25,7 +25,7 @@ const useStyle = (value: boolean, disabled?: boolean) => {
       width: HS(10),
       height: VS(10),
       borderRadius: HS(radius.full),
-      backgroundColor: value ? colors.primary.base : "transparent",
+      backgroundColor: value ? colors.primary.base : colors.background.base,
       opacity: disabled ? 0.8 : 1,
     },
   });
