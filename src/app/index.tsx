@@ -1,32 +1,32 @@
-import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
-import { Button, Radio, Switch, TextInput } from "@/components/ui/inputs";
-import { TopBar } from "@/components/ui/navigations";
-import { useTheme, useTranslation, useUserPreferences } from "@/hooks";
-import { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { RowNav } from "@/components/ui/navigations";
+import { useTheme, useUserPreferences } from "@/hooks";
+import { Pressable, StyleSheet, View } from "react-native";
 
 export default function Index() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const color = useTheme();
   const { setLanguage, setTheme } = useUserPreferences();
-  const [switchValue, setSwitchValue] = useState(false);
-  const [inc, setInc] = useState(0);
+  // const [switchValue, setSwitchValue] = useState(false);
+  // const [inc, setInc] = useState(0);
 
-  const handlePress = () => {
-    setInc((prev) => prev + 1);
-  };
+  // const handlePress = () => {
+  //   setInc((prev) => prev + 1);
+  // };
 
   return (
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
+      <RowNav variant="danger" title="Profile" icon="user" states="noChevron" />
+
+      {/* <Text>{inc}</Text>
+
       <Radio
         value={true}
         onChange={() => setSwitchValue((prev) => !prev)}
         disabled={false}
       />
-      <Text>{inc}</Text>
 
       <Switch
         value={switchValue}
@@ -65,7 +65,7 @@ export default function Index() {
       <Icon name="chevron" size={24} color={color.primary.base} />
       <Typography variant="heroBold" color={color.success.tint}>
         {t("hello")}
-      </Typography>
+      </Typography> */}
       <View style={styles.buttons}>
         <Pressable style={styles.button} onPress={() => setLanguage("en")}>
           <Typography variant="normalBold">English</Typography>
