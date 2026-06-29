@@ -1,0 +1,74 @@
+import { radius, spacing } from "@/constants";
+import { useTheme } from "@/hooks";
+import { scalingMethods } from "@/utils";
+import { StyleSheet } from "react-native";
+const { HS, VS } = scalingMethods;
+
+const useStyles = () => {
+  const colors = useTheme();
+
+  const styles = StyleSheet.create({
+    backDrop: {
+      zIndex: 9999,
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      height: "100%",
+      width: "100%",
+      justifyContent: "center",
+      alignItems: "center",
+      paddingHorizontal: spacing.space24.width,
+      backgroundColor: colors.background.overlay,
+    },
+    content: {
+      position: "relative",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
+      backgroundColor: colors.background.base,
+      borderRadius: radius.xl,
+      paddingVertical: spacing.space24.height,
+      paddingHorizontal: spacing.space24.width,
+      gap: spacing.space16.height,
+      shadowColor: colors.misc.shadow,
+      shadowOffset: {
+        width: 0,
+        height: VS(8),
+      },
+      shadowOpacity: 0.15,
+      shadowRadius: 24,
+      elevation: 8,
+    },
+    contentCloseBTN: {
+      justifyContent: "center",
+      alignItems: "center",
+      position: "absolute",
+      top: spacing.space12.height,
+      right: spacing.space12.width,
+      height: VS(32),
+      width: HS(32),
+      backgroundColor: colors.background.surface,
+      borderRadius: radius.full,
+    },
+    contentHeader: {
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    contentTitle: {
+      textAlign: "center",
+    },
+    contentDescription: {
+      marginTop: VS(8),
+      textAlign: "center",
+    },
+    contentChildren: {
+      width: "100%",
+    },
+  });
+
+  return { styles, colors };
+};
+
+export default useStyles;

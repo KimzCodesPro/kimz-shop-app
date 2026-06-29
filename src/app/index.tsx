@@ -1,71 +1,44 @@
 import { Typography } from "@/components/ui/display";
-import { RowNav } from "@/components/ui/navigations";
+import { Button } from "@/components/ui/inputs";
+import { Modal } from "@/components/ui/overlay";
 import { useTheme, useUserPreferences } from "@/hooks";
+import { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-
 export default function Index() {
-  // const { t } = useTranslation();
   const color = useTheme();
   const { setLanguage, setTheme } = useUserPreferences();
-  // const [switchValue, setSwitchValue] = useState(false);
-  // const [inc, setInc] = useState(0);
-
-  // const handlePress = () => {
-  //   setInc((prev) => prev + 1);
-  // };
-
+  const [modalStatus, setModalStatus] = useState(false);
   return (
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
-      <RowNav variant="danger" title="Profile" icon="user" states="noChevron" />
-
-      {/* <Text>{inc}</Text>
-
-      <Radio
-        value={true}
-        onChange={() => setSwitchValue((prev) => !prev)}
-        disabled={false}
-      />
-
-      <Switch
-        value={switchValue}
-        onChange={() => setSwitchValue((prev) => !prev)}
-        disabled={false}
-      />
-
-      <TextInput
-        label="Email Address"
-        icon="mail"
-        placeholder="Enter your email address"
-        errorMessage="Invalid email address"
-        clearInput={() => console.log("clear input")}
-        value="sdasd"
-      />
-      <TextInput
-        label="Password"
-        icon="lock"
-        placeholder="Enter your password"
-      />
-      <Button
-        title="Login"
-        loading={{ indicator: true, text: "Logging in..." }}
-        onPress={handlePress}
-        size="lg"
-        variant="primary"
-        icon="mail"
-      />
-      <TopBar
-        title="Home"
-        onAction={{
-          iconName: "chevron",
-          onPress: () => console.log("Settings pressed"),
-        }}
-      />
-      <Icon name="chevron" size={24} color={color.primary.base} />
-      <Typography variant="heroBold" color={color.success.tint}>
-        {t("hello")}
-      </Typography> */}
+      <Modal
+        modalStatus={modalStatus}
+        closeModal={() => setModalStatus(false)}
+        title="Modal Title"
+        description="This is a modal description. It can be used to provide additional information or context to the user."
+      >
+        <View style={styles.modalContent}>
+          <Button
+            title="Confirm"
+            onPress={() => {}}
+            variant="primary"
+            size="lg"
+          />
+          <Button
+            title="Cancel"
+            onPress={() => {}}
+            variant="danger"
+            size="lg"
+          />
+        </View>
+      </Modal>
+      <Pressable
+        style={[styles.button, { borderColor: color.border.default }]}
+        onPress={() => setModalStatus(true)}
+      >
+        <Typography variant="normalBold">Open Modal</Typography>
+      </Pressable>
       <View style={styles.buttons}>
         <Pressable style={styles.button} onPress={() => setLanguage("en")}>
           <Typography variant="normalBold">English</Typography>
@@ -104,5 +77,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  modalContent: {
+    gap: 3,
   },
 });
