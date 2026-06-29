@@ -21,7 +21,7 @@ const Modal = ({
   const { styles, colors } = useStyles();
 
   return (
-    <RNModal visible={modalStatus} animationType="fade">
+    <RNModal visible={modalStatus} animationType="fade" transparent={true}>
       <View style={styles.backDrop}>
         <View style={styles.content}>
           <Pressable style={styles.contentCloseBTN} onPress={closeModal}>
