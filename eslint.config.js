@@ -22,9 +22,6 @@ module.exports = defineConfig([
       "react-hooks/rules-of-hooks": "error",
       // Disallow inline `style={{...}}` props; use StyleSheet.create for performance and consistency.
       "react-native/no-inline-styles": "error",
-      // Off: flags forwardRef components assigned to a const with an anonymous
-      // arrow function, even though the const name is a valid display name.
-      "react/display-name": "off",
     },
   },
   {
