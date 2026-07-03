@@ -1,45 +1,47 @@
 import { Typography } from "@/components/ui/display";
-import { Button } from "@/components/ui/inputs";
-import { Modal } from "@/components/ui/overlay";
+import { BottomSheet, type BottomSheetRef } from "@/components/ui/overlay";
 import { useTheme, useUserPreferences } from "@/hooks";
-import { useState } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { useRef } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+
 export default function Index() {
+  const bottomSheetRef = useRef<BottomSheetRef>(null);
+
   const color = useTheme();
   const { setLanguage, setTheme } = useUserPreferences();
-  const [modalStatus, setModalStatus] = useState(false);
   return (
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
-      <Modal
-        visible={modalStatus}
-        closeModal={() => setModalStatus(false)}
-        title="Modal Title"
-        description="This is a modal description. It can be used to provide additional information or context to the user."
-        renderItem={() => (
-          <View style={styles.modalContent}>
-            <Button
-              title="Confirm"
-              onPress={() => {}}
-              variant="primary"
-              size="lg"
-            />
-            <Button
-              title="Cancel"
-              onPress={() => {}}
-              variant="danger"
-              size="lg"
-            />
-          </View>
-        )}
-      />
-
       <Pressable
-        style={[styles.button, { borderColor: color.border.default }]}
-        onPress={() => setModalStatus(true)}
+        style={styles.button}
+        onPress={() => bottomSheetRef.current?.snapToIndex(0)}
       >
-        <Typography variant="normalBold">Open Modal</Typography>
+        <Typography variant="normalBold">Open Bottom 1</Typography>
+      </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => bottomSheetRef.current?.snapToIndex(1)}
+      >
+        <Typography variant="normalBold">Open Bottom 2</Typography>
+      </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => bottomSheetRef.current?.snapToIndex(2)}
+      >
+        <Typography variant="normalBold">Open Bottom 3</Typography>
+      </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => bottomSheetRef.current?.snapToIndex(3)}
+      >
+        <Typography variant="normalBold">Open Bottom 4</Typography>
+      </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => bottomSheetRef.current?.close()}
+      >
+        <Typography variant="normalBold">Close Bottom Sheet</Typography>
       </Pressable>
       <View style={styles.buttons}>
         <Pressable style={styles.button} onPress={() => setLanguage("en")}>
@@ -57,6 +59,20 @@ export default function Index() {
           <Typography variant="normalBold">dark</Typography>
         </Pressable>
       </View>
+      <BottomSheet
+        ref={bottomSheetRef}
+        bottomSheetProps={{
+          snapPoints: ["25%", "50%"],
+          index: -1,
+          children: (
+            <View>
+              <Text>Hello Word</Text>
+            </View>
+          ),
+        }}
+        title="Bottom Sheet"
+        description="This is description"
+      />
     </View>
   );
 }
