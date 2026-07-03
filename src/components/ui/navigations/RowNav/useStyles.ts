@@ -6,6 +6,7 @@ const { HS, VS } = scalingMethods;
 
 const useStyles = () => {
   const colors = useTheme();
+
   const styles = StyleSheet.create({
     container: {
       width: "100%",
@@ -24,7 +25,7 @@ const useStyles = () => {
       alignItems: "center",
       gap: spacing.space12.width,
     },
-    states: {
+    trailing: {
       flexDirection: "row",
       alignItems: "center",
       gap: spacing.space12.width,

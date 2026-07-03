@@ -7,7 +7,7 @@ import {
   ViewStyle,
 } from "react-native";
 import { SizeType, VariantType } from "./types";
-import useStyle from "./useStyle";
+import useStyles from "./useStyles";
 
 type ButtonProps = {
   title: string;
@@ -30,7 +30,7 @@ const Button = ({
   loading = { indicator: false },
   style,
 }: ButtonProps) => {
-  const { styles, color } = useStyle(size, variant);
+  const { styles, color } = useStyles(size, variant);
 
   const typographySizeVariant = size === "sm" ? "smallBold" : "normalBold";
 

@@ -1,13 +1,15 @@
 import Icon, { IconName } from "@/components/icons";
-import { Typography } from "@/components/ui/display";
 import { useState } from "react";
 import {
   TextInput as NativeTextInput,
-  Pressable,
   StyleProp,
   View,
   ViewStyle,
 } from "react-native";
+import ClearInputAction from "./ClearInputAction";
+import DisplayErrorMessage from "./DisplayErrorMessage";
+import PasswordVisibilityToggle from "./PasswordVisibilityToggle";
+import TextInputLabel from "./TextInputLabel";
 import { StatusType } from "./types";
 import useStyles from "./useStyles";
 
@@ -53,13 +55,7 @@ const TextInput = ({
 
   return (
     <View style={[styles.wrapper, viewStyle]}>
-      <Typography
-        variant="normalBold"
-        color={theme.foreground.primary}
-        style={styles.label}
-      >
-        {label}
-      </Typography>
+      <TextInputLabel label={label} />
       <View style={styles.inputWrapper}>
         <Icon name={icon} size={20} color={iconStatusColor[status]} />
         <NativeTextInput
@@ -72,32 +68,16 @@ const TextInput = ({
           style={styles.inputText}
           secureTextEntry={type === "password" && !passwordVisible}
         />
-
-        {clearInput && value ? (
-          <Pressable onPress={clearInput}>
-            <Icon name="close" size={16} color={theme.foreground.tertiary} />
-          </Pressable>
-        ) : null}
-
-        {type === "password" && (
-          <Pressable onPress={() => setPasswordVisible((prev) => !prev)}>
-            <Icon
-              name={passwordVisible ? "eye-off" : "eye"}
-              size={20}
-              color={theme.foreground.tertiary}
-            />
-          </Pressable>
+        {type === "password" ? (
+          <PasswordVisibilityToggle
+            visible={passwordVisible}
+            onToggle={() => setPasswordVisible((prev) => !prev)}
+          />
+        ) : (
+          <ClearInputAction clearInput={clearInput} value={value} />
         )}
       </View>
-      {errorMessage && (
-        <Typography
-          variant="smallRegular"
-          color={theme.danger.base}
-          style={styles.errorMessage}
-        >
-          {errorMessage}
-        </Typography>
-      )}
+      <DisplayErrorMessage errorMessage={errorMessage} />
     </View>
   );
 };
