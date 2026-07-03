@@ -22,7 +22,7 @@ export default function Index() {
         onChange={(text) => setName(text)}
         value={name}
         clearInput={() => setName("")}
-        errorMessage="fild is required"
+        errorMessage="field is required"
       />
       <AddressCard
         title="Home Address"
