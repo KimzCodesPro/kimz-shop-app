@@ -1,5 +1,6 @@
 import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
+import { JSX } from "react";
 import { Pressable, Modal as RNModal, View } from "react-native";
 import useStyles from "./useStyles";
 
@@ -7,21 +8,21 @@ type ModalProps = {
   title: string;
   description?: string;
   closeModal: () => void;
-  modalStatus: boolean;
-  children: React.ReactNode;
+  visible: boolean;
+  renderItem: () => JSX.Element;
 };
 
 const Modal = ({
   title,
   description,
   closeModal,
-  modalStatus = false,
-  children,
+  visible = false,
+  renderItem,
 }: ModalProps) => {
   const { styles, colors } = useStyles();
 
   return (
-    <RNModal visible={modalStatus} animationType="fade" transparent={true}>
+    <RNModal visible={visible} animationType="fade" transparent={true}>
       <View style={styles.backDrop}>
         <View style={styles.content}>
           <Pressable style={styles.contentCloseBTN} onPress={closeModal}>
@@ -46,7 +47,7 @@ const Modal = ({
               </Typography>
             )}
           </View>
-          <View style={styles.contentChildren}>{children}</View>
+          <View style={styles.contentChildren}>{renderItem()}</View>
         </View>
       </View>
     </RNModal>

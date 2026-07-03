@@ -13,26 +13,28 @@ export default function Index() {
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
       <Modal
-        modalStatus={modalStatus}
+        visible={modalStatus}
         closeModal={() => setModalStatus(false)}
         title="Modal Title"
         description="This is a modal description. It can be used to provide additional information or context to the user."
-      >
-        <View style={styles.modalContent}>
-          <Button
-            title="Confirm"
-            onPress={() => {}}
-            variant="primary"
-            size="lg"
-          />
-          <Button
-            title="Cancel"
-            onPress={() => {}}
-            variant="danger"
-            size="lg"
-          />
-        </View>
-      </Modal>
+        renderItem={() => (
+          <View style={styles.modalContent}>
+            <Button
+              title="Confirm"
+              onPress={() => {}}
+              variant="primary"
+              size="lg"
+            />
+            <Button
+              title="Cancel"
+              onPress={() => {}}
+              variant="danger"
+              size="lg"
+            />
+          </View>
+        )}
+      />
+
       <Pressable
         style={[styles.button, { borderColor: color.border.default }]}
         onPress={() => setModalStatus(true)}
