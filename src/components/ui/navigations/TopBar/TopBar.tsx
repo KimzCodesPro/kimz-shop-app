@@ -1,5 +1,4 @@
 import Icon, { IconName } from "@/components/icons";
-import { useTranslation } from "@/hooks/useTranslation";
 import { Href, useRouter } from "expo-router";
 import { Pressable, View } from "react-native";
 import { Typography } from "../../display";
@@ -13,13 +12,10 @@ type TopBarProps = {
 };
 
 const TopBar = ({ title, onAction, canGoBack, forceBack }: TopBarProps) => {
-  const { direction } = useTranslation();
   const router = useRouter();
   const { styles, colors } = useStyles();
 
   const hasForceBack = !!forceBack;
-
-  const isRTL = direction === "rtl";
 
   const handleBack = () => {
     if (forceBack) {
@@ -39,7 +35,7 @@ const TopBar = ({ title, onAction, canGoBack, forceBack }: TopBarProps) => {
             name="chevron"
             size={22}
             color={colors.foreground.primary}
-            isRTL={isRTL}
+            supportRTL
           />
         </Pressable>
       ) : (

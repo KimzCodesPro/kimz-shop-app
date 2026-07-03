@@ -1,7 +1,7 @@
 import Icon, { IconName } from "@/components/icons";
-import { useTranslation } from "@/hooks/useTranslation";
 import { View } from "react-native";
 import Typography from "../../display/Typography/Typography";
+import RowNavTrailing from "./RowNavTrailing";
 import useStyles from "./useStyles";
 
 type RowNavBaseProps = {
@@ -12,45 +12,27 @@ type RowNavBaseProps = {
 
 type RowNavProps = RowNavBaseProps &
   (
-    | { states: "withvalue"; satesValue: string }
-    | { states: "novalue" | "noChevron"; satesValue?: never }
+    | { trailing: "chevronWithValue"; trailingValue: string }
+    | { trailing: "chevron" | "noChevron"; trailingValue?: never }
   );
 
-const RowNav = ({ title, variant, icon, states, satesValue }: RowNavProps) => {
-  const { direction } = useTranslation();
+const RowNav = ({ title, variant, icon, ...trailingProps }: RowNavProps) => {
   const { styles, colors } = useStyles();
 
-  const isRTL = direction === "rtl";
-
-  const conditionalColor =
-    variant === "danger" ? colors.danger.base : colors.foreground.primary;
+  const conditionalColor = {
+    default: colors.foreground.primary,
+    danger: colors.danger.base,
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.mainInfo}>
-        <Icon name={icon} size={24} color={conditionalColor} />
-        <Typography variant="smallBold" color={conditionalColor}>
+        <Icon name={icon} size={24} color={conditionalColor[variant]} />
+        <Typography variant="smallBold" color={conditionalColor[variant]}>
           {title}
         </Typography>
       </View>
-      {states !== "noChevron" && (
-        <View style={styles.states}>
-          {states === "withvalue" && (
-            <Typography
-              variant="smallRegular"
-              color={colors.foreground.tertiary}
-            >
-              {satesValue}
-            </Typography>
-          )}
-          <Icon
-            name="chevron"
-            size={22}
-            color={colors.foreground.tertiary}
-            isRTL={isRTL}
-          />
-        </View>
-      )}
+      <RowNavTrailing {...trailingProps} />
     </View>
   );
 };

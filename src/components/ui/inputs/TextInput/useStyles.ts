@@ -1,4 +1,4 @@
-import { radius } from "@/constants";
+import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import useFontStyles from "@/hooks/useFontStyles";
 import { scalingMethods } from "@/utils";
@@ -6,7 +6,7 @@ import { StyleSheet } from "react-native";
 import { StatusType } from "./types";
 const { VS, HS } = scalingMethods;
 
-const useStyles = (status: StatusType) => {
+const useStyles = (status: StatusType = "default") => {
   const theme = useTheme();
   const fontStyles = useFontStyles();
 
@@ -43,7 +43,7 @@ const useStyles = (status: StatusType) => {
       flex: 1,
     },
     errorMessage: {
-      marginTop: VS(15),
+      marginTop: spacing.space8.height,
     },
   });
   return { styles, theme };

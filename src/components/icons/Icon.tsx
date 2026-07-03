@@ -1,4 +1,5 @@
-import { StyleProp, Text, ViewStyle } from "react-native";
+import { useTranslation } from "@/hooks/useTranslation";
+import { StyleProp, Text, View, ViewStyle } from "react-native";
 import iconList from "./components/iconList";
 
 type IconProps = {
@@ -6,27 +7,34 @@ type IconProps = {
   style?: StyleProp<ViewStyle>;
   size?: number;
   color?: string;
-  isRTL?: boolean;
+  supportRTL?: boolean;
 };
 
 const Icon = ({
   name,
   size,
   color = "black",
-  isRTL = false,
+  supportRTL = false,
   style,
 }: IconProps) => {
+  const { direction } = useTranslation();
   const IconComponent = iconList[name];
 
   if (!IconComponent) {
-    return <Text>{`Icon ${name} not found in icons list`}</Text>;
+    return (
+      <View>
+        <Text>{`Icon ${name} not found in icons list`}</Text>
+      </View>
+    );
   }
+
+  const shouldMirror = supportRTL && direction === "rtl";
 
   return (
     <IconComponent
       size={size}
       color={color}
-      style={[style, { transform: [{ scaleX: isRTL ? -1 : 1 }] }]}
+      style={[style, { transform: [{ scaleX: shouldMirror ? -1 : 1 }] }]}
     />
   );
 };
