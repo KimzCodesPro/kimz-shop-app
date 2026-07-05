@@ -1,5 +1,6 @@
 import BreifCase from "./BreifCase";
 import Building from "./Building";
+import Check from "./Check";
 import Chevron from "./Chevron";
 import Close from "./Close";
 import Eye from "./Eye";
@@ -22,6 +23,7 @@ const icons = {
   "brief-case": BreifCase,
   home: Home,
   building: Building,
+  check: Check,
 } as const;
 
 export default icons;

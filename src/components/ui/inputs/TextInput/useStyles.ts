@@ -7,13 +7,13 @@ import { StatusType } from "./types";
 const { VS, HS } = scalingMethods;
 
 const useStyles = (status: StatusType = "default") => {
-  const theme = useTheme();
+  const colors = useTheme();
   const fontStyles = useFontStyles();
 
   const borderStatusColor = {
-    error: theme.danger.base,
-    focused: theme.primary.base,
-    default: theme.border.default,
+    error: colors.danger.base,
+    focused: colors.primary.base,
+    default: colors.border.default,
   };
 
   const styles = StyleSheet.create({
@@ -33,12 +33,12 @@ const useStyles = (status: StatusType = "default") => {
       borderWidth: HS(1),
       borderRadius: radius.input,
       borderColor: borderStatusColor[status],
-      backgroundColor: theme.background.base,
+      backgroundColor: colors.background.base,
     },
     inputText: {
       alignSelf: "stretch",
       ...fontStyles.smallRegular,
-      color: theme.foreground.primary,
+      color: colors.foreground.primary,
       lineHeight: 0,
       flex: 1,
     },
@@ -46,7 +46,7 @@ const useStyles = (status: StatusType = "default") => {
       marginTop: spacing.space8.height,
     },
   });
-  return { styles, theme };
+  return { styles, colors };
 };
 
 export default useStyles;

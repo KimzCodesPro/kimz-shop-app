@@ -6,12 +6,12 @@ type TextInputLabelProps = {
 };
 
 const TextInputLabel = ({ label }: TextInputLabelProps) => {
-  const { styles, theme } = useStyles();
+  const { styles, colors } = useStyles();
 
   return (
     <Typography
       variant="normalBold"
-      color={theme.foreground.primary}
+      color={colors.foreground.primary}
       style={styles.label}
     >
       {label}

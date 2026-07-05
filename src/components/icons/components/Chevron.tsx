@@ -1,11 +1,13 @@
+import { scalingMethods } from "@/utils";
 import Svg, { Path } from "react-native-svg";
 import { IconProps } from "../type";
+const { HS, VS } = scalingMethods;
 
-function Chevron({ size, color, style }: IconProps) {
+function Chevron({ size = 24, color, style }: IconProps) {
   return (
     <Svg
-      width={size || 24}
-      height={size || 24}
+      width={HS(size)}
+      height={VS(size)}
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
