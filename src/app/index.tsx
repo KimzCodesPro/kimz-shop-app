@@ -1,5 +1,5 @@
 import { AddressCard, Typography } from "@/components/ui/display";
-import { TextInput } from "@/components/ui/inputs";
+import { CheckBox, TextInput } from "@/components/ui/inputs";
 import { RowNav } from "@/components/ui/navigations";
 import { useTheme, useUserPreferences } from "@/hooks";
 import { useState } from "react";
@@ -14,6 +14,7 @@ export default function Index() {
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
+      <CheckBox isChecked={false} onChange={() => {}} />
       <TextInput
         type="text"
         label="Name"
