@@ -45,12 +45,12 @@ const TextInput = ({
       ? "focused"
       : "default";
 
-  const { styles, theme } = useStyles(status);
+  const { styles, colors } = useStyles(status);
 
   const iconStatusColor = {
-    error: theme.danger.base,
-    focused: theme.primary.base,
-    default: theme.foreground.tertiary,
+    error: colors.danger.base,
+    focused: colors.primary.base,
+    default: colors.foreground.tertiary,
   };
 
   return (
@@ -64,7 +64,7 @@ const TextInput = ({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
-          placeholderTextColor={theme.foreground.tertiary}
+          placeholderTextColor={colors.foreground.tertiary}
           style={styles.inputText}
           secureTextEntry={type === "password" && !passwordVisible}
         />

@@ -7,13 +7,13 @@ type DisplayErrorMessageProps = {
 };
 
 const DisplayErrorMessage = ({ errorMessage }: DisplayErrorMessageProps) => {
-  const { styles, theme } = useStyles();
+  const { styles, colors } = useStyles();
 
   if (!errorMessage) return null;
 
   return (
     <View style={styles.errorMessage}>
-      <Typography variant="smallRegular" color={theme.danger.base}>
+      <Typography variant="smallRegular" color={colors.danger.base}>
         {errorMessage}
       </Typography>
     </View>
