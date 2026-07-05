@@ -3,6 +3,7 @@ import Building from "./Building";
 import Check from "./Check";
 import Chevron from "./Chevron";
 import Close from "./Close";
+import CreditCard from "./CreditCard";
 import Eye from "./Eye";
 import EyeOff from "./EyeOff";
 import Home from "./Home";
@@ -24,6 +25,7 @@ const icons = {
   home: Home,
   building: Building,
   check: Check,
+  "credit-card": CreditCard,
 } as const;
 
 export default icons;
