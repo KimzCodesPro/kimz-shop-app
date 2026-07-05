@@ -7,11 +7,11 @@ import useStyles from "./useStyles";
 
 type StatusBillProps = {
   iconName: IconName;
-  type: string;
+  label: string;
   color: StatusVariant;
 };
 
-const StatusBill = ({ iconName, type, color }: StatusBillProps) => {
+const StatusBill = ({ iconName, label, color }: StatusBillProps) => {
   const { styles, strongColorType } = useStyles(color);
   return (
     <View style={styles.container}>
@@ -21,7 +21,7 @@ const StatusBill = ({ iconName, type, color }: StatusBillProps) => {
         color={strongColorType[color]}
         textTransform="capitalize"
       >
-        {type}
+        {label}
       </Typography>
     </View>
   );

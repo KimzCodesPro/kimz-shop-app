@@ -6,6 +6,7 @@ const { HS, VS } = scalingMethods;
 
 const useStyles = (isSelected?: boolean) => {
   const colors = useTheme();
+
   const styles = StyleSheet.create({
     container: {
       alignSelf: "stretch",
@@ -20,9 +21,22 @@ const useStyles = (isSelected?: boolean) => {
       borderColor: isSelected ? colors.primary.base : colors.border.default,
       backgroundColor: colors.background.base,
     },
+    leading: {
+      gap: spacing.space4.height,
+    },
+    leadingTitle: {
+      color: colors.foreground.primary,
+    },
+    leadingDescription: {
+      color: colors.foreground.tertiary,
+    },
+    trailing: {
+      alignItems: "flex-end",
+      gap: spacing.space4.height,
+    },
   });
 
-  return { styles };
+  return { styles, colors };
 };
 
 export default useStyles;

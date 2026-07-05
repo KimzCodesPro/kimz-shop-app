@@ -1,4 +1,4 @@
-import { AddressCard, Typography } from "@/components/ui/display";
+import { AddressCard, PaymentCard, Typography } from "@/components/ui/display";
 import { CheckBox, TextInput } from "@/components/ui/inputs";
 import { RowNav } from "@/components/ui/navigations";
 import { useTheme, useUserPreferences } from "@/hooks";
@@ -26,10 +26,18 @@ export default function Index() {
         errorMessage="field is required"
       />
       <AddressCard
-        title="Home Address"
-        description="123 Main St, City, Country"
+        city="Los Angeles"
+        address="123 Main St, City, Country"
         type="apartment"
         onPress={() => console.log("AddressCard pressed")}
+      />
+      <PaymentCard
+        cardNumber="1234"
+        cardType="Visa"
+        expiryDate="12/25"
+        variant="info"
+        isDefault={true}
+        onPress={() => console.log("PaymentCard pressed")}
       />
       <RowNav
         variant="default"

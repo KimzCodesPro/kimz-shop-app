@@ -1,13 +1,11 @@
 import { StatusVariant } from "@/types/theme";
-import { Pressable, StyleProp, View, ViewStyle } from "react-native";
+import { StyleProp, ViewStyle } from "react-native";
 import IconBadge from "../IconBadge/IconBadge";
+import InfoCard from "../InfoCard/InfoCard";
 import StatusBill from "../StatusBill/StatusBill";
-import Typography from "../Typography/Typography";
-import useStyles from "./useStyles";
-
 type AddressCardProps = {
-  title: string;
-  description: string;
+  city: string;
+  address: string;
   type: "home" | "office" | "apartment" | "other";
   isSelected?: boolean;
   onPress?: () => void;
@@ -15,16 +13,14 @@ type AddressCardProps = {
 };
 
 const AddressCard = ({
-  title,
-  description,
+  city,
+  address,
   type,
   isSelected,
   onPress,
   style,
 }: AddressCardProps) => {
-  const { styles } = useStyles(isSelected);
-
-  const addressType = {
+  const addressColorMapping = {
     home: "success",
     apartment: "warning",
     office: "primary",
@@ -38,27 +34,20 @@ const AddressCard = ({
     other: "map-pin",
   } as const;
 
-  const colorSchema = addressType[type] as StatusVariant;
+  const colorSchema = addressColorMapping[type] as StatusVariant;
 
   return (
-    <Pressable onPress={onPress} style={[styles.container, style]}>
-      <View style={styles.rightInfo}>
-        <Typography variant="smallBold" style={styles.rightInfoTitle}>
-          {title}
-        </Typography>
-        <Typography variant="xsmallRegular" style={styles.rightInfoDescription}>
-          {description}
-        </Typography>
-      </View>
-      <View style={styles.addressLocation}>
+    <InfoCard onPress={onPress} style={style} isSelected={isSelected}>
+      <InfoCard.Leading title={city} description={address} />
+      <InfoCard.Trailing>
         <IconBadge iconName="map-pin" color={colorSchema} />
         <StatusBill
           iconName={addressIcon[type]}
-          type={type}
+          label={type}
           color={colorSchema}
         />
-      </View>
-    </Pressable>
+      </InfoCard.Trailing>
+    </InfoCard>
   );
 };
 
