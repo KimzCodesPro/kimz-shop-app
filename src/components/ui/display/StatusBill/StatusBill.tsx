@@ -3,19 +3,28 @@ import { View } from "react-native";
 import Typography from "../Typography/Typography";
 
 import { StatusVariant } from "@/types";
+import { StatusBillVariant } from "./types";
 import useStyles from "./useStyles";
 
 type StatusBillProps = {
-  iconName: IconName;
+  iconName?: IconName;
+  variant?: StatusBillVariant;
   label: string;
   color: StatusVariant;
 };
 
-const StatusBill = ({ iconName, label, color }: StatusBillProps) => {
-  const { styles, strongColorType } = useStyles(color);
+const StatusBill = ({
+  iconName,
+  variant = "outlined",
+  label,
+  color,
+}: StatusBillProps) => {
+  const { styles, strongColorType } = useStyles(color, variant);
   return (
     <View style={styles.container}>
-      <Icon name={iconName} size={13} color={strongColorType[color]} />
+      {iconName && (
+        <Icon name={iconName} size={13} color={strongColorType[color]} />
+      )}
       <Typography
         variant="xsmallBold"
         color={strongColorType[color]}
