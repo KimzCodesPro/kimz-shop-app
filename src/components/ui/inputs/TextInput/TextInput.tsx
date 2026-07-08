@@ -54,7 +54,7 @@ const TextInput = ({
   };
 
   return (
-    <View style={[styles.wrapper, viewStyle]}>
+    <View style={[styles.container, viewStyle]}>
       <TextInputLabel label={label} />
       <View style={styles.inputWrapper}>
         <Icon name={icon} size={20} color={iconStatusColor[status]} />

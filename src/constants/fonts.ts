@@ -1,4 +1,4 @@
-const fonts: { [key: string]: { [key: string]: string } } = {
+const fonts = {
   en: {
     light: "SpaceGrotesk-Light",
     regular: "SpaceGrotesk-Regular",
