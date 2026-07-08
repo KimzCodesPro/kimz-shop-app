@@ -1,5 +1,5 @@
 import Icon, { IconName } from "@/components/icons";
-import { View } from "react-native";
+import { StyleProp, View, ViewStyle } from "react-native";
 import Typography from "../Typography/Typography";
 
 import { StatusVariant } from "@/types";
@@ -11,9 +11,11 @@ type StatusBillProps = {
   variant?: StatusBillVariant;
   label: string;
   color: StatusVariant;
+  style?: StyleProp<ViewStyle>;
 };
 
 const StatusBill = ({
+  style,
   iconName,
   variant = "filled",
   label,
@@ -21,7 +23,7 @@ const StatusBill = ({
 }: StatusBillProps) => {
   const { styles, strongColorType } = useStyles(color, variant);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       {iconName && (
         <Icon name={iconName} size={13} color={strongColorType[color]} />
       )}

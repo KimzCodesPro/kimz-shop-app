@@ -1,23 +1,35 @@
-import { avatar, person } from "@/assets/images";
+import { avatar } from "@/assets/images";
 import Icon from "@/components/icons";
-import { Image } from "expo-image";
-import { View } from "react-native";
+import { Image, ImageProps } from "expo-image";
+import { StyleProp, View, ViewStyle } from "react-native";
 import useStyles from "./useStyles";
 
-type AvatarProps =
-  | { size?: "sm" | "md"; enableUploader?: never }
-  | { size?: "lg"; enableUploader?: boolean };
+type AvatarBaseProps = {
+  style?: StyleProp<ViewStyle>;
+  source?: ImageProps["source"];
+};
+type AvatarProps = AvatarBaseProps &
+  (
+    | { size?: "sm" | "md"; enableUploader?: never }
+    | { size?: "lg"; enableUploader?: boolean }
+  );
 
-const Avatar = ({ size = "lg", enableUploader = false }: AvatarProps) => {
+const Avatar = ({
+  style,
+  size = "lg",
+  enableUploader = false,
+  source,
+}: AvatarProps) => {
   const { styles, colors } = useStyles(size);
-
+  const renderImage = source || avatar;
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Image
         placeholder={avatar}
+        placeholderContentFit="cover"
         style={styles.avatar}
-        source={person}
-        contentFit="contain"
+        source={renderImage}
+        contentFit="cover"
         transition={1000}
       />
       {enableUploader && size === "lg" && (

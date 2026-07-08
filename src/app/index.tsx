@@ -1,9 +1,4 @@
-import {
-  AddressCard,
-  Avatar,
-  PaymentCard,
-  Typography,
-} from "@/components/ui/display";
+import { AddressCard, PaymentCard, Typography } from "@/components/ui/display";
 import { CheckBox, TextInput } from "@/components/ui/inputs";
 import { RowNav } from "@/components/ui/navigations";
 import { useTheme, useUserPreferences } from "@/hooks";
@@ -19,7 +14,6 @@ export default function Index() {
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
-      <Avatar size="sm" />
       <CheckBox isChecked={false} onChange={() => {}} />
       <TextInput
         type="text"
