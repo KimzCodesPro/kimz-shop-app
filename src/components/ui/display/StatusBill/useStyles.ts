@@ -1,9 +1,12 @@
 import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StatusVariant } from "@/types";
+import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
+import { StatusBillVariant } from "./types";
+const { HS } = scalingMethods;
 
-const useStyles = (colorSchema: StatusVariant) => {
+const useStyles = (colorSchema: StatusVariant, variant: StatusBillVariant) => {
   const colors = useTheme();
 
   const tintColorType = {
@@ -25,7 +28,15 @@ const useStyles = (colorSchema: StatusVariant) => {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: tintColorType[colorSchema],
+      backgroundColor:
+        variant === "filled"
+          ? tintColorType[colorSchema]
+          : colors.background.base,
+      borderWidth: HS(1),
+      borderColor:
+        variant === "outlined"
+          ? strongColorType[colorSchema]
+          : tintColorType[colorSchema],
       paddingHorizontal: spacing.space8.width,
       paddingVertical: spacing.space4.height,
       borderRadius: radius.full,
