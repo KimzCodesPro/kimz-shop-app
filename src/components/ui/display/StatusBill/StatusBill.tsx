@@ -15,7 +15,7 @@ type StatusBillProps = {
 
 const StatusBill = ({
   iconName,
-  variant = "outlined",
+  variant = "filled",
   label,
   color,
 }: StatusBillProps) => {
