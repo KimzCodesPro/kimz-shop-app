@@ -19,7 +19,7 @@ export default function Index() {
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
-      <Avatar size="sm" variant="image" />
+      <Avatar size="sm" />
       <CheckBox isChecked={false} onChange={() => {}} />
       <TextInput
         type="text"

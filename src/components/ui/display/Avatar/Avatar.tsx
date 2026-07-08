@@ -5,10 +5,10 @@ import { View } from "react-native";
 import useStyles from "./useStyles";
 
 type AvatarProps =
-  | { size: "sm" | "md"; variant: "image" }
-  | { size: "lg"; variant: "image" | "uploader" };
+  | { size?: "sm" | "md"; enableUploader?: never }
+  | { size?: "lg"; enableUploader?: boolean };
 
-const Avatar = ({ size = "lg", variant }: AvatarProps) => {
+const Avatar = ({ size = "lg", enableUploader = false }: AvatarProps) => {
   const { styles, colors } = useStyles(size);
 
   return (
@@ -17,10 +17,10 @@ const Avatar = ({ size = "lg", variant }: AvatarProps) => {
         placeholder={avatar}
         style={styles.avatar}
         source={person}
-        contentFit="cover"
+        contentFit="contain"
         transition={1000}
       />
-      {variant === "uploader" && (
+      {enableUploader && size === "lg" && (
         <View style={styles.uploaderRing}>
           <View style={styles.uploader}>
             <Icon name="camera" size={20} color={colors.foreground.contrast} />
