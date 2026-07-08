@@ -17,7 +17,7 @@ const useStyles = (status: StatusType = "default") => {
   };
 
   const styles = StyleSheet.create({
-    wrapper: {
+    container: {
       alignSelf: "stretch",
     },
     label: {
@@ -31,7 +31,7 @@ const useStyles = (status: StatusType = "default") => {
       justifyContent: "space-between",
       paddingHorizontal: HS(13),
       borderWidth: HS(1),
-      borderRadius: radius.input,
+      borderRadius: radius.sm,
       borderColor: borderStatusColor[status],
       backgroundColor: colors.background.base,
     },

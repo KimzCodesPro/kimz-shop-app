@@ -1,5 +1,6 @@
 import BreifCase from "./BreifCase";
 import Building from "./Building";
+import Camera from "./Camera";
 import Check from "./Check";
 import Chevron from "./Chevron";
 import Close from "./Close";
@@ -24,6 +25,7 @@ const icons = {
   "brief-case": BreifCase,
   home: Home,
   building: Building,
+  camera: Camera,
   check: Check,
   "credit-card": CreditCard,
 } as const;

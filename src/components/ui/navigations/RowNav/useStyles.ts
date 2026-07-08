@@ -16,7 +16,7 @@ const useStyles = () => {
       justifyContent: "space-between",
       backgroundColor: colors.background.base,
       borderWidth: HS(1),
-      borderRadius: radius.input,
+      borderRadius: radius.sm,
       borderColor: colors.border.default,
       paddingHorizontal: spacing.space16.width,
     },
