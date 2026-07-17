@@ -1,22 +1,18 @@
-import Icon, { IconName } from "@/components/icons";
-import { View } from "react-native";
-import Typography from "../../display/Typography/Typography";
+import Icon from "@/components/icons";
+import { Pressable, View } from "react-native";
+import { Typography } from "../../display";
 import RowNavTrailing from "./RowNavTrailing";
+import { RowNavProps } from "./types";
 import useStyles from "./useStyles";
 
-type RowNavBaseProps = {
-  variant: "default" | "danger";
-  title: string;
-  icon: IconName;
-};
-
-type RowNavProps = RowNavBaseProps &
-  (
-    | { trailing: "chevronWithValue"; trailingValue: string }
-    | { trailing: "chevron" | "noChevron"; trailingValue?: never }
-  );
-
-const RowNav = ({ title, variant, icon, ...trailingProps }: RowNavProps) => {
+const RowNav = ({
+  variant,
+  title,
+  icon,
+  style,
+  onPress,
+  ...trailingProps
+}: RowNavProps) => {
   const { styles, colors } = useStyles();
 
   const conditionalColor = {
@@ -25,7 +21,7 @@ const RowNav = ({ title, variant, icon, ...trailingProps }: RowNavProps) => {
   };
 
   return (
-    <View style={styles.container}>
+    <Pressable style={[styles.container, style]} onPress={onPress}>
       <View style={styles.mainInfo}>
         <Icon name={icon} size={24} color={conditionalColor[variant]} />
         <Typography variant="smallBold" color={conditionalColor[variant]}>
@@ -33,7 +29,7 @@ const RowNav = ({ title, variant, icon, ...trailingProps }: RowNavProps) => {
         </Typography>
       </View>
       <RowNavTrailing {...trailingProps} />
-    </View>
+    </Pressable>
   );
 };
 

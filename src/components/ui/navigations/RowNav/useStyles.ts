@@ -9,29 +9,30 @@ const useStyles = () => {
 
   const styles = StyleSheet.create({
     container: {
-      width: "100%",
+      alignSelf: "stretch",
       height: VS(48),
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",
       backgroundColor: colors.background.base,
-      borderWidth: HS(1),
       borderRadius: radius.sm,
+      borderWidth: HS(1),
       borderColor: colors.border.default,
       paddingHorizontal: spacing.space16.width,
     },
     mainInfo: {
       flexDirection: "row",
       alignItems: "center",
+      justifyContent: "center",
       gap: spacing.space12.width,
     },
-    trailing: {
+    trailingInfo: {
       flexDirection: "row",
       alignItems: "center",
-      gap: spacing.space12.width,
+      justifyContent: "center",
+      gap: spacing.space8.width,
     },
   });
-
   return { styles, colors };
 };
 

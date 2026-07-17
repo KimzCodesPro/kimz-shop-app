@@ -1,8 +1,8 @@
 import { useAppSelector } from "@/store/hooks";
 import { TranslateFn } from "@/types";
-import { useUserPreferences } from "./useUserPreferences";
+import useUserPreferences from "./useUserPreferences";
 
-export const useTranslation = () => {
+const useTranslation = () => {
   const translation = useAppSelector((state) => state.translation);
   const { language } = useUserPreferences();
 
@@ -19,3 +19,5 @@ export const useTranslation = () => {
 
   return { t, direction, language };
 };
+
+export default useTranslation;

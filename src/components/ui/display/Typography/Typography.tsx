@@ -1,29 +1,28 @@
 import useFontStyles from "@/hooks/useFontStyles";
 import { TypographyVariant } from "@/types";
-import { TextProps } from "@expo/ui/jetpack-compose";
-import { StyleProp, Text, TextStyle } from "react-native";
-type TypographyProps = TextProps & {
-  textTransform?: "none" | "capitalize" | "uppercase" | "lowercase";
+import { StyleProp, Text, TextProps, TextStyle } from "react-native";
+
+type TypographyProps = {
   variant: TypographyVariant;
   children: React.ReactNode;
   style?: StyleProp<TextStyle>;
   color?: string;
-};
+  textTransform?: "none" | "capitalize" | "uppercase" | "lowercase";
+} & TextProps;
 
 const Typography = ({
   variant,
   children,
   style,
   color,
-  textTransform = "none",
-  ...reset
+  textTransform,
+  ...props
 }: TypographyProps) => {
-  const typography = useFontStyles();
-
+  const typographyStyles = useFontStyles();
   return (
     <Text
-      style={[typography[variant], { color, textTransform }, style]}
-      {...reset}
+      style={[typographyStyles[variant], { color, textTransform }, style]}
+      {...props}
     >
       {children}
     </Text>
