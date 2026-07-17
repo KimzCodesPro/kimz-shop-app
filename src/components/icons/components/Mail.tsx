@@ -1,6 +1,6 @@
 import { scalingMethods } from "@/utils";
 import Svg, { Path } from "react-native-svg";
-import { IconProps } from "../type";
+import { IconProps } from "../types";
 const { HS, VS } = scalingMethods;
 
 function Mail({ size = 24, color, style }: IconProps) {

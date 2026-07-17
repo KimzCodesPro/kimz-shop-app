@@ -1,23 +1,28 @@
 import Icon, { IconName } from "@/components/icons";
 import { Href, useRouter } from "expo-router";
-import { Pressable, View } from "react-native";
+import { Pressable, StyleProp, View, ViewStyle } from "react-native";
 import { Typography } from "../../display";
 import useStyles from "./useStyles";
 
-type TopBarProps = {
-  canGoBack?: boolean;
-  forceBack?: Href;
+type TopBarBaseProps = {
   title: string;
-  onAction?: { iconName: IconName; onPress: () => void };
+  actionBtn?: { iconName: IconName; onPress: () => void; flipOnRTL: boolean };
+  style?: StyleProp<ViewStyle>;
 };
 
-const TopBar = ({ title, onAction, canGoBack, forceBack }: TopBarProps) => {
+type TopBarBackProps =
+  | { goBack?: false; forceBack?: never }
+  | { goBack: true; forceBack?: Href };
+
+type TopBarProps = TopBarBaseProps & TopBarBackProps;
+
+const TopBar = ({ title, goBack, forceBack, actionBtn }: TopBarProps) => {
   const router = useRouter();
   const { styles, colors } = useStyles();
 
   const hasForceBack = !!forceBack;
 
-  const handleBack = () => {
+  const handleGoBack = () => {
     if (forceBack) {
       router.push(forceBack);
     } else {
@@ -29,27 +34,33 @@ const TopBar = ({ title, onAction, canGoBack, forceBack }: TopBarProps) => {
 
   return (
     <View style={styles.container}>
-      {canGoBack || hasForceBack ? (
-        <Pressable onPress={handleBack}>
+      {goBack || hasForceBack ? (
+        <Pressable onPress={handleGoBack}>
           <Icon
             name="chevron"
             size={22}
             color={colors.foreground.primary}
-            supportRTL
+            flipOnRTL
           />
         </Pressable>
       ) : (
         <View />
       )}
-      <Typography variant="mediumBold" color={colors.foreground.primary}>
+
+      <Typography
+        variant="mediumBold"
+        color={colors.foreground.primary}
+        textTransform="capitalize"
+      >
         {title}
       </Typography>
-      {onAction ? (
-        <Pressable onPress={onAction.onPress}>
+      {actionBtn ? (
+        <Pressable onPress={actionBtn.onPress}>
           <Icon
-            name={onAction.iconName}
+            name={actionBtn.iconName}
             size={22}
             color={colors.foreground.primary}
+            flipOnRTL={actionBtn?.flipOnRTL}
           />
         </Pressable>
       ) : (

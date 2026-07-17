@@ -1,21 +1,21 @@
 import Icon from "@/components/icons";
 import { View } from "react-native";
-import Typography from "../../display/Typography/Typography";
+import { Typography } from "../../display";
+import { RowNavTrailingProps } from "./types";
 import useStyles from "./useStyles";
-
-type RowNavTrailingProps =
-  | { trailing: "chevronWithValue"; trailingValue: string }
-  | { trailing: "chevron" | "noChevron"; trailingValue?: never };
 
 const RowNavTrailing = ({ trailing, trailingValue }: RowNavTrailingProps) => {
   const { styles, colors } = useStyles();
-
   if (trailing === "noChevron") return null;
 
   return (
-    <View style={styles.trailing}>
+    <View style={styles.trailingInfo}>
       {trailing === "chevronWithValue" && (
-        <Typography variant="smallRegular" color={colors.foreground.tertiary}>
+        <Typography
+          variant="smallRegular"
+          color={colors.foreground.tertiary}
+          textTransform="capitalize"
+        >
           {trailingValue}
         </Typography>
       )}
@@ -23,7 +23,7 @@ const RowNavTrailing = ({ trailing, trailingValue }: RowNavTrailingProps) => {
         name="chevron"
         size={22}
         color={colors.foreground.tertiary}
-        supportRTL
+        flipOnRTL
       />
     </View>
   );
