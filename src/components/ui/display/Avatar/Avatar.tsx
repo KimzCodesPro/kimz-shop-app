@@ -15,9 +15,10 @@ const Avatar = ({ size = "lg", enableUploader = false }: AvatarProps) => {
     <View style={styles.container}>
       <Image
         placeholder={avatar}
+        placeholderContentFit="cover"
         style={styles.avatar}
         source={person}
-        contentFit="contain"
+        contentFit="cover"
         transition={1000}
       />
       {enableUploader && size === "lg" && (
