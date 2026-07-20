@@ -1,16 +1,8 @@
 import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
-import { JSX } from "react";
 import { Pressable, Modal as RNModal, View } from "react-native";
+import { ModalProps } from "./types";
 import useStyles from "./useStyles";
-
-type ModalProps = {
-  title: string;
-  description?: string;
-  closeModal: () => void;
-  visible: boolean;
-  renderItem: () => JSX.Element;
-};
 
 const Modal = ({
   title,

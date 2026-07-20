@@ -1,21 +1,9 @@
-import { Pressable, StyleProp, View, ViewStyle } from "react-native";
+import { Pressable, View } from "react-native";
 import Typography from "../Typography/Typography";
+import { InfoCardLeadingProps, InfoCardProps, InfoCardTrailingProps } from "./types";
 import useStyles from "./useStyles";
 
-type InfoCardProps = {
-  isSelected?: boolean;
-  onPress?: () => void;
-  style?: StyleProp<ViewStyle>;
-  children?: React.ReactNode;
-};
-
-const InfoCardLeading = ({
-  title,
-  description,
-}: {
-  title: string;
-  description: string;
-}) => {
+const InfoCardLeading = ({ title, description }: InfoCardLeadingProps) => {
   const { styles } = useStyles();
 
   return (
@@ -30,7 +18,7 @@ const InfoCardLeading = ({
   );
 };
 
-const InfoCardTrailing = ({ children }: { children?: React.ReactNode }) => {
+const InfoCardTrailing = ({ children }: InfoCardTrailingProps) => {
   const { styles } = useStyles();
   return <View style={styles.trailing}>{children}</View>;
 };

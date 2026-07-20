@@ -1,19 +1,7 @@
-import { StatusVariant } from "@/types/theme";
-import { StyleProp, ViewStyle } from "react-native";
 import IconBadge from "../IconBadge/IconBadge";
 import InfoCard from "../InfoCard/InfoCard";
 import StatusBill from "../StatusBill/StatusBill";
-
-type PaymentCardProps = {
-  cardNumber: string;
-  expiryDate: string;
-  cardType: string;
-  variant: StatusVariant;
-  isDefault?: boolean;
-  isSelected?: boolean;
-  onPress?: () => void;
-  style?: StyleProp<ViewStyle>;
-};
+import { PaymentCardProps } from "./types";
 
 const PaymentCard = ({
   cardNumber,

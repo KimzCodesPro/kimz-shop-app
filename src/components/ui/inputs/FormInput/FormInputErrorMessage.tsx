@@ -2,8 +2,9 @@ import { spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StyleSheet } from "react-native";
 import { Typography } from "../../display";
+import { FormInputErrorMessageProps } from "./types";
 
-const FormInputErrorMessage = ({ errorMessage }: { errorMessage?: string }) => {
+const FormInputErrorMessage = ({ errorMessage }: FormInputErrorMessageProps) => {
   const colors = useTheme();
 
   if (!errorMessage) return null;
