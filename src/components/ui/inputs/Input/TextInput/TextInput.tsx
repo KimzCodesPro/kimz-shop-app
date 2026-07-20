@@ -5,6 +5,7 @@ import FormInputErrorMessage from "../shared/FormInputErrorMessage";
 import FormInputLabel from "../shared/FormInputLabel";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
+import { inputCurrentStatus } from "../shared/utils";
 import { FormInputProps } from "./types";
 
 const TextInput = ({
@@ -21,15 +22,13 @@ const TextInput = ({
   const [isFocused, setIsFocused] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const inputCurrentStatus: StatusType = errorMessage
-    ? "error"
-    : isFocused
-      ? "focused"
-      : value
-        ? "filled"
-        : "default";
+  const currentStatus: StatusType = inputCurrentStatus(
+    errorMessage,
+    isFocused,
+    value,
+  );
 
-  const { styles, colors, colorMapping } = useSharedStyles(inputCurrentStatus);
+  const { styles, colors, colorMapping } = useSharedStyles(currentStatus);
 
   const resolvedIconName = type === "password" ? "lock" : iconName;
 
@@ -40,7 +39,7 @@ const TextInput = ({
         <Icon
           name={resolvedIconName}
           size={20}
-          color={colorMapping[inputCurrentStatus]}
+          color={colorMapping[currentStatus]}
         />
         <RNTextInput
           style={styles.textInput}
