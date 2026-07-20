@@ -1,12 +1,11 @@
 import Icon from "@/components/icons";
 import { useState } from "react";
-import { Pressable, TextInput as RNTextInput, View } from "react-native";
-import FormInputErrorMessage from "../shared/FormInputErrorMessage";
-import FormInputLabel from "../shared/FormInputLabel";
+import { Pressable, TextInput as RNTextInput } from "react-native";
+import FormInputWrapper from "../shared/FormInputWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
 import { inputCurrentStatus } from "../shared/utils";
-import { FormInputProps } from "./types";
+import { TextInputProps } from "./types";
 
 const TextInput = ({
   label,
@@ -18,7 +17,7 @@ const TextInput = ({
   onChangeText,
   clearInput,
   style,
-}: FormInputProps) => {
+}: TextInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -33,42 +32,44 @@ const TextInput = ({
   const resolvedIconName = type === "password" ? "lock" : iconName;
 
   return (
-    <View style={[styles.container, style]}>
-      <FormInputLabel label={label} />
-      <View style={styles.inputWrapper}>
-        <Icon
-          name={resolvedIconName}
-          size={20}
-          color={colorMapping[currentStatus]}
-        />
-        <RNTextInput
-          style={styles.textInput}
-          value={value}
-          onChangeText={onChangeText}
-          placeholder={placeHolder}
-          placeholderTextColor={colors.foreground.tertiary}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          secureTextEntry={type === "password" && !passwordVisible}
-        />
-        {type === "password" && value && (
-          <Pressable onPress={() => setPasswordVisible(!passwordVisible)}>
-            <Icon
-              name={passwordVisible ? "eye-off" : "eye"}
-              size={20}
-              color={colors.foreground.tertiary}
-            />
-          </Pressable>
-        )}
+    <FormInputWrapper
+      label={label}
+      currentStatus={currentStatus}
+      inputIconName={resolvedIconName}
+      errorMessage={errorMessage}
+      wrapperStyles={{
+        container: styles.container,
+        inputWrapper: styles.inputWrapper,
+      }}
+      colorMapping={colorMapping}
+      style={style}
+    >
+      <RNTextInput
+        style={styles.textInput}
+        value={value}
+        onChangeText={onChangeText}
+        placeholder={placeHolder}
+        placeholderTextColor={colors.foreground.tertiary}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        secureTextEntry={type === "password" && !passwordVisible}
+      />
+      {type === "password" && value && (
+        <Pressable onPress={() => setPasswordVisible(!passwordVisible)}>
+          <Icon
+            name={passwordVisible ? "eye-off" : "eye"}
+            size={20}
+            color={colors.foreground.tertiary}
+          />
+        </Pressable>
+      )}
 
-        {type === "text" && value && (
-          <Pressable onPress={clearInput}>
-            <Icon name="close" size={20} color={colors.foreground.tertiary} />
-          </Pressable>
-        )}
-      </View>
-      <FormInputErrorMessage errorMessage={errorMessage} />
-    </View>
+      {type === "text" && value && (
+        <Pressable onPress={clearInput}>
+          <Icon name="close" size={20} color={colors.foreground.tertiary} />
+        </Pressable>
+      )}
+    </FormInputWrapper>
   );
 };
 

@@ -10,6 +10,7 @@ const FormInputErrorMessage = ({
   const colors = useTheme();
 
   if (!errorMessage) return null;
+
   return (
     <Typography
       variant="xsmallRegular"

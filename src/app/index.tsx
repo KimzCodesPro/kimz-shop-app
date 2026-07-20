@@ -1,6 +1,7 @@
 import { Typography } from "@/components/ui/display";
 import { useTheme, useUserPreferences } from "@/hooks";
 import { Pressable, StyleSheet, View } from "react-native";
+import { TextInput } from "../components/ui/inputs";
 
 export default function Index() {
   const color = useTheme();
@@ -10,6 +11,14 @@ export default function Index() {
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
+      <TextInput
+        type="text"
+        label="user name"
+        placeHolder="inster username"
+        iconName="mail"
+        errorMessage=""
+        value=""
+      />
       <View style={styles.buttons}>
         <Pressable style={styles.button} onPress={() => setLanguage("en")}>
           <Typography variant="normalBold">English</Typography>
