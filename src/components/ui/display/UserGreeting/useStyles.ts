@@ -30,6 +30,7 @@ const useStyles = () => {
 
   const styles = StyleSheet.create({
     container: {
+      alignSelf: "stretch",
       flexDirection: "row",
       gap: spacing.space12.width,
       alignItems: "center",

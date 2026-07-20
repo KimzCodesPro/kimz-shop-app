@@ -1,11 +1,8 @@
-import { AddressCard, PaymentCard, Typography } from "@/components/ui/display";
-import { CheckBox, FormInput } from "@/components/ui/inputs";
+import { personTest } from "@/assets/images";
+import { Typography, UserGreeting } from "@/components/ui/display";
 import { useTheme, useUserPreferences } from "@/hooks";
-import { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-
 export default function Index() {
-  const [name, setName] = useState("");
   const color = useTheme();
   const { setLanguage, setTheme } = useUserPreferences();
 
@@ -13,30 +10,11 @@ export default function Index() {
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
-      <CheckBox isChecked={false} onChange={() => {}} />
-      <FormInput
-        type="text"
-        label="Name"
-        placeHolder="Insert name"
-        iconName="user"
-        onChangeText={(text) => setName(text)}
-        value={name}
-        clearInput={() => setName("")}
-        errorMessage="field is required"
-      />
-      <AddressCard
-        city="Los Angeles"
-        address="123 Main St, City, Country"
-        type="apartment"
-        onPress={() => console.log("AddressCard pressed")}
-      />
-      <PaymentCard
-        cardNumber="1234"
-        cardType="Visa"
-        expiryDate="12/25"
-        variant="info"
-        isDefault={true}
-        onPress={() => console.log("PaymentCard pressed")}
+      <UserGreeting
+        imgSrc={personTest}
+        size="sm"
+        userName="kareem nour"
+        meta="hello word"
       />
 
       <View style={styles.buttons}>
