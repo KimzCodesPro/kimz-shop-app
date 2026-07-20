@@ -1,24 +1,25 @@
-import { avatar, person } from "@/assets/images";
+import { avatarPlaceholder } from "@/assets/images";
 import Icon from "@/components/icons";
 import { Image } from "expo-image";
 import { View } from "react-native";
+import { AvatarProps } from "./types";
 import useStyles from "./useStyles";
 
-type AvatarProps =
-  | { size?: "sm" | "md"; enableUploader?: never }
-  | { size?: "lg"; enableUploader?: boolean };
-
-const Avatar = ({ size = "lg", enableUploader = false }: AvatarProps) => {
+const Avatar = ({
+  size = "md",
+  enableUploader,
+  imgSrc,
+  style,
+}: AvatarProps) => {
   const { styles, colors } = useStyles(size);
-
   return (
-    <View style={styles.container}>
+    <View style={style}>
       <Image
-        placeholder={avatar}
-        placeholderContentFit="cover"
-        style={styles.avatar}
-        source={person}
+        style={styles.img}
+        source={imgSrc}
         contentFit="cover"
+        placeholder={avatarPlaceholder}
+        placeholderContentFit="cover"
         transition={1000}
       />
       {enableUploader && size === "lg" && (

@@ -1,10 +1,7 @@
 import { Typography } from "@/components/ui/display";
 import { View } from "react-native";
+import { DisplayErrorMessageProps } from "./types";
 import useStyles from "./useStyles";
-
-type DisplayErrorMessageProps = {
-  errorMessage?: string;
-};
 
 const DisplayErrorMessage = ({ errorMessage }: DisplayErrorMessageProps) => {
   const { styles, colors } = useStyles();

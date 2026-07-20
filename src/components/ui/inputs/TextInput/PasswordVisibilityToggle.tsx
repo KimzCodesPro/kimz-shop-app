@@ -1,11 +1,7 @@
 import Icon from "@/components/icons";
 import { useTheme } from "@/hooks";
 import { Pressable } from "react-native";
-
-type PasswordVisibilityToggleProps = {
-  visible: boolean;
-  onToggle: () => void;
-};
+import { PasswordVisibilityToggleProps } from "./types";
 
 const PasswordVisibilityToggle = ({
   visible,

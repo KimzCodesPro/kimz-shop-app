@@ -1,9 +1,6 @@
 import { Typography } from "@/components/ui/display";
+import { TextInputLabelProps } from "./types";
 import useStyles from "./useStyles";
-
-type TextInputLabelProps = {
-  label: string;
-};
 
 const TextInputLabel = ({ label }: TextInputLabelProps) => {
   const { styles, colors } = useStyles();

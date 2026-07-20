@@ -1,9 +1,4 @@
-import {
-  AddressCard,
-  Avatar,
-  PaymentCard,
-  Typography,
-} from "@/components/ui/display";
+import { AddressCard, PaymentCard, Typography } from "@/components/ui/display";
 import { CheckBox, FormInput } from "@/components/ui/inputs";
 import { useTheme, useUserPreferences } from "@/hooks";
 import { useState } from "react";
@@ -18,7 +13,6 @@ export default function Index() {
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
-      <Avatar size="sm" />
       <CheckBox isChecked={false} onChange={() => {}} />
       <FormInput
         type="text"

@@ -1,24 +1,8 @@
-import Icon, { IconName } from "@/components/icons";
+import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
-import {
-  ActivityIndicator,
-  StyleProp,
-  TouchableOpacity,
-  ViewStyle,
-} from "react-native";
-import { SizeType, VariantType } from "./types";
+import { ActivityIndicator, TouchableOpacity } from "react-native";
+import { ButtonProps } from "./types";
 import useStyles from "./useStyles";
-
-type ButtonProps = {
-  title: string;
-  icon?: IconName;
-  onPress: () => void;
-  size?: SizeType;
-  variant?: VariantType;
-  disabled?: boolean;
-  loading?: { indicator: boolean; text?: string };
-  style?: StyleProp<ViewStyle>;
-};
 
 const Button = ({
   title,

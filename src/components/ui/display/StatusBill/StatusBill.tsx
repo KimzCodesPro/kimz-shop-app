@@ -1,17 +1,9 @@
-import Icon, { IconName } from "@/components/icons";
+import Icon from "@/components/icons";
 import { View } from "react-native";
 import Typography from "../Typography/Typography";
 
-import { StatusVariant } from "@/types";
-import { StatusBillVariant } from "./types";
+import { StatusBillProps } from "./types";
 import useStyles from "./useStyles";
-
-type StatusBillProps = {
-  iconName?: IconName;
-  variant?: StatusBillVariant;
-  label: string;
-  color: StatusVariant;
-};
 
 const StatusBill = ({
   iconName,

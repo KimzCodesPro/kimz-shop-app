@@ -1,11 +1,6 @@
 import { Pressable, View } from "react-native";
 import useStyles from "../Radio/useStyles";
-
-type RadioProps = {
-  value: boolean;
-  onChange: () => void;
-  disabled?: boolean;
-};
+import { RadioProps } from "./types";
 
 const Radio = ({ value, onChange, disabled }: RadioProps) => {
   const { styles } = useStyles(value, disabled);

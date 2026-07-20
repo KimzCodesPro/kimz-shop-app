@@ -1,12 +1,7 @@
-import Icon, { IconName } from "@/components/icons";
-import { StatusVariant } from "@/types/";
+import Icon from "@/components/icons";
 import { View } from "react-native";
+import { IconBadgeProps } from "./types";
 import useStyles from "./useStyles";
-
-type IconBadgeProps = {
-  iconName: IconName;
-  color: StatusVariant;
-};
 
 const IconBadge = ({ iconName, color = "info" }: IconBadgeProps) => {
   const { styles, colors } = useStyles();
