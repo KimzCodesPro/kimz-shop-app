@@ -15,13 +15,3 @@ type FormInputTypePros =
   | { type: "password"; iconName?: never; clearInput?: never };
 
 export type FormInputProps = FormInputPropsBase & FormInputTypePros;
-
-export type StatusType = "default" | "error" | "focused" | "filled";
-
-export type FormInputErrorMessageProps = {
-  errorMessage?: string;
-};
-
-export type FormInputLabelProps = {
-  label?: string;
-};

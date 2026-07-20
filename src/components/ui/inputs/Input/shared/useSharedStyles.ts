@@ -5,13 +5,13 @@ import { Platform, StyleSheet } from "react-native";
 import { StatusType } from "./types";
 const { HS, VS } = scalingMethods;
 
-const useStyles = (inputCurrentStatus: StatusType) => {
+const useSharedStyles = (inputCurrentStatus: StatusType) => {
   const colors = useTheme();
   const fontFamilyStyles = useFontStyles();
 
   const isAndroid = Platform.OS === "android";
 
-  const borderColorMapping = {
+  const colorMapping = {
     default: colors.foreground.tertiary,
     focused: colors.primary.base,
     filled: colors.primary.base,
@@ -30,7 +30,7 @@ const useStyles = (inputCurrentStatus: StatusType) => {
       paddingHorizontal: spacing.space12.width,
       paddingVertical: spacing.space12.height,
       borderWidth: HS(1),
-      borderColor: borderColorMapping[inputCurrentStatus],
+      borderColor: colorMapping[inputCurrentStatus],
       borderRadius: radius.sm,
       backgroundColor: colors.background.base,
       gap: spacing.space8.width,
@@ -48,7 +48,7 @@ const useStyles = (inputCurrentStatus: StatusType) => {
       includeFontPadding: false,
     },
   });
-  return { styles, colors };
+  return { styles, colors, colorMapping };
 };
 
-export default useStyles;
+export default useSharedStyles;

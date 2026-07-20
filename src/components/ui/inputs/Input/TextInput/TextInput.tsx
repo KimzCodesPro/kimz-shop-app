@@ -1,12 +1,13 @@
 import Icon from "@/components/icons";
 import { useState } from "react";
-import { Pressable, TextInput, View } from "react-native";
-import FormInputErrorMessage from "./FormInputErrorMessage";
-import FormInputLabel from "./FormInputLabel";
-import { FormInputProps, StatusType } from "./types";
-import useStyles from "./useStyles";
+import { Pressable, TextInput as RNTextInput, View } from "react-native";
+import FormInputErrorMessage from "../shared/FormInputErrorMessage";
+import FormInputLabel from "../shared/FormInputLabel";
+import { StatusType } from "../shared/types";
+import useSharedStyles from "../shared/useSharedStyles";
+import { FormInputProps } from "./types";
 
-const FormInput = ({
+const TextInput = ({
   label,
   placeHolder,
   iconName,
@@ -28,16 +29,9 @@ const FormInput = ({
         ? "filled"
         : "default";
 
-  const { styles, colors } = useStyles(inputCurrentStatus);
+  const { styles, colors, colorMapping } = useSharedStyles(inputCurrentStatus);
 
   const resolvedIconName = type === "password" ? "lock" : iconName;
-
-  const iconColorMapping = {
-    default: colors.foreground.tertiary,
-    focused: colors.primary.base,
-    filled: colors.primary.base,
-    error: colors.danger.base,
-  };
 
   return (
     <View style={[styles.container, style]}>
@@ -46,9 +40,9 @@ const FormInput = ({
         <Icon
           name={resolvedIconName}
           size={20}
-          color={iconColorMapping[inputCurrentStatus]}
+          color={colorMapping[inputCurrentStatus]}
         />
-        <TextInput
+        <RNTextInput
           style={styles.textInput}
           value={value}
           onChangeText={onChangeText}
@@ -79,4 +73,4 @@ const FormInput = ({
   );
 };
 
-export default FormInput;
+export default TextInput;
