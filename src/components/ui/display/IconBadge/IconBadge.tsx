@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { IconBadgeProps } from "./types";
 import useStyles from "./useStyles";
 
-const IconBadge = ({ iconName, color = "info" }: IconBadgeProps) => {
+const IconBadge = ({ iconName, color = "info", style }: IconBadgeProps) => {
   const { styles, colors } = useStyles();
 
   const iconColors = {
@@ -13,7 +13,7 @@ const IconBadge = ({ iconName, color = "info" }: IconBadgeProps) => {
     danger: colors.danger.strong,
   };
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Icon name={iconName} size={22} color={iconColors[color]} />
     </View>
   );

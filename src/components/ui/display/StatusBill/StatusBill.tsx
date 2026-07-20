@@ -6,6 +6,7 @@ import { StatusBillProps } from "./types";
 import useStyles from "./useStyles";
 
 const StatusBill = ({
+  style,
   iconName,
   variant = "filled",
   label,
@@ -13,7 +14,7 @@ const StatusBill = ({
 }: StatusBillProps) => {
   const { styles, strongColorType } = useStyles(color, variant);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       {iconName && (
         <Icon name={iconName} size={13} color={strongColorType[color]} />
       )}
