@@ -1,40 +1,28 @@
-import { useTranslation } from "@/hooks/useTranslation";
-import { StyleProp, Text, View, ViewStyle } from "react-native";
-import iconList from "./components/iconList";
+import { useTranslation } from "@/hooks";
+import { Text, View } from "react-native";
+import iconMapper from "./components/iconMapper";
+import { IconProps } from "./types";
 
-type IconProps = {
-  name: keyof typeof iconList;
-  style?: StyleProp<ViewStyle>;
-  size?: number;
-  color?: string;
-  supportRTL?: boolean;
-};
-
-const Icon = ({
-  name,
-  size,
-  color = "black",
-  supportRTL = false,
-  style,
-}: IconProps) => {
+const Icon = ({ name, size, color, style, flipOnRTL }: IconProps) => {
   const { direction } = useTranslation();
-  const IconComponent = iconList[name];
+
+  const IconComponent = iconMapper[name];
+
+  const shouldFlip = flipOnRTL && direction === "rtl";
 
   if (!IconComponent) {
     return (
       <View>
-        <Text>{`Icon ${name} not found in icons list`}</Text>
+        <Text>{`Icon not found: ${name}`}</Text>
       </View>
     );
   }
-
-  const shouldMirror = supportRTL && direction === "rtl";
 
   return (
     <IconComponent
       size={size}
       color={color}
-      style={[style, { transform: [{ scaleX: shouldMirror ? -1 : 1 }] }]}
+      style={[style, { transform: [{ scaleX: shouldFlip ? -1 : 1 }] }]}
     />
   );
 };

@@ -1,10 +1,14 @@
-import radius from "@/constants/radius";
 import { useTheme } from "@/hooks";
+import { radius } from "@/src/constants";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
+import { Sizes } from "./types";
+
 const { HS, VS } = scalingMethods;
-const useStyles = (size: "sm" | "md" | "lg") => {
+
+const useStyles = (size: Sizes) => {
   const colors = useTheme();
+
   const sizes = {
     sm: {
       width: HS(44),
@@ -20,10 +24,7 @@ const useStyles = (size: "sm" | "md" | "lg") => {
     },
   };
   const styles = StyleSheet.create({
-    container: {
-      position: "relative",
-    },
-    avatar: {
+    img: {
       width: sizes[size].width,
       height: sizes[size].height,
       borderRadius: radius.full,
@@ -50,7 +51,7 @@ const useStyles = (size: "sm" | "md" | "lg") => {
     },
   });
 
-  return { colors, styles };
+  return { styles, colors };
 };
 
 export default useStyles;

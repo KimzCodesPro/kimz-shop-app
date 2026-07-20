@@ -5,7 +5,7 @@ import {
 } from "@/store/userPreferences/userPreferencesSlice";
 import { Language, Theme } from "@/types";
 
-export const useUserPreferences = () => {
+const useUserPreferences = () => {
   const preferences = useAppSelector((state) => state.userPreferences);
   const dispatch = useAppDispatch();
 
@@ -15,3 +15,5 @@ export const useUserPreferences = () => {
     setTheme: (theme: Theme) => dispatch(setTheme(theme)),
   };
 };
+
+export default useUserPreferences;

@@ -1,11 +1,7 @@
 import Icon from "@/components/icons";
 import { useTheme } from "@/hooks";
 import { Pressable } from "react-native";
-
-type ClearInputActionProps = {
-  clearInput?: () => void;
-  value?: string;
-};
+import { ClearInputActionProps } from "./types";
 
 const ClearInputAction = ({ clearInput, value }: ClearInputActionProps) => {
   const theme = useTheme();

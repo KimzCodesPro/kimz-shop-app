@@ -4,16 +4,39 @@ import { StyleSheet } from "react-native";
 
 const useStyles = () => {
   const colors = useTheme();
+
+  const TypographyMapping = {
+    lg: {
+      userName: {
+        font: "mediumBold",
+        color: colors.foreground.primary,
+      },
+      meta: {
+        font: "smallRegular",
+        color: colors.foreground.tertiary,
+      },
+    },
+    sm: {
+      userName: {
+        font: "normalBold",
+        color: colors.foreground.primary,
+      },
+      meta: {
+        font: "smallRegular",
+        color: colors.foreground.secondary,
+      },
+    },
+  } as const;
+
   const styles = StyleSheet.create({
     container: {
-      alignSelf: "stretch",
       flexDirection: "row",
-      alignItems: "center",
       gap: spacing.space12.width,
+      alignItems: "center",
     },
   });
 
-  return { colors, styles };
+  return { styles, colors, TypographyMapping };
 };
 
 export default useStyles;

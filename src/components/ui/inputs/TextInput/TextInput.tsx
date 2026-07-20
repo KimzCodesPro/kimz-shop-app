@@ -1,29 +1,12 @@
-import Icon, { IconName } from "@/components/icons";
+import Icon from "@/components/icons";
 import { useState } from "react";
-import {
-  TextInput as NativeTextInput,
-  StyleProp,
-  View,
-  ViewStyle,
-} from "react-native";
+import { TextInput as NativeTextInput, View } from "react-native";
 import ClearInputAction from "./ClearInputAction";
 import DisplayErrorMessage from "./DisplayErrorMessage";
 import PasswordVisibilityToggle from "./PasswordVisibilityToggle";
 import TextInputLabel from "./TextInputLabel";
-import { StatusType } from "./types";
+import { StatusType, TextInputProps } from "./types";
 import useStyles from "./useStyles";
-
-type TextInputProps = {
-  label: string;
-  icon: IconName;
-  placeholder: string;
-  errorMessage?: string;
-  type?: "password" | "text";
-  value?: string;
-  viewStyle?: StyleProp<ViewStyle>;
-  onChange?: (text: string) => void;
-  clearInput?: () => void;
-};
 
 const TextInput = ({
   type = "text",

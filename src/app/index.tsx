@@ -1,6 +1,5 @@
 import { AddressCard, PaymentCard, Typography } from "@/components/ui/display";
-import { CheckBox, TextInput } from "@/components/ui/inputs";
-import { RowNav } from "@/components/ui/navigations";
+import { CheckBox, FormInput } from "@/components/ui/inputs";
 import { useTheme, useUserPreferences } from "@/hooks";
 import { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
@@ -15,12 +14,12 @@ export default function Index() {
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
       <CheckBox isChecked={false} onChange={() => {}} />
-      <TextInput
+      <FormInput
         type="text"
         label="Name"
-        placeholder="Insert name"
-        icon="user"
-        onChange={(text) => setName(text)}
+        placeHolder="Insert name"
+        iconName="user"
+        onChangeText={(text) => setName(text)}
         value={name}
         clearInput={() => setName("")}
         errorMessage="field is required"
@@ -38,12 +37,6 @@ export default function Index() {
         variant="info"
         isDefault={true}
         onPress={() => console.log("PaymentCard pressed")}
-      />
-      <RowNav
-        variant="default"
-        title="Profile"
-        icon="user"
-        trailing="noChevron"
       />
 
       <View style={styles.buttons}>

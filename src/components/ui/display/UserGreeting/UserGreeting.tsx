@@ -1,24 +1,33 @@
-import { ImageProps } from "expo-image";
 import { View } from "react-native";
 import Avatar from "../Avatar/Avatar";
 import Typography from "../Typography/Typography";
+import { UserGreetingProps } from "./types";
 import useStyles from "./useStyles";
 
-type UserGreetingProps = {
-  avatarSource: ImageProps["source"];
-};
+const UserGreeting = ({
+  size,
+  imgSrc,
+  userName,
+  meta,
+  style,
+}: UserGreetingProps) => {
+  const { styles, TypographyMapping } = useStyles();
 
-const UserGreeting = ({ avatarSource }: UserGreetingProps) => {
-  const { styles, colors } = useStyles();
   return (
-    <View style={styles.container}>
-      <Avatar size="md" source={avatarSource} />
+    <View style={[styles.container, style]}>
+      <Avatar imgSrc={imgSrc} size={size} />
       <View>
-        <Typography variant="normalBold" color={colors.foreground.primary}>
-          Hi Johanese
+        <Typography
+          variant={TypographyMapping[size].userName.font}
+          color={TypographyMapping[size].userName.color}
+        >
+          {userName}
         </Typography>
-        <Typography variant="smallRegular" color={colors.foreground.secondary}>
-          lets go shoping
+        <Typography
+          variant={TypographyMapping[size].meta.font}
+          color={TypographyMapping[size].meta.color}
+        >
+          {meta}
         </Typography>
       </View>
     </View>

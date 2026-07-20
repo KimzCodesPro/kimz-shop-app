@@ -1,12 +1,6 @@
-import { Pressable, StyleProp, View, ViewStyle } from "react-native";
+import { Pressable, View } from "react-native";
+import { SwitchProps } from "./types";
 import useStyles from "./useStyles";
-
-type SwitchProps = {
-  value: boolean;
-  onChange: () => void;
-  style?: StyleProp<ViewStyle>;
-  disabled?: boolean;
-};
 
 const Switch = ({ value, onChange, style, disabled }: SwitchProps) => {
   const { styles } = useStyles(value, disabled);

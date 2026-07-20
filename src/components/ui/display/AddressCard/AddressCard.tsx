@@ -1,16 +1,8 @@
 import { StatusVariant } from "@/types/theme";
-import { StyleProp, ViewStyle } from "react-native";
 import IconBadge from "../IconBadge/IconBadge";
 import InfoCard from "../InfoCard/InfoCard";
 import StatusBill from "../StatusBill/StatusBill";
-type AddressCardProps = {
-  city: string;
-  address: string;
-  type: "home" | "office" | "apartment" | "other";
-  isSelected?: boolean;
-  onPress?: () => void;
-  style?: StyleProp<ViewStyle>;
-};
+import { AddressCardProps } from "./types";
 
 const AddressCard = ({
   city,

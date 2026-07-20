@@ -1,9 +1,9 @@
 import { useAppSelector } from "@/store/hooks";
 import { Theme } from "@/types";
 import { useColorScheme } from "react-native";
-import { useUserPreferences } from "./useUserPreferences";
+import useUserPreferences from "./useUserPreferences";
 
-export const useTheme = () => {
+const useTheme = () => {
   const systemScheme = useColorScheme();
   const { theme: selectedTheme } = useUserPreferences();
 
@@ -16,3 +16,5 @@ export const useTheme = () => {
 
   return colors[resolved];
 };
+
+export default useTheme;
