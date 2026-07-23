@@ -8,21 +8,16 @@ const FormInputWrapper = ({
   label,
   inputIconName,
   errorMessage,
-  currentStatus,
   children,
-  wrapperStyles,
-  colorMapping,
+  styles,
+  statusColor,
   style,
 }: FormInputWrapperProps) => {
   return (
-    <View style={[wrapperStyles.container, style]}>
+    <View style={[styles.container, style]}>
       <FormInputLabel label={label} />
-      <View style={wrapperStyles.inputWrapper}>
-        <Icon
-          name={inputIconName}
-          size={20}
-          color={colorMapping[currentStatus]}
-        />
+      <View style={styles.inputWrapper}>
+        <Icon name={inputIconName} size={20} color={statusColor} />
         {children}
       </View>
       <FormInputErrorMessage errorMessage={errorMessage} />

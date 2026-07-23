@@ -27,21 +27,20 @@ const TextInput = ({
     value,
   );
 
-  const { styles, colors, colorMapping } = useSharedStyles(currentStatus);
+  const { styles, colors, statusColor } = useSharedStyles(currentStatus);
 
   const resolvedIconName = type === "password" ? "lock" : iconName;
 
   return (
     <FormInputWrapper
       label={label}
-      currentStatus={currentStatus}
       inputIconName={resolvedIconName}
       errorMessage={errorMessage}
-      wrapperStyles={{
+      styles={{
         container: styles.container,
         inputWrapper: styles.inputWrapper,
       }}
-      colorMapping={colorMapping}
+      statusColor={statusColor}
       style={style}
     >
       <RNTextInput

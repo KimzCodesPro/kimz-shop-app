@@ -9,12 +9,11 @@ export type FormInputWrapperProps = {
   inputIconName: IconName;
   children: React.ReactNode;
   errorMessage: string;
-  currentStatus: StatusType;
-  wrapperStyles: {
+  styles: {
     container: StyleProp<ViewStyle>;
     inputWrapper: StyleProp<ViewStyle>;
   };
-  colorMapping: Record<StatusType, string>;
+  statusColor: string;
   style?: StyleProp<ViewStyle>;
 };
 

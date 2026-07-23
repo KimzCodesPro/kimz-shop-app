@@ -11,12 +11,14 @@ const useSharedStyles = (inputCurrentStatus: StatusType) => {
 
   const isAndroid = Platform.OS === "android";
 
-  const colorMapping = {
+  const colorMapping: Record<StatusType, string> = {
     default: colors.foreground.tertiary,
     focused: colors.primary.base,
     filled: colors.primary.base,
     error: colors.danger.base,
   };
+
+  const statusColor = colorMapping[inputCurrentStatus];
 
   const styles = StyleSheet.create({
     container: {
@@ -29,7 +31,7 @@ const useSharedStyles = (inputCurrentStatus: StatusType) => {
       paddingHorizontal: spacing.space12.width,
       paddingVertical: spacing.space12.height,
       borderWidth: HS(1),
-      borderColor: colorMapping[inputCurrentStatus],
+      borderColor: statusColor,
       borderRadius: radius.sm,
       backgroundColor: colors.background.base,
       gap: spacing.space8.width,
@@ -47,7 +49,7 @@ const useSharedStyles = (inputCurrentStatus: StatusType) => {
       includeFontPadding: false,
     },
   });
-  return { styles, colors, colorMapping };
+  return { styles, colors, statusColor };
 };
 
 export default useSharedStyles;
