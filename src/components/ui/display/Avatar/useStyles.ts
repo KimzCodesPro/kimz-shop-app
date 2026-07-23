@@ -6,23 +6,24 @@ import { Sizes } from "./types";
 
 const { HS, VS } = scalingMethods;
 
+const sizes = {
+  sm: {
+    width: HS(44),
+    height: VS(44),
+  },
+  md: {
+    width: HS(60),
+    height: VS(60),
+  },
+  lg: {
+    width: HS(120),
+    height: VS(120),
+  },
+};
+
 const useStyles = (size: Sizes) => {
   const colors = useTheme();
 
-  const sizes = {
-    sm: {
-      width: HS(44),
-      height: VS(44),
-    },
-    md: {
-      width: HS(60),
-      height: VS(60),
-    },
-    lg: {
-      width: HS(120),
-      height: VS(120),
-    },
-  };
   const styles = StyleSheet.create({
     img: {
       width: sizes[size].width,

@@ -4,6 +4,20 @@ import InfoCard from "../InfoCard/InfoCard";
 import StatusBill from "../StatusBill/StatusBill";
 import { AddressCardProps } from "./types";
 
+const addressColorMapping = {
+  home: "success",
+  apartment: "warning",
+  office: "primary",
+  other: "danger",
+} as const;
+
+const addressIcon = {
+  home: "home",
+  apartment: "building",
+  office: "brief-case",
+  other: "map-pin",
+} as const;
+
 const AddressCard = ({
   city,
   address,
@@ -12,20 +26,6 @@ const AddressCard = ({
   onPress,
   style,
 }: AddressCardProps) => {
-  const addressColorMapping = {
-    home: "success",
-    apartment: "warning",
-    office: "primary",
-    other: "danger",
-  };
-
-  const addressIcon = {
-    home: "home",
-    apartment: "building",
-    office: "brief-case",
-    other: "map-pin",
-  } as const;
-
   const colorSchema = addressColorMapping[type] as StatusVariant;
 
   return (
