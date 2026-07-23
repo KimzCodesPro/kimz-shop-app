@@ -11,10 +11,9 @@ const FormInputWrapper = ({
   children,
   styles,
   statusColor,
-  style,
 }: FormInputWrapperProps) => {
   return (
-    <View style={[styles.container, style]}>
+    <View style={styles.container}>
       <FormInputLabel label={label} />
       <View style={styles.inputWrapper}>
         <Icon name={inputIconName} size={20} color={statusColor} />

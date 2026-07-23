@@ -1,12 +1,13 @@
 import { Typography } from "@/components/ui/display";
 import { useTheme, useUserPreferences } from "@/hooks";
+import { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import { TextInput } from "../components/ui/inputs";
 
 export default function Index() {
   const color = useTheme();
   const { setLanguage, setTheme } = useUserPreferences();
-
+  const [name, setName] = useState("");
   return (
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
@@ -17,7 +18,8 @@ export default function Index() {
         placeHolder="inster username"
         iconName="mail"
         errorMessage=""
-        value=""
+        value={name}
+        onChangeText={(text) => setName(text)}
       />
       <View style={styles.buttons}>
         <Pressable style={styles.button} onPress={() => setLanguage("en")}>

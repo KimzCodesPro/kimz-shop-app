@@ -37,11 +37,10 @@ const TextInput = ({
       inputIconName={resolvedIconName}
       errorMessage={errorMessage}
       styles={{
-        container: styles.container,
+        container: [styles.container, style],
         inputWrapper: styles.inputWrapper,
       }}
       statusColor={statusColor}
-      style={style}
     >
       <RNTextInput
         style={styles.textInput}

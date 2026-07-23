@@ -14,7 +14,6 @@ export type FormInputWrapperProps = {
     inputWrapper: StyleProp<ViewStyle>;
   };
   statusColor: string;
-  style?: StyleProp<ViewStyle>;
 };
 
 export type InputBaseProps = {
