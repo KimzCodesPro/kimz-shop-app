@@ -8,7 +8,7 @@ export type FormInputWrapperProps = {
   label?: string;
   inputIconName: IconName;
   children: React.ReactNode;
-  errorMessage: string;
+  errorMessage?: string;
   styles: {
     container: StyleProp<ViewStyle>;
     inputWrapper: StyleProp<ViewStyle>;
@@ -19,7 +19,7 @@ export type FormInputWrapperProps = {
 export type InputBaseProps = {
   label?: string;
   placeHolder: string;
-  errorMessage: string;
+  errorMessage?: string;
   value: string;
   onChangeText?: (text: string) => void;
   style?: StyleProp<ViewStyle>;

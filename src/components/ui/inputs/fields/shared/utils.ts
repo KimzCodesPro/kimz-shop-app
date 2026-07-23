@@ -1,7 +1,7 @@
 import { StatusType } from "./types";
 
 const inputCurrentStatus = (
-  errorMessage: string,
+  errorMessage: string | undefined,
   isFocused: boolean,
   value: string,
 ): StatusType => {

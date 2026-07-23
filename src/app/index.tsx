@@ -17,7 +17,6 @@ export default function Index() {
         label="user name"
         placeHolder="inster username"
         iconName="mail"
-        errorMessage=""
         value={name}
         onChangeText={(text) => setName(text)}
       />
