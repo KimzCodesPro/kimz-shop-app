@@ -21,7 +21,6 @@ export type InputBaseProps = {
   placeHolder: string;
   errorMessage?: string;
   value: string;
-  onChangeText?: (text: string) => void;
   style?: StyleProp<ViewStyle>;
 };
 

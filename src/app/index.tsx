@@ -2,12 +2,19 @@ import { Typography } from "@/components/ui/display";
 import { useTheme, useUserPreferences } from "@/hooks";
 import { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-import { TextInput } from "../components/ui/inputs";
+import { Dropdown, TextInput } from "../components/ui/inputs";
+
+const cities = [
+  { label: "Cairo", value: "cairo" },
+  { label: "Alexandria", value: "alexandria" },
+  { label: "Giza", value: "giza" },
+];
 
 export default function Index() {
   const color = useTheme();
   const { setLanguage, setTheme } = useUserPreferences();
   const [name, setName] = useState("");
+  const [city, setCity] = useState("");
   return (
     <View
       style={[styles.container, { backgroundColor: color.background.base }]}
@@ -19,6 +26,14 @@ export default function Index() {
         iconName="mail"
         value={name}
         onChangeText={(text) => setName(text)}
+      />
+      <Dropdown
+        label="city"
+        placeHolder="select city"
+        iconName="map-pin"
+        options={cities}
+        value={city}
+        onSelect={setCity}
       />
       <View style={styles.buttons}>
         <Pressable style={styles.button} onPress={() => setLanguage("en")}>
