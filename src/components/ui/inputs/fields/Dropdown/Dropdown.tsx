@@ -43,11 +43,6 @@ const Dropdown = ({
 
   const selectedOption = options.find((option) => option.value === value);
 
-  // Pull the selected option to the top so it's the first thing shown.
-  const orderedOptions = selectedOption
-    ? [selectedOption, ...options.filter((option) => option.value !== value)]
-    : options;
-
   return (
     <>
       <Pressable onPress={openSheet} style={styles.pressableWrapper}>
@@ -88,7 +83,7 @@ const Dropdown = ({
       >
         <BottomSheet.Scroll>
           <DropdownList
-            options={orderedOptions}
+            options={options}
             value={value}
             onSelect={handleSelect}
             styles={{
