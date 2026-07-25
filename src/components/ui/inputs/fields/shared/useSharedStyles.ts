@@ -39,10 +39,6 @@ const useSharedStyles = (inputCurrentStatus: StatusType) => {
     pressable: {
       alignSelf: "stretch",
     },
-    optionsList: {
-      alignSelf: "stretch",
-      flex: 1,
-    },
     option: {
       flexDirection: "row",
       alignItems: "center",

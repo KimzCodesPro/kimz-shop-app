@@ -77,6 +77,7 @@ const Dropdown = ({
       <BottomSheet
         ref={sheetRef}
         title={label ?? placeHolder}
+        scrollable
         onDismiss={() => setIsOpen(false)}
         bottomSheetProps={{ snapPoints: ["50%"] }}
       >
@@ -85,7 +86,6 @@ const Dropdown = ({
           value={value}
           onSelect={handleSelect}
           styles={{
-            optionsList: styles.optionsList,
             option: styles.option,
           }}
         />

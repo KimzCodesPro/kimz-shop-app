@@ -6,6 +6,7 @@ export type BottomSheetRef = BottomSheetModal | null;
 export type AppBottomSheetProps = {
   title: string;
   description?: string;
+  scrollable?: boolean;
   children?: React.ReactNode;
   bottomSheetProps?: Omit<BottomSheetModalProps, "children">;
   onDismiss?: () => void;

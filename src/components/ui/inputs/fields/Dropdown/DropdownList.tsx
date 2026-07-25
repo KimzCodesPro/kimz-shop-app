@@ -1,6 +1,5 @@
 import Icon from "@/components/icons";
 import { useTheme } from "@/hooks";
-import { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import { Pressable } from "react-native";
 import { Typography } from "../../../display";
 import { DropdownListProps } from "./types";
@@ -14,7 +13,7 @@ const DropdownList = ({
   const colors = useTheme();
 
   return (
-    <BottomSheetScrollView style={styles.optionsList}>
+    <>
       {options.map((option) => {
         const isSelected = option.value === value;
 
@@ -39,7 +38,7 @@ const DropdownList = ({
           </Pressable>
         );
       })}
-    </BottomSheetScrollView>
+    </>
   );
 };
 

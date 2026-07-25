@@ -18,7 +18,6 @@ export type DropdownListProps = {
   value: string;
   onSelect: (value: string) => void;
   styles: {
-    optionsList: StyleProp<ViewStyle>;
     option: StyleProp<ViewStyle>;
   };
 };
