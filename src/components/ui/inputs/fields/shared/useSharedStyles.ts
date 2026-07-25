@@ -41,6 +41,7 @@ const useSharedStyles = (inputCurrentStatus: StatusType) => {
     },
     optionsList: {
       alignSelf: "stretch",
+      flex: 1,
     },
     option: {
       flexDirection: "row",
