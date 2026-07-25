@@ -1,7 +1,8 @@
 import { Typography } from "@/components/ui/display";
-import BottomSheet, {
+import {
   BottomSheetBackdrop,
   BottomSheetFlatList,
+  BottomSheetModal,
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import { ComponentProps } from "react";
@@ -10,8 +11,7 @@ import { AppBottomSheetProps } from "./types";
 import useStyles from "./useStyles";
 
 const AppBottomSheet = (props: AppBottomSheetProps) => {
-  const { title, description, children, bottomSheetProps, onClose, ref } =
-    props;
+  const { title, description, children, bottomSheetProps, ref } = props;
   const { styles } = useStyles();
 
   const renderBackdrop = (props: any) => (
@@ -26,17 +26,16 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
 
   // renders
   return (
-    <BottomSheet
+    <BottomSheetModal
       ref={ref}
       snapPoints={bottomSheetProps?.snapPoints ?? ["25%", "50%", "70%", "90%"]}
-      index={bottomSheetProps?.index ?? -1}
+      index={bottomSheetProps?.index ?? 0}
       enableDynamicSizing={false}
       enablePanDownToClose
       backdropComponent={renderBackdrop}
       backgroundStyle={styles.bottomSheet}
       handleStyle={styles.handleStyle}
       handleIndicatorStyle={styles.handleIndicatorStyle}
-      onClose={onClose}
       {...bottomSheetProps}
     >
       <View style={styles.container}>
@@ -50,7 +49,7 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
         )}
         {children}
       </View>
-    </BottomSheet>
+    </BottomSheetModal>
   );
 };
 
