@@ -1,7 +1,7 @@
 import { Typography } from "@/components/ui/display";
 import { useTheme, useUserPreferences } from "@/hooks";
 import { useState } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Keyboard, Pressable, StyleSheet, View } from "react-native";
 import { Dropdown, TextInput } from "../components/ui/inputs";
 
 const cities = [
@@ -40,9 +40,11 @@ export default function Index() {
   const color = useTheme();
   const { setLanguage, setTheme } = useUserPreferences();
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
   return (
-    <View
+    <Pressable
+      onPress={Keyboard.dismiss}
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
       <TextInput
@@ -52,6 +54,14 @@ export default function Index() {
         iconName="mail"
         value={name}
         onChangeText={(text) => setName(text)}
+      />
+      <TextInput
+        type="text"
+        label="email "
+        placeHolder="inster email"
+        iconName="mail"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
       />
       <Dropdown
         label="city"
@@ -77,7 +87,7 @@ export default function Index() {
           <Typography variant="normalBold">dark</Typography>
         </Pressable>
       </View>
-    </View>
+    </Pressable>
   );
 }
 

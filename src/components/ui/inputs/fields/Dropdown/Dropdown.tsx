@@ -1,6 +1,6 @@
 import Icon from "@/components/icons";
 import { useRef, useState } from "react";
-import { Pressable } from "react-native";
+import { Keyboard, Pressable } from "react-native";
 import { Typography } from "../../../display";
 import { BottomSheet, BottomSheetRef } from "../../../overlay";
 import FormInputWrapper from "../shared/FormInputWrapper";
@@ -24,6 +24,7 @@ const Dropdown = ({
   const sheetRef = useRef<BottomSheetRef>(null);
 
   const openSheet = () => {
+    Keyboard.dismiss();
     setIsOpen(true);
     sheetRef.current?.present();
   };

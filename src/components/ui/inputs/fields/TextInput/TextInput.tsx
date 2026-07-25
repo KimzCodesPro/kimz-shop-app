@@ -62,7 +62,7 @@ const TextInput = ({
         </Pressable>
       )}
 
-      {type === "text" && value && (
+      {type === "text" && clearInput && value && (
         <Pressable onPress={clearInput}>
           <Icon name="close" size={20} color={colors.foreground.tertiary} />
         </Pressable>
