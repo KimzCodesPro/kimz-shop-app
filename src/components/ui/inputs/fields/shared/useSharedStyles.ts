@@ -36,10 +36,13 @@ const useSharedStyles = (inputCurrentStatus: StatusType) => {
       backgroundColor: colors.background.base,
       gap: spacing.space8.width,
     },
-    pressable: {
+    pressableWrapper: {
       alignSelf: "stretch",
     },
-    option: {
+    dropdownValueText: {
+      flex: 1,
+    },
+    dropdownOption: {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",

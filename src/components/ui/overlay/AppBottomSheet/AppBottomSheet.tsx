@@ -1,24 +1,19 @@
 import { Typography } from "@/components/ui/display";
 import {
   BottomSheetBackdrop,
+  BottomSheetFlatList,
   BottomSheetModal,
   BottomSheetScrollView,
   BottomSheetView,
 } from "@gorhom/bottom-sheet";
+import { ComponentProps } from "react";
 import { View } from "react-native";
 import { AppBottomSheetProps } from "./types";
 import useStyles from "./useStyles";
 
 const AppBottomSheet = (props: AppBottomSheetProps) => {
-  const {
-    title,
-    description,
-    scrollable,
-    children,
-    bottomSheetProps,
-    onDismiss,
-    ref,
-  } = props;
+  const { title, description, children, bottomSheetProps, onDismiss, ref } =
+    props;
   const { styles } = useStyles();
 
   const renderBackdrop = (props: any) => (
@@ -29,19 +24,6 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
       {...props}
       style={styles.backDrop}
     />
-  );
-
-  const header = (
-    <>
-      <Typography variant="mediumBold" style={styles.title}>
-        {title}
-      </Typography>
-      {description && (
-        <Typography variant="smallRegular" style={styles.description}>
-          {description}
-        </Typography>
-      )}
-    </>
   );
 
   // renders
@@ -59,21 +41,59 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
       onDismiss={onDismiss}
       {...bottomSheetProps}
     >
-      {scrollable ? (
-        <View style={styles.scrollableContainer}>
-          {header}
-          <BottomSheetScrollView style={styles.scrollableContent}>
-            {children}
-          </BottomSheetScrollView>
-        </View>
-      ) : (
-        <BottomSheetView style={styles.bottomSheetContainer}>
-          {header}
-          <View style={styles.bottomSheetContent}>{children}</View>
-        </BottomSheetView>
-      )}
+      <View style={styles.container}>
+        <Typography variant="mediumBold" style={styles.title}>
+          {title}
+        </Typography>
+        {description && (
+          <Typography variant="smallRegular" style={styles.description}>
+            {description}
+          </Typography>
+        )}
+        {children}
+      </View>
     </BottomSheetModal>
   );
 };
+
+// Content slots — the caller picks how children scroll. Each one bakes in the
+// sheet's shared content style so it stretches and fills the remaining space.
+const Scroll = ({
+  style,
+  children,
+  ...rest
+}: ComponentProps<typeof BottomSheetScrollView>) => {
+  const { styles } = useStyles();
+  return (
+    <BottomSheetScrollView style={[styles.content, style]} {...rest}>
+      {children}
+    </BottomSheetScrollView>
+  );
+};
+
+const List = ({
+  style,
+  ...rest
+}: ComponentProps<typeof BottomSheetFlatList>) => {
+  const { styles } = useStyles();
+  return <BottomSheetFlatList style={[styles.content, style]} {...rest} />;
+};
+
+const Content = ({
+  style,
+  children,
+  ...rest
+}: ComponentProps<typeof BottomSheetView>) => {
+  const { styles } = useStyles();
+  return (
+    <BottomSheetView style={[styles.content, style]} {...rest}>
+      {children}
+    </BottomSheetView>
+  );
+};
+
+AppBottomSheet.Scroll = Scroll;
+AppBottomSheet.List = List;
+AppBottomSheet.Content = Content;
 
 export default AppBottomSheet;

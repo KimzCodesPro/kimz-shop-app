@@ -45,7 +45,7 @@ const Dropdown = ({
 
   return (
     <>
-      <Pressable onPress={openSheet} style={styles.pressable}>
+      <Pressable onPress={openSheet} style={styles.pressableWrapper}>
         <FormInputWrapper
           label={label}
           inputIconName={iconName}
@@ -59,6 +59,7 @@ const Dropdown = ({
           <Typography
             variant="smallRegular"
             textTransform="capitalize"
+            style={styles.dropdownValueText}
             color={
               selectedOption
                 ? colors.foreground.primary
@@ -77,18 +78,19 @@ const Dropdown = ({
       <BottomSheet
         ref={sheetRef}
         title={label ?? placeHolder}
-        scrollable
         onDismiss={() => setIsOpen(false)}
         bottomSheetProps={{ snapPoints: ["50%"] }}
       >
-        <DropdownList
-          options={options}
-          value={value}
-          onSelect={handleSelect}
-          styles={{
-            option: styles.option,
-          }}
-        />
+        <BottomSheet.Scroll>
+          <DropdownList
+            options={options}
+            value={value}
+            onSelect={handleSelect}
+            styles={{
+              option: styles.dropdownOption,
+            }}
+          />
+        </BottomSheet.Scroll>
       </BottomSheet>
     </>
   );

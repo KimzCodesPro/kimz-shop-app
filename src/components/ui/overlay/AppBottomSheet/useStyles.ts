@@ -21,34 +21,23 @@ const useStyles = () => {
       paddingTop: spacing.space12.height,
       paddingBottom: 0,
     },
-    bottomSheetContainer: {
+    container: {
       flex: 1,
       alignItems: "center",
       paddingHorizontal: spacing.space24.width,
       paddingVertical: spacing.space24.height,
     },
-    scrollableContent: {
+    content: {
       alignSelf: "stretch",
       flex: 1,
+      marginTop: spacing.space16.height,
     },
-    scrollableContainer: {
-      flex: 1,
-      alignItems: "center",
-      paddingHorizontal: spacing.space24.width,
-      paddingVertical: spacing.space24.height,
-    },
-
     title: {
       color: colors.foreground.primary,
     },
     description: {
       marginTop: spacing.space8.height,
       color: colors.foreground.secondary,
-    },
-    bottomSheetContent: {
-      marginTop: spacing.space16.height,
-      alignSelf: "stretch",
-      flex: 1,
     },
   });
   return { colors, styles };
