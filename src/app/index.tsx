@@ -1,8 +1,9 @@
 import { Typography } from "@/components/ui/display";
 import { useTheme, useUserPreferences } from "@/hooks";
 import { useState } from "react";
-import { Keyboard, Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { Dropdown, TextInput } from "../components/ui/inputs";
+import { DismissKeyboard } from "../components/ui/layout";
 
 const cities = [
   { label: "Cairo", value: "cairo" },
@@ -43,8 +44,7 @@ export default function Index() {
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
   return (
-    <Pressable
-      onPress={Keyboard.dismiss}
+    <DismissKeyboard
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
       <TextInput
@@ -87,7 +87,7 @@ export default function Index() {
           <Typography variant="normalBold">dark</Typography>
         </Pressable>
       </View>
-    </Pressable>
+    </DismissKeyboard>
   );
 }
 
