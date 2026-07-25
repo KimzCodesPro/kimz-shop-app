@@ -5,24 +5,25 @@ import { Platform, StyleSheet } from "react-native";
 import { StatusType } from "./types";
 const { HS, VS } = scalingMethods;
 
-const useStyles = (inputCurrentStatus: StatusType) => {
+const useSharedStyles = (inputCurrentStatus: StatusType) => {
   const colors = useTheme();
   const fontFamilyStyles = useFontStyles();
 
   const isAndroid = Platform.OS === "android";
 
-  const borderColorMapping = {
+  const colorMapping: Record<StatusType, string> = {
     default: colors.foreground.tertiary,
     focused: colors.primary.base,
     filled: colors.primary.base,
     error: colors.danger.base,
   };
 
+  const statusColor = colorMapping[inputCurrentStatus];
+
   const styles = StyleSheet.create({
     container: {
       alignSelf: "stretch",
     },
-
     inputWrapper: {
       height: VS(52),
       flexDirection: "row",
@@ -30,10 +31,24 @@ const useStyles = (inputCurrentStatus: StatusType) => {
       paddingHorizontal: spacing.space12.width,
       paddingVertical: spacing.space12.height,
       borderWidth: HS(1),
-      borderColor: borderColorMapping[inputCurrentStatus],
+      borderColor: statusColor,
       borderRadius: radius.sm,
       backgroundColor: colors.background.base,
       gap: spacing.space8.width,
+    },
+    pressableWrapper: {
+      alignSelf: "stretch",
+    },
+    dropdownValueText: {
+      flex: 1,
+    },
+    dropdownOption: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      height: VS(47),
+      borderBottomWidth: HS(1),
+      borderBottomColor: colors.border.default,
     },
     textInput: {
       alignSelf: "stretch",
@@ -48,7 +63,7 @@ const useStyles = (inputCurrentStatus: StatusType) => {
       includeFontPadding: false,
     },
   });
-  return { styles, colors };
+  return { styles, colors, statusColor };
 };
 
-export default useStyles;
+export default useSharedStyles;

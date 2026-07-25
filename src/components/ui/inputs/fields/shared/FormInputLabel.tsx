@@ -1,7 +1,7 @@
 import { spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StyleSheet } from "react-native";
-import { Typography } from "../../display";
+import { Typography } from "../../../display";
 import { FormInputLabelProps } from "./types";
 
 const FormInputLabel = ({ label }: FormInputLabelProps) => {

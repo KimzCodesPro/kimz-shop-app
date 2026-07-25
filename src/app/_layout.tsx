@@ -1,3 +1,4 @@
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -32,7 +33,9 @@ export default function RootLayout() {
     <GestureHandlerRootView style={styles.container}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <Stack />
+          <BottomSheetModalProvider>
+            <Stack />
+          </BottomSheetModalProvider>
         </PersistGate>
       </Provider>
     </GestureHandlerRootView>

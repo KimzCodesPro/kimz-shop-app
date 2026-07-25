@@ -1,11 +1,13 @@
-import BottomSheet, { BottomSheetProps } from "@gorhom/bottom-sheet";
-import { Ref } from "react";
+import { BottomSheetModal, BottomSheetModalProps } from "@gorhom/bottom-sheet";
+import React, { Ref } from "react";
 
-export type BottomSheetRef = BottomSheet | null;
+export type BottomSheetRef = BottomSheetModal | null;
 
 export type AppBottomSheetProps = {
   title: string;
   description?: string;
-  bottomSheetProps?: BottomSheetProps;
+  children?: React.ReactNode;
+  bottomSheetProps?: Omit<BottomSheetModalProps, "children">;
+  onDismiss?: () => void;
   ref?: Ref<BottomSheetRef>;
 };
