@@ -24,7 +24,7 @@ const DropdownList = ({
             onPress={() => onSelect(option.value)}
           >
             <Typography
-              variant="smallRegular"
+              variant={isSelected ? "normalBold" : "normalRegular"}
               textTransform="capitalize"
               color={
                 isSelected ? colors.primary.base : colors.foreground.primary
@@ -33,7 +33,7 @@ const DropdownList = ({
               {option.label}
             </Typography>
             {isSelected && (
-              <Icon name="check" size={20} color={colors.primary.base} />
+              <Icon name="check" size={23} color={colors.primary.base} />
             )}
           </Pressable>
         );
