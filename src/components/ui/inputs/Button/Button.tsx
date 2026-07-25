@@ -14,17 +14,9 @@ const Button = ({
   loading = { indicator: false },
   style,
 }: ButtonProps) => {
-  const { styles, color } = useStyles(size, variant);
+  const { styles, typographyColorVariant } = useStyles(size, variant);
 
   const typographySizeVariant = size === "sm" ? "smallBold" : "normalBold";
-
-  const typographyColorVariant = {
-    primary: color.foreground.contrast,
-    chip: color.primary.base,
-    link: color.primary.base,
-    ghost: color.foreground.primary,
-    danger: color.danger.base,
-  };
 
   return (
     <TouchableOpacity

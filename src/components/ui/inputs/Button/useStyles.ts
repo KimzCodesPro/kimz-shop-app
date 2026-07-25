@@ -17,6 +17,14 @@ const useStyle = (size: SizeType, variant: VariantType) => {
     danger: color.background.base,
   };
 
+  const typographyColorVariant = {
+    primary: color.foreground.contrast,
+    chip: color.primary.base,
+    link: color.primary.base,
+    ghost: color.foreground.primary,
+    danger: color.danger.base,
+  };
+
   const borderColorVariant = {
     primary: color.primary.base,
     chip: color.primary.base,
@@ -40,7 +48,7 @@ const useStyle = (size: SizeType, variant: VariantType) => {
     },
   });
 
-  return { styles, color };
+  return { styles, typographyColorVariant };
 };
 
 export default useStyle;
