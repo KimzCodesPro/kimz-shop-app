@@ -23,6 +23,7 @@ const useStyles = () => {
     },
     container: {
       flex: 1,
+
       alignItems: "center",
       paddingHorizontal: spacing.space24.width,
       paddingVertical: spacing.space24.height,

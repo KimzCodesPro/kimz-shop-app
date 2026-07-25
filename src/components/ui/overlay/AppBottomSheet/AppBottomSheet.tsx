@@ -4,7 +4,6 @@ import {
   BottomSheetFlatList,
   BottomSheetModal,
   BottomSheetScrollView,
-  BottomSheetView,
 } from "@gorhom/bottom-sheet";
 import { ComponentProps } from "react";
 import { View } from "react-native";
@@ -79,16 +78,20 @@ const List = ({
   return <BottomSheetFlatList style={[styles.content, style]} {...rest} />;
 };
 
+// Non-scrolling slot: a plain View, NOT gorhom's BottomSheetView. BottomSheetView
+// force-applies `position:absolute; top/left/right:0` (for dynamic-size measuring),
+// which only works as the sheet's sole direct child. Nested here it would ignore
+// our flex layout — overlapping the title and dropping the horizontal padding.
 const Content = ({
   style,
   children,
   ...rest
-}: ComponentProps<typeof BottomSheetView>) => {
+}: ComponentProps<typeof View>) => {
   const { styles } = useStyles();
   return (
-    <BottomSheetView style={[styles.content, style]} {...rest}>
+    <View style={[styles.content, style]} {...rest}>
       {children}
-    </BottomSheetView>
+    </View>
   );
 };
 
