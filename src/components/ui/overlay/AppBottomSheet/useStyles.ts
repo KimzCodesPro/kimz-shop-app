@@ -25,7 +25,6 @@ const useStyles = () => {
     },
     bottomSheetContainer: {
       flex: 1,
-      justifyContent: "center",
       alignItems: "center",
       paddingHorizontal: HS(spacing.space24.width),
       paddingVertical: VS(spacing.space24.height),
@@ -39,6 +38,8 @@ const useStyles = () => {
     },
     bottomSheetContent: {
       marginTop: VS(spacing.space16.height),
+      alignSelf: "stretch",
+      flex: 1,
     },
   });
   return { colors, styles };

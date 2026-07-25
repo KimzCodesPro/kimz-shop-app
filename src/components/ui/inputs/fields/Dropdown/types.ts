@@ -1,4 +1,5 @@
 import { IconName } from "@/components/icons";
+import { StyleProp, ViewStyle } from "react-native";
 import { InputBaseProps } from "../shared/types";
 
 export type DropdownOption = {
@@ -11,3 +12,13 @@ export type DropdownProps = {
   options: DropdownOption[];
   onSelect: (value: string) => void;
 } & InputBaseProps;
+
+export type DropdownListProps = {
+  options: DropdownOption[];
+  value: string;
+  onSelect: (value: string) => void;
+  styles: {
+    optionsList: StyleProp<ViewStyle>;
+    option: StyleProp<ViewStyle>;
+  };
+};
