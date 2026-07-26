@@ -11,7 +11,7 @@ const useSharedStyles = (currentStatus: StatusType) => {
 
   const isAndroid = Platform.OS === "android";
 
-  const colorMapping: Record<StatusType, string> = {
+  const colorMapping = {
     default: colors.foreground.tertiary,
     focused: colors.primary.base,
     filled: colors.primary.base,
