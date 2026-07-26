@@ -3,17 +3,20 @@ import { View } from "react-native";
 import FieldErrorMessage from "./FieldErrorMessage";
 import FieldLabel from "./FieldLabel";
 import { FieldWrapperProps } from "./types";
+import useSharedStyles from "./useSharedStyles";
 
 const FieldWrapper = ({
   label,
   fieldIconName,
   errorMessage,
   children,
-  styles,
-  statusColor,
+  currentStatus,
+  style,
 }: FieldWrapperProps) => {
+  const { styles, statusColor } = useSharedStyles(currentStatus);
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <FieldLabel label={label} />
       <View style={styles.fieldWrapper}>
         <Icon name={fieldIconName} size={20} color={statusColor} />

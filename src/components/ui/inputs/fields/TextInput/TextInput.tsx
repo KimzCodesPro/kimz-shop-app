@@ -27,7 +27,7 @@ const TextInput = ({
     value,
   );
 
-  const { styles, colors, statusColor } = useSharedStyles(currentStatus);
+  const { styles, colors } = useSharedStyles(currentStatus);
 
   const resolvedIconName = type === "password" ? "lock" : iconName;
 
@@ -36,11 +36,8 @@ const TextInput = ({
       label={label}
       fieldIconName={resolvedIconName}
       errorMessage={errorMessage}
-      styles={{
-        container: [styles.container, style],
-        fieldWrapper: styles.fieldWrapper,
-      }}
-      statusColor={statusColor}
+      currentStatus={currentStatus}
+      style={style}
     >
       <RNTextInput
         style={styles.textInput}

@@ -33,15 +33,17 @@ const Dropdown = ({
     sheetRef.current?.close();
   };
 
+  const selectedOption = options.find((option) => option.value === value);
+
+  // Status follows the resolved option, not the raw value: a value with no
+  // matching option renders as the placeholder, so it must not read as filled.
   const currentStatus: StatusType = fieldCurrentStatus(
     errorMessage,
     isOpen,
-    value,
+    selectedOption?.value ?? "",
   );
 
-  const { styles, colors, statusColor } = useSharedStyles(currentStatus);
-
-  const selectedOption = options.find((option) => option.value === value);
+  const { styles, colors } = useSharedStyles(currentStatus);
 
   return (
     <>
@@ -50,11 +52,8 @@ const Dropdown = ({
           label={label}
           fieldIconName={iconName}
           errorMessage={errorMessage}
-          styles={{
-            container: [styles.container, style],
-            fieldWrapper: styles.fieldWrapper,
-          }}
-          statusColor={statusColor}
+          currentStatus={currentStatus}
+          style={style}
         >
           <Typography
             variant="smallRegular"

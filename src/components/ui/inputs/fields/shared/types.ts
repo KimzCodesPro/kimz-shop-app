@@ -9,11 +9,8 @@ export type FieldWrapperProps = {
   fieldIconName: IconName;
   children: React.ReactNode;
   errorMessage?: string;
-  styles: {
-    container: StyleProp<ViewStyle>;
-    fieldWrapper: StyleProp<ViewStyle>;
-  };
-  statusColor: string;
+  currentStatus: StatusType;
+  style?: StyleProp<ViewStyle>;
 };
 
 export type FieldProps = {
