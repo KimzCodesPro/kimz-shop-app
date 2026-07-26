@@ -29,6 +29,10 @@ const TextInput = ({
 
   const { styles, colors } = useSharedStyles(currentStatus);
 
+  // Defaulted in the body, not in the destructuring: a default on `type` would
+  // detach it from the union and stop it narrowing `iconName` on the next line.
+  const fieldType = type ?? "text";
+
   const resolvedIconName = type === "password" ? "lock" : iconName;
 
   return (
@@ -47,9 +51,9 @@ const TextInput = ({
         placeholderTextColor={colors.foreground.tertiary}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        secureTextEntry={type === "password" && !passwordVisible}
+        secureTextEntry={fieldType === "password" && !passwordVisible}
       />
-      {type === "password" && value && (
+      {fieldType === "password" && value && (
         <Pressable onPress={() => setPasswordVisible(!passwordVisible)}>
           <Icon
             name={passwordVisible ? "eye-off" : "eye"}
@@ -59,7 +63,7 @@ const TextInput = ({
         </Pressable>
       )}
 
-      {type !== "password" && clearInput && value && (
+      {fieldType === "text" && clearInput && value && (
         <Pressable onPress={clearInput}>
           <Icon name="close" size={20} color={colors.foreground.tertiary} />
         </Pressable>
