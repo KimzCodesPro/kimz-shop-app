@@ -25,7 +25,6 @@ const Dropdown = ({
 
   const openSheet = () => {
     Keyboard.dismiss();
-    setIsOpen(true);
     sheetRef.current?.expand();
   };
 
@@ -80,7 +79,12 @@ const Dropdown = ({
         ref={sheetRef}
         title={label ?? placeHolder}
         bottomSheetProps={{
-          snapPoints: ["90%"],
+          snapPoints: ["50%"],
+          // onAnimate fires when a transition STARTS, so the arrow/border reset
+          // instantly even when closing via the backdrop (not just on drag).
+          onAnimate: (_fromIndex, toIndex) => setIsOpen(toIndex !== -1),
+          // onClose always fires when the sheet lands closed (not behind gorhom's
+          // index guard), so it's the reliable backstop for interrupted closes.
           onClose: () => setIsOpen(false),
         }}
       >
