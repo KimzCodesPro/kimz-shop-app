@@ -2,9 +2,9 @@ import { spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StyleSheet } from "react-native";
 import { Typography } from "../../../display";
-import { FormInputLabelProps } from "./types";
+import { FieldLabelProps } from "./types";
 
-const FormInputLabel = ({ label }: FormInputLabelProps) => {
+const FieldLabel = ({ label }: FieldLabelProps) => {
   const colors = useTheme();
 
   if (!label) return null;
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FormInputLabel;
+export default FieldLabel;

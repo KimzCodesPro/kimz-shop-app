@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { Keyboard, Pressable } from "react-native";
 import { Typography } from "../../../display";
 import { BottomSheet, BottomSheetRef } from "../../../overlay";
-import FormInputWrapper from "../shared/FormInputWrapper";
+import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
 import { inputCurrentStatus } from "../shared/utils";
@@ -46,7 +46,7 @@ const Dropdown = ({
   return (
     <>
       <Pressable onPress={openSheet} style={styles.pressableWrapper}>
-        <FormInputWrapper
+        <FieldWrapper
           label={label}
           inputIconName={iconName}
           errorMessage={errorMessage}
@@ -73,7 +73,7 @@ const Dropdown = ({
             size={22}
             color={colors.foreground.tertiary}
           />
-        </FormInputWrapper>
+        </FieldWrapper>
       </Pressable>
       <BottomSheet
         ref={sheetRef}

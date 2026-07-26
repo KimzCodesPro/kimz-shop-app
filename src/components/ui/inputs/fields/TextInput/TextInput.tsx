@@ -1,7 +1,7 @@
 import Icon from "@/components/icons";
 import { useState } from "react";
 import { Pressable, TextInput as RNTextInput } from "react-native";
-import FormInputWrapper from "../shared/FormInputWrapper";
+import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
 import { inputCurrentStatus } from "../shared/utils";
@@ -32,7 +32,7 @@ const TextInput = ({
   const resolvedIconName = type === "password" ? "lock" : iconName;
 
   return (
-    <FormInputWrapper
+    <FieldWrapper
       label={label}
       inputIconName={resolvedIconName}
       errorMessage={errorMessage}
@@ -67,7 +67,7 @@ const TextInput = ({
           <Icon name="close" size={20} color={colors.foreground.tertiary} />
         </Pressable>
       )}
-    </FormInputWrapper>
+    </FieldWrapper>
   );
 };
 

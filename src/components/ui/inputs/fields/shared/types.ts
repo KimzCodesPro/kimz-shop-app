@@ -4,7 +4,7 @@ import { StyleProp, ViewStyle } from "react-native";
 
 export type StatusType = "default" | "error" | "focused" | "filled";
 
-export type FormInputWrapperProps = {
+export type FieldWrapperProps = {
   label?: string;
   inputIconName: IconName;
   children: React.ReactNode;
@@ -16,7 +16,7 @@ export type FormInputWrapperProps = {
   statusColor: string;
 };
 
-export type InputBaseProps = {
+export type FieldProps = {
   label?: string;
   placeHolder: string;
   errorMessage?: string;
@@ -24,10 +24,10 @@ export type InputBaseProps = {
   style?: StyleProp<ViewStyle>;
 };
 
-export type FormInputErrorMessageProps = {
+export type FieldErrorMessageProps = {
   errorMessage?: string;
 };
 
-export type FormInputLabelProps = {
+export type FieldLabelProps = {
   label?: string;
 };

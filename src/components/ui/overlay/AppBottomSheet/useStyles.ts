@@ -10,7 +10,7 @@ const useStyles = () => {
     },
     bottomSheet: {
       backgroundColor: colors.background.base,
-      borderRadius: radius["xl"],
+      borderRadius: radius.sheet,
     },
     handleIndicatorStyle: {
       width: spacing.space48.width,

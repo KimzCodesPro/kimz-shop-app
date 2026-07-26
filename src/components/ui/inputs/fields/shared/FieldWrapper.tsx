@@ -1,27 +1,27 @@
 import Icon from "@/components/icons";
 import { View } from "react-native";
-import FormInputErrorMessage from "../shared/FormInputErrorMessage";
-import FormInputLabel from "./FormInputLabel";
-import { FormInputWrapperProps } from "./types";
+import FieldErrorMessage from "../shared/FieldErrorMessage";
+import FieldLabel from "./FieldLabel";
+import { FieldWrapperProps } from "./types";
 
-const FormInputWrapper = ({
+const FieldWrapper = ({
   label,
   inputIconName,
   errorMessage,
   children,
   styles,
   statusColor,
-}: FormInputWrapperProps) => {
+}: FieldWrapperProps) => {
   return (
     <View style={styles.container}>
-      <FormInputLabel label={label} />
+      <FieldLabel label={label} />
       <View style={styles.inputWrapper}>
         <Icon name={inputIconName} size={20} color={statusColor} />
         {children}
       </View>
-      <FormInputErrorMessage errorMessage={errorMessage} />
+      <FieldErrorMessage errorMessage={errorMessage} />
     </View>
   );
 };
 
-export default FormInputWrapper;
+export default FieldWrapper;
