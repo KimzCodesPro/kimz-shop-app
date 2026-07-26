@@ -1,6 +1,6 @@
 import Icon from "@/components/icons";
 import { View } from "react-native";
-import FieldErrorMessage from "../shared/FieldErrorMessage";
+import FieldErrorMessage from "./FieldErrorMessage";
 import FieldLabel from "./FieldLabel";
 import { FieldWrapperProps } from "./types";
 

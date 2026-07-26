@@ -6,13 +6,13 @@ import { BottomSheet, BottomSheetRef } from "../../../overlay";
 import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
-import { inputCurrentStatus } from "../shared/utils";
+import { fieldCurrentStatus } from "../shared/utils";
 import DropdownList from "./DropdownList";
 import { DropdownProps } from "./types";
 
 const Dropdown = ({
   label,
-  placeHolder,
+  placeholder,
   iconName,
   options,
   value,
@@ -33,7 +33,7 @@ const Dropdown = ({
     sheetRef.current?.close();
   };
 
-  const currentStatus: StatusType = inputCurrentStatus(
+  const currentStatus: StatusType = fieldCurrentStatus(
     errorMessage,
     isOpen,
     value,
@@ -66,7 +66,7 @@ const Dropdown = ({
                 : colors.foreground.tertiary
             }
           >
-            {selectedOption?.label ?? placeHolder}
+            {selectedOption?.label ?? placeholder}
           </Typography>
           <Icon
             name={isOpen ? "chevron-up" : "chevron-down"}
@@ -77,7 +77,7 @@ const Dropdown = ({
       </Pressable>
       <BottomSheet
         ref={sheetRef}
-        title={label ?? placeHolder}
+        title={label ?? placeholder}
         bottomSheetProps={{
           snapPoints: ["50%"],
           // onAnimate fires when a transition STARTS, so the arrow/border reset

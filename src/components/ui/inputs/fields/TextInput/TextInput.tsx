@@ -4,12 +4,12 @@ import { Pressable, TextInput as RNTextInput } from "react-native";
 import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
-import { inputCurrentStatus } from "../shared/utils";
+import { fieldCurrentStatus } from "../shared/utils";
 import { TextInputProps } from "./types";
 
 const TextInput = ({
   label,
-  placeHolder,
+  placeholder,
   iconName,
   type,
   value,
@@ -21,7 +21,7 @@ const TextInput = ({
   const [isFocused, setIsFocused] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const currentStatus: StatusType = inputCurrentStatus(
+  const currentStatus: StatusType = fieldCurrentStatus(
     errorMessage,
     isFocused,
     value,
@@ -46,7 +46,7 @@ const TextInput = ({
         style={styles.textInput}
         value={value}
         onChangeText={onChangeText}
-        placeholder={placeHolder}
+        placeholder={placeholder}
         placeholderTextColor={colors.foreground.tertiary}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}

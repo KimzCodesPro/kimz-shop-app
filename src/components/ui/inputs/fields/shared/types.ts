@@ -18,7 +18,7 @@ export type FieldWrapperProps = {
 
 export type FieldProps = {
   label?: string;
-  placeHolder: string;
+  placeholder: string;
   errorMessage?: string;
   value: string;
   style?: StyleProp<ViewStyle>;

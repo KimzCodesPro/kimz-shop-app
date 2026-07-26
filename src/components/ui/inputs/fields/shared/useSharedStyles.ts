@@ -5,7 +5,7 @@ import { Platform, StyleSheet } from "react-native";
 import { StatusType } from "./types";
 const { HS, VS } = scalingMethods;
 
-const useSharedStyles = (inputCurrentStatus: StatusType) => {
+const useSharedStyles = (currentStatus: StatusType) => {
   const colors = useTheme();
   const fontFamilyStyles = useFontStyles();
 
@@ -18,7 +18,7 @@ const useSharedStyles = (inputCurrentStatus: StatusType) => {
     error: colors.danger.base,
   };
 
-  const statusColor = colorMapping[inputCurrentStatus];
+  const statusColor = colorMapping[currentStatus];
 
   const styles = StyleSheet.create({
     container: {
