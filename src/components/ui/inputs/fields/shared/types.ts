@@ -6,12 +6,12 @@ export type StatusType = "default" | "error" | "focused" | "filled";
 
 export type FieldWrapperProps = {
   label?: string;
-  inputIconName: IconName;
+  fieldIconName: IconName;
   children: React.ReactNode;
   errorMessage?: string;
   styles: {
     container: StyleProp<ViewStyle>;
-    inputWrapper: StyleProp<ViewStyle>;
+    fieldWrapper: StyleProp<ViewStyle>;
   };
   statusColor: string;
 };

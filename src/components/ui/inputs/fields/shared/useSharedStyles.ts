@@ -24,7 +24,7 @@ const useSharedStyles = (inputCurrentStatus: StatusType) => {
     container: {
       alignSelf: "stretch",
     },
-    inputWrapper: {
+    fieldWrapper: {
       height: VS(52),
       flexDirection: "row",
       alignItems: "center",

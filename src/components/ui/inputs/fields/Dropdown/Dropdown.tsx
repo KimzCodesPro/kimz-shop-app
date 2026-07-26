@@ -48,11 +48,11 @@ const Dropdown = ({
       <Pressable onPress={openSheet} style={styles.pressableWrapper}>
         <FieldWrapper
           label={label}
-          inputIconName={iconName}
+          fieldIconName={iconName}
           errorMessage={errorMessage}
           styles={{
             container: [styles.container, style],
-            inputWrapper: styles.inputWrapper,
+            fieldWrapper: styles.fieldWrapper,
           }}
           statusColor={statusColor}
         >

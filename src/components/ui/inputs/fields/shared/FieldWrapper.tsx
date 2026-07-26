@@ -6,7 +6,7 @@ import { FieldWrapperProps } from "./types";
 
 const FieldWrapper = ({
   label,
-  inputIconName,
+  fieldIconName,
   errorMessage,
   children,
   styles,
@@ -15,8 +15,8 @@ const FieldWrapper = ({
   return (
     <View style={styles.container}>
       <FieldLabel label={label} />
-      <View style={styles.inputWrapper}>
-        <Icon name={inputIconName} size={20} color={statusColor} />
+      <View style={styles.fieldWrapper}>
+        <Icon name={fieldIconName} size={20} color={statusColor} />
         {children}
       </View>
       <FieldErrorMessage errorMessage={errorMessage} />

@@ -34,11 +34,11 @@ const TextInput = ({
   return (
     <FieldWrapper
       label={label}
-      inputIconName={resolvedIconName}
+      fieldIconName={resolvedIconName}
       errorMessage={errorMessage}
       styles={{
         container: [styles.container, style],
-        inputWrapper: styles.inputWrapper,
+        fieldWrapper: styles.fieldWrapper,
       }}
       statusColor={statusColor}
     >
