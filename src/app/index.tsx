@@ -1,6 +1,7 @@
 import { Typography } from "@/components/ui/display";
+import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
 import { useTheme, useUserPreferences } from "@/hooks";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import { Dropdown, TextInput } from "../components/ui/inputs";
 import { DismissKeyboard } from "../components/ui/layout";
@@ -43,6 +44,14 @@ export default function Index() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
+  const testSheetRef = useRef<BottomSheetRef>(null);
+  // A modal opens at its `index` prop, so set that then present().
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const openSheetAt = (index: number) => {
+    setOpenIndex(index);
+    testSheetRef.current?.present();
+  };
   return (
     <DismissKeyboard
       style={[styles.container, { backgroundColor: color.background.base }]}
@@ -87,6 +96,44 @@ export default function Index() {
           <Typography variant="normalBold">dark</Typography>
         </Pressable>
       </View>
+
+      <View style={styles.buttons}>
+        <Pressable style={styles.button} onPress={() => openSheetAt(0)}>
+          <Typography variant="normalBold">open 25%</Typography>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => openSheetAt(1)}>
+          <Typography variant="normalBold">open 50%</Typography>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => openSheetAt(2)}>
+          <Typography variant="normalBold">open 90%</Typography>
+        </Pressable>
+      </View>
+
+      <BottomSheet
+        ref={testSheetRef}
+        title="test content"
+        description="drag the handle between the 25% / 50% / 90% snap points"
+        bottomSheetProps={{ snapPoints: ["25%", "50%", "90%"], index: openIndex }}
+      >
+        <BottomSheet.Content style={styles.modalContent}>
+          <Typography variant="normalBold">First block</Typography>
+          <Typography variant="smallRegular" color={color.foreground.secondary}>
+            This is a plain View content slot. Because enableDynamicSizing is
+            false and the height comes from the fixed snap points, it lays out
+            fine without BottomSheetView.
+          </Typography>
+          <Typography variant="normalBold">Second block</Typography>
+          <Typography variant="smallRegular" color={color.foreground.secondary}>
+            Notice the left/right padding and the gap under the title are
+            respected — the flex layout is not overridden.
+          </Typography>
+          <Typography variant="normalBold">Third block</Typography>
+          <Typography variant="smallRegular" color={color.foreground.secondary}>
+            Drag up to the 90% snap point to see more of this content. Since
+            Content does not scroll, anything past the sheet height is clipped.
+          </Typography>
+        </BottomSheet.Content>
+      </BottomSheet>
     </DismissKeyboard>
   );
 }
