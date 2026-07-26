@@ -59,7 +59,7 @@ const TextInput = ({
         </Pressable>
       )}
 
-      {type === "text" && clearInput && value && (
+      {type !== "password" && clearInput && value && (
         <Pressable onPress={clearInput}>
           <Icon name="close" size={20} color={colors.foreground.tertiary} />
         </Pressable>
