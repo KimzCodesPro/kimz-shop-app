@@ -14,7 +14,7 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
   const { title, description, children, bottomSheetProps, ref } = props;
   const { styles } = useStyles();
 
-  const renderBackdrop = (props: any) => (
+  const RenderBackdrop = (props: any) => (
     <BottomSheetBackdrop
       disappearsOnIndex={-1}
       appearsOnIndex={0}
@@ -37,7 +37,7 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
         index={bottomSheetProps?.index ?? -1}
         enableDynamicSizing={false}
         enablePanDownToClose
-        backdropComponent={renderBackdrop}
+        backdropComponent={RenderBackdrop}
         backgroundStyle={styles.bottomSheet}
         handleStyle={styles.handleStyle}
         handleIndicatorStyle={styles.handleIndicatorStyle}
