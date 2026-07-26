@@ -1,10 +1,10 @@
 import { Typography } from "@/components/ui/display";
-import {
+import BottomSheet, {
   BottomSheetBackdrop,
   BottomSheetFlatList,
-  BottomSheetModal,
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
+import { Portal } from "@gorhom/portal";
 import { ComponentProps } from "react";
 import { View } from "react-native";
 import { AppBottomSheetProps } from "./types";
@@ -24,32 +24,38 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
     />
   );
 
-  // renders
+  // renders — Portal teleports the sheet to the root PortalHost so it paints
+  // above sibling content (a non-modal BottomSheet has no containerComponent
+  // prop, so we portal it manually, the same way BottomSheetModal does).
   return (
-    <BottomSheetModal
-      ref={ref}
-      snapPoints={bottomSheetProps?.snapPoints ?? ["25%", "50%", "70%", "90%"]}
-      index={bottomSheetProps?.index ?? 0}
-      enableDynamicSizing={false}
-      enablePanDownToClose
-      backdropComponent={renderBackdrop}
-      backgroundStyle={styles.bottomSheet}
-      handleStyle={styles.handleStyle}
-      handleIndicatorStyle={styles.handleIndicatorStyle}
-      {...bottomSheetProps}
-    >
-      <View style={styles.container}>
-        <Typography variant="mediumBold" style={styles.title}>
-          {title}
-        </Typography>
-        {description && (
-          <Typography variant="smallRegular" style={styles.description}>
-            {description}
+    <Portal>
+      <BottomSheet
+        ref={ref}
+        snapPoints={
+          bottomSheetProps?.snapPoints ?? ["25%", "50%", "70%", "90%"]
+        }
+        index={bottomSheetProps?.index ?? -1}
+        enableDynamicSizing={false}
+        enablePanDownToClose
+        backdropComponent={renderBackdrop}
+        backgroundStyle={styles.bottomSheet}
+        handleStyle={styles.handleStyle}
+        handleIndicatorStyle={styles.handleIndicatorStyle}
+        {...bottomSheetProps}
+      >
+        <View style={styles.container}>
+          <Typography variant="mediumBold" style={styles.title}>
+            {title}
           </Typography>
-        )}
-        {children}
-      </View>
-    </BottomSheetModal>
+          {description && (
+            <Typography variant="smallRegular" style={styles.description}>
+              {description}
+            </Typography>
+          )}
+          {children}
+        </View>
+      </BottomSheet>
+    </Portal>
   );
 };
 
@@ -80,11 +86,7 @@ const List = ({
 // force-applies `position:absolute; top/left/right:0` (for dynamic-size measuring),
 // which only works as the sheet's sole direct child. Nested here it would ignore
 // our flex layout — overlapping the title and dropping the horizontal padding.
-const Content = ({
-  style,
-  children,
-  ...rest
-}: ComponentProps<typeof View>) => {
+const Content = ({ style, children, ...rest }: ComponentProps<typeof View>) => {
   const { styles } = useStyles();
   return (
     <View style={[styles.content, style]} {...rest}>

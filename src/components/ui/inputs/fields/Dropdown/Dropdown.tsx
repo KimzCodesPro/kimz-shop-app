@@ -26,12 +26,12 @@ const Dropdown = ({
   const openSheet = () => {
     Keyboard.dismiss();
     setIsOpen(true);
-    sheetRef.current?.present();
+    sheetRef.current?.expand();
   };
 
   const handleSelect = (selectedValue: string) => {
     onSelect(selectedValue);
-    sheetRef.current?.dismiss();
+    sheetRef.current?.close();
   };
 
   const currentStatus: StatusType = inputCurrentStatus(
@@ -80,8 +80,8 @@ const Dropdown = ({
         ref={sheetRef}
         title={label ?? placeHolder}
         bottomSheetProps={{
-          snapPoints: ["50%"],
-          onDismiss: () => setIsOpen(false),
+          snapPoints: ["90%"],
+          onClose: () => setIsOpen(false),
         }}
       >
         <BottomSheet.Scroll>
