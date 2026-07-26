@@ -1,8 +1,10 @@
 import { Typography } from "@/components/ui/display";
+import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
 import { useTheme, useUserPreferences } from "@/hooks";
-import { useState } from "react";
-import { Keyboard, Pressable, StyleSheet, View } from "react-native";
+import { useRef, useState } from "react";
+import { Pressable, StyleSheet, View } from "react-native";
 import { Dropdown, TextInput } from "../components/ui/inputs";
+import { DismissKeyboard } from "../components/ui/layout";
 
 const cities = [
   { label: "Cairo", value: "cairo" },
@@ -42,9 +44,13 @@ export default function Index() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
+  const testSheetRef = useRef<BottomSheetRef>(null);
+  // Non-modal BottomSheet is always mounted, so snapToIndex works directly.
+  const openSheetAt = (index: number) => {
+    testSheetRef.current?.snapToIndex(index);
+  };
   return (
-    <Pressable
-      onPress={Keyboard.dismiss}
+    <DismissKeyboard
       style={[styles.container, { backgroundColor: color.background.base }]}
     >
       <TextInput
@@ -87,7 +93,45 @@ export default function Index() {
           <Typography variant="normalBold">dark</Typography>
         </Pressable>
       </View>
-    </Pressable>
+
+      <View style={styles.buttons}>
+        <Pressable style={styles.button} onPress={() => openSheetAt(0)}>
+          <Typography variant="normalBold">open 25%</Typography>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => openSheetAt(1)}>
+          <Typography variant="normalBold">open 50%</Typography>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => openSheetAt(2)}>
+          <Typography variant="normalBold">open 90%</Typography>
+        </Pressable>
+      </View>
+
+      <BottomSheet
+        ref={testSheetRef}
+        title="test content"
+        description="drag the handle between the 25% / 50% / 90% snap points"
+        bottomSheetProps={{ snapPoints: ["25%", "50%", "90%"] }}
+      >
+        <BottomSheet.Content style={styles.modalContent}>
+          <Typography variant="normalBold">First block</Typography>
+          <Typography variant="smallRegular" color={color.foreground.secondary}>
+            This is a plain View content slot. Because enableDynamicSizing is
+            false and the height comes from the fixed snap points, it lays out
+            fine without BottomSheetView.
+          </Typography>
+          <Typography variant="normalBold">Second block</Typography>
+          <Typography variant="smallRegular" color={color.foreground.secondary}>
+            Notice the left/right padding and the gap under the title are
+            respected — the flex layout is not overridden.
+          </Typography>
+          <Typography variant="normalBold">Third block</Typography>
+          <Typography variant="smallRegular" color={color.foreground.secondary}>
+            Drag up to the 90% snap point to see more of this content. Since
+            Content does not scroll, anything past the sheet height is clipped.
+          </Typography>
+        </BottomSheet.Content>
+      </BottomSheet>
+    </DismissKeyboard>
   );
 }
 
