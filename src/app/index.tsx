@@ -45,12 +45,9 @@ export default function Index() {
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
   const testSheetRef = useRef<BottomSheetRef>(null);
-  // A modal opens at its `index` prop, so set that then present().
-  const [openIndex, setOpenIndex] = useState(0);
-
+  // Non-modal BottomSheet is always mounted, so snapToIndex works directly.
   const openSheetAt = (index: number) => {
-    setOpenIndex(index);
-    testSheetRef.current?.present();
+    testSheetRef.current?.snapToIndex(index);
   };
   return (
     <DismissKeyboard
@@ -113,7 +110,7 @@ export default function Index() {
         ref={testSheetRef}
         title="test content"
         description="drag the handle between the 25% / 50% / 90% snap points"
-        bottomSheetProps={{ snapPoints: ["25%", "50%", "90%"], index: openIndex }}
+        bottomSheetProps={{ snapPoints: ["25%", "50%", "90%"] }}
       >
         <BottomSheet.Content style={styles.modalContent}>
           <Typography variant="normalBold">First block</Typography>
