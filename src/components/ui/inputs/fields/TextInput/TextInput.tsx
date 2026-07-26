@@ -29,8 +29,6 @@ const TextInput = ({
 
   const { styles, colors } = useSharedStyles(currentStatus);
 
-  // Defaulted in the body, not in the destructuring: a default on `type` would
-  // detach it from the union and stop it narrowing `iconName` on the next line.
   const fieldType = type ?? "text";
 
   const resolvedIconName = type === "password" ? "lock" : iconName;
