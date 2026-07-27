@@ -19,7 +19,7 @@ const sizes = {
     width: HS(120),
     height: VS(120),
   },
-};
+} as const;
 
 const useStyles = (size: Sizes) => {
   const colors = useTheme();

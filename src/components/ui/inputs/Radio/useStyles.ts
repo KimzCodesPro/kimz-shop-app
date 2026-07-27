@@ -1,4 +1,4 @@
-import { radius, spacing } from "@/constants";
+import { opacity, radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
@@ -19,14 +19,14 @@ const useStyle = (value: boolean, disabled?: boolean) => {
       borderColor: value ? colors.primary.base : colors.border.default,
       paddingVertical: spacing.space4.height,
       paddingHorizontal: spacing.space4.width,
-      opacity: disabled ? 0.8 : 1,
+      opacity: disabled ? opacity.disabled : opacity.full,
     },
     indicator: {
       width: HS(10),
       height: VS(10),
       borderRadius: radius.full,
       backgroundColor: value ? colors.primary.base : colors.background.base,
-      opacity: disabled ? 0.8 : 1,
+      opacity: disabled ? opacity.disabled : opacity.full,
     },
   });
   return { styles };
