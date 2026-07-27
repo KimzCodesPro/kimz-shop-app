@@ -1,5 +1,5 @@
 import { IconName } from "@/components/icons";
-import { InputBaseProps } from "../shared/types";
+import { FieldProps } from "../shared/types";
 
 type TextInputTypePros =
   | { type?: "text"; iconName: IconName; clearInput?: () => void }
@@ -7,5 +7,5 @@ type TextInputTypePros =
 
 export type TextInputProps = {
   onChangeText?: (text: string) => void;
-} & InputBaseProps &
+} & FieldProps &
   TextInputTypePros;

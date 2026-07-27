@@ -5,26 +5,26 @@ import { Platform, StyleSheet } from "react-native";
 import { StatusType } from "./types";
 const { HS, VS } = scalingMethods;
 
-const useSharedStyles = (inputCurrentStatus: StatusType) => {
+const useSharedStyles = (currentStatus: StatusType) => {
   const colors = useTheme();
   const fontFamilyStyles = useFontStyles();
 
   const isAndroid = Platform.OS === "android";
 
-  const colorMapping: Record<StatusType, string> = {
+  const colorMapping = {
     default: colors.foreground.tertiary,
     focused: colors.primary.base,
     filled: colors.primary.base,
     error: colors.danger.base,
   };
 
-  const statusColor = colorMapping[inputCurrentStatus];
+  const statusColor = colorMapping[currentStatus];
 
   const styles = StyleSheet.create({
     container: {
       alignSelf: "stretch",
     },
-    inputWrapper: {
+    fieldWrapper: {
       height: VS(52),
       flexDirection: "row",
       alignItems: "center",

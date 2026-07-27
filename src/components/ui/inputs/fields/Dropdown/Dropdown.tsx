@@ -3,16 +3,16 @@ import { useRef, useState } from "react";
 import { Keyboard, Pressable } from "react-native";
 import { Typography } from "../../../display";
 import { BottomSheet, BottomSheetRef } from "../../../overlay";
-import FormInputWrapper from "../shared/FormInputWrapper";
+import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
-import { inputCurrentStatus } from "../shared/utils";
+import { fieldCurrentStatus } from "../shared/utils";
 import DropdownList from "./DropdownList";
 import { DropdownProps } from "./types";
 
 const Dropdown = ({
   label,
-  placeHolder,
+  placeholder,
   iconName,
   options,
   value,
@@ -33,28 +33,27 @@ const Dropdown = ({
     sheetRef.current?.close();
   };
 
-  const currentStatus: StatusType = inputCurrentStatus(
+  const selectedOption = options.find((option) => option.value === value);
+
+  // Status follows the resolved option, not the raw value: a value with no
+  // matching option renders as the placeholder, so it must not read as filled.
+  const currentStatus: StatusType = fieldCurrentStatus(
     errorMessage,
     isOpen,
-    value,
+    selectedOption?.value ?? "",
   );
 
-  const { styles, colors, statusColor } = useSharedStyles(currentStatus);
-
-  const selectedOption = options.find((option) => option.value === value);
+  const { styles, colors } = useSharedStyles(currentStatus);
 
   return (
     <>
       <Pressable onPress={openSheet} style={styles.pressableWrapper}>
-        <FormInputWrapper
+        <FieldWrapper
           label={label}
-          inputIconName={iconName}
+          fieldIconName={iconName}
           errorMessage={errorMessage}
-          styles={{
-            container: [styles.container, style],
-            inputWrapper: styles.inputWrapper,
-          }}
-          statusColor={statusColor}
+          currentStatus={currentStatus}
+          style={style}
         >
           <Typography
             variant="smallRegular"
@@ -66,18 +65,18 @@ const Dropdown = ({
                 : colors.foreground.tertiary
             }
           >
-            {selectedOption?.label ?? placeHolder}
+            {selectedOption?.label ?? placeholder}
           </Typography>
           <Icon
             name={isOpen ? "chevron-up" : "chevron-down"}
             size={22}
             color={colors.foreground.tertiary}
           />
-        </FormInputWrapper>
+        </FieldWrapper>
       </Pressable>
       <BottomSheet
         ref={sheetRef}
-        title={label ?? placeHolder}
+        title={label ?? placeholder}
         bottomSheetProps={{
           snapPoints: ["50%"],
           // onAnimate fires when a transition STARTS, so the arrow/border reset

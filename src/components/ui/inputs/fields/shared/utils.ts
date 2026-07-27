@@ -1,6 +1,6 @@
 import { StatusType } from "./types";
 
-const inputCurrentStatus = (
+const fieldCurrentStatus = (
   errorMessage: string | undefined,
   isFocused: boolean,
   value: string,
@@ -14,4 +14,4 @@ const inputCurrentStatus = (
         : "default";
 };
 
-export { inputCurrentStatus };
+export { fieldCurrentStatus };

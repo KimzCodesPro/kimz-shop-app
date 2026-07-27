@@ -1,15 +1,15 @@
 import Icon from "@/components/icons";
 import { useState } from "react";
 import { Pressable, TextInput as RNTextInput } from "react-native";
-import FormInputWrapper from "../shared/FormInputWrapper";
+import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
-import { inputCurrentStatus } from "../shared/utils";
+import { fieldCurrentStatus } from "../shared/utils";
 import { TextInputProps } from "./types";
 
 const TextInput = ({
   label,
-  placeHolder,
+  placeholder,
   iconName,
   type,
   value,
@@ -21,38 +21,37 @@ const TextInput = ({
   const [isFocused, setIsFocused] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const currentStatus: StatusType = inputCurrentStatus(
+  const currentStatus: StatusType = fieldCurrentStatus(
     errorMessage,
     isFocused,
     value,
   );
 
-  const { styles, colors, statusColor } = useSharedStyles(currentStatus);
+  const { styles, colors } = useSharedStyles(currentStatus);
+
+  const fieldType = type ?? "text";
 
   const resolvedIconName = type === "password" ? "lock" : iconName;
 
   return (
-    <FormInputWrapper
+    <FieldWrapper
       label={label}
-      inputIconName={resolvedIconName}
+      fieldIconName={resolvedIconName}
       errorMessage={errorMessage}
-      styles={{
-        container: [styles.container, style],
-        inputWrapper: styles.inputWrapper,
-      }}
-      statusColor={statusColor}
+      currentStatus={currentStatus}
+      style={style}
     >
       <RNTextInput
         style={styles.textInput}
         value={value}
         onChangeText={onChangeText}
-        placeholder={placeHolder}
+        placeholder={placeholder}
         placeholderTextColor={colors.foreground.tertiary}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        secureTextEntry={type === "password" && !passwordVisible}
+        secureTextEntry={fieldType === "password" && !passwordVisible}
       />
-      {type === "password" && value && (
+      {fieldType === "password" && value && (
         <Pressable onPress={() => setPasswordVisible(!passwordVisible)}>
           <Icon
             name={passwordVisible ? "eye-off" : "eye"}
@@ -62,12 +61,12 @@ const TextInput = ({
         </Pressable>
       )}
 
-      {type === "text" && clearInput && value && (
+      {fieldType === "text" && clearInput && value && (
         <Pressable onPress={clearInput}>
           <Icon name="close" size={20} color={colors.foreground.tertiary} />
         </Pressable>
       )}
-    </FormInputWrapper>
+    </FieldWrapper>
   );
 };
 

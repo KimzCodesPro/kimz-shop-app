@@ -56,22 +56,22 @@ export default function Index() {
       <TextInput
         type="text"
         label="user name"
-        placeHolder="inster username"
+        placeholder="inster username"
         iconName="mail"
         value={name}
         onChangeText={(text) => setName(text)}
       />
       <TextInput
         type="text"
-        label="email "
-        placeHolder="inster email"
+        label="email"
+        placeholder="inster email"
         iconName="mail"
         value={email}
         onChangeText={(text) => setEmail(text)}
       />
       <Dropdown
         label="city"
-        placeHolder="select city"
+        placeholder="select city"
         iconName="map-pin"
         options={cities}
         value={city}
