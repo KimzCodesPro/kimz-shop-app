@@ -10,11 +10,8 @@ const useStyle = (size: SizeType, variant: VariantType) => {
   const buttonHeight = size === "sm" ? VS(39) : VS(49);
 
   // One row per variant, so a new variant can't be added to some maps and
-  // forgotten in others. The Record makes a missing variant a compile error.
-  const variantColors: Record<
-    VariantType,
-    { background: string; typography: string; border: string }
-  > = {
+  // forgotten in others.
+  const variantColors = {
     primary: {
       background: color.primary.base,
       typography: color.foreground.contrast,
@@ -40,7 +37,7 @@ const useStyle = (size: SizeType, variant: VariantType) => {
       typography: color.danger.base,
       border: color.background.base,
     },
-  };
+  } as const;
 
   const currentVariantColors = variantColors[variant];
 
