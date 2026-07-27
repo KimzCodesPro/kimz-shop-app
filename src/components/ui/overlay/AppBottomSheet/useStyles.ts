@@ -12,7 +12,7 @@ const useStyles = () => {
     },
     bottomSheet: {
       backgroundColor: colors.background.base,
-      borderRadius: radius["xl"],
+      borderRadius: radius.sheet,
       shadowColor: colors.misc.shadow,
       shadowOffset: {
         width: 0,
