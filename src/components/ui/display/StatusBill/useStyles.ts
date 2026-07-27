@@ -9,8 +9,6 @@ const { HS } = scalingMethods;
 const useStyles = (colorSchema: StatusVariant, variant: StatusBillVariant) => {
   const colors = useTheme();
 
-  // One row per status, so a new status can't be added to one map and
-  // forgotten in the other.
   const statusColors = {
     success: { tint: colors.success.tint, strong: colors.success.strong },
     warning: { tint: colors.warning.tint, strong: colors.warning.base },
@@ -26,9 +24,9 @@ const useStyles = (colorSchema: StatusVariant, variant: StatusBillVariant) => {
       alignItems: "center",
       justifyContent: "center",
       backgroundColor:
-        variant === "filled"
-          ? currentStatusColors.tint
-          : colors.background.base,
+        variant === "outlined"
+          ? colors.background.base
+          : currentStatusColors.tint,
       borderWidth: HS(1),
       borderColor:
         variant === "outlined"

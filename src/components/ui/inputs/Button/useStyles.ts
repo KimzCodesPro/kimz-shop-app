@@ -9,8 +9,6 @@ const useStyle = (size: SizeType, variant: VariantType) => {
   const color = useTheme();
   const buttonHeight = size === "sm" ? VS(39) : VS(49);
 
-  // One row per variant, so a new variant can't be added to some maps and
-  // forgotten in others.
   const variantColors = {
     primary: {
       background: color.primary.base,
