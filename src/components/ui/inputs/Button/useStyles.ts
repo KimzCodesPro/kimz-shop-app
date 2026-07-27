@@ -37,7 +37,7 @@ const useStyle = (size: SizeType, variant: VariantType) => {
       typography: color.danger.base,
       border: color.background.base,
     },
-  };
+  } as const;
 
   const currentVariantColors = variantColors[variant];
 
