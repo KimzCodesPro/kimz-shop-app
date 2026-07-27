@@ -14,7 +14,9 @@ const Button = ({
   loading = { indicator: false },
   style,
 }: ButtonProps) => {
-  const { styles, typographyColor } = useStyles(size, variant);
+  const isDisabled = disabled || loading.indicator;
+
+  const { styles, typographyColor } = useStyles(size, variant, isDisabled);
 
   const typographySizeVariant = size === "sm" ? "smallBold" : "normalBold";
 
@@ -22,7 +24,7 @@ const Button = ({
     <TouchableOpacity
       onPress={onPress}
       style={[styles.button, style]}
-      disabled={disabled || loading.indicator}
+      disabled={isDisabled}
     >
       {!loading.indicator && icon && (
         <Icon name={icon} size={20} color={typographyColor} />

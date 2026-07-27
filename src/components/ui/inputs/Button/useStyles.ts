@@ -1,11 +1,11 @@
-import { radius } from "@/constants";
+import { opacity, radius } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 import { SizeType, VariantType } from "./types";
 const { VS, HS } = scalingMethods;
 
-const useStyle = (size: SizeType, variant: VariantType) => {
+const useStyle = (size: SizeType, variant: VariantType, disabled?: boolean) => {
   const color = useTheme();
   const buttonHeight = size === "sm" ? VS(39) : VS(49);
 
@@ -51,6 +51,7 @@ const useStyle = (size: SizeType, variant: VariantType) => {
       justifyContent: "center",
       borderWidth: HS(1),
       borderColor: currentVariantColors.border,
+      opacity: disabled ? opacity.disabled : opacity.full,
     },
   });
 
