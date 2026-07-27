@@ -9,19 +9,16 @@ const { HS } = scalingMethods;
 const useStyles = (colorSchema: StatusVariant, variant: StatusBillVariant) => {
   const colors = useTheme();
 
-  const tintColorType = {
-    success: colors.success.tint,
-    warning: colors.warning.tint,
-    info: colors.primary.tint,
-    danger: colors.danger.tint,
-  };
+  // One row per status, so a new status can't be added to one map and
+  // forgotten in the other.
+  const statusColors = {
+    success: { tint: colors.success.tint, strong: colors.success.strong },
+    warning: { tint: colors.warning.tint, strong: colors.warning.base },
+    info: { tint: colors.primary.tint, strong: colors.primary.pressed },
+    danger: { tint: colors.danger.tint, strong: colors.danger.strong },
+  } as const;
 
-  const strongColorType = {
-    success: colors.success.strong,
-    warning: colors.warning.base,
-    info: colors.primary.pressed,
-    danger: colors.danger.strong,
-  };
+  const currentStatusColors = statusColors[colorSchema];
 
   const styles = StyleSheet.create({
     container: {
@@ -30,13 +27,13 @@ const useStyles = (colorSchema: StatusVariant, variant: StatusBillVariant) => {
       justifyContent: "center",
       backgroundColor:
         variant === "filled"
-          ? tintColorType[colorSchema]
+          ? currentStatusColors.tint
           : colors.background.base,
       borderWidth: HS(1),
       borderColor:
         variant === "outlined"
-          ? strongColorType[colorSchema]
-          : tintColorType[colorSchema],
+          ? currentStatusColors.strong
+          : currentStatusColors.tint,
       paddingHorizontal: spacing.space8.width,
       paddingVertical: spacing.space4.height,
       borderRadius: radius.full,
@@ -44,7 +41,7 @@ const useStyles = (colorSchema: StatusVariant, variant: StatusBillVariant) => {
     },
   });
 
-  return { colors, styles, strongColorType, tintColorType };
+  return { colors, styles, strongColor: currentStatusColors.strong };
 };
 
 export default useStyles;
