@@ -31,16 +31,21 @@ const useStyles = () => {
       paddingTop: spacing.space12.height,
       paddingBottom: 0,
     },
-    container: {
-      flex: 1,
+    header: {
       alignItems: "center",
       paddingHorizontal: spacing.space24.width,
-      paddingVertical: spacing.space24.height,
+      paddingTop: spacing.space24.height,
     },
+    // The scrollable is a DIRECT child of BottomSheet (gorhom requirement: a
+    // scrollable nested inside a wrapper View won't scroll). So its own `style`
+    // owns the flex sizing and its contentContainerStyle owns the padding.
     content: {
-      alignSelf: "stretch",
       flex: 1,
       marginTop: spacing.space16.height,
+    },
+    contentContainer: {
+      paddingHorizontal: spacing.space24.width,
+      paddingBottom: spacing.space24.height,
     },
     title: {
       color: colors.foreground.primary,
