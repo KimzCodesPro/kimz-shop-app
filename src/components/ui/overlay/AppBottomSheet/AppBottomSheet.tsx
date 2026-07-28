@@ -43,7 +43,7 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
         handleIndicatorStyle={styles.handleIndicatorStyle}
         {...bottomSheetProps}
       >
-        <View style={styles.container}>
+        <View style={styles.header}>
           <Typography variant="mediumBold" style={styles.title}>
             {title}
           </Typography>
@@ -52,8 +52,8 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
               {description}
             </Typography>
           )}
-          {children}
         </View>
+        {children}
       </BottomSheet>
     </Portal>
   );
@@ -63,12 +63,17 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
 // sheet's shared content style so it stretches and fills the remaining space.
 const Scroll = ({
   style,
+  contentContainerStyle,
   children,
   ...rest
 }: ComponentProps<typeof BottomSheetScrollView>) => {
   const { styles } = useStyles();
   return (
-    <BottomSheetScrollView style={[styles.content, style]} {...rest}>
+    <BottomSheetScrollView
+      style={[styles.content, style]}
+      contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
+      {...rest}
+    >
       {children}
     </BottomSheetScrollView>
   );
@@ -76,20 +81,23 @@ const Scroll = ({
 
 const List = ({
   style,
+  contentContainerStyle,
   ...rest
 }: ComponentProps<typeof BottomSheetFlatList>) => {
   const { styles } = useStyles();
-  return <BottomSheetFlatList style={[styles.content, style]} {...rest} />;
+  return (
+    <BottomSheetFlatList
+      style={[styles.content, style]}
+      contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
+      {...rest}
+    />
+  );
 };
 
-// Non-scrolling slot: a plain View, NOT gorhom's BottomSheetView. BottomSheetView
-// force-applies `position:absolute; top/left/right:0` (for dynamic-size measuring),
-// which only works as the sheet's sole direct child. Nested here it would ignore
-// our flex layout — overlapping the title and dropping the horizontal padding.
 const Content = ({ style, children, ...rest }: ComponentProps<typeof View>) => {
   const { styles } = useStyles();
   return (
-    <View style={[styles.content, style]} {...rest}>
+    <View style={[styles.content, styles.contentContainer, style]} {...rest}>
       {children}
     </View>
   );

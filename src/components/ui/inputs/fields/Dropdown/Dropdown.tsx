@@ -23,14 +23,16 @@ const Dropdown = ({
   const [isOpen, setIsOpen] = useState(false);
   const sheetRef = useRef<BottomSheetRef>(null);
 
-  const openSheet = () => {
+  const handleOpenSheet = () => {
     Keyboard.dismiss();
+    setIsOpen(true);
     sheetRef.current?.expand();
   };
 
-  const handleSelect = (selectedValue: string) => {
-    onSelect(selectedValue);
+  const handleSelectValue = (val: string) => {
     sheetRef.current?.close();
+    onSelect(val);
+    setIsOpen(false);
   };
 
   const selectedOption = options.find((option) => option.value === value);
@@ -47,7 +49,7 @@ const Dropdown = ({
 
   return (
     <>
-      <Pressable onPress={openSheet} style={styles.pressableWrapper}>
+      <Pressable onPress={handleOpenSheet} style={styles.pressableWrapper}>
         <FieldWrapper
           label={label}
           fieldIconName={iconName}
@@ -79,11 +81,6 @@ const Dropdown = ({
         title={label ?? placeholder}
         bottomSheetProps={{
           snapPoints: ["50%"],
-          // onAnimate fires when a transition STARTS, so the arrow/border reset
-          // instantly even when closing via the backdrop (not just on drag).
-          onAnimate: (_fromIndex, toIndex) => setIsOpen(toIndex !== -1),
-          // onClose always fires when the sheet lands closed (not behind gorhom's
-          // index guard), so it's the reliable backstop for interrupted closes.
           onClose: () => setIsOpen(false),
         }}
       >
@@ -91,7 +88,7 @@ const Dropdown = ({
           <DropdownList
             options={options}
             value={value}
-            onSelect={handleSelect}
+            onSelect={handleSelectValue}
             styles={{
               option: styles.dropdownOption,
             }}

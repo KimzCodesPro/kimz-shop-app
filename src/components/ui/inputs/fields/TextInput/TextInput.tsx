@@ -29,8 +29,6 @@ const TextInput = ({
 
   const { styles, colors } = useSharedStyles(currentStatus);
 
-  const fieldType = type ?? "text";
-
   const resolvedIconName = type === "password" ? "lock" : iconName;
 
   return (
@@ -49,9 +47,9 @@ const TextInput = ({
         placeholderTextColor={colors.foreground.tertiary}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        secureTextEntry={fieldType === "password" && !passwordVisible}
+        secureTextEntry={type === "password" && !passwordVisible}
       />
-      {fieldType === "password" && value && (
+      {type === "password" && value && (
         <Pressable onPress={() => setPasswordVisible(!passwordVisible)}>
           <Icon
             name={passwordVisible ? "eye-off" : "eye"}
@@ -61,7 +59,7 @@ const TextInput = ({
         </Pressable>
       )}
 
-      {fieldType === "text" && clearInput && value && (
+      {type !== "password" && clearInput && value && (
         <Pressable onPress={clearInput}>
           <Icon name="close" size={20} color={colors.foreground.tertiary} />
         </Pressable>
