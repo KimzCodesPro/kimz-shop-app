@@ -14,7 +14,9 @@ const Button = ({
   loading = { indicator: false },
   style,
 }: ButtonProps) => {
-  const isDisabled = disabled || loading.indicator;
+  const { indicator: isLoading, text: loadingText } = loading;
+
+  const isDisabled = disabled || isLoading;
 
   const { styles, typographyColor } = useStyles(size, variant, isDisabled);
 
@@ -26,14 +28,13 @@ const Button = ({
       style={[styles.button, style]}
       disabled={isDisabled}
     >
-      {!loading.indicator && icon && (
-        <Icon name={icon} size={20} color={typographyColor} />
-      )}
-      {loading.indicator && (
+      {isLoading ? (
         <ActivityIndicator size="small" color={typographyColor} />
+      ) : (
+        icon && <Icon name={icon} size={20} color={typographyColor} />
       )}
       <Typography variant={typographySizeVariant} color={typographyColor}>
-        {loading.indicator ? loading.text || title : title}
+        {(isLoading && loadingText) || title}
       </Typography>
     </TouchableOpacity>
   );
