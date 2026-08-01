@@ -1,4 +1,4 @@
-import { ScrollViewProps } from "react-native";
+import { VerticalScrollViewProps } from "../VerticalScrollView/types";
 
 type ScreenLayoutBaseProps = {
   hasTopBar?: boolean;
@@ -8,7 +8,7 @@ type ScreenLayoutBaseProps = {
 };
 
 type ScreenLayoutScrollProps =
-  | { scrollable: true; scrollProps?: ScrollViewProps }
+  | { scrollable: true; scrollProps?: VerticalScrollViewProps }
   | { scrollable?: false; scrollProps?: never };
 
 export type ScreenLayoutProps = ScreenLayoutBaseProps & ScreenLayoutScrollProps;

@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import AppScrollView from "../AppScrollView/AppScrollView";
+import VerticalScrollView from "../VerticalScrollView/VerticalScrollView";
 import { ScreenLayoutProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -16,7 +16,7 @@ const ScreenLayout = ({
   if (scrollable) {
     return (
       <View style={styles.scrollViewWrapper}>
-        <AppScrollView
+        <VerticalScrollView
           {...scrollProps}
           contentContainerStyle={[
             styles.scrollViewContent,
@@ -24,7 +24,7 @@ const ScreenLayout = ({
           ]}
         >
           {children}
-        </AppScrollView>
+        </VerticalScrollView>
       </View>
     );
   }
