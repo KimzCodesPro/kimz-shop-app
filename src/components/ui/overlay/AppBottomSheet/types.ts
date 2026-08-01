@@ -11,6 +11,9 @@ export type AppBottomSheetProps = {
   children: React.ReactNode;
   // enableDynamicSizing is locked to false in AppBottomSheet (we rely on fixed
   // snapPoints), so callers can't override it and reintroduce content-measuring.
-  bottomSheetProps?: Omit<BottomSheetProps, "children" | "enableDynamicSizing">;
+  bottomSheetProps?: Omit<
+    BottomSheetProps,
+    "children" | "enableDynamicSizing" | "index"
+  >;
   ref: Ref<BottomSheetRef>;
 };
