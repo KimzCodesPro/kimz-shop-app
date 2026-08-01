@@ -34,7 +34,7 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
         snapPoints={
           bottomSheetProps?.snapPoints ?? ["25%", "50%", "70%", "90%"]
         }
-        index={bottomSheetProps?.index ?? -1}
+        index={-1}
         enableDynamicSizing={false}
         enablePanDownToClose
         backdropComponent={RenderBackdrop}
