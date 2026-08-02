@@ -1,29 +1,38 @@
-import { BottomTabIcon } from "@/src/components/ui/layout";
+import { CustomTabButton } from "@/src/components/ui/layout";
 import { useTheme } from "@/src/hooks";
-import { Tabs } from "expo-router";
+import { scalingMethods } from "@/utils";
+import { Tabs } from "expo-router/js-tabs";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+const { HS, VS } = scalingMethods;
+
+const TAB_BAR_HEIGHT = VS(70);
 
 export default function TabLayout() {
   const colors = useTheme();
+  const insets = useSafeAreaInsets();
+
+  // insets.bottom carries the space the system needs, so the tab bar keeps a
+  // full TAB_BAR_HEIGHT of content on every device:
+  // no nav bar 0, Android gesture ~24, Android 3-button ~48, iOS indicator 34.
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: colors.primary.base,
-        tabBarInactiveTintColor: colors.foreground.tertiary,
-        tabBarShowLabel: true,
-        tabBarStyle: {},
+        tabBarShowLabel: false,
+        headerShown: false,
+        tabBarStyle: {
+          height: TAB_BAR_HEIGHT + insets.bottom,
+          borderTopWidth: HS(2),
+          borderTopColor: colors.border.default,
+        },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <BottomTabIcon
-              focused={focused}
-              color={color}
-              activeColor={colors.primary.base}
-              name="home"
-            />
+          tabBarButton: (props) => (
+            <CustomTabButton {...props} name="home" label="Home" />
           ),
         }}
       />
@@ -31,30 +40,17 @@ export default function TabLayout() {
         name="myOrder"
         options={{
           title: "My Order",
-          tabBarIcon: ({ color, focused }) => {
-            console.log(typeof color);
-            return (
-              <BottomTabIcon
-                focused={focused}
-                color={color}
-                activeColor={colors.primary.base}
-                name="truck"
-              />
-            );
-          },
+          tabBarButton: (props) => (
+            <CustomTabButton {...props} name="truck" label="My Order" />
+          ),
         }}
       />
       <Tabs.Screen
         name="myCard"
         options={{
           title: "My Card",
-          tabBarIcon: ({ color, focused }) => (
-            <BottomTabIcon
-              focused={focused}
-              color={color}
-              activeColor={colors.primary.base}
-              name="shopping-cart"
-            />
+          tabBarButton: (props) => (
+            <CustomTabButton {...props} name="shopping-cart" label="My Card" />
           ),
         }}
       />
@@ -62,13 +58,8 @@ export default function TabLayout() {
         name="account"
         options={{
           title: "Account",
-          tabBarIcon: ({ color, focused }) => (
-            <BottomTabIcon
-              focused={focused}
-              color={color}
-              activeColor={colors.primary.base}
-              name="user"
-            />
+          tabBarButton: (props) => (
+            <CustomTabButton {...props} name="user" label="Account" />
           ),
         }}
       />
