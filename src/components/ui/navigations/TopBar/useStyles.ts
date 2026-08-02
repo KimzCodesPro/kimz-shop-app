@@ -12,7 +12,6 @@ const useStyles = () => {
   const styles = StyleSheet.create({
     topBarWrapper: {
       paddingTop: insets.top,
-      backgroundColor: colors.background.base,
     },
     container: {
       height: VS(50),
