@@ -1,11 +1,9 @@
 import { Text, View } from "react-native";
 
-const index = () => {
+export default function MyCard() {
   return (
     <View>
-      <Text>index</Text>
+      <Text>myCard</Text>
     </View>
   );
-};
-
-export default index;
+}

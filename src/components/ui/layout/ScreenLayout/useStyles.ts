@@ -13,15 +13,15 @@ const useStyles = (
     overRidebottomInset,
   });
 
+  // No backgroundColor here: RootLayout hands colors.background.base to
+  // React Navigation's theme, which paints every screen for us.
   const styles = StyleSheet.create({
     viewWrapper: {
-      backgroundColor: colors.background.base,
       paddingTop,
       paddingBottom,
       flex: 1,
     },
     scrollViewWrapper: {
-      backgroundColor: colors.background.base,
       paddingTop,
       flex: 1,
     },

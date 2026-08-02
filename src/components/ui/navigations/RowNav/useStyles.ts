@@ -14,7 +14,6 @@ const useStyles = () => {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",
-      backgroundColor: colors.background.base,
       borderRadius: radius.sm,
       borderWidth: HS(1),
       borderColor: colors.border.default,

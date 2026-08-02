@@ -1,11 +1,9 @@
 import { Text, View } from "react-native";
 
-const index = () => {
+export default function Home() {
   return (
     <View>
-      <Text>hello page</Text>
+      <Text>H</Text>
     </View>
   );
-};
-
-export default index;
+}
