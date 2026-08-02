@@ -13,6 +13,8 @@ import Home from "./Home";
 import Lock from "./Lock";
 import Mail from "./Mail";
 import MapPin from "./MapPin";
+import ShopingCart from "./ShopingCart";
+import Truck from "./Truck";
 import User from "./User";
 
 const icons = {
@@ -32,6 +34,8 @@ const icons = {
   camera: Camera,
   check: Check,
   "credit-card": CreditCard,
+  "shopping-cart": ShopingCart,
+  truck: Truck,
 } as const;
 
 export default icons;

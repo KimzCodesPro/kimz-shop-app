@@ -1,11 +1,11 @@
-import { StyleProp, ViewStyle } from "react-native";
+import { ColorValue, StyleProp, ViewStyle } from "react-native";
 import iconList from "./components/iconMapper";
 
 export type IconName = keyof typeof iconList;
 
 export type IconBase = {
   size?: number;
-  color?: string;
+  color?: ColorValue;
   style?: StyleProp<ViewStyle>;
 };
 
