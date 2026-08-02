@@ -6,7 +6,9 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const { HS, VS } = scalingMethods;
 
-const TAB_BAR_HEIGHT = VS(70);
+// Must match CustomTabButton's content box:
+// paddingVertical 8 + icon 24 + gap 8 + label lineHeight 14 + paddingVertical 8
+const TAB_BAR_HEIGHT = VS(62);
 
 export default function TabLayout() {
   const colors = useTheme();
