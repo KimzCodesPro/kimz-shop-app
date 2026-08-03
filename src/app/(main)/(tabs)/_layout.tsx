@@ -1,4 +1,4 @@
-import { CustomTabButton } from "@/src/components/ui/layout";
+import { CustomTabBarButton } from "@/src/components/ui/layout";
 import { useTheme } from "@/src/hooks";
 import { scalingMethods } from "@/utils";
 import { Tabs } from "expo-router/js-tabs";
@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const { HS, VS } = scalingMethods;
 
-// Must match CustomTabButton's content box:
+// Must match CustomTabBarButton's content box:
 // paddingVertical 12 + icon 24 + gap 8 + label lineHeight 14 + paddingVertical 12
 const TAB_BAR_HEIGHT = VS(70);
 
@@ -14,9 +14,6 @@ export default function TabLayout() {
   const colors = useTheme();
   const insets = useSafeAreaInsets();
 
-  // insets.bottom carries the space the system needs, so the tab bar keeps a
-  // full TAB_BAR_HEIGHT of content on every device:
-  // no nav bar 0, Android gesture ~24, Android 3-button ~48, iOS indicator 34.
   return (
     <Tabs
       screenOptions={{
@@ -34,7 +31,7 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarButton: (props) => (
-            <CustomTabButton {...props} name="home" label="Home" />
+            <CustomTabBarButton {...props} iconName="home" label="Home" />
           ),
         }}
       />
@@ -43,7 +40,7 @@ export default function TabLayout() {
         options={{
           title: "My Order",
           tabBarButton: (props) => (
-            <CustomTabButton {...props} name="truck" label="My Order" />
+            <CustomTabBarButton {...props} iconName="truck" label="My Order" />
           ),
         }}
       />
@@ -52,7 +49,11 @@ export default function TabLayout() {
         options={{
           title: "My Card",
           tabBarButton: (props) => (
-            <CustomTabButton {...props} name="shopping-cart" label="My Card" />
+            <CustomTabBarButton
+              {...props}
+              iconName="shopping-cart"
+              label="My Card"
+            />
           ),
         }}
       />
@@ -61,7 +62,7 @@ export default function TabLayout() {
         options={{
           title: "Account",
           tabBarButton: (props) => (
-            <CustomTabButton {...props} name="user" label="Account" />
+            <CustomTabBarButton {...props} iconName="user" label="Account" />
           ),
         }}
       />
