@@ -2,6 +2,8 @@ import { spacing } from "@/constants";
 import { scalingMethods } from "@/utils";
 const { VS } = scalingMethods;
 
+export const MAX_BADGE_COUNT = 9;
+
 export const TAB_ICON_SIZE = VS(25);
 
 export const TAB_PADDING_VERTICAL = VS(12);

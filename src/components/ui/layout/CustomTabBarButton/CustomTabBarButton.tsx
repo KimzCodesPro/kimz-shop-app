@@ -2,11 +2,9 @@ import Icon from "@/components/icons";
 import Typography from "@/components/ui/display/Typography/Typography";
 import { useIsFocused } from "expo-router";
 import { Pressable, View } from "react-native";
-import { TAB_ICON_SIZE } from "./constants";
+import { MAX_BADGE_COUNT, TAB_ICON_SIZE } from "./constants";
 import { CustomTabBarButtonProps } from "./types";
 import useStyles from "./useStyles";
-
-const MAX_BADGE_COUNT = 9;
 
 const CustomTabBarButton = ({
   iconName,
