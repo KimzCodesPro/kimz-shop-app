@@ -1,4 +1,5 @@
-import { radius, spacing } from "@/constants";
+import { radius } from "@/constants";
+import { TAB_GAP, TAB_PADDING_VERTICAL } from "./constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
@@ -19,11 +20,11 @@ const useStyles = (focused?: boolean) => {
     content: {
       alignItems: "center",
       justifyContent: "center",
-      gap: spacing.space8.height,
+      gap: TAB_GAP,
       borderTopWidth: HS(2),
       borderTopColor: focused ? colors.primary.base : "transparent",
       width: "100%",
-      paddingVertical: VS(12),
+      paddingVertical: TAB_PADDING_VERTICAL,
     },
     // Anchor for the badge — absolute children position against this View.
     iconWrapper: {
