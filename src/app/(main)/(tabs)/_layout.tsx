@@ -1,14 +1,11 @@
+import { TAB_BAR_CONTENT_HEIGHT } from "@/components/ui/layout/CustomTabBarButton/constants";
 import { CustomTabBarButton } from "@/src/components/ui/layout";
 import { useTheme } from "@/src/hooks";
 import { scalingMethods } from "@/utils";
 import { Tabs } from "expo-router/js-tabs";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const { HS, VS } = scalingMethods;
-
-// Must match CustomTabBarButton's content box:
-// paddingVertical 12 + icon 24 + gap 8 + label lineHeight 14 + paddingVertical 12
-const TAB_BAR_HEIGHT = VS(70);
+const { HS } = scalingMethods;
 
 export default function TabLayout() {
   const colors = useTheme();
@@ -20,7 +17,7 @@ export default function TabLayout() {
         tabBarShowLabel: false,
         headerShown: false,
         tabBarStyle: {
-          height: TAB_BAR_HEIGHT + insets.bottom,
+          height: TAB_BAR_CONTENT_HEIGHT + insets.bottom,
           borderTopWidth: HS(2),
           borderTopColor: colors.border.default,
         },
@@ -53,6 +50,7 @@ export default function TabLayout() {
               {...props}
               iconName="shopping-cart"
               label="My Card"
+              badge={10}
             />
           ),
         }}
