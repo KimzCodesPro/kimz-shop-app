@@ -3,12 +3,22 @@ import { VerticalScrollViewProps } from "../VerticalScrollView/types";
 type ScreenLayoutBaseProps = {
   hasTopBar?: boolean;
   hasTabBar?: boolean;
-  overRidebottomInset?: number; // pass 110 for sticky-CTA screens
   children: React.ReactNode;
 };
 
+// dismissKeyboardOnTap only applies to the non-scrollable branch: when
+// scrollable, VerticalScrollView's keyboardShouldPersistTaps="handled"
+// already dismisses on tap and can't be turned off from here.
 type ScreenLayoutScrollProps =
-  | { scrollable: true; scrollProps?: VerticalScrollViewProps }
-  | { scrollable?: false; scrollProps?: never };
+  | {
+      scrollable: true;
+      scrollProps?: VerticalScrollViewProps;
+      dismissKeyboardOnTap?: never;
+    }
+  | {
+      scrollable?: false;
+      scrollProps?: never;
+      dismissKeyboardOnTap?: boolean;
+    };
 
 export type ScreenLayoutProps = ScreenLayoutBaseProps & ScreenLayoutScrollProps;

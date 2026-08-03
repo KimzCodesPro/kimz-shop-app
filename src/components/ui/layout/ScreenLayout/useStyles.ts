@@ -1,27 +1,25 @@
-import { useScreenInsets, useTheme } from "@/hooks";
+import { useTheme } from "@/hooks";
 import { StyleSheet } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const useStyles = (
-  hasTopBar: boolean,
-  hasTabBar: boolean,
-  overRidebottomInset?: number,
-) => {
+const useStyles = (hasTopBar: boolean, hasTabBar: boolean) => {
   const colors = useTheme();
-  const { paddingBottom, paddingTop } = useScreenInsets({
-    hasTopBar,
-    hasTabBar,
-    overRidebottomInset,
-  });
+  const insets = useSafeAreaInsets();
 
+  // A TopBar applies insets.top itself and the tab bar already consumes
+  // insets.bottom, so we only add the inset nothing else is covering.
+  const paddingTop = hasTopBar ? 0 : insets.top;
+  const paddingBottom = hasTabBar ? 0 : insets.bottom;
+
+  // No backgroundColor here: RootLayout hands colors.background.base to
+  // React Navigation's theme, which paints every screen for us.
   const styles = StyleSheet.create({
     viewWrapper: {
-      backgroundColor: colors.background.base,
       paddingTop,
       paddingBottom,
       flex: 1,
     },
     scrollViewWrapper: {
-      backgroundColor: colors.background.base,
       paddingTop,
       flex: 1,
     },
