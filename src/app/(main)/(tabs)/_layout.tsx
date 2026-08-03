@@ -53,6 +53,7 @@ export default function TabLayout() {
               {...props}
               iconName="shopping-cart"
               label="My Card"
+              badge={10}
             />
           ),
         }}

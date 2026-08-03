@@ -1,4 +1,4 @@
-import { spacing } from "@/constants";
+import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
@@ -24,6 +24,22 @@ const useStyles = (focused?: boolean) => {
       borderTopColor: focused ? colors.primary.base : "transparent",
       width: "100%",
       paddingVertical: VS(12),
+    },
+    // Anchor for the badge — absolute children position against this View.
+    iconWrapper: {
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    badge: {
+      position: "absolute",
+      top: -VS(10),
+      end: -HS(10),
+      width: HS(21),
+      height: HS(21),
+      borderRadius: radius.full,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: colors.danger.base,
     },
   });
 
