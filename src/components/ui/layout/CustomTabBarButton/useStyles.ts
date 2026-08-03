@@ -1,8 +1,8 @@
 import { radius } from "@/constants";
-import { TAB_GAP, TAB_PADDING_VERTICAL } from "./constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
+import { TAB_GAP, TAB_PADDING_VERTICAL } from "./constants";
 const { HS, VS } = scalingMethods;
 
 const useStyles = (focused?: boolean) => {
@@ -34,7 +34,7 @@ const useStyles = (focused?: boolean) => {
     badge: {
       position: "absolute",
       top: -VS(10),
-      end: -HS(10),
+      end: -HS(13),
       width: HS(21),
       height: HS(21),
       borderRadius: radius.full,
