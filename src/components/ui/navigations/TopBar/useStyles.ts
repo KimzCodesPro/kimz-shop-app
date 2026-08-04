@@ -12,6 +12,7 @@ const useStyles = () => {
   const styles = StyleSheet.create({
     topBarWrapper: {
       paddingTop: insets.top,
+      marginBottom: VS(20),
     },
     container: {
       height: VS(50),

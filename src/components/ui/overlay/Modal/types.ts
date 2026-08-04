@@ -5,5 +5,5 @@ export type ModalProps = {
   description?: string;
   closeModal: () => void;
   visible: boolean;
-  renderItem: () => ReactNode;
+  children: ReactNode;
 };

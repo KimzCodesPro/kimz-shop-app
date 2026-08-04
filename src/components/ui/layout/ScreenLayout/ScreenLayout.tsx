@@ -6,19 +6,19 @@ import useStyles from "./useStyles";
 
 const ScreenLayout = ({
   scrollable = false,
-  topBar,
+  customTopBar,
   hasTabBar = false,
   dismissKeyboardOnTap = true,
   contentContainerStyle,
   scrollProps,
   children,
 }: ScreenLayoutProps) => {
-  const { styles } = useStyles(!!topBar, hasTabBar);
+  const { styles } = useStyles(!!customTopBar, hasTabBar);
 
   if (scrollable) {
     return (
       <View style={styles.scrollViewWrapper}>
-        {topBar}
+        {customTopBar}
         <AppScrollView
           {...scrollProps}
           contentContainerStyle={[
@@ -39,7 +39,7 @@ const ScreenLayout = ({
   if (dismissKeyboardOnTap) {
     return (
       <DismissKeyboard style={styles.viewWrapper}>
-        {topBar}
+        {customTopBar}
         {ContentRender}
       </DismissKeyboard>
     );
@@ -47,7 +47,7 @@ const ScreenLayout = ({
 
   return (
     <View style={styles.viewWrapper}>
-      {topBar}
+      {customTopBar}
       {ContentRender}
     </View>
   );
