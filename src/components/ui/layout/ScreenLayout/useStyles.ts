@@ -27,6 +27,11 @@ const useStyles = (hasTopBar: boolean, hasTabBar: boolean) => {
       paddingBottom,
       flexGrow: 1,
     },
+    // Content area of the non-scrollable branch. flex: 1 so children still
+    // fill the screen now that they sit one View deeper than the wrapper.
+    container: {
+      flex: 1,
+    },
   });
 
   return { colors, styles };
