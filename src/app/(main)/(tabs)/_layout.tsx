@@ -18,7 +18,7 @@ export default function TabLayout() {
         headerShown: false,
         tabBarStyle: {
           height: TAB_BAR_CONTENT_HEIGHT + insets.bottom,
-          borderTopWidth: HS(2),
+          borderTopWidth: HS(1),
           borderTopColor: colors.border.default,
         },
       }}
