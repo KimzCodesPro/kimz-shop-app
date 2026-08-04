@@ -8,12 +8,13 @@ const ScreenLayout = ({
   scrollable = false,
   customTopBar,
   hasTabBar = false,
+  paddingSides = "both",
   dismissKeyboardOnTap = true,
   contentContainerStyle,
   scrollProps,
   children,
 }: ScreenLayoutProps) => {
-  const { styles } = useStyles(!!customTopBar, hasTabBar);
+  const { styles } = useStyles(!!customTopBar, hasTabBar, paddingSides);
 
   if (scrollable) {
     return (

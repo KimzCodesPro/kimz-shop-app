@@ -40,7 +40,7 @@ const useStyles = () => {
       alignItems: "center",
       position: "absolute",
       top: spacing.space12.height,
-      right: spacing.space12.width,
+      end: spacing.space12.width,
       height: VS(32),
       width: HS(32),
       backgroundColor: colors.background.surface,

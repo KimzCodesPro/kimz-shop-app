@@ -34,7 +34,7 @@ const useStyles = (size: Sizes) => {
     uploaderRing: {
       position: "absolute",
       bottom: 0,
-      right: 0,
+      end: 0,
       justifyContent: "center",
       alignItems: "center",
       width: HS(42),
