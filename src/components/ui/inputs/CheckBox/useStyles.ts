@@ -11,7 +11,7 @@ const useStyles = (isChecked: boolean, disabled?: boolean) => {
     container: {
       width: HS(20),
       height: VS(20),
-      backgroundColor: isChecked ? colors.primary.base : colors.background.base,
+      backgroundColor: isChecked ? colors.primary.base : "transparent",
       borderRadius: radius.xs,
       borderWidth: HS(1.5),
       borderColor: isChecked ? colors.primary.base : colors.border.default,

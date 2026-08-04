@@ -24,9 +24,7 @@ const useStyles = (colorSchema: StatusVariant, variant: StatusBillVariant) => {
       alignItems: "center",
       justifyContent: "center",
       backgroundColor:
-        variant === "outlined"
-          ? colors.background.base
-          : currentStatusColors.tint,
+        variant === "outlined" ? "transparent" : currentStatusColors.tint,
       borderWidth: HS(1),
       borderColor:
         variant === "outlined"
