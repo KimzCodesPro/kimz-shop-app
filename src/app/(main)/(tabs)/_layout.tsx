@@ -1,6 +1,6 @@
-import { TAB_BAR_CONTENT_HEIGHT } from "@/components/ui/layout/CustomTabBarButton/constants";
-import { CustomTabBarButton } from "@/src/components/ui/layout";
-import { useTheme } from "@/src/hooks";
+import { CustomTabBarButton } from "@/components/ui/navigations";
+import { TAB_BAR_CONTENT_HEIGHT } from "@/components/ui/navigations/CustomTabBarButton/constants";
+import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { Tabs } from "expo-router/js-tabs";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
