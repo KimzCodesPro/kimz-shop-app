@@ -9,6 +9,10 @@ const { VS } = scalingMethods;
 // the bar. With no bar the wrapper has one child, so the gap collapses.
 const TOP_BAR_GAP = VS(20);
 
+// Breathing room under the last item. Design spec, not safe area — the tab
+// bar already absorbs insets.bottom, so with a tab bar this is all we add.
+const CONTENT_BOTTOM_GAP = VS(25);
+
 const useStyles = (hasTopBar: boolean, hasTabBar: boolean) => {
   const colors = useTheme();
   const insets = useSafeAreaInsets();
@@ -16,7 +20,7 @@ const useStyles = (hasTopBar: boolean, hasTabBar: boolean) => {
   // A TopBar applies insets.top itself and the tab bar already consumes
   // insets.bottom, so we only add the inset nothing else is covering.
   const paddingTop = hasTopBar ? 0 : insets.top;
-  const paddingBottom = hasTabBar ? 0 : insets.bottom;
+  const paddingBottom = (hasTabBar ? 0 : insets.bottom) + CONTENT_BOTTOM_GAP;
 
   // No backgroundColor here: RootLayout hands colors.background.base to
   // React Navigation's theme, which paints every screen for us.
