@@ -13,7 +13,6 @@ const useStyle = (value: boolean, disabled?: boolean) => {
       alignItems: "center",
       width: HS(20),
       height: VS(20),
-      backgroundColor: colors.background.base,
       borderRadius: radius.full,
       borderWidth: HS(1.5),
       borderColor: value ? colors.primary.base : colors.border.default,
@@ -25,7 +24,7 @@ const useStyle = (value: boolean, disabled?: boolean) => {
       width: HS(10),
       height: VS(10),
       borderRadius: radius.full,
-      backgroundColor: value ? colors.primary.base : colors.background.base,
+      backgroundColor: value ? colors.primary.base : "transparent",
       opacity: disabled ? opacity.disabled : opacity.full,
     },
   });

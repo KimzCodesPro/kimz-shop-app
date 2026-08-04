@@ -16,24 +16,24 @@ const useStyle = (size: SizeType, variant: VariantType, disabled?: boolean) => {
       border: color.primary.base,
     },
     chip: {
-      background: color.background.base,
+      background: "transparent",
       typography: color.primary.base,
       border: color.primary.base,
     },
     link: {
-      background: color.background.base,
+      background: "transparent",
       typography: color.primary.base,
-      border: color.background.base,
+      border: "transparent",
     },
     ghost: {
-      background: color.background.base,
+      background: "transparent",
       typography: color.foreground.primary,
       border: color.border.default,
     },
     danger: {
-      background: color.background.base,
+      background: "transparent",
       typography: color.danger.base,
-      border: color.background.base,
+      border: "transparent",
     },
   } as const;
 
