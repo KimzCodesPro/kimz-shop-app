@@ -9,10 +9,10 @@ const Modal = ({
   description,
   closeModal,
   visible = false,
-  renderItem,
+  children,
 }: ModalProps) => {
   const { styles, colors } = useStyles();
-
+  if (!visible) return null;
   return (
     <RNModal visible={visible} animationType="fade" transparent={true}>
       <View style={styles.backDrop}>
@@ -39,7 +39,7 @@ const Modal = ({
               </Typography>
             )}
           </View>
-          <View style={styles.contentChildren}>{renderItem()}</View>
+          <View style={styles.contentChildren}>{children}</View>
         </View>
       </View>
     </RNModal>

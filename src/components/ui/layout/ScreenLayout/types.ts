@@ -1,24 +1,27 @@
-import { ScrollViewProps } from "react-native";
+import { ScrollViewProps, StyleProp, ViewStyle } from "react-native";
 
 type ScreenLayoutBaseProps = {
-  hasTopBar?: boolean;
+  // Rendered outside the scroll view so it stays pinned while content scrolls.
+  customTopBar?: React.ReactNode;
   hasTabBar?: boolean;
   children: React.ReactNode;
 };
 
-// dismissKeyboardOnTap only applies to the non-scrollable branch: when
-// scrollable, AppScrollView's keyboardShouldPersistTaps="handled" already
-// dismisses on tap and can't be turned off from here.
+// Both extras are non-scrollable only. When scrollable, AppScrollView's
+// keyboardShouldPersistTaps="handled" already dismisses on tap, and the
+// content area is styled through scrollProps.contentContainerStyle.
 type ScreenLayoutScrollProps =
   | {
       scrollable: true;
       scrollProps?: ScrollViewProps;
       dismissKeyboardOnTap?: never;
+      contentContainerStyle?: never;
     }
   | {
       scrollable?: false;
       scrollProps?: never;
       dismissKeyboardOnTap?: boolean;
+      contentContainerStyle?: StyleProp<ViewStyle>;
     };
 
 export type ScreenLayoutProps = ScreenLayoutBaseProps & ScreenLayoutScrollProps;
