@@ -31,8 +31,8 @@ const Accordion = ({ items, style }: AccordionProps) => {
             </Typography>
             <Icon
               name={expandedIndex === item.id ? "chevron-up" : "chevron-down"}
-              size={20}
-              color={colors.foreground.secondary}
+              size={22}
+              color={colors.foreground.tertiary}
             />
           </View>
           {expandedIndex === item.id && (
@@ -40,7 +40,7 @@ const Accordion = ({ items, style }: AccordionProps) => {
               <Typography
                 variant="smallRegular"
                 textTransform="capitalize"
-                color={colors.foreground.primary}
+                color={colors.foreground.secondary}
               >
                 {item.description}
               </Typography>
