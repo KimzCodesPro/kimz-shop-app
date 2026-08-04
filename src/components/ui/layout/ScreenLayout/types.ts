@@ -11,7 +11,7 @@ type ScreenLayoutBaseProps = {
 // Both extras are non-scrollable only. When scrollable, VerticalScrollView's
 // keyboardShouldPersistTaps="handled" already dismisses on tap, and the
 // content area is styled through scrollProps.contentContainerStyle.
-type ScreenLayoutScrollProps =
+type ScreenLayoutConditionalProps =
   | {
       scrollable: true;
       scrollProps?: VerticalScrollViewProps;
@@ -25,4 +25,5 @@ type ScreenLayoutScrollProps =
       contentContainerStyle?: StyleProp<ViewStyle>;
     };
 
-export type ScreenLayoutProps = ScreenLayoutBaseProps & ScreenLayoutScrollProps;
+export type ScreenLayoutProps = ScreenLayoutBaseProps &
+  ScreenLayoutConditionalProps;
