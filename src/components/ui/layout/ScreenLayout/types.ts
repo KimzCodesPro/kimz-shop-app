@@ -3,7 +3,7 @@ import { VerticalScrollViewProps } from "../VerticalScrollView/types";
 
 type ScreenLayoutBaseProps = {
   // Rendered outside the scroll view so it stays pinned while content scrolls.
-  topBar?: React.ReactNode;
+  customTopBar?: React.ReactNode;
   hasTabBar?: boolean;
   children: React.ReactNode;
 };
