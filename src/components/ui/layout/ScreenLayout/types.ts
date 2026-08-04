@@ -10,7 +10,7 @@ type ScreenLayoutBaseProps = {
 // Both extras are non-scrollable only. When scrollable, AppScrollView's
 // keyboardShouldPersistTaps="handled" already dismisses on tap, and the
 // content area is styled through scrollProps.contentContainerStyle.
-type ScreenLayoutScrollProps =
+type ScreenLayoutConditionalProps =
   | {
       scrollable: true;
       scrollProps?: ScrollViewProps;
@@ -24,4 +24,4 @@ type ScreenLayoutScrollProps =
       contentContainerStyle?: StyleProp<ViewStyle>;
     };
 
-export type ScreenLayoutProps = ScreenLayoutBaseProps & ScreenLayoutScrollProps;
+export type ScreenLayoutProps = ScreenLayoutBaseProps & ScreenLayoutConditionalProps;
