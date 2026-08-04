@@ -13,16 +13,16 @@ type ScreenLayoutBaseProps = {
 // content area is styled through scrollProps.contentContainerStyle.
 type ScreenLayoutConditionalProps =
   | {
-      scrollable: true;
-      scrollProps?: VerticalScrollViewProps;
-      dismissKeyboardOnTap?: never;
-      contentContainerStyle?: never;
-    }
-  | {
       scrollable?: false;
       scrollProps?: never;
       dismissKeyboardOnTap?: boolean;
       contentContainerStyle?: StyleProp<ViewStyle>;
+    }
+  | {
+      scrollable: true;
+      scrollProps?: VerticalScrollViewProps;
+      dismissKeyboardOnTap?: never;
+      contentContainerStyle?: never;
     };
 
 export type ScreenLayoutProps = ScreenLayoutBaseProps &
