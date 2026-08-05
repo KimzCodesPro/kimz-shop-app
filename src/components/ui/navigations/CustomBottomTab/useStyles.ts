@@ -1,4 +1,4 @@
-import { customBottomTab, radius } from "@/constants";
+import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
@@ -7,8 +7,8 @@ const { HS, VS } = scalingMethods;
 
 const useStyles = (focused?: boolean) => {
   const colors = useTheme();
-  // The headless <Tabs /> has no built-in safe area handling, so the bar
-  // grows by the inset and pads it out to keep the buttons above the edge.
+  // The headless <Tabs /> has no built-in safe area handling, so the bottom
+  // inset has to be reserved by hand.
   const insets = useSafeAreaInsets();
 
   // Tint for the icon and label — passed as a prop, not a style.
@@ -17,28 +17,34 @@ const useStyles = (focused?: boolean) => {
     : colors.foreground.tertiary;
 
   const styles = StyleSheet.create({
-    tabBar: {
-      height: customBottomTab.contentHeight + insets.bottom,
+    // Wraps the bar so the home indicator keeps its clearance. The background
+    // lives here too, otherwise that strip would be see-through.
+    safeArea: {
+      backgroundColor: colors.background.base,
       paddingBottom: insets.bottom,
+    },
+    tabBar: {
+      // Bar height from the design. The safe area sits below it.
+      height: VS(71),
       borderTopWidth: HS(1),
       borderTopColor: colors.border.default,
-      backgroundColor: colors.background.base,
     },
     // TabList only lays the triggers out in a row, so each button claims an
     // equal share of the bar itself.
-    button: {
+    tabButton: {
       flex: 1,
       alignItems: "center",
       justifyContent: "center",
     },
-    content: {
+    // The visual tab — the button around it is just the touch target.
+    tabItem: {
       alignItems: "center",
       justifyContent: "center",
-      gap: customBottomTab.gap,
+      gap: spacing.space8.height,
       borderTopWidth: HS(2),
       borderTopColor: focused ? colors.primary.base : "transparent",
       width: "80%",
-      paddingVertical: customBottomTab.paddingVertical,
+      paddingVertical: VS(12),
     },
     // Anchor for the badge — absolute children position against this View.
     iconWrapper: {

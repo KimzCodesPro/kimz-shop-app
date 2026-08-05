@@ -1,4 +1,3 @@
-export { default as customBottomTab } from "./customBottomTab";
 export { default as fonts } from "./fonts";
 export { default as opacity } from "./opacity";
 export { default as radius } from "./radius";
