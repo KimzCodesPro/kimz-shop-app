@@ -1,9 +1,9 @@
 import { StyleProp, ViewStyle } from "react-native";
 
 type ListItem = {
-  id: string | number;
+  id: number;
   title: string;
-  description: string;
+  content: string;
 };
 
 export type AccordionProps = {
