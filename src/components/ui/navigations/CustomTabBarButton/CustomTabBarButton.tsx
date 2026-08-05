@@ -1,21 +1,26 @@
 import Icon from "@/components/icons";
 import Typography from "@/components/ui/display/Typography/Typography";
-import { useIsFocused } from "expo-router";
 import { Pressable, View } from "react-native";
 import { MAX_BADGE_COUNT, TAB_ICON_SIZE } from "./constants";
 import { CustomTabBarButtonProps } from "./types";
 import useStyles from "./useStyles";
 
+/**
+ * Rendered through `<TabTrigger asChild />`, which hands down `isFocused`,
+ * `onPress`, `onLongPress` and the web `href` as props — so the button needs
+ * no navigation hook of its own.
+ */
 const CustomTabBarButton = ({
   iconName,
   label,
   badge = 0,
-  onPress,
-  onLongPress,
+  isFocused,
+  // Dropped on purpose: TabTrigger lays its slot out as a row, and the
+  // button owns its own layout.
+  style: _style,
   ...rest
 }: CustomTabBarButtonProps) => {
-  const focused = useIsFocused();
-  const { styles, colors, focusedColor } = useStyles(focused);
+  const { styles, colors, focusedColor } = useStyles(isFocused);
   const showBadge = badge > MAX_BADGE_COUNT ? `${MAX_BADGE_COUNT}+` : badge;
 
   // "9+" is a visual truncation, so announce the real count instead.
@@ -26,11 +31,10 @@ const CustomTabBarButton = ({
 
   return (
     <Pressable
-      onPress={onPress}
-      onLongPress={onLongPress}
+      {...rest}
       style={styles.button}
       role="tab"
-      aria-selected={focused}
+      aria-selected={isFocused}
       aria-label={badgeLabel}
     >
       <View style={styles.content}>

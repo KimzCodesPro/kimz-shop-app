@@ -14,8 +14,12 @@ const useStyles = (focused?: boolean) => {
     : colors.foreground.tertiary;
 
   const styles = StyleSheet.create({
+    // TabList only lays the triggers out in a row, so each button claims an
+    // equal share of the bar itself.
     button: {
+      flex: 1,
       alignItems: "center",
+      justifyContent: "center",
     },
     content: {
       alignItems: "center",

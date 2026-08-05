@@ -1,7 +1,7 @@
 import { IconName } from "@/components/icons";
-import { BottomTabBarButtonProps } from "expo-router/js-tabs";
+import { TabTriggerSlotProps } from "expo-router/ui";
 
-export type CustomTabBarButtonProps = BottomTabBarButtonProps & {
+export type CustomTabBarButtonProps = TabTriggerSlotProps & {
   iconName: IconName;
   label: string;
   badge?: number;
