@@ -20,7 +20,7 @@ const Accordion = ({ items, style }: AccordionProps) => {
         return (
           <Pressable
             key={item.id}
-            style={styles.item}
+            style={styles.itemContainer}
             onPress={() => handlePress(item.id)}
           >
             <View style={styles.itemHeader}>
@@ -38,13 +38,13 @@ const Accordion = ({ items, style }: AccordionProps) => {
               />
             </View>
             {isExpanded && (
-              <View style={styles.itemDescription}>
+              <View style={styles.itemContent}>
                 <Typography
                   variant="smallRegular"
                   textTransform="capitalize"
                   color={colors.foreground.secondary}
                 >
-                  {item.description}
+                  {item.content}
                 </Typography>
               </View>
             )}

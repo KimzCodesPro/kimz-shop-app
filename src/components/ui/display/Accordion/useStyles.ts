@@ -11,7 +11,7 @@ const useStyles = () => {
     container: {
       alignSelf: "stretch",
     },
-    item: {
+    itemContainer: {
       borderBottomWidth: HS(1),
       borderBottomColor: colors.border.default,
       justifyContent: "center",
@@ -23,7 +23,7 @@ const useStyles = () => {
       alignItems: "center",
       height: HS(22),
     },
-    itemDescription: {
+    itemContent: {
       paddingTop: spacing.space12.height,
     },
   });

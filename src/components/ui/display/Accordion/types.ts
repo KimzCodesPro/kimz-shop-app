@@ -3,7 +3,7 @@ import { StyleProp, ViewStyle } from "react-native";
 type ListItem = {
   id: number;
   title: string;
-  description: string;
+  content: string;
 };
 
 export type AccordionProps = {
