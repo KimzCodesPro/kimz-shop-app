@@ -1,8 +1,8 @@
+import { customBottomTab } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { TAB_BAR_CONTENT_HEIGHT } from "../CustomTabBarButton/constants";
 const { HS } = scalingMethods;
 
 const useStyles = () => {
@@ -13,7 +13,7 @@ const useStyles = () => {
 
   const styles = StyleSheet.create({
     tabBar: {
-      height: TAB_BAR_CONTENT_HEIGHT + insets.bottom,
+      height: customBottomTab.contentHeight + insets.bottom,
       paddingBottom: insets.bottom,
       borderTopWidth: HS(1),
       borderTopColor: colors.border.default,

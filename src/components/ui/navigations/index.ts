@@ -1,4 +1,4 @@
-export { default as CustomTabBar } from "./CustomTabBar/CustomTabBar";
-export { default as CustomTabBarButton } from "./CustomTabBarButton/CustomTabBarButton";
+export { default as CustomBottomTab } from "./CustomBottomTab/CustomBottomTab";
+export { default as CustomBottomTabButton } from "./CustomBottomTabButton/CustomBottomTabButton";
 export { default as RowNav } from "./RowNav/RowNav";
 export { default as TopBar } from "./TopBar/TopBar";

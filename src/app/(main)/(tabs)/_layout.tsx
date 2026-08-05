@@ -1,4 +1,7 @@
-import { CustomTabBar, CustomTabBarButton } from "@/components/ui/navigations";
+import {
+  CustomBottomTab,
+  CustomBottomTabButton,
+} from "@/components/ui/navigations";
 import { TabList, Tabs, TabSlot, TabTrigger } from "expo-router/ui";
 
 export default function TabLayout() {
@@ -6,24 +9,24 @@ export default function TabLayout() {
     <Tabs>
       <TabSlot />
       <TabList asChild>
-        <CustomTabBar>
+        <CustomBottomTab>
           <TabTrigger name="index" href="/" asChild>
-            <CustomTabBarButton iconName="home" label="Home" />
+            <CustomBottomTabButton iconName="home" label="Home" />
           </TabTrigger>
           <TabTrigger name="myOrder" href="/myOrder" asChild>
-            <CustomTabBarButton iconName="truck" label="My Order" />
+            <CustomBottomTabButton iconName="truck" label="My Order" />
           </TabTrigger>
           <TabTrigger name="myCard" href="/myCard" asChild>
-            <CustomTabBarButton
+            <CustomBottomTabButton
               iconName="shopping-cart"
               label="My Card"
               badge={10}
             />
           </TabTrigger>
           <TabTrigger name="account" href="/account" asChild>
-            <CustomTabBarButton iconName="user" label="Account" />
+            <CustomBottomTabButton iconName="user" label="Account" />
           </TabTrigger>
-        </CustomTabBar>
+        </CustomBottomTab>
       </TabList>
     </Tabs>
   );
