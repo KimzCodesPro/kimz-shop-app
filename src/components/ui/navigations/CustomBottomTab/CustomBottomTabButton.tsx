@@ -1,9 +1,13 @@
 import Icon from "@/components/icons";
 import Typography from "@/components/ui/display/Typography/Typography";
-import { customBottomTab } from "@/constants";
+import { scalingMethods } from "@/utils";
 import { Pressable, View } from "react-native";
 import { CustomBottomTabButtonProps } from "./types";
 import useStyles from "./useStyles";
+const { VS } = scalingMethods;
+
+const MAX_BADGE_COUNT = 9;
+const ICON_SIZE = VS(25);
 
 /**
  * Rendered through `<TabTrigger asChild />`, which hands down `isFocused`,
@@ -26,27 +30,24 @@ const CustomBottomTabButton = ({
   ...rest
 }: CustomBottomTabButtonProps) => {
   const { styles, colors, focusedColor } = useStyles(isFocused);
-  const { maxBadgeCount, iconSize } = customBottomTab;
-  const showBadge = badge > maxBadgeCount ? `${maxBadgeCount}+` : badge;
+  const showBadge =
+    badge > MAX_BADGE_COUNT ? `${MAX_BADGE_COUNT}+` : badge;
 
   // "9+" is a visual truncation, so announce the real count instead.
-  const accessibilityLabel = rest["aria-label"] ?? label;
-  const badgeLabel = badge
-    ? `${accessibilityLabel}, ${badge}`
-    : accessibilityLabel;
+  const badgeLabel = badge ? `${label}, ${badge}` : label;
 
   return (
     <Pressable
       ref={ref}
       {...rest}
-      style={styles.button}
+      style={styles.tabButton}
       role="tab"
       aria-selected={isFocused}
       aria-label={badgeLabel}
     >
-      <View style={styles.content}>
+      <View style={styles.tabItem}>
         <View style={styles.iconWrapper}>
-          <Icon size={iconSize} name={iconName} color={focusedColor} />
+          <Icon size={ICON_SIZE} name={iconName} color={focusedColor} />
           {!!badge && (
             <View style={styles.badge}>
               <Typography
