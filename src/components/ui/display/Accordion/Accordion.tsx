@@ -6,48 +6,51 @@ import { AccordionProps } from "./types";
 import useStyles from "./useStyles";
 
 const Accordion = ({ items, style }: AccordionProps) => {
-  const [expandedIndex, setExpandedIndex] = useState<number | string>(0);
+  const [expandedId, setExpandedId] = useState<number>(0);
   const { styles, colors } = useStyles();
 
-  const handlePress = (index: number | string) => {
-    setExpandedIndex(expandedIndex === index ? 0 : index);
+  const handlePress = (id: number) => {
+    setExpandedId((current) => (current === id ? 0 : id));
   };
 
   return (
     <View style={[styles.container, style]}>
-      {items.map((item) => (
-        <Pressable
-          key={item.id}
-          style={styles.item}
-          onPress={() => handlePress(item.id)}
-        >
-          <View style={styles.itemHeader}>
-            <Typography
-              variant="smallBold"
-              textTransform="capitalize"
-              color={colors.foreground.primary}
-            >
-              {item.title}
-            </Typography>
-            <Icon
-              name={expandedIndex === item.id ? "chevron-up" : "chevron-down"}
-              size={22}
-              color={colors.foreground.tertiary}
-            />
-          </View>
-          {expandedIndex === item.id && (
-            <View style={styles.itemDescription}>
+      {items.map((item) => {
+        const isExpanded = expandedId === item.id;
+        return (
+          <Pressable
+            key={item.id}
+            style={styles.item}
+            onPress={() => handlePress(item.id)}
+          >
+            <View style={styles.itemHeader}>
               <Typography
-                variant="smallRegular"
+                variant="smallBold"
                 textTransform="capitalize"
-                color={colors.foreground.secondary}
+                color={colors.foreground.primary}
               >
-                {item.description}
+                {item.title}
               </Typography>
+              <Icon
+                name={isExpanded ? "chevron-up" : "chevron-down"}
+                size={22}
+                color={colors.foreground.tertiary}
+              />
             </View>
-          )}
-        </Pressable>
-      ))}
+            {isExpanded && (
+              <View style={styles.itemDescription}>
+                <Typography
+                  variant="smallRegular"
+                  textTransform="capitalize"
+                  color={colors.foreground.secondary}
+                >
+                  {item.description}
+                </Typography>
+              </View>
+            )}
+          </Pressable>
+        );
+      })}
     </View>
   );
 };
