@@ -23,7 +23,7 @@ const useStyles = (focused?: boolean) => {
       gap: TAB_GAP,
       borderTopWidth: HS(2),
       borderTopColor: focused ? colors.primary.base : "transparent",
-      width: "100%",
+      width: "80%",
       paddingVertical: TAB_PADDING_VERTICAL,
     },
     // Anchor for the badge — absolute children position against this View.
