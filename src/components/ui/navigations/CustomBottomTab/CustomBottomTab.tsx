@@ -6,7 +6,7 @@ import useStyles from "./useStyles";
  * so it receives TabList's own style (row layout) and must merge it.
  */
 const CustomBottomTab = ({ style, ...rest }: ViewProps) => {
-  const styles = useStyles();
+  const { styles } = useStyles();
 
   return <View {...rest} style={[style, styles.tabBar]} />;
 };
