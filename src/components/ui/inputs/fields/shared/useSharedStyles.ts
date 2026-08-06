@@ -1,20 +1,22 @@
 import { radius, spacing } from "@/constants";
-import { useFontStyles, useTheme } from "@/hooks";
+import { useFontStyles, useTheme, useTranslation } from "@/hooks";
 import { scalingMethods } from "@/utils";
-import { I18nManager, Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { StatusType } from "./types";
 const { HS, VS } = scalingMethods;
-
-// Match Typography: align off the app direction rather than "auto", which
-// resolves from the typed content and would jump sides mid-entry.
-const textAlign = I18nManager.isRTL ? "right" : "left";
-const writingDirection = I18nManager.isRTL ? "rtl" : "ltr";
 
 const useSharedStyles = (currentStatus: StatusType) => {
   const colors = useTheme();
   const fontFamilyStyles = useFontStyles();
+  const { direction } = useTranslation();
 
   const isAndroid = Platform.OS === "android";
+
+  // Match Typography: align off the app direction rather than "auto", which
+  // resolves from the typed content and would jump sides mid-entry.
+  const isRTL = direction === "rtl";
+  const textAlign = isRTL ? "right" : "left";
+  const writingDirection = isRTL ? "rtl" : "ltr";
 
   const colorMapping = {
     default: colors.foreground.tertiary,
