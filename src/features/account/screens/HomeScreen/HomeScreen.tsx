@@ -11,14 +11,15 @@ import useHomeScreen from "./useHomeScreen";
 
 const HomeScreen = () => {
   const {
-    accountGroups,
     t,
+    accountGroups,
     logoutConfirm,
     setLogoutConfirm,
-    languageBottomSheetRef,
     languageOptions,
     selectedLanguage,
     onSelectLanguage,
+    languageBottomSheetRef,
+    themeBottomSheetRef,
   } = useHomeScreen();
 
   return (
@@ -52,6 +53,16 @@ const HomeScreen = () => {
             selectedValue={selectedLanguage}
             onValueChange={onSelectLanguage}
           />
+        </BottomSheet.Content>
+      </BottomSheet>
+      {/* theme bottom sheet */}
+      <BottomSheet
+        ref={themeBottomSheetRef}
+        bottomSheetProps={{ snapPoints: ["25%"] }}
+        title={t("account_theme")}
+      >
+        <BottomSheet.Content>
+          {/* Theme selection content goes here */}
         </BottomSheet.Content>
       </BottomSheet>
       {/* logout dialog */}

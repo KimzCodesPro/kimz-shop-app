@@ -45,26 +45,26 @@ const useStyles = (
   // React Navigation's theme, which paints every screen for us.
   const styles = StyleSheet.create({
     viewWrapper: {
+      ...horizontalPadding,
       paddingTop,
       paddingBottom,
       gap: TOP_BAR_GAP,
       flex: 1,
     },
     scrollViewWrapper: {
+      ...horizontalPadding,
       paddingTop,
       gap: TOP_BAR_GAP,
       flex: 1,
     },
     scrollViewContent: {
       paddingBottom,
-      ...horizontalPadding,
       flexGrow: 1,
     },
     // Content area of the non-scrollable branch. flex: 1 so children still
     // fill the screen now that they sit one View deeper than the wrapper.
     container: {
       flex: 1,
-      ...horizontalPadding,
     },
   });
 

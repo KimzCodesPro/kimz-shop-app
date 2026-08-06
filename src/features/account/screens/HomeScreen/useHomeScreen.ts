@@ -8,6 +8,7 @@ const useHomeScreen = () => {
   const { setLanguage } = useUserPreferences();
   const [logoutConfirm, setLogoutConfirm] = useState(false);
   const languageBottomSheetRef = useRef<BottomSheetRef | null>(null);
+  const themeBottomSheetRef = useRef<BottomSheetRef | null>(null);
 
   const languageOptions = [
     { label: t("common_english"), value: "en" },
@@ -74,18 +75,15 @@ const useHomeScreen = () => {
           trailing: "chevron",
           onPress: () => {},
         },
-        {
-          icon: "shield",
-          title: t("account_security"),
-          trailing: "chevron",
-          onPress: () => {},
-        },
+
         {
           icon: "world",
           title: t("account_language"),
           trailing: "chevronWithValue",
           trailingValue:
-            selectedLanguage === "en" ? t("common_english") : t("common_arabic"),
+            selectedLanguage === "en"
+              ? t("common_english")
+              : t("common_arabic"),
           onPress: () => {
             languageBottomSheetRef.current?.expand();
           },
@@ -95,7 +93,9 @@ const useHomeScreen = () => {
           title: t("account_theme"),
           trailing: "chevronWithValue",
           trailingValue: t("common_light"),
-          onPress: () => {},
+          onPress: () => {
+            themeBottomSheetRef.current?.expand();
+          },
         },
       ],
     },
@@ -136,6 +136,7 @@ const useHomeScreen = () => {
     languageOptions,
     onSelectLanguage,
     languageBottomSheetRef,
+    themeBottomSheetRef,
   };
 };
 
