@@ -8,7 +8,8 @@
     "scheme": "kimzshopapp",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./src/assets/expo.icon"
+      "icon": "./src/assets/expo.icon",
+      "bundleIdentifier": "com.kimzcodes.kimzshopapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -17,7 +18,8 @@
         "backgroundImage": "./src/assets/images/android-icon-background.png",
         "monochromeImage": "./src/assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.kimzcodes.kimzshopapp"
     },
     "web": {
       "output": "static",
@@ -39,9 +41,6 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    },
-    "extra": {
-      "supportsRTL": true
     }
   }
 }

@@ -14,9 +14,9 @@ const useHomeScreen = () => {
     { label: t("common_arabic"), value: "ar" },
   ];
 
-  const onSelectLanguage = (value: string) => {
-    setLanguage(value as Language);
+  const onSelectLanguage = async (value: string) => {
     languageBottomSheetRef.current?.close();
+    await setLanguage(value as Language);
   };
   const accountGroups = [
     {
