@@ -26,7 +26,12 @@ const TopBar = ({ title, goBack, forceBack, actionBtn }: TopBarProps) => {
       <View style={styles.container}>
         {goBack || hasForceBack ? (
           <Pressable onPress={handleGoBack}>
-            <Icon name="chevron" size={22} color={colors.foreground.primary} />
+            <Icon
+              name="chevron"
+              size={22}
+              color={colors.foreground.primary}
+              flipOnRTL
+            />
           </Pressable>
         ) : (
           <View />
@@ -45,6 +50,7 @@ const TopBar = ({ title, goBack, forceBack, actionBtn }: TopBarProps) => {
               name={actionBtn.iconName}
               size={22}
               color={colors.foreground.primary}
+              flipOnRTL={actionBtn?.flipOnRTL}
             />
           </Pressable>
         ) : (

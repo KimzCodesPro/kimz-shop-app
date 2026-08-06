@@ -4,7 +4,7 @@ import { StyleProp, ViewStyle } from "react-native";
 
 export type TopBarBaseProps = {
   title: string;
-  actionBtn?: { iconName: IconName; onPress: () => void };
+  actionBtn?: { iconName: IconName; onPress: () => void; flipOnRTL: boolean };
   style?: StyleProp<ViewStyle>;
 };
 
