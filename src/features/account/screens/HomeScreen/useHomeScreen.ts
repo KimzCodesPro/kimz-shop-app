@@ -1,101 +1,105 @@
+import { useTranslation } from "@/hooks";
+
 const useHomeScreen = () => {
+  const { t } = useTranslation();
+
   const accountGroups = [
     {
-      title: "Account",
+      title: t("account_account"),
       rows: [
         {
           icon: "user",
-          title: "Edit Profile",
+          title: t("account_editProfile"),
           trailing: "chevron",
           onPress: () => {},
         },
         {
           icon: "lock",
-          title: "Change Password",
+          title: t("account_changePassword"),
           trailing: "chevron",
           onPress: () => {},
         },
       ],
     },
     {
-      title: "Shopping",
+      title: t("account_shopping"),
       rows: [
         {
           icon: "map-pin",
-          title: "Shipping",
+          title: t("account_shipping"),
           trailing: "chevron",
           onPress: () => {},
         },
         {
           icon: "credit-card",
-          title: "Payment Methods",
+          title: t("account_paymentMethods"),
           trailing: "chevron",
           onPress: () => {},
         },
         {
           icon: "shopping-bag",
-          title: "Store You Follow",
+          title: t("account_storeYouFollow"),
           trailing: "chevron",
           onPress: () => {},
         },
         {
           icon: "truck",
-          title: "My Orders",
+          title: t("account_myOrders"),
           trailing: "chevron",
           onPress: () => {},
         },
       ],
     },
     {
-      title: "Preferences",
+      title: t("account_preferences"),
       rows: [
         {
           icon: "bell",
-          title: "Notifications",
+          title: t("account_notifications"),
           trailing: "chevron",
           onPress: () => {},
         },
         {
           icon: "shield",
-          title: "Security",
+          title: t("account_security"),
           trailing: "chevron",
           onPress: () => {},
         },
         {
           icon: "world",
-          title: "Language",
+          title: t("account_language"),
           trailing: "chevronWithValue",
-          trailingValue: "English",
+          trailingValue: t("common_english"),
           onPress: () => {},
         },
         {
           icon: "palette",
-          title: "Theme",
+          title: t("account_theme"),
           trailing: "chevronWithValue",
-          trailingValue: "Light",
+          trailingValue: t("common_light"),
           onPress: () => {},
         },
       ],
     },
     {
-      title: "Support",
+      title: t("account_support"),
       rows: [
         {
           icon: "help",
-          title: "Help & Support",
+          title: t("account_helpAndPolicies"),
           trailing: "chevron",
           onPress: () => {},
         },
         {
           icon: "file-text",
-          title: "Legal & Policies",
+          title: t("account_legalAndPolicies"),
           trailing: "chevron",
           onPress: () => {},
         },
         {
           variant: "danger",
           icon: "logout",
-          title: "Logout",
+          title: t("account_logout"),
           trailing: "chevron",
           onPress: () => {},
         },
@@ -103,7 +107,7 @@ const useHomeScreen = () => {
     },
   ] as const;
 
-  return { accountGroups };
+  return { accountGroups, t };
 };
 
 export default useHomeScreen;

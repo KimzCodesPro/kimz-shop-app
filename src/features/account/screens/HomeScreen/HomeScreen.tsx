@@ -6,10 +6,14 @@ import { RowsGroup } from "./components";
 import useHomeScreen from "./useHomeScreen";
 
 const HomeScreen = () => {
-  const { accountGroups } = useHomeScreen();
+  const { accountGroups, t } = useHomeScreen();
 
   return (
-    <ScreenLayout scrollable hasTabBar customTopBar={<TopBar title="Account" />}>
+    <ScreenLayout
+      scrollable
+      hasTabBar
+      customTopBar={<TopBar title={t("account_account")} />}
+    >
       <UserGreeting
         size="lg"
         imgSrc={userPlaceholder}
