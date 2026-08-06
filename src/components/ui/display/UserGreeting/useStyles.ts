@@ -35,6 +35,9 @@ const useStyles = () => {
       gap: spacing.space12.width,
       alignItems: "center",
     },
+    textContainer: {
+      alignItems: "flex-start",
+    },
   });
 
   return { styles, colors, TypographyMapping };

@@ -11,7 +11,7 @@ const Radio = ({ selected, onChange, disabled, title }: RadioProps) => {
       <View style={styles.indicator}>
         <View style={styles.innerIndicator} />
       </View>
-      <View style={styles.renderItem}>
+      <View>
         {title && (
           <Typography variant="smallBold" textTransform="capitalize">
             {title}

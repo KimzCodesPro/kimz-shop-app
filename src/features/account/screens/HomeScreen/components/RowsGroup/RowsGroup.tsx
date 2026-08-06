@@ -15,13 +15,11 @@ const RowsGroup = ({ title, children }: RowsGroupProps) => {
 
   return (
     <>
-      <Typography
-        variant="mediumBold"
-        color={colors.foreground.primary}
-        style={styles.header}
-      >
-        {title}
-      </Typography>
+      <View style={styles.header}>
+        <Typography variant="mediumBold" color={colors.foreground.primary}>
+          {title}
+        </Typography>
+      </View>
       <View style={styles.rows}>{children}</View>
     </>
   );
@@ -29,9 +27,12 @@ const RowsGroup = ({ title, children }: RowsGroupProps) => {
 
 const styles = StyleSheet.create({
   header: {
+    flexDirection: "row",
+    paddingVertical: VS(4),
     marginTop: VS(24),
     marginBottom: VS(16),
   },
+
   rows: {
     gap: VS(16),
   },

@@ -43,7 +43,7 @@ const HomeScreen = () => {
       {/* language bottom sheet */}
       <BottomSheet
         ref={languageBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["30%"] }}
+        bottomSheetProps={{ snapPoints: ["25%"] }}
         title={t("account_language")}
       >
         <BottomSheet.Content>

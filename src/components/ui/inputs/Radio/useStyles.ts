@@ -33,9 +33,6 @@ const useStyle = (selected: boolean, disabled?: boolean) => {
       backgroundColor: selected ? colors.primary.base : "transparent",
       opacity: disabled ? opacity.disabled : opacity.full,
     },
-    renderItem: {
-      flex: 1,
-    },
   });
   return { styles };
 };
