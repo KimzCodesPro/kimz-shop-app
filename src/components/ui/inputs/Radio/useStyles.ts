@@ -4,28 +4,37 @@ import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 const { HS, VS } = scalingMethods;
 
-const useStyle = (value: boolean, disabled?: boolean) => {
+const useStyle = (selected: boolean, disabled?: boolean) => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
-    container: {
+    wrapper: {
+      alignSelf: "stretch",
+      flexDirection: "row",
+      alignItems: "center",
+      gap: HS(15),
+    },
+    indicator: {
       justifyContent: "center",
       alignItems: "center",
       width: HS(20),
       height: VS(20),
       borderRadius: radius.full,
       borderWidth: HS(1.5),
-      borderColor: value ? colors.primary.base : colors.border.default,
+      borderColor: selected ? colors.primary.base : colors.border.default,
       paddingVertical: spacing.space4.height,
       paddingHorizontal: spacing.space4.width,
       opacity: disabled ? opacity.disabled : opacity.full,
     },
-    indicator: {
+    innerIndicator: {
       width: HS(10),
       height: VS(10),
       borderRadius: radius.full,
-      backgroundColor: value ? colors.primary.base : "transparent",
+      backgroundColor: selected ? colors.primary.base : "transparent",
       opacity: disabled ? opacity.disabled : opacity.full,
+    },
+    renderItem: {
+      flex: 1,
     },
   });
   return { styles };

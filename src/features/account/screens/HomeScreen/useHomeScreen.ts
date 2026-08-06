@@ -1,8 +1,23 @@
-import { useTranslation } from "@/hooks";
+import { useTranslation, useUserPreferences } from "@/hooks";
+import { BottomSheetRef } from "@/src/components/ui/overlay";
+import { Language } from "@/types";
+import { useRef, useState } from "react";
 
 const useHomeScreen = () => {
-  const { t } = useTranslation();
+  const { t, language: selectedLanguage } = useTranslation();
+  const { setLanguage } = useUserPreferences();
+  const [logoutConfirm, setLogoutConfirm] = useState(false);
+  const languageBottomSheetRef = useRef<BottomSheetRef | null>(null);
 
+  const languageOptions = [
+    { label: t("common_english"), value: "en" },
+    { label: t("common_arabic"), value: "ar" },
+  ];
+
+  const onSelectLanguage = (value: string) => {
+    setLanguage(value as Language);
+    languageBottomSheetRef.current?.close();
+  };
   const accountGroups = [
     {
       title: t("account_account"),
@@ -69,8 +84,11 @@ const useHomeScreen = () => {
           icon: "world",
           title: t("account_language"),
           trailing: "chevronWithValue",
-          trailingValue: t("common_english"),
-          onPress: () => {},
+          trailingValue:
+            selectedLanguage === "en" ? t("common_english") : t("common_arabic"),
+          onPress: () => {
+            languageBottomSheetRef.current?.expand();
+          },
         },
         {
           icon: "palette",
@@ -101,13 +119,24 @@ const useHomeScreen = () => {
           icon: "logout",
           title: t("account_logout"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => {
+            setLogoutConfirm(true);
+          },
         },
       ],
     },
   ] as const;
 
-  return { accountGroups, t };
+  return {
+    accountGroups,
+    t,
+    logoutConfirm,
+    setLogoutConfirm,
+    selectedLanguage,
+    languageOptions,
+    onSelectLanguage,
+    languageBottomSheetRef,
+  };
 };
 
 export default useHomeScreen;

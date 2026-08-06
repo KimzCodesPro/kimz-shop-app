@@ -7,6 +7,8 @@
       "common_dark": "داكن",
       "common_english": "الإنجليزية",
       "common_arabic": "العربية",
+      "common_cancel": "إلغاء",
+      "common_confirm": "تأكيد",
       "account_account": "الحساب",
       "account_editProfile": "تعديل الملف الشخصي",
       "account_changePassword": "تغيير كلمة المرور",
@@ -23,7 +25,8 @@
       "account_support": "الدعم",
       "account_helpAndPolicies": "المساعدة والدعم",
       "account_legalAndPolicies": "الشروط والسياسات",
-      "account_logout": "تسجيل الخروج"
+      "account_logout": "تسجيل الخروج",
+      "account_logoutConfirm": "هل أنت متأكد أنك تريد تسجيل الخروج؟"
     }
   },
   "en": {
@@ -34,6 +37,8 @@
       "common_dark": "Dark",
       "common_english": "English",
       "common_arabic": "Arabic",
+      "common_cancel": "Cancel",
+      "common_confirm": "Confirm",
       "account_account": "Account",
       "account_editProfile": "Edit Profile",
       "account_changePassword": "Change Password",
@@ -50,7 +55,8 @@
       "account_support": "Support",
       "account_helpAndPolicies": "Help & Support",
       "account_legalAndPolicies": "Legal & Policies",
-      "account_logout": "Logout"
+      "account_logout": "Logout",
+      "account_logoutConfirm": "Are you sure you want to logout?"
     }
   }
 }

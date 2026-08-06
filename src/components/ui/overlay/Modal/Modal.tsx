@@ -17,9 +17,11 @@ const Modal = ({
     <RNModal visible={visible} animationType="fade" transparent={true}>
       <View style={styles.backDrop}>
         <View style={styles.content}>
-          <Pressable style={styles.contentCloseBTN} onPress={closeModal}>
-            <Icon name="close" size={20} color={colors.foreground.primary} />
-          </Pressable>
+          {closeModal && (
+            <Pressable style={styles.contentCloseBTN} onPress={closeModal}>
+              <Icon name="close" size={20} color={colors.foreground.primary} />
+            </Pressable>
+          )}
           <View style={styles.contentHeader}>
             <Typography
               variant="mediumBold"
