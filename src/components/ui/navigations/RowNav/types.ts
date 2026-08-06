@@ -2,7 +2,7 @@ import { IconName } from "@/components/icons";
 import { StyleProp, ViewStyle } from "react-native";
 
 export type RowNavBaseProps = {
-  variant: "default" | "danger";
+  variant?: "default" | "danger";
   onPress: () => void;
   title: string;
   icon: IconName;

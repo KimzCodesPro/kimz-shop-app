@@ -14,7 +14,7 @@ const addressColorMapping = {
 const addressIcon = {
   home: "home",
   apartment: "building",
-  office: "brief-case",
+  office: "briefcase",
   other: "map-pin",
 } as const;
 

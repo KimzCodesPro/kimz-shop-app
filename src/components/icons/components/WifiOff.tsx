@@ -3,7 +3,7 @@ import Svg, { Path } from "react-native-svg";
 import { IconBase } from "../types";
 const { HS, VS } = scalingMethods;
 
-function BreifCase({ size = 24, color, style }: IconBase) {
+function WifiOff({ size = 24, color, style }: IconBase) {
   return (
     <Svg
       width={HS(size)}
@@ -16,12 +16,13 @@ function BreifCase({ size = 24, color, style }: IconBase) {
       strokeLinejoin="round"
       style={style}
     >
-      <Path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-      <Path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
-      <Path d="M12 12l0 .01" />
-      <Path d="M3 13a20 20 0 0 0 18 0" />
+      <Path d="M3 8a16 16 0 0 1 4.5 -2.5" />
+      <Path d="M13 4.2a15.6 15.6 0 0 1 8 3.7" />
+      <Path d="M6 11a10 10 0 0 1 3 -1.7" />
+      <Path d="M14 9.7a10 10 0 0 1 4 2.3" />
+      <Path d="M9 14a4 4 0 0 1 6 0" />
     </Svg>
   );
 }
 
-export default BreifCase;
+export default WifiOff;
