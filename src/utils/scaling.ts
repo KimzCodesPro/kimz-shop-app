@@ -42,16 +42,21 @@ const [shortDimension, longDimension] =
 // ✅ USE FOR:
 //   • width                              → width: HS(200)
 //   • paddingHorizontal                  → paddingHorizontal: HS(16)
-//   • paddingLeft / paddingRight         → paddingLeft: HS(16)
+//   • paddingStart / paddingEnd          → paddingStart: HS(16)
 //   • marginHorizontal                   → marginHorizontal: HS(20)
-//   • marginLeft / marginRight           → marginLeft: HS(16)
-//   • left / right (absolute position)   → left: HS(10)
+//   • marginStart / marginEnd            → marginStart: HS(16)
+//   • start / end (absolute position)    → start: HS(10)
 //   • gap (in flexDirection: 'row')      → gap: HS(8)
 //   • borderRadius on rectangles         → borderRadius: HS(12)
 //   • borderWidth                        → borderWidth: HS(1)
 //   • Icon sizes (width AND height)      → <Icon size={HS(24)} />
 //   • Image dimensions (square images)   → width: HS(120), height: HS(120)
 //   • Squares & circles (BOTH dims)      → width: HS(48), height: HS(48)
+//
+// ⚠️ RTL — prefer the logical props above (Start/End) over Left/Right.
+//   The app flips layout natively via I18nManager, and RN only mirrors the
+//   logical props. marginLeft / paddingRight / left / right stay pinned to
+//   the physical side and will point the wrong way in Arabic.
 //
 // ⚠️ IMPORTANT — for SQUARES, CIRCLES, ICONS:
 //   Use HS for BOTH width AND height (NOT mixing with VS) to keep the

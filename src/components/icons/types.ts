@@ -9,4 +9,4 @@ export type IconBase = {
   style?: StyleProp<ViewStyle>;
 };
 
-export type IconProps = { name: IconName; flipOnRTL?: boolean } & IconBase;
+export type IconProps = { name: IconName } & IconBase;
