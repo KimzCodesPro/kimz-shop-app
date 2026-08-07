@@ -28,11 +28,8 @@ const useHomeScreen = () => {
     { label: t("common_system"), value: "system", image: themeSystem },
   ];
 
-  const themeLabels: Record<Theme, string> = {
-    light: t("common_light"),
-    dark: t("common_dark"),
-    system: t("common_system"),
-  };
+  const selectedThemeLabel =
+    themeOptions.find((option) => option.value === selectedTheme)?.label ?? "";
 
   const onSelectTheme = (value: Theme) => {
     themeBottomSheetRef.current?.close();
@@ -111,7 +108,7 @@ const useHomeScreen = () => {
           icon: "palette",
           title: t("account_theme"),
           trailing: "chevronWithValue",
-          trailingValue: themeLabels[selectedTheme],
+          trailingValue: selectedThemeLabel,
           onPress: () => {
             themeBottomSheetRef.current?.expand();
           },
