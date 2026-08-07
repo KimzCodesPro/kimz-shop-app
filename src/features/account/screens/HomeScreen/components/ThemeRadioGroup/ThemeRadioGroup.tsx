@@ -22,17 +22,25 @@ const ThemeRadioGroup = ({
           key={option.value}
           style={styles.option}
           onPress={() => onValueChange(option.value)}
+          accessibilityRole="radio"
+          accessibilityState={{ selected: selectedValue === option.value }}
+          accessibilityLabel={option.label}
         >
           <Image
             source={option.image}
             style={styles.preview}
             contentFit="fill"
           />
-          <Radio
-            selected={selectedValue === option.value}
-            onChange={() => onValueChange(option.value)}
-            title={option.label}
-          />
+          {/* Radio is presentational here — pointerEvents keeps it from
+              claiming the touch, so the column is one target and, more to the
+              point, one node for a screen reader instead of two nested ones. */}
+          <View pointerEvents="none">
+            <Radio
+              selected={selectedValue === option.value}
+              onChange={() => onValueChange(option.value)}
+              title={option.label}
+            />
+          </View>
         </Pressable>
       ))}
     </View>
