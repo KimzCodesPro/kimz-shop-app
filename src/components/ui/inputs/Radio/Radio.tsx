@@ -3,8 +3,8 @@ import { Typography } from "../../display";
 import useStyles from "../Radio/useStyles";
 import { RadioProps } from "./types";
 
-const Radio = ({ selected, onChange, disabled, title }: RadioProps) => {
-  const { styles, colors } = useStyles(selected, disabled);
+const Radio = ({ isSelected, onChange, disabled, title }: RadioProps) => {
+  const { styles, colors } = useStyles(isSelected, disabled);
 
   return (
     <Pressable onPress={onChange} disabled={disabled} style={styles.wrapper}>

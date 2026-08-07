@@ -17,7 +17,7 @@ const RadioGroup = ({
         <View key={option.value} style={styles.radioItem}>
           <Radio
             key={option.value}
-            selected={selectedValue === option.value}
+            isSelected={selectedValue === option.value}
             onChange={() => onValueChange(option.value)}
             title={option.label}
           />

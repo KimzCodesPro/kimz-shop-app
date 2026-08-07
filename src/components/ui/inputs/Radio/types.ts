@@ -1,5 +1,5 @@
 export type RadioProps = {
-  selected: boolean;
+  isSelected: boolean;
   onChange: () => void;
   disabled?: boolean;
   title?: string;

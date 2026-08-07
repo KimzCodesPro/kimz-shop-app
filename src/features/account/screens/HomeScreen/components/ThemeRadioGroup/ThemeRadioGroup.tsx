@@ -36,7 +36,7 @@ const ThemeRadioGroup = ({
               point, one node for a screen reader instead of two nested ones. */}
           <View pointerEvents="none">
             <Radio
-              selected={selectedValue === option.value}
+              isSelected={selectedValue === option.value}
               onChange={() => onValueChange(option.value)}
               title={option.label}
             />
