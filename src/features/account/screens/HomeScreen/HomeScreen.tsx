@@ -26,7 +26,7 @@ const HomeScreen = () => {
     <ScreenLayout
       scrollable
       hasTabBar
-      customTopBar={<TopBar title={t("account_account")} />}
+      renderTopBar={() => <TopBar title={t("account_account")} />}
     >
       <UserGreeting
         size="lg"
