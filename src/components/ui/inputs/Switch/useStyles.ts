@@ -7,7 +7,14 @@ const { HS, VS } = scalingMethods;
 const useStyles = (isSelected: boolean, disabled?: boolean) => {
   const colors = useTheme();
   const styles = StyleSheet.create({
-    container: {
+    wrapper: {
+      alignSelf: "stretch",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: HS(12),
+    },
+    track: {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: isSelected ? "flex-end" : "flex-start",

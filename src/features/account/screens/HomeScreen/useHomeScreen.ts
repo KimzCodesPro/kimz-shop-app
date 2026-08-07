@@ -11,6 +11,7 @@ const useHomeScreen = () => {
   const [logoutConfirm, setLogoutConfirm] = useState(false);
   const languageBottomSheetRef = useRef<BottomSheetRef | null>(null);
   const themeBottomSheetRef = useRef<BottomSheetRef | null>(null);
+  const notificationsBottomSheetRef = useRef<BottomSheetRef | null>(null);
 
   const languageOptions = [
     { label: t("common_english"), value: "en" },
@@ -34,6 +35,23 @@ const useHomeScreen = () => {
   const onSelectTheme = (value: Theme) => {
     themeBottomSheetRef.current?.close();
     setTheme(value);
+  };
+
+  const notificationOptions = [
+    { label: t("account_pushNotifications"), value: "push" },
+  ];
+
+  const [selectedNotifications, setSelectedNotifications] = useState<string[]>([
+    "push",
+  ]);
+
+  // Switches toggle independently, so the sheet stays open on change.
+  const onToggleNotification = (value: string) => {
+    setSelectedNotifications((current) =>
+      current.includes(value)
+        ? current.filter((selected) => selected !== value)
+        : [...current, value],
+    );
   };
   const accountGroups = [
     {
@@ -89,7 +107,9 @@ const useHomeScreen = () => {
           icon: "bell",
           title: t("account_notifications"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => {
+            notificationsBottomSheetRef.current?.expand();
+          },
         },
 
         {
@@ -156,6 +176,10 @@ const useHomeScreen = () => {
     themeOptions,
     selectedTheme,
     onSelectTheme,
+    notificationsBottomSheetRef,
+    notificationOptions,
+    selectedNotifications,
+    onToggleNotification,
   };
 };
 

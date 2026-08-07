@@ -1,6 +1,6 @@
 import { userPlaceholder } from "@/src/assets/images";
 import { UserGreeting } from "@/src/components/ui/display";
-import { Button, RadioGroup } from "@/src/components/ui/inputs";
+import { Button, RadioGroup, SwitchGroup } from "@/src/components/ui/inputs";
 import { ScreenLayout } from "@/src/components/ui/layout";
 import { RowNav, TopBar } from "@/src/components/ui/navigations";
 import { BottomSheet, Modal } from "@/src/components/ui/overlay";
@@ -23,6 +23,10 @@ const HomeScreen = () => {
     themeOptions,
     selectedTheme,
     onSelectTheme,
+    notificationsBottomSheetRef,
+    notificationOptions,
+    selectedNotifications,
+    onToggleNotification,
   } = useHomeScreen();
 
   return (
@@ -69,6 +73,20 @@ const HomeScreen = () => {
             options={themeOptions}
             selectedValue={selectedTheme}
             onValueChange={onSelectTheme}
+          />
+        </BottomSheet.Content>
+      </BottomSheet>
+      {/* notifications bottom sheet */}
+      <BottomSheet
+        ref={notificationsBottomSheetRef}
+        bottomSheetProps={{ snapPoints: ["20%"] }}
+        title={t("account_notifications")}
+      >
+        <BottomSheet.Content>
+          <SwitchGroup
+            options={notificationOptions}
+            selectedValues={selectedNotifications}
+            onValueChange={onToggleNotification}
           />
         </BottomSheet.Content>
       </BottomSheet>

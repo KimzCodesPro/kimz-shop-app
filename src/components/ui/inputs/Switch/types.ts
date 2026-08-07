@@ -5,4 +5,5 @@ export type SwitchProps = {
   onChange: () => void;
   style?: StyleProp<ViewStyle>;
   disabled?: boolean;
+  title: string;
 };
