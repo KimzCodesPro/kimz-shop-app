@@ -5,7 +5,7 @@ import { ScreenLayout } from "@/src/components/ui/layout";
 import { RowNav, TopBar } from "@/src/components/ui/navigations";
 import { BottomSheet, Modal } from "@/src/components/ui/overlay";
 import { View } from "react-native";
-import { RowsGroup } from "./components";
+import { RowsGroup, ThemeRadioGroup } from "./components";
 import styles from "./screenStyles";
 import useHomeScreen from "./useHomeScreen";
 
@@ -20,6 +20,9 @@ const HomeScreen = () => {
     onSelectLanguage,
     languageBottomSheetRef,
     themeBottomSheetRef,
+    themeOptions,
+    selectedTheme,
+    onSelectTheme,
   } = useHomeScreen();
 
   return (
@@ -58,11 +61,15 @@ const HomeScreen = () => {
       {/* theme bottom sheet */}
       <BottomSheet
         ref={themeBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["25%"] }}
+        bottomSheetProps={{ snapPoints: ["35%"] }}
         title={t("account_theme")}
       >
         <BottomSheet.Content>
-          {/* Theme selection content goes here */}
+          <ThemeRadioGroup
+            options={themeOptions}
+            selectedValue={selectedTheme}
+            onValueChange={onSelectTheme}
+          />
         </BottomSheet.Content>
       </BottomSheet>
       {/* logout dialog */}

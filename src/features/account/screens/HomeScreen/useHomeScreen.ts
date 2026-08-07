@@ -1,11 +1,13 @@
+import { themeDark, themeLight, themeSystem } from "@/assets/images";
 import { useTranslation, useUserPreferences } from "@/hooks";
 import { BottomSheetRef } from "@/src/components/ui/overlay";
-import { Language } from "@/types";
+import { Language, Theme } from "@/types";
 import { useRef, useState } from "react";
+import { ThemeOption } from "./components/ThemeRadioGroup/types";
 
 const useHomeScreen = () => {
   const { t, language: selectedLanguage } = useTranslation();
-  const { setLanguage } = useUserPreferences();
+  const { setLanguage, setTheme, theme: selectedTheme } = useUserPreferences();
   const [logoutConfirm, setLogoutConfirm] = useState(false);
   const languageBottomSheetRef = useRef<BottomSheetRef | null>(null);
   const themeBottomSheetRef = useRef<BottomSheetRef | null>(null);
@@ -18,6 +20,23 @@ const useHomeScreen = () => {
   const onSelectLanguage = async (value: string) => {
     languageBottomSheetRef.current?.close();
     await setLanguage(value as Language);
+  };
+
+  const themeOptions: ThemeOption[] = [
+    { label: t("common_light"), value: "light", image: themeLight },
+    { label: t("common_dark"), value: "dark", image: themeDark },
+    { label: t("common_system"), value: "system", image: themeSystem },
+  ];
+
+  const themeLabels: Record<Theme, string> = {
+    light: t("common_light"),
+    dark: t("common_dark"),
+    system: t("common_system"),
+  };
+
+  const onSelectTheme = (value: Theme) => {
+    themeBottomSheetRef.current?.close();
+    setTheme(value);
   };
   const accountGroups = [
     {
@@ -92,7 +111,7 @@ const useHomeScreen = () => {
           icon: "palette",
           title: t("account_theme"),
           trailing: "chevronWithValue",
-          trailingValue: t("common_light"),
+          trailingValue: themeLabels[selectedTheme],
           onPress: () => {
             themeBottomSheetRef.current?.expand();
           },
@@ -137,6 +156,9 @@ const useHomeScreen = () => {
     onSelectLanguage,
     languageBottomSheetRef,
     themeBottomSheetRef,
+    themeOptions,
+    selectedTheme,
+    onSelectTheme,
   };
 };
 

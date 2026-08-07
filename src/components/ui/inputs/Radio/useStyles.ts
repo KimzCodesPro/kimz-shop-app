@@ -12,7 +12,7 @@ const useStyle = (selected: boolean, disabled?: boolean) => {
       alignSelf: "stretch",
       flexDirection: "row",
       alignItems: "center",
-      gap: HS(15),
+      gap: HS(12),
     },
     indicator: {
       justifyContent: "center",
