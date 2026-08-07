@@ -34,7 +34,7 @@ const useStyle = (selected: boolean, disabled?: boolean) => {
       opacity: disabled ? opacity.disabled : opacity.full,
     },
   });
-  return { styles };
+  return { styles, colors };
 };
 
 export default useStyle;

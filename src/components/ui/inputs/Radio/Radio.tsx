@@ -4,7 +4,7 @@ import useStyles from "../Radio/useStyles";
 import { RadioProps } from "./types";
 
 const Radio = ({ selected, onChange, disabled, title }: RadioProps) => {
-  const { styles } = useStyles(selected, disabled);
+  const { styles, colors } = useStyles(selected, disabled);
 
   return (
     <Pressable onPress={onChange} disabled={disabled} style={styles.wrapper}>
@@ -13,7 +13,11 @@ const Radio = ({ selected, onChange, disabled, title }: RadioProps) => {
       </View>
       <View>
         {title && (
-          <Typography variant="smallBold" textTransform="capitalize">
+          <Typography
+            variant="smallBold"
+            textTransform="capitalize"
+            color={colors.foreground.primary}
+          >
             {title}
           </Typography>
         )}
