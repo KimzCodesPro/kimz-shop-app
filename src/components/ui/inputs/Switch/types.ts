@@ -1,8 +1,9 @@
 import { StyleProp, ViewStyle } from "react-native";
 
 export type SwitchProps = {
-  value: boolean;
+  isSelected: boolean;
   onChange: () => void;
   style?: StyleProp<ViewStyle>;
   disabled?: boolean;
+  title: string;
 };

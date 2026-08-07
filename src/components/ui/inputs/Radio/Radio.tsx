@@ -1,13 +1,27 @@
 import { Pressable, View } from "react-native";
+import { Typography } from "../../display";
 import useStyles from "../Radio/useStyles";
 import { RadioProps } from "./types";
 
-const Radio = ({ value, onChange, disabled }: RadioProps) => {
-  const { styles } = useStyles(value, disabled);
+const Radio = ({ isSelected, onChange, disabled, title }: RadioProps) => {
+  const { styles, colors } = useStyles(isSelected, disabled);
 
   return (
-    <Pressable onPress={onChange} disabled={disabled} style={styles.container}>
-      <View style={styles.indicator} />
+    <Pressable onPress={onChange} disabled={disabled} style={styles.wrapper}>
+      <View style={styles.indicator}>
+        <View style={styles.innerIndicator} />
+      </View>
+      <View>
+        {title && (
+          <Typography
+            variant="smallBold"
+            textTransform="capitalize"
+            color={colors.foreground.primary}
+          >
+            {title}
+          </Typography>
+        )}
+      </View>
     </Pressable>
   );
 };

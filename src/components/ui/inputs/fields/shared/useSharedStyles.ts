@@ -1,5 +1,5 @@
 import { radius, spacing } from "@/constants";
-import { useFontStyles, useTheme } from "@/hooks";
+import { useFontStyles, useTheme, useTranslation } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { Platform, StyleSheet } from "react-native";
 import { StatusType } from "./types";
@@ -8,8 +8,15 @@ const { HS, VS } = scalingMethods;
 const useSharedStyles = (currentStatus: StatusType) => {
   const colors = useTheme();
   const fontFamilyStyles = useFontStyles();
+  const { direction } = useTranslation();
 
   const isAndroid = Platform.OS === "android";
+
+  // Match Typography: align off the app direction rather than "auto", which
+  // resolves from the typed content and would jump sides mid-entry.
+  const isRTL = direction === "rtl";
+  const textAlign = isRTL ? "right" : "left";
+  const writingDirection = isRTL ? "rtl" : "ltr";
 
   const colorMapping = {
     default: colors.foreground.tertiary,
@@ -56,8 +63,8 @@ const useSharedStyles = (currentStatus: StatusType) => {
       ...fontFamilyStyles.smallRegular,
       lineHeight: isAndroid ? fontFamilyStyles.smallRegular.lineHeight : 0,
       textAlignVertical: "center",
-      textAlign: "left",
-      writingDirection: "ltr",
+      textAlign,
+      writingDirection,
       paddingVertical: 0,
       includeFontPadding: false,
     },

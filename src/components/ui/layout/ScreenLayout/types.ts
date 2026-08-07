@@ -6,7 +6,12 @@ export type ScreenPaddingSides = "both" | "start" | "end" | "none";
 
 type ScreenLayoutBaseProps = {
   // Rendered outside the scroll view so it stays pinned while content scrolls.
-  customTopBar?: React.ReactNode;
+  // A function rather than an element so the layout can read its presence off
+  // the prop itself — the top inset it carries changes the screen's padding.
+  renderTopBar?: () => React.ReactNode;
+  // Pinned below the scroll view, so a CTA stays reachable while content
+  // scrolls under it. Takes over the screen's bottom padding when present.
+  renderFooter?: () => React.ReactNode;
   hasTabBar?: boolean;
   paddingSides?: ScreenPaddingSides;
   children: React.ReactNode;
@@ -31,3 +36,10 @@ type ScreenLayoutConditionalProps =
 
 export type ScreenLayoutProps = ScreenLayoutBaseProps &
   ScreenLayoutConditionalProps;
+
+export type UseStylesArgs = {
+  hasTopBar: boolean;
+  hasTabBar: boolean;
+  paddingSides: ScreenPaddingSides;
+  hasFooter: boolean;
+};

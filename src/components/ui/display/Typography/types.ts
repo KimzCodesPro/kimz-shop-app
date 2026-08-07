@@ -1,4 +1,4 @@
-import { TypographyVariant } from "@/types";
+import { Language, TypographyVariant } from "@/types";
 import { ColorValue, StyleProp, TextProps, TextStyle } from "react-native";
 
 type TextChildren = string | number | TextChildren[];
@@ -8,5 +8,6 @@ export type TypographyProps = {
   children: TextChildren;
   style?: StyleProp<TextStyle>;
   color?: ColorValue;
+  forceLanguage?: Language;
   textTransform?: "none" | "capitalize" | "uppercase" | "lowercase";
 } & Omit<TextProps, "children">;

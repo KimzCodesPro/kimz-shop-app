@@ -1,5 +1,6 @@
 import { fonts } from "@/constants";
 import { scalingMethods } from "@/utils";
+import { Language } from "../types";
 import useTranslation from "./useTranslation";
 const { VS, FS } = scalingMethods;
 
@@ -101,109 +102,113 @@ const fontStyles = {
       lineHeight: VS(14),
     },
   },
+  // Line heights supplied by the UX team. Cairo needs more vertical room than
+  // Space Grotesk — it declares a 1.874 em line box (ascent 1303, descent -571
+  // over a 1000 upm) against Space Grotesk's 1.276 em, because Arabic reserves
+  // headroom for tashkeel and depth for the bowls of ج ح خ ع ي.
   ar: {
     heroBold: {
       fontFamily: fonts.ar.bold,
       fontSize: FS(38),
-      lineHeight: VS(50),
+      lineHeight: VS(65), // en 50
     },
     heroRegular: {
       fontFamily: fonts.ar.regular,
       fontSize: FS(38),
-      lineHeight: VS(50),
+      lineHeight: VS(65), // en 50
     },
     xlargeBold: {
       fontFamily: fonts.ar.bold,
       fontSize: FS(22),
-      lineHeight: VS(30),
+      lineHeight: VS(39), // en 30
     },
     xlargeRegular: {
       fontFamily: fonts.ar.regular,
       fontSize: FS(22),
-      lineHeight: VS(30),
+      lineHeight: VS(39), // en 30
     },
     largeBold: {
       fontFamily: fonts.ar.bold,
       fontSize: FS(18),
-      lineHeight: VS(26),
+      lineHeight: VS(34), // en 26
     },
     largeRegular: {
       fontFamily: fonts.ar.regular,
       fontSize: FS(18),
-      lineHeight: VS(26),
+      lineHeight: VS(34), // en 26
     },
     largeLight: {
       fontFamily: fonts.ar.light,
       fontSize: FS(18),
-      lineHeight: VS(26),
+      lineHeight: VS(34), // en 26
     },
     mediumBold: {
       fontFamily: fonts.ar.bold,
       fontSize: FS(16),
-      lineHeight: VS(26),
+      lineHeight: VS(34), // en 26
     },
     mediumRegular: {
       fontFamily: fonts.ar.regular,
       fontSize: FS(16),
-      lineHeight: VS(26),
+      lineHeight: VS(34), // en 26
     },
     mediumLight: {
       fontFamily: fonts.ar.light,
       fontSize: FS(16),
-      lineHeight: VS(26),
+      lineHeight: VS(34), // en 26
     },
     normalBold: {
       fontFamily: fonts.ar.bold,
       fontSize: FS(14),
-      lineHeight: VS(22),
+      lineHeight: VS(29), // en 22
     },
     normalRegular: {
       fontFamily: fonts.ar.regular,
       fontSize: FS(14),
-      lineHeight: VS(22),
+      lineHeight: VS(29), // en 22
     },
     normalLight: {
       fontFamily: fonts.ar.light,
       fontSize: FS(14),
-      lineHeight: VS(22),
+      lineHeight: VS(29), // en 22
     },
     smallBold: {
       fontFamily: fonts.ar.bold,
       fontSize: FS(13),
-      lineHeight: VS(22),
+      lineHeight: VS(29), // en 22
     },
     smallRegular: {
       fontFamily: fonts.ar.regular,
       fontSize: FS(13),
-      lineHeight: VS(22),
+      lineHeight: VS(29), // en 22
     },
     smallLight: {
       fontFamily: fonts.ar.light,
       fontSize: FS(13),
-      lineHeight: VS(22),
+      lineHeight: VS(29), // en 22
     },
     xsmallBold: {
       fontFamily: fonts.ar.bold,
       fontSize: FS(11),
-      lineHeight: VS(14),
+      lineHeight: VS(18), // en 14
     },
     xsmallRegular: {
       fontFamily: fonts.ar.regular,
       fontSize: FS(11),
-      lineHeight: VS(14),
+      lineHeight: VS(18), // en 14
     },
     xsmallLight: {
       fontFamily: fonts.ar.light,
       fontSize: FS(11),
-      lineHeight: VS(14),
+      lineHeight: VS(18), // en 14
     },
   },
 } as const;
 
-const useFontStyles = () => {
+const useFontStyles = (forceLanguage?: Language) => {
   const { language } = useTranslation();
 
-  return fontStyles[language];
+  return fontStyles[forceLanguage ?? language];
 };
 
 export default useFontStyles;

@@ -2,29 +2,38 @@ import {
   CustomBottomTab,
   CustomBottomTabButton,
 } from "@/components/ui/navigations";
+import { useTranslation } from "@/hooks";
 import { TabList, Tabs, TabSlot, TabTrigger } from "expo-router/ui";
 
 export default function TabLayout() {
+  const { t } = useTranslation();
+
   return (
     <Tabs>
       <TabSlot />
       <TabList asChild>
         <CustomBottomTab>
           <TabTrigger name="index" href="/" asChild>
-            <CustomBottomTabButton iconName="home" label="Home" />
+            <CustomBottomTabButton iconName="home" label={t("bottomTab_home")} />
           </TabTrigger>
           <TabTrigger name="myOrder" href="/myOrder" asChild>
-            <CustomBottomTabButton iconName="truck" label="My Order" />
+            <CustomBottomTabButton
+              iconName="truck"
+              label={t("bottomTab_myOrder")}
+            />
           </TabTrigger>
           <TabTrigger name="myCard" href="/myCard" asChild>
             <CustomBottomTabButton
               iconName="shopping-cart"
-              label="My Card"
+              label={t("bottomTab_myCard")}
               badge={10}
             />
           </TabTrigger>
           <TabTrigger name="account" href="/account" asChild>
-            <CustomBottomTabButton iconName="user" label="Account" />
+            <CustomBottomTabButton
+              iconName="user"
+              label={t("bottomTab_account")}
+            />
           </TabTrigger>
         </CustomBottomTab>
       </TabList>

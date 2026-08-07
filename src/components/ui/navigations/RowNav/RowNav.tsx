@@ -6,7 +6,7 @@ import { RowNavProps } from "./types";
 import useStyles from "./useStyles";
 
 const RowNav = ({
-  variant,
+  variant = "default",
   title,
   icon,
   style,

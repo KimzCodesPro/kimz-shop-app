@@ -1,70 +1,66 @@
-import { spacing } from "@/constants";
 import { useTheme } from "@/hooks";
-import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { ScreenPaddingSides } from "./types";
-const { VS } = scalingMethods;
+import {
+  CONTENT_BOTTOM_GAP,
+  SIDE_PADDING,
+  TOP_BAR_AND_FOOTER_GAP,
+} from "./constants";
+import { UseStylesArgs } from "./types";
 
-// Space between the top bar and the content. Lives here rather than on the
-// bar so every customTopBar gets it, and a screen can sit flush by omitting
-// the bar. With no bar the wrapper has one child, so the gap collapses.
-const TOP_BAR_GAP = VS(20);
-
-// Breathing room under the last item. Design spec, not safe area — the tab
-// bar already absorbs insets.bottom, so with a tab bar this is all we add.
-const CONTENT_BOTTOM_GAP = VS(25);
-
-// Gutter between the screen's content and the device edges.
-const CONTENT_PADDING_HORIZONTAL = spacing.space24.width;
-
-// Sits on the content only, never the wrapper — TopBar carries its own
-// paddingHorizontal, so a wrapper-level gutter would double up on it.
-const SIDE_PADDING = {
-  both: { paddingHorizontal: CONTENT_PADDING_HORIZONTAL },
-  start: { paddingStart: CONTENT_PADDING_HORIZONTAL },
-  end: { paddingEnd: CONTENT_PADDING_HORIZONTAL },
-  none: {},
-} as const;
-
-const useStyles = (
-  hasTopBar: boolean,
-  hasTabBar: boolean,
-  paddingSides: ScreenPaddingSides,
-) => {
+const useStyles = ({
+  hasTopBar,
+  hasTabBar,
+  paddingSides,
+  hasFooter,
+}: UseStylesArgs) => {
   const colors = useTheme();
   const insets = useSafeAreaInsets();
 
   // A TopBar applies insets.top itself and the tab bar already consumes
   // insets.bottom, so we only add the inset nothing else is covering.
   const paddingTop = hasTopBar ? 0 : insets.top;
-  const paddingBottom = (hasTabBar ? 0 : insets.bottom) + CONTENT_BOTTOM_GAP;
+  const bottomInset = hasTabBar ? 0 : insets.bottom;
+  const paddingBottom = bottomInset + CONTENT_BOTTOM_GAP;
   const horizontalPadding = SIDE_PADDING[paddingSides];
 
   // No backgroundColor here: RootLayout hands colors.background.base to
   // React Navigation's theme, which paints every screen for us.
   const styles = StyleSheet.create({
+    // Fixed content can't overflow, so it needs no CONTENT_BOTTOM_GAP — only
+    // the inset, and only when the footer isn't already clearing it below.
     viewWrapper: {
+      ...horizontalPadding,
       paddingTop,
-      paddingBottom,
-      gap: TOP_BAR_GAP,
+      paddingBottom: hasFooter ? 0 : bottomInset,
+      gap: TOP_BAR_AND_FOOTER_GAP,
       flex: 1,
     },
     scrollViewWrapper: {
+      ...horizontalPadding,
       paddingTop,
-      gap: TOP_BAR_GAP,
+      gap: TOP_BAR_AND_FOOTER_GAP,
       flex: 1,
     },
     scrollViewContent: {
-      paddingBottom,
-      ...horizontalPadding,
       flexGrow: 1,
+      paddingBottom: hasFooter ? 0 : paddingBottom,
     },
     // Content area of the non-scrollable branch. flex: 1 so children still
     // fill the screen now that they sit one View deeper than the wrapper.
     container: {
       flex: 1,
-      ...horizontalPadding,
+    },
+    // Both footers are the last thing in the flow, so each owns the bottom
+    // padding of its branch — the wrappers above drop theirs to avoid doubling.
+    // A fixed screen can't overflow, so its footer takes only the inset that
+    // clears the home indicator; no CONTENT_BOTTOM_GAP to breathe against.
+    viewFooter: {
+      paddingBottom: bottomInset,
+    },
+    // Pinned under content that does overflow, so it keeps the design gap.
+    scrollFooter: {
+      paddingBottom,
     },
   });
 
