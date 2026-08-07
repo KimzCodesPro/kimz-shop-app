@@ -10,17 +10,15 @@ const useStyles = () => {
     container: {
       flexDirection: "row",
       justifyContent: "center",
-      alignSelf: "stretch",
-      gap: spacing.space24.width,
+      gap: spacing.space32.width,
     },
-    // Each option stacks its preview above its radio.
     option: {
       alignItems: "center",
-      gap: VS(12),
+      gap: spacing.space8.height,
     },
     preview: {
-      height: VS(156),
-      width: HS(72),
+      height: VS(152),
+      width: HS(77),
     },
   });
 

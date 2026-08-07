@@ -31,9 +31,7 @@ const ThemeRadioGroup = ({
             style={styles.preview}
             contentFit="fill"
           />
-          {/* Radio is presentational here — pointerEvents keeps it from
-              claiming the touch, so the column is one target and, more to the
-              point, one node for a screen reader instead of two nested ones. */}
+
           <View pointerEvents="none">
             <Radio
               isSelected={selectedValue === option.value}
