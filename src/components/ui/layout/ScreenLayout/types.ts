@@ -9,9 +9,6 @@ type ScreenLayoutBaseProps = {
   // A function rather than an element so the layout can read its presence off
   // the prop itself — the top inset it carries changes the screen's padding.
   renderTopBar?: () => React.ReactNode;
-  // Pinned below the scroll view, so a CTA stays reachable while content
-  // scrolls under it. Takes over the screen's bottom padding when present.
-  renderFooter?: () => React.ReactNode;
   hasTabBar?: boolean;
   paddingSides?: ScreenPaddingSides;
   children: React.ReactNode;
@@ -41,5 +38,4 @@ export type UseStylesArgs = {
   hasTopBar: boolean;
   hasTabBar: boolean;
   paddingSides: ScreenPaddingSides;
-  hasFooter: boolean;
 };

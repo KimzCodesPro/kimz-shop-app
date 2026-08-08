@@ -2,11 +2,10 @@ import { spacing } from "@/constants";
 import { scalingMethods } from "@/utils";
 const { VS } = scalingMethods;
 
-// Space between the content and the bars pinned around it — the top bar
-// above, the footer below. Lives here rather than on the bar or footer so
-// every one of them gets it, and a screen can sit flush by omitting the prop.
-// With neither, the wrapper has one child and the gap collapses.
-export const TOP_BAR_AND_FOOTER_GAP = VS(20);
+// Space between the top bar and the content. Lives here rather than on the
+// bar so every renderTopBar gets it, and a screen can sit flush by omitting
+// the prop. With no bar the wrapper has one child, so the gap collapses.
+export const TOP_BAR_GAP = VS(20);
 
 // Breathing room under the last item. Design spec, not safe area — the tab
 // bar already absorbs insets.bottom, so with a tab bar this is all we add.
