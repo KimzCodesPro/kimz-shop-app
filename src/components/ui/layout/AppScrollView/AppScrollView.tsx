@@ -1,18 +1,41 @@
-import { ScrollView, ScrollViewProps } from "react-native";
+import { scalingMethods } from "@/utils";
+import { ScrollView, ScrollViewProps, StyleSheet } from "react-native";
+const { VS } = scalingMethods;
+
+// Breathing room under the last item, so content never ends flush against the
+// bottom of the screen. Design spec, not safe area — whatever sits outside the
+// scroll view owns the inset.
+const CONTENT_BOTTOM_GAP = VS(25);
 
 // Project defaults for every scrollable surface. Any prop can be overridden by
 // the caller since props are spread after the defaults.
-const AppScrollView = ({ children, ...props }: ScrollViewProps) => {
+const AppScrollView = ({
+  children,
+  contentContainerStyle,
+  ...props
+}: ScrollViewProps) => {
   return (
     <ScrollView
       keyboardShouldPersistTaps="handled"
       keyboardDismissMode="on-drag"
       showsVerticalScrollIndicator={false}
       {...props}
+      // Merged rather than spread, so a caller adding their own content styles
+      // extends these defaults instead of dropping flexGrow along with them.
+      contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
     >
       {children}
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  // flexGrow so short content still fills the viewport — without it a screen
+  // with one row can't stretch, and anything centred inside collapses.
+  contentContainer: {
+    flexGrow: 1,
+    paddingBottom: CONTENT_BOTTOM_GAP,
+  },
+});
 
 export default AppScrollView;
