@@ -7,8 +7,6 @@ const { VS } = scalingMethods;
 // the prop. With no bar the wrapper has one child, so the gap collapses.
 export const TOP_BAR_GAP = VS(20);
 
-// Breathing room under the last item. Design spec, not safe area — the tab
-// bar already absorbs insets.bottom, so with a tab bar this is all we add.
 export const CONTENT_BOTTOM_GAP = VS(25);
 
 // Gutter between the screen's content and the device edges.
