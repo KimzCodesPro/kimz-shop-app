@@ -1,7 +1,7 @@
 import { useTheme } from "@/hooks";
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { SIDE_PADDING, TOP_BAR_GAP } from "./constants";
+import { CONTENT_BOTTOM_GAP, SIDE_PADDING, TOP_BAR_GAP } from "./constants";
 import { UseStylesArgs } from "./types";
 
 const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
@@ -22,7 +22,7 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
     viewWrapper: {
       ...horizontalPadding,
       paddingTop,
-      paddingBottom: bottomInset,
+      paddingBottom: bottomInset + CONTENT_BOTTOM_GAP,
       gap: TOP_BAR_GAP,
       flex: 1,
     },

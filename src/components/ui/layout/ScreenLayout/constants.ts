@@ -7,6 +7,8 @@ const { VS } = scalingMethods;
 // the prop. With no bar the wrapper has one child, so the gap collapses.
 export const TOP_BAR_GAP = VS(20);
 
+export const CONTENT_BOTTOM_GAP = VS(25);
+
 // Gutter between the screen's content and the device edges.
 const CONTENT_PADDING_HORIZONTAL = spacing.space24.width;
 
