@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import RootLayout from "./RootLayout";
 
-const AppBootstrap = () => {
+const AppProviders = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AppBootstrap;
+export default AppProviders;

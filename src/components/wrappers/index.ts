@@ -1,2 +1,2 @@
-export { default as AppBootstrap } from "./AppBootstrap";
+export { default as AppProviders } from "./AppProviders";
 export { default as RootLayout } from "./RootLayout";

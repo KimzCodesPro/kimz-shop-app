@@ -1,5 +1,5 @@
 import BottomSheet, { BottomSheetProps } from "@gorhom/bottom-sheet";
-import React, { Ref } from "react";
+import React, { RefObject } from "react";
 
 export type BottomSheetRef = BottomSheet | null;
 
@@ -11,9 +11,14 @@ export type AppBottomSheetProps = {
   children: React.ReactNode;
   // enableDynamicSizing is locked to false in AppBottomSheet (we rely on fixed
   // snapPoints), so callers can't override it and reintroduce content-measuring.
+  // onChange is locked too — it drives the Android back handler. Use onClose or
+  // onAnimate instead.
   bottomSheetProps?: Omit<
     BottomSheetProps,
-    "children" | "enableDynamicSizing" | "index"
+    "children" | "enableDynamicSizing" | "index" | "onChange"
   >;
-  ref: Ref<BottomSheetRef>;
+  // RefObject, not Ref: Ref's callback arm is write-only, and the Android back
+  // handler has to read the instance back out to close the sheet. Callers lose
+  // nothing — a callback ref can't drive an imperative-only sheet.
+  ref: RefObject<BottomSheetRef>;
 };

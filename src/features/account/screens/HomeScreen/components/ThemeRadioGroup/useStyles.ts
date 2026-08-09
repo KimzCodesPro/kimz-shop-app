@@ -10,15 +10,15 @@ const useStyles = () => {
     container: {
       flexDirection: "row",
       justifyContent: "center",
-      gap: spacing.space32.width,
     },
     option: {
+      flex: 1,
       alignItems: "center",
-      gap: spacing.space8.height,
+      gap: spacing.space12.height,
     },
     preview: {
-      height: VS(152),
-      width: HS(77),
+      height: VS(156),
+      width: HS(72),
     },
   });
 
