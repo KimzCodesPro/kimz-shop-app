@@ -1,12 +1,12 @@
-import { userPlaceholder } from "@/src/assets/images";
-import { UserGreeting } from "@/src/components/ui/display";
-import { Button, RadioGroup, SwitchGroup } from "@/src/components/ui/inputs";
-import { ScreenLayout } from "@/src/components/ui/layout";
-import { RowNav, TopBar } from "@/src/components/ui/navigations";
-import { BottomSheet, Modal } from "@/src/components/ui/overlay";
+import { userPlaceholder } from "@/assets/images";
+import { UserGreeting } from "@/components/ui/display";
+import { Button, RadioGroup, SwitchGroup } from "@/components/ui/inputs";
+import { ScreenLayout } from "@/components/ui/layout";
+import { RowNav, TopBar } from "@/components/ui/navigations";
+import { BottomSheet, Modal } from "@/components/ui/overlay";
 import { View } from "react-native";
 import { RowsGroup, ThemeRadioGroup } from "./components";
-import styles from "./screenStyles";
+import styles from "./homeScreenStyles";
 import useHomeScreen from "./useHomeScreen";
 
 const HomeScreen = () => {
@@ -25,7 +25,6 @@ const HomeScreen = () => {
     onSelectTheme,
     notificationsBottomSheetRef,
     notificationOptions,
-    selectedNotifications,
     onToggleNotification,
   } = useHomeScreen();
 
@@ -85,7 +84,6 @@ const HomeScreen = () => {
         <BottomSheet.Content>
           <SwitchGroup
             options={notificationOptions}
-            selectedValues={selectedNotifications}
             onValueChange={onToggleNotification}
           />
         </BottomSheet.Content>

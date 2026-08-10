@@ -1,13 +1,20 @@
 import { themeDark, themeLight, themeSystem } from "@/assets/images";
+import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation, useUserPreferences } from "@/hooks";
-import { BottomSheetRef } from "@/src/components/ui/overlay";
 import { Language, Theme } from "@/types";
 import { useRef, useState } from "react";
 import { ThemeOption } from "./components/ThemeRadioGroup/types";
 
 const useHomeScreen = () => {
   const { t, language: selectedLanguage } = useTranslation();
-  const { setLanguage, setTheme, theme: selectedTheme } = useUserPreferences();
+  const {
+    setLanguage,
+    setTheme,
+    theme: selectedTheme,
+    enableNotifications,
+    setEnableNotifications,
+  } = useUserPreferences();
+
   const [logoutConfirm, setLogoutConfirm] = useState(false);
   const languageBottomSheetRef = useRef<BottomSheetRef | null>(null);
   const themeBottomSheetRef = useRef<BottomSheetRef | null>(null);
@@ -38,21 +45,19 @@ const useHomeScreen = () => {
   };
 
   const notificationOptions = [
-    { label: t("account_pushNotifications"), value: "push" },
+    {
+      label: t("account_pushNotifications"),
+      value: "pushNotifications",
+      isSelected: enableNotifications,
+    },
   ];
 
-  const [selectedNotifications, setSelectedNotifications] = useState<string[]>([
-    "push",
-  ]);
-
-  // Switches toggle independently, so the sheet stays open on change.
   const onToggleNotification = (value: string) => {
-    setSelectedNotifications((current) =>
-      current.includes(value)
-        ? current.filter((selected) => selected !== value)
-        : [...current, value],
-    );
+    if (value === "pushNotifications") {
+      setEnableNotifications(!enableNotifications);
+    }
   };
+
   const accountGroups = [
     {
       title: t("account_account"),
@@ -178,7 +183,6 @@ const useHomeScreen = () => {
     onSelectTheme,
     notificationsBottomSheetRef,
     notificationOptions,
-    selectedNotifications,
     onToggleNotification,
   };
 };

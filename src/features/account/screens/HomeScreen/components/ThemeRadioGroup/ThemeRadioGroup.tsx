@@ -1,4 +1,4 @@
-import { Radio } from "@/src/components/ui/inputs";
+import { Radio } from "@/components/ui/inputs";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import { ThemeRadioGroupProps } from "./types";

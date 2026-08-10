@@ -1,7 +1,11 @@
+export type SwitchGroupOption = {
+  label: string;
+  value: string;
+  isSelected: boolean;
+};
 export type SwitchGroupProps = {
-  options: { label: string; value: string }[];
-  // Switches are independent, so the group tracks every value that is on and
-  // onValueChange reports the one that was toggled.
-  selectedValues: string[];
+  options: SwitchGroupOption[];
+  // Switches are independent, so each option carries its own state and
+  // onValueChange reports the value that was toggled.
   onValueChange: (value: string) => void;
 };

@@ -10,7 +10,7 @@ const useStyles = () => {
       gap: spacing.space16.height,
     },
     switchItem: {
-      height: VS(40),
+      height: VS(30),
       justifyContent: "center",
     },
   });

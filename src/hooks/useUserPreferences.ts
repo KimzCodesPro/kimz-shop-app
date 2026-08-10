@@ -2,6 +2,7 @@ import { persistor } from "@/store";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import translation from "@/store/translation/translation.json";
 import {
+  setEnableNotifications,
   setLanguage,
   setTheme,
 } from "@/store/userPreferences/userPreferencesSlice";
@@ -39,6 +40,8 @@ const useUserPreferences = () => {
     ...preferences,
     setLanguage: changeLanguage,
     setTheme: (theme: Theme) => dispatch(setTheme(theme)),
+    setEnableNotifications: (enable: boolean) =>
+      dispatch(setEnableNotifications(enable)),
   };
 };
 

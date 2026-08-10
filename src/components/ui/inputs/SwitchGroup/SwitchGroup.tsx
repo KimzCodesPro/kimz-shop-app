@@ -4,11 +4,7 @@ import Switch from "../Switch/Switch";
 import { SwitchGroupProps } from "./types";
 import useStyles from "./useStyles";
 
-const SwitchGroup = ({
-  options,
-  selectedValues,
-  onValueChange,
-}: SwitchGroupProps) => {
+const SwitchGroup = ({ options, onValueChange }: SwitchGroupProps) => {
   const { styles } = useStyles();
 
   return (
@@ -16,7 +12,7 @@ const SwitchGroup = ({
       {options.map((option) => (
         <View key={option.value} style={styles.switchItem}>
           <Switch
-            isSelected={selectedValues.includes(option.value)}
+            isSelected={option.isSelected}
             onChange={() => onValueChange(option.value)}
             title={option.label}
           />

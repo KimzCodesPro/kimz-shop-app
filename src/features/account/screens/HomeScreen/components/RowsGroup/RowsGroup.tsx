@@ -1,5 +1,5 @@
-import { Typography } from "@/src/components/ui/display";
-import { useTheme } from "@/src/hooks";
+import { Typography } from "@/components/ui/display";
+import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
