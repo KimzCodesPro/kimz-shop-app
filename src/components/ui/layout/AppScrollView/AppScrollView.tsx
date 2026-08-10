@@ -16,6 +16,10 @@ const AppScrollView = ({
 }: ScrollViewProps) => {
   return (
     <ScrollView
+      // "handled" lets a tap through to whatever it landed on — a button fires
+      // on the first press instead of spending it on closing the keyboard, and
+      // ScreenLayout's dismiss target gets the taps that hit empty space. This
+      // prop routes taps; it is not itself a dismiss-on-tap feature.
       keyboardShouldPersistTaps="handled"
       keyboardDismissMode="on-drag"
       showsVerticalScrollIndicator={false}

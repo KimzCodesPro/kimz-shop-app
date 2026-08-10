@@ -11,7 +11,7 @@ const EditProfileScreen = () => {
     <ScreenLayout
       scrollable
       renderTopBar={() => <TopBar title={t("account_editProfile")} goBack />}
-      scrollProps={{ contentContainerStyle: styles.form }}
+      contentContainerStyle={styles.form}
     >
       <TextInput
         label={t("account_username")}

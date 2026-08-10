@@ -9,7 +9,6 @@ const ScreenLayout = ({
   renderTopBar,
   hasTabBar = false,
   paddingSides = "both",
-  dismissKeyboardOnTap = true,
   contentContainerStyle,
   scrollProps,
   children,
@@ -22,32 +21,28 @@ const ScreenLayout = ({
 
   const topBar = renderTopBar?.();
 
-  const renderContent = (
-    <View style={[styles.container, contentContainerStyle]}>{children}</View>
-  );
-
+  // The content area is always the dismiss target — with children and style
+  // passed as values rather than functions, Pressable never tracks its own
+  // pressed state, so a screen with no inputs pays for a View and nothing more.
   if (scrollable) {
     return (
       <View style={styles.scrollViewWrapper}>
         {topBar}
-        <AppScrollView {...scrollProps}>{children}</AppScrollView>
+        <AppScrollView {...scrollProps}>
+          <DismissKeyboard style={[styles.container, contentContainerStyle]}>
+            {children}
+          </DismissKeyboard>
+        </AppScrollView>
       </View>
-    );
-  }
-
-  if (dismissKeyboardOnTap) {
-    return (
-      <DismissKeyboard style={styles.viewWrapper}>
-        {topBar}
-        {renderContent}
-      </DismissKeyboard>
     );
   }
 
   return (
     <View style={styles.viewWrapper}>
       {topBar}
-      {renderContent}
+      <DismissKeyboard style={[styles.container, contentContainerStyle]}>
+        {children}
+      </DismissKeyboard>
     </View>
   );
 };
