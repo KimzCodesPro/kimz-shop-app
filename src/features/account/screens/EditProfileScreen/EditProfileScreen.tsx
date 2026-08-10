@@ -1,7 +1,10 @@
-import { TextInput } from "@/components/ui/inputs";
+import { userPlaceholder } from "@/assets/images";
+import { Avatar } from "@/components/ui/display";
+import { Button, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
+import { View } from "react-native";
 import styles from "./editProfileScreenStyles";
 
 const EditProfileScreen = () => {
@@ -11,31 +14,44 @@ const EditProfileScreen = () => {
     <ScreenLayout
       scrollable
       renderTopBar={() => <TopBar title={t("account_editProfile")} goBack />}
-      contentContainerStyle={styles.form}
     >
-      <TextInput
-        label={t("account_username")}
-        placeholder={t("account_usernamePlaceholder")}
-        iconName="user"
-        value=""
+      <Avatar
+        size="lg"
+        enableUploader
+        imgSrc={userPlaceholder}
+        style={styles.avatar}
       />
-      <TextInput
-        label={t("account_email")}
-        placeholder={t("account_emailPlaceholder")}
-        iconName="mail"
-        value=""
-      />
-      <TextInput
-        label={t("account_phoneNumber")}
-        placeholder={t("account_phoneNumberPlaceholder")}
-        iconName="bell"
-        value=""
-      />
-      <TextInput
-        type="password"
-        label={t("account_passwordToConfirm")}
-        placeholder={t("account_passwordToConfirmPlaceholder")}
-        value=""
+      <View style={styles.form}>
+        <TextInput
+          label={t("account_username")}
+          placeholder={t("account_usernamePlaceholder")}
+          iconName="user"
+          value=""
+        />
+        <TextInput
+          label={t("account_email")}
+          placeholder={t("account_emailPlaceholder")}
+          iconName="mail"
+          value=""
+        />
+        <TextInput
+          label={t("account_phoneNumber")}
+          placeholder={t("account_phoneNumberPlaceholder")}
+          iconName="bell"
+          value=""
+        />
+        <TextInput
+          type="password"
+          label={t("account_passwordToConfirm")}
+          placeholder={t("account_passwordToConfirmPlaceholder")}
+          value=""
+        />
+      </View>
+
+      <Button
+        title={t("account_saveChanges")}
+        onPress={() => {}}
+        style={styles.submitButton}
       />
     </ScreenLayout>
   );
