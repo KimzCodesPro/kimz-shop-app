@@ -12,20 +12,13 @@ import useStyles from "./useStyles";
 
 const AppBottomSheet = (props: AppBottomSheetProps) => {
   const { title, description, children, bottomSheetProps, ref } = props;
-  const { styles } = useStyles();
-  // A ref, not state: onChange fires on every snap point, and openness only
-  // ever needs to be read inside the back handler below — never rendered.
   const isOpen = useRef(false);
 
-  // Android back press: the sheet is portaled to the app root, outside the
-  // navigator, so the press falls through to expo-router and pops the screen
-  // while the sheet stays up. gorhom has no prop for this (still an open
-  // request upstream), so claim the press ourselves. Returning false while
-  // closed hands the press to expo-router's own listener, which is registered
-  // at app root and therefore older — RN runs them newest-first, so this one
-  // always gets first refusal. No platform check needed: BackHandler is a
-  // no-op stub on iOS.
+  const { styles } = useStyles();
+
   useEffect(() => {
+    if (typeof ref === "function" || ref === null) return;
+
     const sub = BackHandler.addEventListener("hardwareBackPress", () => {
       if (!isOpen.current) return false;
 
@@ -45,9 +38,6 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
     />
   );
 
-  // renders — Portal teleports the sheet to the root PortalHost so it paints
-  // above sibling content (a non-modal BottomSheet has no containerComponent
-  // prop, so we portal it manually, the same way BottomSheetModal does).
   return (
     <Portal>
       <BottomSheet
