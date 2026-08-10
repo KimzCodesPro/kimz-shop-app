@@ -12,7 +12,7 @@ import useHomeScreen from "./useHomeScreen";
 const HomeScreen = () => {
   const {
     t,
-    accountGroups,
+    pageNavigationList,
     logoutConfirm,
     setLogoutConfirm,
     languageOptions,
@@ -40,7 +40,7 @@ const HomeScreen = () => {
         userName="Kareem Nour"
         meta="kareem@gmail.com"
       />
-      {accountGroups.map((group) => (
+      {pageNavigationList.map((group) => (
         <RowsGroup key={group.title} title={group.title}>
           {group.rows.map((row) => (
             <RowNav key={row.title} {...row} />

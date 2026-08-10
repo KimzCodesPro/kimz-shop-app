@@ -2,10 +2,12 @@ import { themeDark, themeLight, themeSystem } from "@/assets/images";
 import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation, useUserPreferences } from "@/hooks";
 import { Language, Theme } from "@/types";
+import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
 import { ThemeOption } from "./components/ThemeRadioGroup/types";
 
 const useHomeScreen = () => {
+  const router = useRouter();
   const { t, language: selectedLanguage } = useTranslation();
   const {
     setLanguage,
@@ -58,7 +60,7 @@ const useHomeScreen = () => {
     }
   };
 
-  const accountGroups = [
+  const pageNavigationList = [
     {
       title: t("account_account"),
       rows: [
@@ -66,7 +68,7 @@ const useHomeScreen = () => {
           icon: "user",
           title: t("account_editProfile"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/account/editProfile"),
         },
         {
           icon: "lock",
@@ -169,7 +171,7 @@ const useHomeScreen = () => {
   ] as const;
 
   return {
-    accountGroups,
+    pageNavigationList,
     t,
     logoutConfirm,
     setLogoutConfirm,
