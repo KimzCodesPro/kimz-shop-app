@@ -19,13 +19,16 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
   useEffect(() => {
     if (typeof ref === "function" || ref === null) return;
 
-    const sub = BackHandler.addEventListener("hardwareBackPress", () => {
-      if (!isOpen.current) return false;
+    const nativeNavigationListener = BackHandler.addEventListener(
+      "hardwareBackPress",
+      () => {
+        if (!isOpen.current) return false;
 
-      ref.current?.close();
-      return true;
-    });
-    return () => sub.remove();
+        ref.current?.close();
+        return true;
+      },
+    );
+    return () => nativeNavigationListener.remove();
   }, [ref]);
 
   const RenderBackdrop = (props: any) => (
