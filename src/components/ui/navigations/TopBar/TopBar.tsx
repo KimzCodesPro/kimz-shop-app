@@ -27,7 +27,7 @@ const TopBar = ({ title, goBack, forceBack, actionBtn }: TopBarProps) => {
         {goBack || hasForceBack ? (
           <Pressable onPress={handleGoBack}>
             <Icon
-              name="chevron"
+              name="chevron-left"
               size={22}
               color={colors.foreground.primary}
               flipOnRTL

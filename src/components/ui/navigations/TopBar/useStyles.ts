@@ -1,4 +1,3 @@
-import { spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
@@ -19,7 +18,6 @@ const useStyles = () => {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",
-      paddingHorizontal: spacing.space16.width,
     },
   });
 
