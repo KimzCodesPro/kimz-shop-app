@@ -1,9 +1,8 @@
 import { Typography } from "@/components/ui/display";
 import { useTheme } from "@/hooks";
-import { scalingMethods } from "@/utils";
+import spacing from "@/src/constants/spacing";
 import { ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
-const { VS } = scalingMethods;
 
 type RowsGroupProps = {
   title: string;
@@ -28,13 +27,12 @@ const RowsGroup = ({ title, children }: RowsGroupProps) => {
 const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
-    paddingVertical: VS(4),
-    marginTop: VS(24),
-    marginBottom: VS(16),
+    marginTop: spacing.space24.height,
+    marginBottom: spacing.space16.height,
   },
 
   rows: {
-    gap: VS(16),
+    gap: spacing.space16.height,
   },
 });
 

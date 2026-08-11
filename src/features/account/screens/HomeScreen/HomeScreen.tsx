@@ -90,7 +90,7 @@ const HomeScreen = () => {
       </BottomSheet>
       {/* logout dialog */}
       <Modal title={t("account_logoutConfirm")} visible={logoutConfirm}>
-        <View style={styles.modalContent}>
+        <View style={styles.logoutModalContent}>
           <Button
             title={t("common_cancel")}
             onPress={() => setLogoutConfirm(false)}

@@ -13,7 +13,7 @@ const Avatar = ({
 }: AvatarProps) => {
   const { styles, colors } = useStyles(size);
   return (
-    <View style={[styles.wrapper, style]}>
+    <View style={style}>
       <Image
         style={styles.img}
         source={imgSrc}

@@ -47,7 +47,6 @@ const EditProfileScreen = () => {
           value=""
         />
       </View>
-
       <Button
         title={t("account_saveChanges")}
         onPress={() => {}}

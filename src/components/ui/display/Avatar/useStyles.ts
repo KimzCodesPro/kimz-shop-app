@@ -25,9 +25,6 @@ const useStyles = (size: Sizes) => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
-    wrapper: {
-      alignSelf: "baseline",
-    },
     img: {
       width: sizes[size].width,
       height: sizes[size].height,

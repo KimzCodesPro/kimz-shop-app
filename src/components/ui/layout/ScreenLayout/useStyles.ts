@@ -1,11 +1,9 @@
-import { useTheme } from "@/hooks";
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CONTENT_BOTTOM_GAP, SIDE_PADDING, TOP_BAR_GAP } from "./constants";
 import { UseStylesArgs } from "./types";
 
 const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
-  const colors = useTheme();
   const insets = useSafeAreaInsets();
 
   // A TopBar applies insets.top itself and the tab bar already consumes
@@ -43,7 +41,7 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
     },
   });
 
-  return { colors, styles };
+  return { styles };
 };
 
 export default useStyles;

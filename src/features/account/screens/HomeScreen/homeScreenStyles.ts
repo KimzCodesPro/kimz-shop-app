@@ -1,8 +1,9 @@
+import { spacing } from "@/src/constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  modalContent: {
-    gap: 12,
+  logoutModalContent: {
+    gap: spacing.space12.height,
   },
 });
 
