@@ -7,7 +7,7 @@ import { AddressCardProps } from "./types";
 const addressColorMapping = {
   home: "success",
   apartment: "warning",
-  office: "primary",
+  office: "info",
   other: "danger",
 } as const;
 

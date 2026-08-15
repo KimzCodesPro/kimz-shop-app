@@ -28,11 +28,9 @@ const ScreenLayout = ({
     return (
       <View style={styles.scrollViewWrapper}>
         {topBar}
-        <AppScrollView {...scrollProps}>
-          <DismissKeyboard style={[styles.container, contentContainerStyle]}>
-            {children}
-          </DismissKeyboard>
-        </AppScrollView>
+        <DismissKeyboard style={[styles.container, contentContainerStyle]}>
+          <AppScrollView {...scrollProps}>{children}</AppScrollView>
+        </DismissKeyboard>
       </View>
     );
   }

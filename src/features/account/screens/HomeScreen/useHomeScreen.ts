@@ -74,7 +74,7 @@ const useHomeScreen = () => {
           icon: "lock",
           title: t("account_changePassword"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/account/changePassword"),
         },
       ],
     },
@@ -83,21 +83,9 @@ const useHomeScreen = () => {
       rows: [
         {
           icon: "map-pin",
-          title: t("account_shipping"),
+          title: t("account_address"),
           trailing: "chevron",
-          onPress: () => {},
-        },
-        {
-          icon: "credit-card",
-          title: t("account_paymentMethods"),
-          trailing: "chevron",
-          onPress: () => {},
-        },
-        {
-          icon: "shopping-bag",
-          title: t("account_storeYouFollow"),
-          trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/account/addresses"),
         },
         {
           icon: "truck",
@@ -149,7 +137,7 @@ const useHomeScreen = () => {
           icon: "help",
           title: t("account_helpAndPolicies"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/account/helpAndSupport"),
         },
         {
           icon: "file-text",
