@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import AppLayout from "./AppLayout";
+import AppNavigator from "./AppNavigator";
 
 const AppProviders = () => {
   return (
@@ -12,7 +12,7 @@ const AppProviders = () => {
       <PersistGate loading={null} persistor={persistor}>
         <GestureHandlerRootView style={styles.container}>
           <PortalProvider>
-            <AppLayout />
+            <AppNavigator />
           </PortalProvider>
         </GestureHandlerRootView>
       </PersistGate>

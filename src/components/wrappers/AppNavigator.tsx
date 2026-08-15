@@ -1,7 +1,7 @@
 import { useTheme } from "@/hooks";
 import { DefaultTheme, Stack, ThemeProvider } from "expo-router";
 
-const RootLayout = () => {
+const AppNavigator = () => {
   const colors = useTheme();
 
   const navigationTheme = {
@@ -18,4 +18,4 @@ const RootLayout = () => {
   );
 };
 
-export default RootLayout;
+export default AppNavigator;
