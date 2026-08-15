@@ -1,5 +1,4 @@
 import { useAppSelector } from "@/store/hooks";
-import { Theme } from "@/types";
 import { useColorScheme } from "react-native";
 import useUserPreferences from "./useUserPreferences";
 
@@ -11,8 +10,7 @@ const useTheme = () => {
 
   const getSystemSchema = systemScheme === "dark" ? "dark" : "light";
 
-  const resolved: Exclude<Theme, "system"> =
-    selectedTheme === "system" ? getSystemSchema : selectedTheme;
+  const resolved = selectedTheme === "system" ? getSystemSchema : selectedTheme;
 
   return colors[resolved];
 };
