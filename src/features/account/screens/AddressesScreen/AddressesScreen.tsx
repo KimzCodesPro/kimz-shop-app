@@ -1,6 +1,6 @@
 import { AddressCard } from "@/components/ui/display";
 import { Button } from "@/components/ui/inputs";
-import { AppScrollView, ScreenLayout } from "@/components/ui/layout";
+import { ScreenLayout, VerticalScrollView } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
 import { useRouter } from "expo-router";
@@ -39,7 +39,7 @@ const AddressesScreen = () => {
       renderTopBar={() => <TopBar title={t("account_address")} goBack />}
     >
       {/* The list scrolls on its own so the button below stays pinned. */}
-      <AppScrollView style={styles.scrollView}>
+      <VerticalScrollView style={styles.scrollView}>
         <View style={styles.list}>
           {addresses.map((item) => (
             <AddressCard
@@ -52,7 +52,7 @@ const AddressesScreen = () => {
             />
           ))}
         </View>
-      </AppScrollView>
+      </VerticalScrollView>
 
       <Button
         title={t("account_addNewAddress")}

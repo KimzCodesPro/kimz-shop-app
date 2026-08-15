@@ -1,6 +1,6 @@
 import { View } from "react-native";
-import AppScrollView from "../AppScrollView/AppScrollView";
 import DismissKeyboard from "../DismissKeyboard/DismissKeyboard";
+import VerticalScrollView from "../VerticalScrollView/VerticalScrollView";
 import { ScreenLayoutProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -29,7 +29,7 @@ const ScreenLayout = ({
       <View style={styles.scrollViewWrapper}>
         {topBar}
         <DismissKeyboard style={[styles.container, contentContainerStyle]}>
-          <AppScrollView {...scrollProps}>{children}</AppScrollView>
+          <VerticalScrollView {...scrollProps}>{children}</VerticalScrollView>
         </DismissKeyboard>
       </View>
     );

@@ -1,4 +1,5 @@
-import { ScrollViewProps, StyleProp, ViewStyle } from "react-native";
+import { StyleProp, ViewStyle } from "react-native";
+import { VerticalScrollViewProps } from "../VerticalScrollView/types";
 
 // Which sides carry the screen's horizontal padding. start/end rather than
 // left/right so the padding follows the writing direction under RTL.
@@ -21,7 +22,7 @@ type ScreenLayoutBaseProps = {
 // styling goes through contentContainerStyle above, not through here.
 type ScreenLayoutConditionalProps =
   | { scrollable?: false; scrollProps?: never }
-  | { scrollable: true; scrollProps?: ScrollViewProps };
+  | { scrollable: true; scrollProps?: VerticalScrollViewProps };
 
 export type ScreenLayoutProps = ScreenLayoutBaseProps &
   ScreenLayoutConditionalProps;
