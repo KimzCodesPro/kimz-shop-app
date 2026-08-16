@@ -1,3 +1,4 @@
+import { Typography } from "@/components/ui/display";
 import { Radio } from "@/components/ui/inputs";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
@@ -11,7 +12,7 @@ const ThemeRadioGroup = ({
   selectedValue,
   onValueChange,
 }: ThemeRadioGroupProps) => {
-  const { styles } = useStyles();
+  const { styles, colors } = useStyles();
 
   return (
     <View style={styles.container}>
@@ -32,12 +33,16 @@ const ThemeRadioGroup = ({
             contentFit="fill"
           />
 
-          <View pointerEvents="none">
-            <Radio
-              isSelected={selectedValue === option.value}
-              onChange={() => onValueChange(option.value)}
-              title={option.label}
-            />
+          <View style={styles.label}>
+            <Radio isSelected={selectedValue === option.value} />
+
+            <Typography
+              variant="smallBold"
+              textTransform="capitalize"
+              color={colors.foreground.primary}
+            >
+              {option.label}
+            </Typography>
           </View>
         </Pressable>
       ))}

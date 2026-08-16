@@ -1,36 +1,16 @@
-import { Pressable, View } from "react-native";
-import { Typography } from "../../display";
+import { View } from "react-native";
 import { SwitchProps } from "./types";
 import useStyles from "./useStyles";
 
-const Switch = ({
-  isSelected,
-  onChange,
-  style,
-  disabled,
-  title,
-}: SwitchProps) => {
-  const { styles, colors } = useStyles(isSelected, disabled);
+// Presentational only — the group owns the press target and the a11y role, so
+// the track never handles a gesture of its own.
+const Switch = ({ isSelected, style, disabled }: SwitchProps) => {
+  const { styles } = useStyles(isSelected, disabled);
 
   return (
-    <Pressable
-      style={[styles.wrapper, style]}
-      onPress={onChange}
-      disabled={disabled}
-      accessibilityRole="switch"
-      accessibilityState={{ checked: isSelected, disabled }}
-    >
-      <Typography
-        variant="smallBold"
-        textTransform="capitalize"
-        color={colors.foreground.primary}
-      >
-        {title}
-      </Typography>
-      <View style={styles.track}>
-        <View style={styles.indicator} />
-      </View>
-    </Pressable>
+    <View style={[styles.track, style]}>
+      <View style={styles.indicator} />
+    </View>
   );
 };
 

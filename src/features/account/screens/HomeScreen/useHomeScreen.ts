@@ -8,11 +8,12 @@ import { ThemeOption } from "./components/ThemeRadioGroup/types";
 
 const useHomeScreen = () => {
   const router = useRouter();
-  const { t, language: selectedLanguage } = useTranslation();
+  const { t } = useTranslation();
   const {
     setLanguage,
     setTheme,
     theme: selectedTheme,
+    language: selectedLanguage,
     enableNotifications,
     setEnableNotifications,
   } = useUserPreferences();

@@ -8,12 +8,6 @@ const useStyle = (isSelected: boolean, disabled?: boolean) => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
-    wrapper: {
-      alignSelf: "stretch",
-      flexDirection: "row",
-      alignItems: "center",
-      gap: HS(12),
-    },
     indicator: {
       justifyContent: "center",
       alignItems: "center",
@@ -34,7 +28,8 @@ const useStyle = (isSelected: boolean, disabled?: boolean) => {
       opacity: disabled ? opacity.disabled : opacity.full,
     },
   });
-  return { styles, colors };
+
+  return { styles };
 };
 
 export default useStyle;
