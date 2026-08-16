@@ -1,5 +1,11 @@
+export type RadioGroupOption = {
+  label: string;
+  value: string;
+  disabled?: boolean;
+};
+
 export type RadioGroupProps = {
-  options: { label: string; value: string }[];
+  options: RadioGroupOption[];
   selectedValue: string;
   onValueChange: (value: string) => void;
 };

@@ -17,8 +17,12 @@ const SwitchGroup = ({ options, onValueChange }: SwitchGroupProps) => {
           key={option.value}
           style={styles.switchItem}
           onPress={() => onValueChange(option.value)}
+          disabled={option.disabled}
           accessibilityRole="switch"
-          accessibilityState={{ checked: option.isSelected }}
+          accessibilityState={{
+            checked: option.isSelected,
+            disabled: option.disabled,
+          }}
           accessibilityLabel={option.label}
         >
           <Typography
@@ -29,7 +33,7 @@ const SwitchGroup = ({ options, onValueChange }: SwitchGroupProps) => {
             {option.label}
           </Typography>
 
-          <Switch isSelected={option.isSelected} />
+          <Switch isSelected={option.isSelected} disabled={option.disabled} />
         </Pressable>
       ))}
     </View>

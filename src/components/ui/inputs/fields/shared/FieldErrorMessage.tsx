@@ -4,9 +4,7 @@ import { StyleSheet } from "react-native";
 import { Typography } from "../../../display";
 import { FieldErrorMessageProps } from "./types";
 
-const FieldErrorMessage = ({
-  errorMessage,
-}: FieldErrorMessageProps) => {
+const FieldErrorMessage = ({ errorMessage }: FieldErrorMessageProps) => {
   const colors = useTheme();
 
   if (!errorMessage) return null;

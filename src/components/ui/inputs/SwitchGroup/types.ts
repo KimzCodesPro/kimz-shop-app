@@ -2,6 +2,7 @@ export type SwitchGroupOption = {
   label: string;
   value: string;
   isSelected: boolean;
+  disabled?: boolean;
 };
 export type SwitchGroupProps = {
   options: SwitchGroupOption[];

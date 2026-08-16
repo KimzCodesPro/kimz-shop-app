@@ -6,6 +6,7 @@ export type ThemeOption = {
   value: Theme;
   // Preview artwork for the option — a phone mock of what the theme looks like.
   image: ImageProps["source"];
+  disabled?: boolean;
 };
 
 export type ThemeRadioGroupProps = {

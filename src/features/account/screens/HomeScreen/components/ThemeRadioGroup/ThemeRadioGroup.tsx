@@ -23,8 +23,12 @@ const ThemeRadioGroup = ({
           key={option.value}
           style={styles.option}
           onPress={() => onValueChange(option.value)}
+          disabled={option.disabled}
           accessibilityRole="radio"
-          accessibilityState={{ selected: selectedValue === option.value }}
+          accessibilityState={{
+            selected: selectedValue === option.value,
+            disabled: option.disabled,
+          }}
           accessibilityLabel={option.label}
         >
           <Image
@@ -34,7 +38,10 @@ const ThemeRadioGroup = ({
           />
 
           <View style={styles.label}>
-            <Radio isSelected={selectedValue === option.value} />
+            <Radio
+              isSelected={selectedValue === option.value}
+              disabled={option.disabled}
+            />
 
             <Typography
               variant="smallBold"

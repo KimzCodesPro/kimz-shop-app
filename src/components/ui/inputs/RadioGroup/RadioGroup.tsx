@@ -24,11 +24,15 @@ const RadioGroup = ({
             key={option.value}
             style={styles.radioItem}
             onPress={() => onValueChange(option.value)}
+            disabled={option.disabled}
             accessibilityRole="radio"
-            accessibilityState={{ selected: isSelected }}
+            accessibilityState={{
+              selected: isSelected,
+              disabled: option.disabled,
+            }}
             accessibilityLabel={option.label}
           >
-            <Radio isSelected={isSelected} />
+            <Radio isSelected={isSelected} disabled={option.disabled} />
 
             <Typography
               variant="smallBold"
