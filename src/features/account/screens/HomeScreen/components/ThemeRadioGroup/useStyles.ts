@@ -8,8 +8,6 @@ const useStyles = () => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
-    // Row, unlike RadioGroup's column — the options sit side by side because
-    // each one is a tall preview rather than a single line of text.
     container: {
       flexDirection: "row",
       justifyContent: "center",
@@ -26,7 +24,7 @@ const useStyles = () => {
     label: {
       flexDirection: "row",
       alignItems: "center",
-      gap: HS(12),
+      gap: spacing.space12.width,
     },
   });
 

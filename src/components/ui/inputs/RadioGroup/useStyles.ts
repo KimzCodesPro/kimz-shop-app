@@ -2,7 +2,7 @@ import { spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
-const { HS, VS } = scalingMethods;
+const { VS } = scalingMethods;
 
 const useStyles = () => {
   const colors = useTheme();
@@ -16,7 +16,7 @@ const useStyles = () => {
       alignSelf: "stretch",
       flexDirection: "row",
       alignItems: "center",
-      gap: HS(12),
+      gap: spacing.space12.height,
       height: VS(30),
     },
   });

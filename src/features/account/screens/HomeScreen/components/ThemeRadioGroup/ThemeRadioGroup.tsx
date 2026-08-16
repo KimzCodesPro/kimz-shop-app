@@ -5,8 +5,6 @@ import { Pressable, View } from "react-native";
 import { ThemeRadioGroupProps } from "./types";
 import useStyles from "./useStyles";
 
-// Same contract as RadioGroup, but each option renders as a column — a theme
-// preview above its radio — and the options lay out in a row.
 const ThemeRadioGroup = ({
   options,
   selectedValue,
@@ -17,8 +15,6 @@ const ThemeRadioGroup = ({
   return (
     <View style={styles.container}>
       {options.map((option) => (
-        // The whole column is pressable, so tapping the preview picks the
-        // theme too — the radio alone would be a small target.
         <Pressable
           key={option.value}
           style={styles.option}

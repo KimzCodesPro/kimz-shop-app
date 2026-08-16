@@ -18,8 +18,6 @@ const RadioGroup = ({
         const isSelected = selectedValue === option.value;
 
         return (
-          // The whole row is pressable, so the label picks the option too —
-          // the indicator alone would be a small target.
           <Pressable
             key={option.value}
             style={styles.radioItem}

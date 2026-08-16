@@ -11,8 +11,6 @@ const SwitchGroup = ({ options, onValueChange }: SwitchGroupProps) => {
   return (
     <View style={styles.container}>
       {options.map((option) => (
-        // The whole row is pressable, so the label toggles the option too —
-        // the track alone would be a small target.
         <Pressable
           key={option.value}
           style={styles.switchItem}
