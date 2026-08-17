@@ -51,7 +51,7 @@ const useHomeScreen = () => {
     {
       label: t("account_pushNotifications"),
       value: "pushNotifications",
-      isSelected: enableNotifications,
+      enabled: enableNotifications,
     },
   ];
 
