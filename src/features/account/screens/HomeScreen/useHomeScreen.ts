@@ -1,4 +1,5 @@
 import { themeDark, themeLight, themeSystem } from "@/assets/images";
+import { SwitchGroupChange } from "@/components/ui/inputs";
 import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation, useUserPreferences } from "@/hooks";
 import { Language, Theme } from "@/types";
@@ -55,9 +56,9 @@ const useHomeScreen = () => {
     },
   ];
 
-  const onToggleNotification = (value: string) => {
+  const onToggleNotification = ({ value, enabled }: SwitchGroupChange) => {
     if (value === "pushNotifications") {
-      setEnableNotifications(!enableNotifications);
+      setEnableNotifications(enabled);
     }
   };
 

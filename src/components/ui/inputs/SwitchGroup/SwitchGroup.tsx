@@ -14,7 +14,9 @@ const SwitchGroup = ({ options, onValueChange }: SwitchGroupProps) => {
         <Pressable
           key={option.value}
           style={styles.switchItem}
-          onPress={() => onValueChange(option.value)}
+          onPress={() =>
+            onValueChange({ value: option.value, enabled: !option.enabled })
+          }
           disabled={option.disabled}
           accessibilityRole="switch"
           accessibilityState={{

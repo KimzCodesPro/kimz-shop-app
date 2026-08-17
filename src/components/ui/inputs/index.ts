@@ -7,4 +7,4 @@ export { default as RadioGroup } from "./RadioGroup/RadioGroup";
 export type { RadioGroupOption } from "./RadioGroup/types";
 export { default as Switch } from "./Switch/Switch";
 export { default as SwitchGroup } from "./SwitchGroup/SwitchGroup";
-export type { SwitchGroupOption } from "./SwitchGroup/types";
+export type { SwitchGroupChange, SwitchGroupOption } from "./SwitchGroup/types";
