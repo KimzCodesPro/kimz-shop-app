@@ -4,16 +4,18 @@ import { Dimensions } from "react-native";
 // ============================================================================
 // SETUP — Designer's mockup dimensions
 // ============================================================================
-// The designer built the Figma file at 440 × 956. Every value in the design
-// (a 200px button, 16px padding, 14px font) is relative to that frame.
+// The design system is built at 375 × 812 (iPhone X / 11 Pro / 13 mini
+// reference frame). Every value in the design (a 200px button, 16px padding,
+// 14px font) is relative to that frame.
+// Spec: https://kimzcodes.com/react-native-course/design/ — rule 09
 //
 // HS, VS, and FS scale those design values to fit any real device.
-// Examples (assuming mockup 440 × 956):
-//   • iPhone SE (375 × 667)   → values shrink ~15-30%
-//   • iPhone 14 (390 × 844)   → very close to mockup
-//   • iPhone 15 Pro Max       → very close to mockup
-//   • Pixel 7 (412 × 915)     → very close to mockup
-//   • Small Android (360×740) → values shrink ~18-23%
+// Examples (assuming mockup 375 × 812):
+//   • iPhone SE (375 × 667)   → width exact (1.00×), height -18%
+//   • iPhone 13 (390 × 844)   → very close to mockup (~+4%)
+//   • iPhone 15 Pro Max (430) → values grow ~+15%
+//   • Pixel 7 (412 × 915)     → values grow ~+10%
+//   • Small Android (360×640) → width -4%, height -21%
 // ============================================================================
 
 type ScalingMethods = {
@@ -24,8 +26,8 @@ type ScalingMethods = {
 
 let scalingMethods = {} as ScalingMethods;
 
-const guidelineBaseWidth = 440;
-const guidelineBaseHeight = 956;
+const guidelineBaseWidth = 375;
+const guidelineBaseHeight = 812;
 
 // Use shortDimension/longDimension so rotation doesn't break scaling.
 // shortDimension = always the shorter side (typically width in portrait)
@@ -48,10 +50,14 @@ const [shortDimension, longDimension] =
 //   • start / end (absolute position)    → start: HS(10)
 //   • gap (in flexDirection: 'row')      → gap: HS(8)
 //   • borderRadius on rectangles         → borderRadius: HS(12)
-//   • borderWidth                        → borderWidth: HS(1)
 //   • Icon sizes (width AND height)      → <Icon size={HS(24)} />
 //   • Image dimensions (square images)   → width: HS(120), height: HS(120)
 //   • Squares & circles (BOTH dims)      → width: HS(48), height: HS(48)
+//
+// ❌ DON'T scale borderWidth — hairlines must stay crisp. Write 1 directly
+//    (or StyleSheet.hairlineWidth); a scaled 1px blurs on non-integer ratios.
+//
+// ❌ DON'T scale borderRadius past ~24 — tight curves should stay tight.
 //
 // ⚠️ RTL — prefer the logical props above (Start/End) over Left/Right.
 //   The app flips layout natively via I18nManager, and RN only mirrors the
@@ -111,9 +117,10 @@ scalingMethods.VS = (size: number) =>
 //   factor = 1   → font scales linearly (same as HS)
 //
 // Example with FS(16) on different devices:
-//   iPhone SE (375px)       → 15px  (only -1px from design)
-//   iPhone 15 Pro (393px)   → 15px
-//   iPhone 15 Pro Max       → 16px  (matches design)
+//   Small Android (360px)   → 16px  (only -0.5px, rounds back to design)
+//   iPhone SE (375px)       → 16px  (matches design exactly)
+//   iPhone 15 Pro (393px)   → 17px
+//   iPhone 15 Pro Max (430) → 17px  (HS would have said 18px)
 //
 // 💡 MINIMUM font size: don't go below FS(12) for body text on old phones.
 // ============================================================================

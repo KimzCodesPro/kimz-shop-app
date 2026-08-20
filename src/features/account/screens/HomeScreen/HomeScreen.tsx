@@ -2,10 +2,10 @@ import { userPlaceholder } from "@/assets/images";
 import { UserGreeting } from "@/components/ui/display";
 import { Button, RadioGroup, SwitchGroup } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
-import { RowNav, TopBar } from "@/components/ui/navigations";
+import { TopBar } from "@/components/ui/navigations";
 import { BottomSheet, Modal } from "@/components/ui/overlay";
 import { View } from "react-native";
-import { RowsGroup, ThemeRadioGroup } from "./components";
+import { NavigationList, ThemeRadioGroup } from "./components";
 import styles from "./homeScreenStyles";
 import useHomeScreen from "./useHomeScreen";
 
@@ -40,13 +40,8 @@ const HomeScreen = () => {
         userName="Kareem Nour"
         meta="kareem@gmail.com"
       />
-      {pageNavigationList.map((group) => (
-        <RowsGroup key={group.title} title={group.title}>
-          {group.rows.map((row) => (
-            <RowNav key={row.title} {...row} />
-          ))}
-        </RowsGroup>
-      ))}
+      {/* row navigation list  */}
+      <NavigationList navigationList={pageNavigationList} />
       {/* language bottom sheet */}
       <BottomSheet
         ref={languageBottomSheetRef}
@@ -64,7 +59,7 @@ const HomeScreen = () => {
       {/* theme bottom sheet */}
       <BottomSheet
         ref={themeBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["35%"] }}
+        bottomSheetProps={{ snapPoints: ["40%"] }}
         title={t("account_theme")}
       >
         <BottomSheet.Content>

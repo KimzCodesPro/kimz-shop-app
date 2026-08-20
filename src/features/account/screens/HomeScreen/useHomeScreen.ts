@@ -5,6 +5,7 @@ import { useTranslation, useUserPreferences } from "@/hooks";
 import { Language, Theme } from "@/types";
 import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
+import { PageNavigationList } from "./components/NavigationList/types";
 import { ThemeOption } from "./components/ThemeRadioGroup/types";
 
 const useHomeScreen = () => {
@@ -62,7 +63,7 @@ const useHomeScreen = () => {
     }
   };
 
-  const pageNavigationList = [
+  const pageNavigationList: PageNavigationList = [
     {
       title: t("account_account"),
       rows: [
