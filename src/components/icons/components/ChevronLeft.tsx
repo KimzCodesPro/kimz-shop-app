@@ -3,7 +3,7 @@ import Svg, { Path } from "react-native-svg";
 import { IconBase } from "../types";
 const { HS, VS } = scalingMethods;
 
-function Chevron({ size = 24, color, style }: IconBase) {
+function ChevronLeft({ size = 24, color, style }: IconBase) {
   return (
     <Svg
       width={HS(size)}
@@ -16,9 +16,9 @@ function Chevron({ size = 24, color, style }: IconBase) {
       strokeLinejoin="round"
       style={style}
     >
-      <Path d="M9 6l6 6-6 6" />
+      <Path d="M15 6l-6 6l6 6" />
     </Svg>
   );
 }
 
-export default Chevron;
+export default ChevronLeft;

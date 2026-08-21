@@ -1,9 +1,8 @@
 import { StyleProp, ViewStyle } from "react-native";
 
 export type SwitchProps = {
-  isSelected: boolean;
-  onChange: () => void;
+  enabled: boolean;
+  // Applied to the track, so a caller can nudge the control's own placement.
   style?: StyleProp<ViewStyle>;
   disabled?: boolean;
-  title: string;
 };

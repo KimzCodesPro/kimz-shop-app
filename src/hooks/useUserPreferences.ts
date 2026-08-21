@@ -2,6 +2,7 @@ import { persistor } from "@/store";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import translation from "@/store/translation/translation.json";
 import {
+  setEnableNotifications,
   setLanguage,
   setTheme,
 } from "@/store/userPreferences/userPreferencesSlice";
@@ -17,9 +18,11 @@ const useUserPreferences = () => {
     dispatch(setLanguage(language));
 
     // Native layout mirroring is a startup-time flag, so a restart is the only
-    // way to apply it — skip it entirely when the direction already matches.
+    // way to apply it. The flag is pinned on every change, even when the
+    // direction looks unchanged: until forceRTL runs once the app follows the
+    // device locale, so I18nManager.isRTL is not a reliable record of what the
+    // app itself has applied.
     const shouldBeRTL = translation[language].dir === "rtl";
-    if (shouldBeRTL === I18nManager.isRTL) return;
 
     I18nManager.allowRTL(shouldBeRTL);
     I18nManager.forceRTL(shouldBeRTL);
@@ -39,6 +42,8 @@ const useUserPreferences = () => {
     ...preferences,
     setLanguage: changeLanguage,
     setTheme: (theme: Theme) => dispatch(setTheme(theme)),
+    setEnableNotifications: (enable: boolean) =>
+      dispatch(setEnableNotifications(enable)),
   };
 };
 

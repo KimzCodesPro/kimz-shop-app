@@ -1,7 +1,7 @@
 import { useTheme } from "@/hooks";
 import { DefaultTheme, Stack, ThemeProvider } from "expo-router";
 
-const RootLayout = () => {
+const AppNavigator = () => {
   const colors = useTheme();
 
   const navigationTheme = {
@@ -12,10 +12,11 @@ const RootLayout = () => {
   return (
     <ThemeProvider value={navigationTheme}>
       <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
         <Stack.Screen name="(main)" />
       </Stack>
     </ThemeProvider>
   );
 };
 
-export default RootLayout;
+export default AppNavigator;

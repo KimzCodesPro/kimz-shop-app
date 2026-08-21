@@ -17,8 +17,9 @@ const useStyles = (isChecked: boolean, disabled?: boolean) => {
       borderColor: isChecked ? colors.primary.base : colors.border.default,
       opacity: disabled ? opacity.disabled : opacity.full,
     },
+    // No opacity here — it sits inside the container, so a second one would
+    // compound with it and render the check darker than the box.
     indicator: {
-      opacity: disabled ? opacity.disabled : opacity.full,
       justifyContent: "center",
       alignItems: "center",
     },

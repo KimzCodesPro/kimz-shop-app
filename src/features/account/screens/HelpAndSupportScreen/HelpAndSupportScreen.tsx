@@ -1,0 +1,50 @@
+import { Accordion } from "@/components/ui/display";
+import { ScreenLayout } from "@/components/ui/layout";
+import { TopBar } from "@/components/ui/navigations";
+import { useTranslation } from "@/hooks";
+
+const HelpAndSupportScreen = () => {
+  const { t } = useTranslation();
+
+  // Ids start at 1: the Accordion treats 0 as "nothing expanded".
+  const faqs = [
+    {
+      id: 1,
+      title: t("account_faqTrackOrder"),
+      content: t("account_faqTrackOrderAnswer"),
+    },
+    {
+      id: 2,
+      title: t("account_faqReturns"),
+      content: t("account_faqReturnsAnswer"),
+    },
+    {
+      id: 3,
+      title: t("account_faqPayments"),
+      content: t("account_faqPaymentsAnswer"),
+    },
+    {
+      id: 4,
+      title: t("account_faqShipping"),
+      content: t("account_faqShippingAnswer"),
+    },
+    {
+      id: 5,
+      title: t("account_faqContact"),
+      content: t("account_faqContactAnswer"),
+    },
+  ];
+
+  return (
+    <ScreenLayout
+      scrollable
+      renderTopBar={() => (
+        <TopBar title={t("account_helpAndPolicies")} goBack />
+      )}
+    >
+      <Accordion items={faqs} />
+    </ScreenLayout>
+  );
+};
+
+export default HelpAndSupportScreen;

@@ -5,14 +5,31 @@ import BottomSheet, {
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import { Portal } from "@gorhom/portal";
-import { ComponentProps } from "react";
-import { View } from "react-native";
+import { ComponentProps, useEffect, useRef } from "react";
+import { BackHandler, View } from "react-native";
 import { AppBottomSheetProps } from "./types";
 import useStyles from "./useStyles";
 
 const AppBottomSheet = (props: AppBottomSheetProps) => {
   const { title, description, children, bottomSheetProps, ref } = props;
+  const isOpen = useRef(false);
+
   const { styles } = useStyles();
+
+  useEffect(() => {
+    if (typeof ref === "function" || ref === null) return;
+
+    const nativeNavigationListener = BackHandler.addEventListener(
+      "hardwareBackPress",
+      () => {
+        if (!isOpen.current) return false;
+
+        ref.current?.close();
+        return true;
+      },
+    );
+    return () => nativeNavigationListener.remove();
+  }, [ref]);
 
   const RenderBackdrop = (props: any) => (
     <BottomSheetBackdrop
@@ -24,9 +41,6 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
     />
   );
 
-  // renders — Portal teleports the sheet to the root PortalHost so it paints
-  // above sibling content (a non-modal BottomSheet has no containerComponent
-  // prop, so we portal it manually, the same way BottomSheetModal does).
   return (
     <Portal>
       <BottomSheet
@@ -42,6 +56,12 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
         handleStyle={styles.handleStyle}
         handleIndicatorStyle={styles.handleIndicatorStyle}
         {...bottomSheetProps}
+        // After the spread so nothing can replace it — the back handler needs
+        // every index change. onChange is omitted from bottomSheetProps for the
+        // same reason.
+        onChange={(index) => {
+          isOpen.current = index >= 0;
+        }}
       >
         <View style={styles.header}>
           <Typography variant="mediumBold" style={styles.title}>

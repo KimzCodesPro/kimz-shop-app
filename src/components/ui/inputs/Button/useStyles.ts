@@ -1,4 +1,4 @@
-import { opacity, radius } from "@/constants";
+import { opacity, radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
@@ -42,7 +42,7 @@ const useStyle = (size: SizeType, variant: VariantType, disabled?: boolean) => {
   const styles = StyleSheet.create({
     button: {
       flexDirection: "row",
-      gap: HS(10),
+      gap: spacing.space8.width,
       alignSelf: "stretch",
       height: buttonHeight,
       borderRadius: variant === "chip" ? radius.full : radius.sm,

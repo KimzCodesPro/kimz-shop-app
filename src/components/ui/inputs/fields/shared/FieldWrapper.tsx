@@ -13,13 +13,13 @@ const FieldWrapper = ({
   currentStatus,
   style,
 }: FieldWrapperProps) => {
-  const { styles, statusColor } = useSharedStyles(currentStatus);
+  const { styles, iconColor } = useSharedStyles(currentStatus);
 
   return (
     <View style={[styles.container, style]}>
       <FieldLabel label={label} />
       <View style={styles.fieldWrapper}>
-        <Icon name={fieldIconName} size={20} color={statusColor} />
+        <Icon name={fieldIconName} size={20} color={iconColor} />
         {children}
       </View>
       <FieldErrorMessage errorMessage={errorMessage} />

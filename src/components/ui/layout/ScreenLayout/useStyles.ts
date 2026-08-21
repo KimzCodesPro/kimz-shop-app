@@ -1,11 +1,9 @@
-import { useTheme } from "@/hooks";
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CONTENT_BOTTOM_GAP, SIDE_PADDING, TOP_BAR_GAP } from "./constants";
 import { UseStylesArgs } from "./types";
 
 const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
-  const colors = useTheme();
   const insets = useSafeAreaInsets();
 
   // A TopBar applies insets.top itself and the tab bar already consumes
@@ -29,6 +27,7 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
     // Sits outside the scroll view, so it owns the hardware clearance — the
     // scroll view then stops above the home indicator instead of drawing into
     // it, and only the design gap rides along with the content.
+    //dont add CONTENT_BOTTOM_GAP we already added in verticalScrollView Component
     scrollViewWrapper: {
       ...horizontalPadding,
       paddingTop,
@@ -41,9 +40,16 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
     container: {
       flex: 1,
     },
+    // Same role inside the scroll view, but flexGrow rather than flex: the
+    // dismiss target has to fill the viewport when content is short and keep
+    // growing past it when content is long. flex: 1 would cap it at the
+    // viewport and there would be nothing left to scroll.
+    scrollContent: {
+      flexGrow: 1,
+    },
   });
 
-  return { colors, styles };
+  return { styles };
 };
 
 export default useStyles;

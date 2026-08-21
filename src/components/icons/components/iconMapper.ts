@@ -9,7 +9,8 @@ import Camera from "./Camera";
 import Category from "./Category";
 import Check from "./Check";
 import ChevronDown from "./ChevronDown";
-import Chevron from "./Chevron";
+import ChevronLeft from "./ChevronLeft";
+import ChevronRight from "./ChevronRight";
 import ChevronUp from "./ChevronUp";
 import CircleCheck from "./CircleCheck";
 import Close from "./Close";
@@ -51,7 +52,8 @@ const icons = {
   "eye-off": EyeOff,
   lock: Lock,
   user: User,
-  chevron: Chevron,
+  "chevron-left": ChevronLeft,
+  "chevron-right": ChevronRight,
   "chevron-down": ChevronDown,
   "chevron-up": ChevronUp,
   mail: Mail,

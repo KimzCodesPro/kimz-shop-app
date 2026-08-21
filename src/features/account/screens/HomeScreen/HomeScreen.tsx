@@ -1,18 +1,18 @@
-import { userPlaceholder } from "@/src/assets/images";
-import { UserGreeting } from "@/src/components/ui/display";
-import { Button, RadioGroup, SwitchGroup } from "@/src/components/ui/inputs";
-import { ScreenLayout } from "@/src/components/ui/layout";
-import { RowNav, TopBar } from "@/src/components/ui/navigations";
-import { BottomSheet, Modal } from "@/src/components/ui/overlay";
+import { userPlaceholder } from "@/assets/images";
+import { UserGreeting } from "@/components/ui/display";
+import { Button, RadioGroup, SwitchGroup } from "@/components/ui/inputs";
+import { ScreenLayout } from "@/components/ui/layout";
+import { TopBar } from "@/components/ui/navigations";
+import { BottomSheet, Modal } from "@/components/ui/overlay";
 import { View } from "react-native";
-import { RowsGroup, ThemeRadioGroup } from "./components";
-import styles from "./screenStyles";
+import { NavigationList, ThemeRadioGroup } from "./components";
+import styles from "./homeScreenStyles";
 import useHomeScreen from "./useHomeScreen";
 
 const HomeScreen = () => {
   const {
     t,
-    accountGroups,
+    pageNavigationList,
     logoutConfirm,
     setLogoutConfirm,
     languageOptions,
@@ -25,7 +25,6 @@ const HomeScreen = () => {
     onSelectTheme,
     notificationsBottomSheetRef,
     notificationOptions,
-    selectedNotifications,
     onToggleNotification,
   } = useHomeScreen();
 
@@ -41,13 +40,8 @@ const HomeScreen = () => {
         userName="Kareem Nour"
         meta="kareem@gmail.com"
       />
-      {accountGroups.map((group) => (
-        <RowsGroup key={group.title} title={group.title}>
-          {group.rows.map((row) => (
-            <RowNav key={row.title} {...row} />
-          ))}
-        </RowsGroup>
-      ))}
+      {/* row navigation list  */}
+      <NavigationList navigationList={pageNavigationList} />
       {/* language bottom sheet */}
       <BottomSheet
         ref={languageBottomSheetRef}
@@ -65,7 +59,7 @@ const HomeScreen = () => {
       {/* theme bottom sheet */}
       <BottomSheet
         ref={themeBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["35%"] }}
+        bottomSheetProps={{ snapPoints: ["40%"] }}
         title={t("account_theme")}
       >
         <BottomSheet.Content>
@@ -85,14 +79,13 @@ const HomeScreen = () => {
         <BottomSheet.Content>
           <SwitchGroup
             options={notificationOptions}
-            selectedValues={selectedNotifications}
             onValueChange={onToggleNotification}
           />
         </BottomSheet.Content>
       </BottomSheet>
       {/* logout dialog */}
       <Modal title={t("account_logoutConfirm")} visible={logoutConfirm}>
-        <View style={styles.modalContent}>
+        <View style={styles.logoutModalContent}>
           <Button
             title={t("common_cancel")}
             onPress={() => setLogoutConfirm(false)}

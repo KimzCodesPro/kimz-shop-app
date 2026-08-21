@@ -1,5 +1,6 @@
 import { scalingMethods } from "@/utils";
-import { ScrollView, ScrollViewProps, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
+import { VerticalScrollViewProps } from "./types";
 const { VS } = scalingMethods;
 
 // Breathing room under the last item, so content never ends flush against the
@@ -7,15 +8,19 @@ const { VS } = scalingMethods;
 // scroll view owns the inset.
 const CONTENT_BOTTOM_GAP = VS(25);
 
-// Project defaults for every scrollable surface. Any prop can be overridden by
-// the caller since props are spread after the defaults.
-const AppScrollView = ({
+// Project defaults for every vertical scrollable surface. Any prop can be
+// overridden by the caller since props are spread after the defaults.
+const VerticalScrollView = ({
   children,
   contentContainerStyle,
   ...props
-}: ScrollViewProps) => {
+}: VerticalScrollViewProps) => {
   return (
     <ScrollView
+      // "handled" lets a tap through to whatever it landed on — a button fires
+      // on the first press instead of spending it on closing the keyboard, and
+      // ScreenLayout's dismiss target gets the taps that hit empty space. This
+      // prop routes taps; it is not itself a dismiss-on-tap feature.
       keyboardShouldPersistTaps="handled"
       keyboardDismissMode="on-drag"
       showsVerticalScrollIndicator={false}
@@ -38,4 +43,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AppScrollView;
+export default VerticalScrollView;

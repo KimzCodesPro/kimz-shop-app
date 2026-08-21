@@ -1,0 +1,82 @@
+import { Button, Dropdown, TextInput } from "@/components/ui/inputs";
+import { ScreenLayout } from "@/components/ui/layout";
+import { TopBar } from "@/components/ui/navigations";
+import { useTranslation } from "@/hooks";
+import { View } from "react-native";
+import styles from "./addAddressScreenStyles";
+import { GOVERNORATE_OPTIONS } from "./constants";
+
+const AddAddressScreen = () => {
+  const { t } = useTranslation();
+
+  const addressTypeOptions = [
+    { label: t("account_addressTypeHome"), value: "home" },
+    { label: t("account_addressTypeApartment"), value: "apartment" },
+    { label: t("account_addressTypeOffice"), value: "office" },
+    { label: t("account_addressTypeOther"), value: "other" },
+  ];
+
+  return (
+    <ScreenLayout
+      scrollable
+      renderTopBar={() => <TopBar title={t("account_addNewAddress")} goBack />}
+    >
+      <View style={styles.form}>
+        <Dropdown
+          label={t("account_addressType")}
+          placeholder={t("account_addressTypePlaceholder")}
+          iconName="map-pin"
+          options={addressTypeOptions}
+          value=""
+          onSelect={() => {}}
+        />
+        <TextInput
+          label={t("account_streetName")}
+          placeholder={t("account_streetNamePlaceholder")}
+          iconName="map-pin-other"
+          value=""
+        />
+        <TextInput
+          label={t("account_buildingName")}
+          placeholder={t("account_buildingNamePlaceholder")}
+          iconName="building"
+          value=""
+        />
+        <Dropdown
+          label={t("account_governorate")}
+          placeholder={t("account_governoratePlaceholder")}
+          iconName="world"
+          options={GOVERNORATE_OPTIONS}
+          value=""
+          onSelect={() => {}}
+        />
+        <TextInput
+          label={t("account_city")}
+          placeholder={t("account_cityPlaceholder")}
+          iconName="home"
+          value=""
+        />
+        <TextInput
+          label={t("account_floorNumber")}
+          placeholder={t("account_floorNumberPlaceholder")}
+          iconName="layers"
+          value=""
+        />
+        <TextInput
+          label={t("account_landmark")}
+          placeholder={t("account_landmarkPlaceholder")}
+          iconName="map-pin"
+          value=""
+        />
+      </View>
+
+      <Button
+        title={t("account_saveAddress")}
+        onPress={() => {}}
+        style={styles.submitButton}
+      />
+    </ScreenLayout>
+  );
+};
+
+export default AddAddressScreen;

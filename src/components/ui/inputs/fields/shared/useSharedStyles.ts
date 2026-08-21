@@ -19,13 +19,22 @@ const useSharedStyles = (currentStatus: StatusType) => {
   const writingDirection = isRTL ? "rtl" : "ltr";
 
   const colorMapping = {
-    default: colors.foreground.tertiary,
-    focused: colors.primary.base,
-    filled: colors.primary.base,
-    error: colors.danger.base,
+    mainColor: {
+      default: colors.border.default,
+      focused: colors.primary.base,
+      filled: colors.primary.base,
+      error: colors.danger.base,
+    },
+    iconColor: {
+      default: colors.foreground.tertiary,
+      focused: colors.primary.base,
+      filled: colors.primary.base,
+      error: colors.danger.base,
+    },
   };
 
-  const statusColor = colorMapping[currentStatus];
+  const mainColor = colorMapping.mainColor[currentStatus];
+  const iconColor = colorMapping.iconColor[currentStatus];
 
   const styles = StyleSheet.create({
     container: {
@@ -38,7 +47,7 @@ const useSharedStyles = (currentStatus: StatusType) => {
       paddingHorizontal: spacing.space12.width,
       paddingVertical: spacing.space12.height,
       borderWidth: HS(1),
-      borderColor: statusColor,
+      borderColor: mainColor,
       borderRadius: radius.sm,
       gap: spacing.space8.width,
     },
@@ -69,7 +78,7 @@ const useSharedStyles = (currentStatus: StatusType) => {
       includeFontPadding: false,
     },
   });
-  return { styles, colors, statusColor };
+  return { styles, colors, iconColor };
 };
 
 export default useSharedStyles;

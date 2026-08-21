@@ -8,12 +8,6 @@ const useStyle = (isSelected: boolean, disabled?: boolean) => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
-    wrapper: {
-      alignSelf: "stretch",
-      flexDirection: "row",
-      alignItems: "center",
-      gap: HS(12),
-    },
     indicator: {
       justifyContent: "center",
       alignItems: "center",
@@ -26,15 +20,17 @@ const useStyle = (isSelected: boolean, disabled?: boolean) => {
       paddingHorizontal: spacing.space4.width,
       opacity: disabled ? opacity.disabled : opacity.full,
     },
+    // No opacity here — it sits inside the indicator, so a second one would
+    // compound with it and render the dot darker than the ring.
     innerIndicator: {
       width: HS(10),
       height: VS(10),
       borderRadius: radius.full,
       backgroundColor: isSelected ? colors.primary.base : "transparent",
-      opacity: disabled ? opacity.disabled : opacity.full,
     },
   });
-  return { styles, colors };
+
+  return { styles };
 };
 
 export default useStyle;

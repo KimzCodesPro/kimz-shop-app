@@ -1,6 +1,6 @@
 import { View } from "react-native";
-import AppScrollView from "../AppScrollView/AppScrollView";
 import DismissKeyboard from "../DismissKeyboard/DismissKeyboard";
+import VerticalScrollView from "../VerticalScrollView/VerticalScrollView";
 import { ScreenLayoutProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -9,9 +9,9 @@ const ScreenLayout = ({
   renderTopBar,
   hasTabBar = false,
   paddingSides = "both",
-  dismissKeyboardOnTap = true,
   contentContainerStyle,
   scrollProps,
+  dismissKeyboardOnTap = false,
   children,
 }: ScreenLayoutProps) => {
   const { styles } = useStyles({
@@ -22,32 +22,27 @@ const ScreenLayout = ({
 
   const topBar = renderTopBar?.();
 
-  const renderContent = (
-    <View style={[styles.container, contentContainerStyle]}>{children}</View>
-  );
+  const ContentArea = dismissKeyboardOnTap ? DismissKeyboard : View;
 
   if (scrollable) {
     return (
       <View style={styles.scrollViewWrapper}>
         {topBar}
-        <AppScrollView {...scrollProps}>{children}</AppScrollView>
+        <VerticalScrollView {...scrollProps}>
+          <ContentArea style={[styles.scrollContent, contentContainerStyle]}>
+            {children}
+          </ContentArea>
+        </VerticalScrollView>
       </View>
-    );
-  }
-
-  if (dismissKeyboardOnTap) {
-    return (
-      <DismissKeyboard style={styles.viewWrapper}>
-        {topBar}
-        {renderContent}
-      </DismissKeyboard>
     );
   }
 
   return (
     <View style={styles.viewWrapper}>
       {topBar}
-      {renderContent}
+      <ContentArea style={[styles.container, contentContainerStyle]}>
+        {children}
+      </ContentArea>
     </View>
   );
 };

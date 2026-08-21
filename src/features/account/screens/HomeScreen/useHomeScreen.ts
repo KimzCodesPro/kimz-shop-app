@@ -1,13 +1,25 @@
 import { themeDark, themeLight, themeSystem } from "@/assets/images";
+import { SwitchGroupChange } from "@/components/ui/inputs";
+import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation, useUserPreferences } from "@/hooks";
-import { BottomSheetRef } from "@/src/components/ui/overlay";
 import { Language, Theme } from "@/types";
+import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
+import { PageNavigationList } from "./components/NavigationList/types";
 import { ThemeOption } from "./components/ThemeRadioGroup/types";
 
 const useHomeScreen = () => {
-  const { t, language: selectedLanguage } = useTranslation();
-  const { setLanguage, setTheme, theme: selectedTheme } = useUserPreferences();
+  const router = useRouter();
+  const { t } = useTranslation();
+  const {
+    setLanguage,
+    setTheme,
+    theme: selectedTheme,
+    language: selectedLanguage,
+    enableNotifications,
+    setEnableNotifications,
+  } = useUserPreferences();
+
   const [logoutConfirm, setLogoutConfirm] = useState(false);
   const languageBottomSheetRef = useRef<BottomSheetRef | null>(null);
   const themeBottomSheetRef = useRef<BottomSheetRef | null>(null);
@@ -38,22 +50,20 @@ const useHomeScreen = () => {
   };
 
   const notificationOptions = [
-    { label: t("account_pushNotifications"), value: "push" },
+    {
+      label: t("account_pushNotifications"),
+      value: "pushNotifications",
+      enabled: enableNotifications,
+    },
   ];
 
-  const [selectedNotifications, setSelectedNotifications] = useState<string[]>([
-    "push",
-  ]);
-
-  // Switches toggle independently, so the sheet stays open on change.
-  const onToggleNotification = (value: string) => {
-    setSelectedNotifications((current) =>
-      current.includes(value)
-        ? current.filter((selected) => selected !== value)
-        : [...current, value],
-    );
+  const onToggleNotification = ({ value, enabled }: SwitchGroupChange) => {
+    if (value === "pushNotifications") {
+      setEnableNotifications(enabled);
+    }
   };
-  const accountGroups = [
+
+  const pageNavigationList: PageNavigationList = [
     {
       title: t("account_account"),
       rows: [
@@ -61,13 +71,13 @@ const useHomeScreen = () => {
           icon: "user",
           title: t("account_editProfile"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/account/editProfile"),
         },
         {
           icon: "lock",
           title: t("account_changePassword"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/account/changePassword"),
         },
       ],
     },
@@ -76,21 +86,9 @@ const useHomeScreen = () => {
       rows: [
         {
           icon: "map-pin",
-          title: t("account_shipping"),
+          title: t("account_address"),
           trailing: "chevron",
-          onPress: () => {},
-        },
-        {
-          icon: "credit-card",
-          title: t("account_paymentMethods"),
-          trailing: "chevron",
-          onPress: () => {},
-        },
-        {
-          icon: "shopping-bag",
-          title: t("account_storeYouFollow"),
-          trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/account/addresses"),
         },
         {
           icon: "truck",
@@ -142,13 +140,13 @@ const useHomeScreen = () => {
           icon: "help",
           title: t("account_helpAndPolicies"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/account/helpAndSupport"),
         },
         {
           icon: "file-text",
           title: t("account_legalAndPolicies"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/account/legalAndPolicies"),
         },
         {
           variant: "danger",
@@ -164,7 +162,7 @@ const useHomeScreen = () => {
   ] as const;
 
   return {
-    accountGroups,
+    pageNavigationList,
     t,
     logoutConfirm,
     setLogoutConfirm,
@@ -178,7 +176,6 @@ const useHomeScreen = () => {
     onSelectTheme,
     notificationsBottomSheetRef,
     notificationOptions,
-    selectedNotifications,
     onToggleNotification,
   };
 };
