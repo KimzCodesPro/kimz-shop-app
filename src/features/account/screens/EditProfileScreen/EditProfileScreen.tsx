@@ -13,6 +13,7 @@ const EditProfileScreen = () => {
   return (
     <ScreenLayout
       scrollable
+      dismissKeyboardOnTap
       renderTopBar={() => <TopBar title={t("account_editProfile")} goBack />}
     >
       <Avatar

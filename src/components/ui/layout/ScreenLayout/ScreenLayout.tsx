@@ -11,6 +11,7 @@ const ScreenLayout = ({
   paddingSides = "both",
   contentContainerStyle,
   scrollProps,
+  dismissKeyboardOnTap = false,
   children,
 }: ScreenLayoutProps) => {
   const { styles } = useStyles({
@@ -21,16 +22,17 @@ const ScreenLayout = ({
 
   const topBar = renderTopBar?.();
 
-  // The content area is always the dismiss target — with children and style
-  // passed as values rather than functions, Pressable never tracks its own
-  // pressed state, so a screen with no inputs pays for a View and nothing more.
+  const ContentArea = dismissKeyboardOnTap ? DismissKeyboard : View;
+
   if (scrollable) {
     return (
       <View style={styles.scrollViewWrapper}>
         {topBar}
-        <DismissKeyboard style={[styles.container, contentContainerStyle]}>
-          <VerticalScrollView {...scrollProps}>{children}</VerticalScrollView>
-        </DismissKeyboard>
+        <VerticalScrollView {...scrollProps}>
+          <ContentArea style={[styles.scrollContent, contentContainerStyle]}>
+            {children}
+          </ContentArea>
+        </VerticalScrollView>
       </View>
     );
   }
@@ -38,9 +40,9 @@ const ScreenLayout = ({
   return (
     <View style={styles.viewWrapper}>
       {topBar}
-      <DismissKeyboard style={[styles.container, contentContainerStyle]}>
+      <ContentArea style={[styles.container, contentContainerStyle]}>
         {children}
-      </DismissKeyboard>
+      </ContentArea>
     </View>
   );
 };

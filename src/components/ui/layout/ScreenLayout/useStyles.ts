@@ -27,6 +27,7 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
     // Sits outside the scroll view, so it owns the hardware clearance — the
     // scroll view then stops above the home indicator instead of drawing into
     // it, and only the design gap rides along with the content.
+    //dont add CONTENT_BOTTOM_GAP we already added in verticalScrollView Component
     scrollViewWrapper: {
       ...horizontalPadding,
       paddingTop,
@@ -38,6 +39,13 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
     // fill the screen now that they sit one View deeper than the wrapper.
     container: {
       flex: 1,
+    },
+    // Same role inside the scroll view, but flexGrow rather than flex: the
+    // dismiss target has to fill the viewport when content is short and keep
+    // growing past it when content is long. flex: 1 would cap it at the
+    // viewport and there would be nothing left to scroll.
+    scrollContent: {
+      flexGrow: 1,
     },
   });
 

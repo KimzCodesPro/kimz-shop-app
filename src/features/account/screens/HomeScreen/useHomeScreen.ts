@@ -146,7 +146,7 @@ const useHomeScreen = () => {
           icon: "file-text",
           title: t("account_legalAndPolicies"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/account/legalAndPolicies"),
         },
         {
           variant: "danger",

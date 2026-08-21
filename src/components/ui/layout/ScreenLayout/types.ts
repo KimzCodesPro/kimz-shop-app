@@ -15,6 +15,8 @@ type ScreenLayoutBaseProps = {
   // Styles the content area children sit in — the same element in both
   // branches, which is also what blurs a focused input when tapped.
   contentContainerStyle?: StyleProp<ViewStyle>;
+
+  dismissKeyboardOnTap?: boolean;
   children: React.ReactNode;
 };
 
