@@ -50,7 +50,7 @@ const AddressesScreen = () => {
       {/* details of the address the user tapped */}
       <BottomSheet
         ref={addressBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["37%"] }}
+        bottomSheetProps={{ snapPoints: ["35%"] }}
         title={t("account_address")}
       >
         <BottomSheet.Content>
