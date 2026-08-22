@@ -41,9 +41,6 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    },
-    "extra": {
-      "forceRtl": false
     }
   }
 }
