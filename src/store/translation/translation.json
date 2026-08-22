@@ -76,7 +76,11 @@
       "account_faqContactAnswer": "فريق الدعم متاح يوميًا من 9 صباحًا حتى 9 مساءً عبر البريد support@kimzshop.com أو من داخل التطبيق.",
       "account_legalAndPolicies": "الشروط والسياسات",
       "account_logout": "تسجيل الخروج",
-      "account_logoutConfirm": "هل أنت متأكد أنك تريد تسجيل الخروج؟"
+      "account_logoutConfirm": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+      "account_home": "المنزل",
+      "account_office": "العمل",
+      "account_apartment": "شقه سكنيه",
+      "account_other": "اخري"
     }
   },
   "en": {
@@ -156,7 +160,11 @@
       "account_faqContactAnswer": "Our support team is available daily from 9 AM to 9 PM at support@kimzshop.com or through the in-app chat.",
       "account_legalAndPolicies": "Legal & Policies",
       "account_logout": "Logout",
-      "account_logoutConfirm": "Are you sure you want to logout?"
+      "account_logoutConfirm": "Are you sure you want to logout?",
+      "account_home": "Home",
+      "account_office": "Office",
+      "account_apartment": "Apartment",
+      "account_other": "Other"
     }
   }
 }
