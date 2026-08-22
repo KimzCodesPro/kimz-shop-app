@@ -8,7 +8,7 @@ import {
 } from "@/store/userPreferences/userPreferencesSlice";
 import { Language, Theme } from "@/types";
 import * as Updates from "expo-updates";
-import { I18nManager } from "react-native";
+import { DevSettings, I18nManager } from "react-native";
 
 const useUserPreferences = () => {
   const preferences = useAppSelector((state) => state.userPreferences);
@@ -31,9 +31,11 @@ const useUserPreferences = () => {
     // app can come back mirrored while still holding the previous language.
     await persistor.flush();
 
-    // Updates.reloadAsync() rejects in dev builds and Expo Go, so the restart
-    // only happens in release — in dev the app has to be killed and reopened.
-    if (!__DEV__) {
+    // Updates.reloadAsync() rejects in dev builds, and DevSettings.reload() is
+    // stripped from release, so each environment gets its own restart path.
+    if (__DEV__) {
+      DevSettings.reload();
+    } else {
       await Updates.reloadAsync();
     }
   };
