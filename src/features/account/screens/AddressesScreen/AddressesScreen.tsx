@@ -6,6 +6,7 @@ import { TopBar } from "@/components/ui/navigations";
 import { BottomSheet } from "@/components/ui/overlay";
 import { View } from "react-native";
 import styles from "./addressesScreenStyles";
+import { AddressDetails } from "./components";
 import useAdressesScreen from "./useAdressesScreen";
 
 const AddressesScreen = () => {
@@ -14,6 +15,8 @@ const AddressesScreen = () => {
     t,
     router,
     selectedId,
+    selectedAddress,
+    formatStreetLine,
     SelectAddressHandler,
     addressBottomSheetRef,
   } = useAdressesScreen();
@@ -29,8 +32,8 @@ const AddressesScreen = () => {
             {addressesList.map((item) => (
               <AddressCard
                 key={item.id}
-                city={item.city}
-                address={item.address}
+                city={item.governorate}
+                address={formatStreetLine(item)}
                 type={item.type}
                 isSelected={selectedId === item.id}
                 onPress={() => SelectAddressHandler(item.id)}
@@ -44,13 +47,23 @@ const AddressesScreen = () => {
           onPress={() => router.push("/account/addAddress")}
         />
       </ScreenLayout>
-      {/* theme bottom sheet */}
+      {/* details of the address the user tapped */}
       <BottomSheet
         ref={addressBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["40%"] }}
-        title={t("account_theme")}
+        bottomSheetProps={{ snapPoints: ["37%"] }}
+        title={t("account_address")}
       >
-        <BottomSheet.Content></BottomSheet.Content>
+        <BottomSheet.Content>
+          <AddressDetails
+            type={selectedAddress.type}
+            governorate={selectedAddress.governorate}
+            streetName={selectedAddress.streetName}
+            buildingNum={selectedAddress.buildingNum}
+            city={selectedAddress.city}
+            floorNum={selectedAddress.floorNum}
+            landMark={selectedAddress.landMark}
+          />
+        </BottomSheet.Content>
       </BottomSheet>
     </>
   );
