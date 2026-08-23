@@ -47,7 +47,7 @@ const HomeScreen = () => {
       {/* language bottom sheet */}
       <BottomSheet
         ref={languageBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["25%"] }}
+        bottomSheetProps={{ snapPoints: ["28%"] }}
         title={t("account_language")}
       >
         <BottomSheet.Content>
@@ -61,7 +61,7 @@ const HomeScreen = () => {
       {/* theme bottom sheet */}
       <BottomSheet
         ref={themeBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["40%"] }}
+        bottomSheetProps={{ snapPoints: ["39%"] }}
         title={t("account_theme")}
       >
         <BottomSheet.Content>
@@ -75,7 +75,7 @@ const HomeScreen = () => {
       {/* notifications bottom sheet */}
       <BottomSheet
         ref={notificationsBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["20%"] }}
+        bottomSheetProps={{ snapPoints: ["19%"] }}
         title={t("account_notifications")}
       >
         <BottomSheet.Content>
