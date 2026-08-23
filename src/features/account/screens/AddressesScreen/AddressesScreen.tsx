@@ -26,8 +26,7 @@ const AddressesScreen = () => {
       <ScreenLayout
         renderTopBar={() => <TopBar title={t("account_address")} goBack />}
       >
-        {/* The list scrolls on its own so the button below stays pinned. */}
-        <VerticalScrollView style={styles.scrollView}>
+        <VerticalScrollView>
           <View style={styles.list}>
             {addressesList.map((item) => (
               <AddressCard
