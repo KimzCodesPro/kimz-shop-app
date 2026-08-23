@@ -1,7 +1,7 @@
-import { AddressesScreen } from "@/src/features/account";
+import { AddressListScreen } from "@/src/features/account";
 
 const Addresses = () => {
-  return <AddressesScreen />;
+  return <AddressListScreen />;
 };
 
 export default Addresses;
