@@ -2,7 +2,13 @@ import { IconName } from "@/components/icons";
 import { StyleProp, ViewStyle } from "react-native";
 
 export type SizeType = "sm" | "lg";
-export type VariantType = "primary" | "chip" | "link" | "ghost" | "danger";
+export type VariantType =
+  | "primary"
+  | "primary-outline"
+  | "chip"
+  | "link"
+  | "link-danger"
+  | "ghost";
 
 export type ButtonProps = {
   title: string;

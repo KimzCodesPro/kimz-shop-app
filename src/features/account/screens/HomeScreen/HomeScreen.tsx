@@ -29,19 +29,21 @@ const HomeScreen = () => {
   } = useHomeScreen();
 
   return (
-    <ScreenLayout
-      scrollable
-      hasTabBar
-      renderTopBar={() => <TopBar title={t("account_account")} />}
-    >
-      <UserGreeting
-        size="lg"
-        imgSrc={userPlaceholder}
-        userName="Kareem Nour"
-        meta="kareem@gmail.com"
-      />
-      {/* row navigation list  */}
-      <NavigationList navigationList={pageNavigationList} />
+    <>
+      <ScreenLayout
+        scrollable
+        hasTabBar
+        renderTopBar={() => <TopBar title={t("account_account")} />}
+      >
+        <UserGreeting
+          size="lg"
+          imgSrc={userPlaceholder}
+          userName="Kareem Nour"
+          meta="kareem@gmail.com"
+        />
+        {/* row navigation list  */}
+        <NavigationList navigationList={pageNavigationList} />
+      </ScreenLayout>
       {/* language bottom sheet */}
       <BottomSheet
         ref={languageBottomSheetRef}
@@ -91,13 +93,13 @@ const HomeScreen = () => {
             onPress={() => setLogoutConfirm(false)}
           />
           <Button
-            variant="danger"
+            variant="link-danger"
             title={t("account_logout")}
             onPress={() => setLogoutConfirm(false)}
           />
         </View>
       </Modal>
-    </ScreenLayout>
+    </>
   );
 };
 

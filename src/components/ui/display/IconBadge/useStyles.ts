@@ -11,8 +11,8 @@ const useStyles = () => {
     container: {
       alignItems: "center",
       justifyContent: "center",
-      height: HS(45),
-      width: HS(45),
+      height: HS(43),
+      width: HS(43),
       borderRadius: radius.full,
       backgroundColor: colors.background.surface,
     },

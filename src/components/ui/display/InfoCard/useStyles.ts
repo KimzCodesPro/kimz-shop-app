@@ -13,7 +13,7 @@ const useStyles = (isSelected?: boolean) => {
       alignItems: "center",
       justifyContent: "space-between",
       flexDirection: "row",
-      height: VS(96),
+      minHeight: VS(96),
       paddingVertical: spacing.space16.height,
       paddingHorizontal: spacing.space16.width,
       borderRadius: radius.lg,
@@ -22,6 +22,7 @@ const useStyles = (isSelected?: boolean) => {
     },
     leading: {
       gap: spacing.space4.height,
+      flex: 1,
     },
     leadingTitle: {
       color: colors.foreground.primary,
