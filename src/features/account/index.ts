@@ -3,5 +3,5 @@ export { default as AddressesScreen } from "./screens/AddressesScreen/AddressesS
 export { default as ChangePasswordScreen } from "./screens/ChangePasswordScreen/ChangePasswordScreen";
 export { default as EditProfileScreen } from "./screens/EditProfileScreen/EditProfileScreen";
 export { default as HelpAndSupportScreen } from "./screens/HelpAndSupportScreen/HelpAndSupportScreen";
-export { default as HomeScreen } from "./screens/HomeScreen/HomeScreen";
+export { default as AccountScreen } from "./screens/AccountScreen/AccountScreen";
 export { default as LegalAndPoliciesScreen } from "./screens/LegalAndPoliciesScreen/LegalAndPoliciesScreen";

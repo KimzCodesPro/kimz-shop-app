@@ -8,7 +8,7 @@ import { useRef, useState } from "react";
 import { PageNavigationList } from "./components/NavigationList/types";
 import { ThemeOption } from "./components/ThemeRadioGroup/types";
 
-const useHomeScreen = () => {
+const useAccountScreen = () => {
   const router = useRouter();
   const { t } = useTranslation();
   const {
@@ -180,4 +180,4 @@ const useHomeScreen = () => {
   };
 };
 
-export default useHomeScreen;
+export default useAccountScreen;

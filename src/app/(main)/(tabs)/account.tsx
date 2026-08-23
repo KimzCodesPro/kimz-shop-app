@@ -1,5 +1,5 @@
-import { HomeScreen } from "@/src/features/account";
+import { AccountScreen } from "@/src/features/account";
 
 export default function Account() {
-  return <HomeScreen />;
+  return <AccountScreen />;
 }
