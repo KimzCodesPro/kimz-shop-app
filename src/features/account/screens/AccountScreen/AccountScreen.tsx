@@ -6,10 +6,10 @@ import { TopBar } from "@/components/ui/navigations";
 import { BottomSheet, Modal } from "@/components/ui/overlay";
 import { View } from "react-native";
 import { NavigationList, ThemeRadioGroup } from "./components";
-import styles from "./homeScreenStyles";
-import useHomeScreen from "./useHomeScreen";
+import styles from "./accountScreenStyles";
+import useAccountScreen from "./useAccountScreen";
 
-const HomeScreen = () => {
+const AccountScreen = () => {
   const {
     t,
     pageNavigationList,
@@ -26,7 +26,7 @@ const HomeScreen = () => {
     notificationsBottomSheetRef,
     notificationOptions,
     onToggleNotification,
-  } = useHomeScreen();
+  } = useAccountScreen();
 
   return (
     <>
@@ -103,4 +103,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default AccountScreen;
