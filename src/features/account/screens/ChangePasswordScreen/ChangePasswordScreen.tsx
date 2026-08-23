@@ -11,7 +11,6 @@ const ChangePasswordScreen = () => {
   return (
     <ScreenLayout
       dismissKeyboardOnTap
-      scrollable
       renderTopBar={() => <TopBar title={t("account_changePassword")} goBack />}
     >
       <View style={styles.form}>
