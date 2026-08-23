@@ -42,6 +42,7 @@ import ShieldX from "./ShieldX";
 import ShopingCart from "./ShopingCart";
 import ShoppingBag from "./ShoppingBag";
 import Star from "./Star";
+import Trash from "./Trash";
 import Truck from "./Truck";
 import User from "./User";
 import WifiOff from "./WifiOff";
@@ -96,6 +97,7 @@ const icons = {
   "wifi-off": WifiOff,
   "box-off": BoxOff,
   "image-off": ImageOff,
+  trash: Trash,
 } as const;
 
 export default icons;

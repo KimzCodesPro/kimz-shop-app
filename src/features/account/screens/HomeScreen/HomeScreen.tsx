@@ -93,7 +93,7 @@ const HomeScreen = () => {
             onPress={() => setLogoutConfirm(false)}
           />
           <Button
-            variant="danger"
+            variant="link-danger"
             title={t("account_logout")}
             onPress={() => setLogoutConfirm(false)}
           />

@@ -15,6 +15,11 @@ const useStyle = (size: SizeType, variant: VariantType, disabled?: boolean) => {
       typography: color.foreground.contrast,
       border: color.primary.base,
     },
+    "primary-outline": {
+      background: color.background.base,
+      typography: color.primary.base,
+      border: color.primary.base,
+    },
     chip: {
       background: "transparent",
       typography: color.primary.base,
@@ -25,15 +30,15 @@ const useStyle = (size: SizeType, variant: VariantType, disabled?: boolean) => {
       typography: color.primary.base,
       border: "transparent",
     },
+    "link-danger": {
+      background: "transparent",
+      typography: color.danger.base,
+      border: "transparent",
+    },
     ghost: {
       background: "transparent",
       typography: color.foreground.primary,
       border: color.border.default,
-    },
-    danger: {
-      background: "transparent",
-      typography: color.danger.base,
-      border: "transparent",
     },
   } as const;
 

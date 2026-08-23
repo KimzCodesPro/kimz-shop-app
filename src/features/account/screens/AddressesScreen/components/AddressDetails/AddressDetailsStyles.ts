@@ -2,10 +2,26 @@ import { spacing } from "@/src/constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  statusBill: { alignSelf: "flex-start", marginBottom: spacing.space4.height },
-  details: {
-    marginTop: spacing.space8.height,
-    gap: spacing.space4.height,
+  header: {
+    marginBottom: spacing.space16.height,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  addressMain: {
+    marginBottom: spacing.space8.height,
+  },
+  addressInfoList: {
+    gap: spacing.space8.height,
+  },
+  addressInfoSlot: {
+    flexDirection: "row",
+    gap: spacing.space8.height,
+    alignItems: "center",
+  },
+  actions: {
+    marginTop: spacing.space32.height,
+    gap: spacing.space12.height,
   },
 });
 
