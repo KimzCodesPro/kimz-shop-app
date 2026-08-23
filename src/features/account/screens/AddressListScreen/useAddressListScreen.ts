@@ -41,7 +41,7 @@ const addressesList = [
 const formatStreetLine = (address: (typeof addressesList)[number]) =>
   `${address.buildingNum} ${address.streetName}, ${address.city}`;
 
-const useAdressesScreen = () => {
+const useAddressListScreen = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const [selectedId, setSelectedId] = useState<string>(addressesList[0].id);
@@ -68,4 +68,4 @@ const useAdressesScreen = () => {
   };
 };
 
-export default useAdressesScreen;
+export default useAddressListScreen;

@@ -5,11 +5,11 @@ import { TopBar } from "@/components/ui/navigations";
 
 import { BottomSheet } from "@/components/ui/overlay";
 import { View } from "react-native";
-import styles from "./addressesScreenStyles";
+import styles from "./addressListScreenStyles";
 import { AddressDetails } from "./components";
-import useAdressesScreen from "./useAdressesScreen";
+import useAddressListScreen from "./useAddressListScreen";
 
-const AddressesScreen = () => {
+const AddressListScreen = () => {
   const {
     addressesList,
     t,
@@ -19,7 +19,7 @@ const AddressesScreen = () => {
     formatStreetLine,
     SelectAddressHandler,
     addressBottomSheetRef,
-  } = useAdressesScreen();
+  } = useAddressListScreen();
 
   return (
     <>
@@ -68,4 +68,4 @@ const AddressesScreen = () => {
   );
 };
 
-export default AddressesScreen;
+export default AddressListScreen;
