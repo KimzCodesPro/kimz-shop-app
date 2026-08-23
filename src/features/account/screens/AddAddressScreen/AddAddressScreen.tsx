@@ -65,7 +65,7 @@ const AddAddressScreen = () => {
         <TextInput
           label={t("account_landmark")}
           placeholder={t("account_landmarkPlaceholder")}
-          iconName="map-pin"
+          iconName="info-circle"
           value=""
         />
       </View>
