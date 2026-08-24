@@ -1,3 +1,4 @@
+import { forcesRTL } from "@/constants";
 import { persistor } from "@/store";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import translation from "@/store/translation/translation.json";
@@ -7,6 +8,7 @@ import {
   setTheme,
 } from "@/store/userPreferences/userPreferencesSlice";
 import { Language, Theme } from "@/types";
+import Constants, { ExecutionEnvironment } from "expo-constants";
 import * as Updates from "expo-updates";
 import { DevSettings, I18nManager } from "react-native";
 
@@ -22,7 +24,8 @@ const useUserPreferences = () => {
     // direction looks unchanged: until forceRTL runs once the app follows the
     // device locale, so I18nManager.isRTL is not a reliable record of what the
     // app itself has applied.
-    const shouldBeRTL = translation[language].dir === "rtl";
+    // forcesRTL pins the app mirrored no matter which language is picked.
+    const shouldBeRTL = forcesRTL || translation[language].dir === "rtl";
 
     I18nManager.allowRTL(shouldBeRTL);
     I18nManager.forceRTL(shouldBeRTL);
@@ -30,6 +33,20 @@ const useUserPreferences = () => {
     // redux-persist writes asynchronously, so flush before restarting or the
     // app can come back mirrored while still holding the previous language.
     await persistor.flush();
+
+    // Expo Go resets RTL preferences every time it reloads a project, so the
+    // restart cannot apply the flag there — it would only throw the user out of
+    // the screen for nothing. The language still changes; mirroring waits for a
+    // dev or release build.
+    //
+    // executionEnvironment is a native constant: the expo-constants pod we
+    // compile reports "bare" in every build of this app, so only Expo Go's own
+    // binary ever reports "storeClient". Constants.expoGoConfig is NOT usable
+    // here — it comes from the manifest, and the dev server stamps extra.expoGo
+    // onto dev-build manifests too, which would skip the reload in dev.
+    if (Constants.executionEnvironment === ExecutionEnvironment.StoreClient) {
+      return;
+    }
 
     // Updates.reloadAsync() rejects in dev builds, and DevSettings.reload() is
     // stripped from release, so each environment gets its own restart path.
