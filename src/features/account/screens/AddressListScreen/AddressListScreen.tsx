@@ -17,8 +17,11 @@ const AddressListScreen = () => {
     selectedId,
     selectedAddress,
     formatStreetLine,
-    SelectAddressHandler,
+    AddressFullInfoHandler,
     addressBottomSheetRef,
+    setAddressAsDefaultHandler,
+    editAddressHandler,
+    deleteAddressHandler,
   } = useAddressListScreen();
 
   return (
@@ -35,7 +38,7 @@ const AddressListScreen = () => {
                 address={formatStreetLine(item)}
                 type={item.type}
                 isSelected={selectedId === item.id}
-                onPress={() => SelectAddressHandler(item.id)}
+                onPress={() => AddressFullInfoHandler(item.id)}
               />
             ))}
           </View>
@@ -49,7 +52,7 @@ const AddressListScreen = () => {
       {/* details of the address the user tapped */}
       <BottomSheet
         ref={addressBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["63%"] }}
+        bottomSheetProps={{ snapPoints: ["59%"] }}
         title={t("account_addressDetails")}
       >
         <BottomSheet.Content>
@@ -61,6 +64,9 @@ const AddressListScreen = () => {
             city={selectedAddress.city}
             floorNum={selectedAddress.floorNum}
             landMark={selectedAddress.landMark}
+            setAsDefaultHandler={setAddressAsDefaultHandler}
+            editHandler={editAddressHandler}
+            deleteHandler={deleteAddressHandler}
           />
         </BottomSheet.Content>
       </BottomSheet>

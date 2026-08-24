@@ -8,4 +8,7 @@ export type AddressDetailsProps = {
   city: string;
   floorNum: string;
   landMark: string;
+  setAsDefaultHandler: () => void;
+  editHandler: () => void;
+  deleteHandler: () => void;
 };
