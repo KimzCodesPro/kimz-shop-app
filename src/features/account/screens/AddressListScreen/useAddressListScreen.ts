@@ -44,16 +44,32 @@ const formatStreetLine = (address: (typeof addressesList)[number]) =>
 const useAddressListScreen = () => {
   const { t } = useTranslation();
   const router = useRouter();
-  const [selectedId, setSelectedId] = useState<string>(addressesList[0].id);
+  const currentOpenedAddress = useRef<string | null>(null);
   const addressBottomSheetRef = useRef<BottomSheetRef | null>(null);
+  const [selectedId, setSelectedId] = useState<string>(addressesList[0].id);
 
   const selectedAddress =
     addressesList.find((address) => address.id === selectedId) ??
     addressesList[0];
 
-  const SelectAddressHandler = (id: string) => {
-    setSelectedId(id);
+  const AddressFullInfoHandler = (id: string) => {
+    currentOpenedAddress.current = id;
     addressBottomSheetRef.current?.expand();
+  };
+
+  const setAddressAsDefaultHandler = () => {
+    if (currentOpenedAddress.current) {
+      setSelectedId(currentOpenedAddress.current);
+      addressBottomSheetRef.current?.close();
+    }
+  };
+
+  const deleteAddressHandler = () => {
+    addressBottomSheetRef.current?.close();
+  };
+
+  const editAddressHandler = () => {
+    addressBottomSheetRef.current?.close();
   };
 
   return {
@@ -63,8 +79,11 @@ const useAddressListScreen = () => {
     selectedId,
     selectedAddress,
     formatStreetLine,
-    SelectAddressHandler,
+    AddressFullInfoHandler,
     addressBottomSheetRef,
+    setAddressAsDefaultHandler,
+    editAddressHandler,
+    deleteAddressHandler,
   };
 };
 

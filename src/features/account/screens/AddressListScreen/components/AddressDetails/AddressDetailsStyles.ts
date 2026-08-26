@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   header: {
-    marginBottom: spacing.space16.height,
+    marginBottom: spacing.space8.height,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   actions: {
-    marginTop: spacing.space32.height,
+    marginTop: spacing.space24.height,
     gap: spacing.space12.height,
   },
 });

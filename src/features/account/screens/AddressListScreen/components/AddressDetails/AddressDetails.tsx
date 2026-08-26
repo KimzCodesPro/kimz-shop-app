@@ -20,6 +20,9 @@ const AddressDetails = ({
   city,
   floorNum,
   landMark,
+  deleteHandler,
+  setAsDefaultHandler,
+  editHandler,
 }: AddressDetailsProps) => {
   const colors = useTheme();
   const { t } = useTranslation();
@@ -35,7 +38,7 @@ const AddressDetails = ({
           color={statusColor}
           label={statusLabel}
         />
-        <Pressable onPress={() => {}}>
+        <Pressable onPress={deleteHandler}>
           <IconBadge iconName="trash" variant="danger" />
         </Pressable>
       </View>
@@ -82,14 +85,14 @@ const AddressDetails = ({
       {/* actions */}
       <View style={styles.actions}>
         <Button
-          variant="primary"
-          title={t("account_editAddress")}
-          onPress={() => {}}
-        />
-        <Button
           variant="primary-outline"
           title={t("account_setAsDefault")}
-          onPress={() => {}}
+          onPress={setAsDefaultHandler}
+        />
+        <Button
+          variant="primary"
+          title={t("account_editAddress")}
+          onPress={editHandler}
         />
       </View>
     </>

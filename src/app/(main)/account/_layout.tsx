@@ -8,7 +8,7 @@ const AccountLayout = () => {
       <Stack.Screen name="helpAndSupport" />
       <Stack.Screen name="legalAndPolicies" />
       <Stack.Screen name="addresses" />
-      <Stack.Screen name="addAddress" />
+      <Stack.Screen name="addNewAddress" />
     </Stack>
   );
 };
