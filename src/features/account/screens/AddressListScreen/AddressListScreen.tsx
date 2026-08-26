@@ -16,7 +16,6 @@ const AddressListScreen = () => {
     router,
     selectedId,
     selectedAddress,
-    formatStreetLine,
     AddressFullInfoHandler,
     addressBottomSheetRef,
     setAddressAsDefaultHandler,
@@ -35,7 +34,7 @@ const AddressListScreen = () => {
               <AddressCard
                 key={item.id}
                 city={item.governorate}
-                address={formatStreetLine(item)}
+                address={`${item.buildingNum} ${item.streetName}, ${item.city}`}
                 type={item.type}
                 isSelected={selectedId === item.id}
                 onPress={() => AddressFullInfoHandler(item.id)}

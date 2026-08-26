@@ -36,11 +36,6 @@ const addressesList = [
   },
 ] as const;
 
-// The card shows a single street line, while the bottom sheet breaks the same
-// address into its individual fields.
-const formatStreetLine = (address: (typeof addressesList)[number]) =>
-  `${address.buildingNum} ${address.streetName}, ${address.city}`;
-
 const useAddressListScreen = () => {
   const { t } = useTranslation();
   const router = useRouter();
@@ -78,7 +73,6 @@ const useAddressListScreen = () => {
     router,
     selectedId,
     selectedAddress,
-    formatStreetLine,
     AddressFullInfoHandler,
     addressBottomSheetRef,
     setAddressAsDefaultHandler,
