@@ -7,7 +7,6 @@ import { useTheme, useTranslation } from "@/hooks";
 import Icon from "@/src/components/icons";
 import { IconBadge, StatusBill, Typography } from "@/src/components/ui/display";
 import { Button } from "@/src/components/ui/inputs";
-import { StatusVariant } from "@/types/theme";
 import { Pressable, View } from "react-native";
 import styles from "./AddressDetailsStyles";
 import { AddressDetailsProps } from "./types";
@@ -26,7 +25,7 @@ const AddressDetails = ({
 }: AddressDetailsProps) => {
   const colors = useTheme();
   const { t } = useTranslation();
-  const statusColor = addressColorMapping[type] as StatusVariant;
+  const statusColor = addressColorMapping[type];
   const statusIcon = addressIcon[type];
   const statusLabel = t(addressLabel[type]);
 

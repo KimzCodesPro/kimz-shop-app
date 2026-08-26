@@ -5,8 +5,8 @@ import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { BottomSheet, Modal } from "@/components/ui/overlay";
 import { View } from "react-native";
-import { NavigationList, ThemeRadioGroup } from "./components";
 import styles from "./accountScreenStyles";
+import { NavigationList, ThemeRadioGroup } from "./components";
 import useAccountScreen from "./useAccountScreen";
 
 const AccountScreen = () => {
@@ -61,7 +61,7 @@ const AccountScreen = () => {
       {/* theme bottom sheet */}
       <BottomSheet
         ref={themeBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["39%"] }}
+        bottomSheetProps={{ snapPoints: ["41%"] }}
         title={t("account_theme")}
       >
         <BottomSheet.Content>

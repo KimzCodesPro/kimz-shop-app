@@ -1,65 +1,31 @@
-import { BottomSheetRef } from "@/components/ui/overlay";
+import { BottomSheetRef } from "@/src/components/ui/overlay";
 import { useTranslation } from "@/src/hooks";
 import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
-
-const addressesList = [
-  {
-    id: "1",
-    type: "home",
-    governorate: "Cairo",
-    streetName: "El Nasr Street",
-    buildingNum: "12",
-    city: "Nasr City",
-    floorNum: "1",
-    landMark: "Omar Shaheen Hospital",
-  },
-  {
-    id: "2",
-    type: "office",
-    governorate: "Giza",
-    streetName: "Gameat El Dewal El Arabeya",
-    buildingNum: "45",
-    city: "Mohandessin",
-    floorNum: "3",
-    landMark: "Mustafa Mahmoud Mosque",
-  },
-  {
-    id: "3",
-    type: "apartment",
-    governorate: "Alexandria",
-    streetName: "El Geish Road",
-    buildingNum: "8",
-    city: "Sidi Gaber",
-    floorNum: "5",
-    landMark: "Sidi Gaber Station",
-  },
-] as const;
-
-// The card shows a single street line, while the bottom sheet breaks the same
-// address into its individual fields.
-const formatStreetLine = (address: (typeof addressesList)[number]) =>
-  `${address.buildingNum} ${address.streetName}, ${address.city}`;
+import addressesList from "./components/AddressesList/data";
 
 const useAddressListScreen = () => {
-  const { t } = useTranslation();
   const router = useRouter();
-  const currentOpenedAddress = useRef<string | null>(null);
-  const addressBottomSheetRef = useRef<BottomSheetRef | null>(null);
-  const [selectedId, setSelectedId] = useState<string>(addressesList[0].id);
 
-  const selectedAddress =
-    addressesList.find((address) => address.id === selectedId) ??
+  const addressBottomSheetRef = useRef<BottomSheetRef | null>(null);
+
+  const [selectedItemId, seSelectedItemId] = useState<string>("1");
+  const [currentOpenedAddress, setCurrentOpenedAddress] = useState<
+    string | null
+  >(null);
+
+  const selectedAddressInfo =
+    addressesList.find((item) => item.id === currentOpenedAddress) ??
     addressesList[0];
 
-  const AddressFullInfoHandler = (id: string) => {
-    currentOpenedAddress.current = id;
+  const AddressOpenFullInfoHandler = (id: string) => {
+    setCurrentOpenedAddress(id);
     addressBottomSheetRef.current?.expand();
   };
 
   const setAddressAsDefaultHandler = () => {
-    if (currentOpenedAddress.current) {
-      setSelectedId(currentOpenedAddress.current);
+    if (currentOpenedAddress) {
+      seSelectedItemId(currentOpenedAddress);
       addressBottomSheetRef.current?.close();
     }
   };
@@ -72,18 +38,18 @@ const useAddressListScreen = () => {
     addressBottomSheetRef.current?.close();
   };
 
+  const { t } = useTranslation();
+
   return {
-    addressesList,
     t,
     router,
-    selectedId,
-    selectedAddress,
-    formatStreetLine,
-    AddressFullInfoHandler,
+    selectedItemId,
     addressBottomSheetRef,
-    setAddressAsDefaultHandler,
-    editAddressHandler,
+    AddressOpenFullInfoHandler,
+    selectedAddressInfo,
     deleteAddressHandler,
+    editAddressHandler,
+    setAddressAsDefaultHandler,
   };
 };
 
