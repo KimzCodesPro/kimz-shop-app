@@ -46,7 +46,7 @@ const AddressListScreen = () => {
 
         <Button
           title={t("account_addNewAddress")}
-          onPress={() => router.push("/account/addAddress")}
+          onPress={() => router.push("/account/addNewAddress")}
         />
       </ScreenLayout>
       {/* details of the address the user tapped */}

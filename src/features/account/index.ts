@@ -1,4 +1,4 @@
-export { default as AddAddressScreen } from "./screens/AddAddressScreen/AddAddressScreen";
+export { default as AddNewAddressScreen } from "./screens/AddNewAddressScreen/AddNewAddressScreen";
 export { default as AddressListScreen } from "./screens/AddressListScreen/AddressListScreen";
 export { default as ChangePasswordScreen } from "./screens/ChangePasswordScreen/ChangePasswordScreen";
 export { default as EditProfileScreen } from "./screens/EditProfileScreen/EditProfileScreen";

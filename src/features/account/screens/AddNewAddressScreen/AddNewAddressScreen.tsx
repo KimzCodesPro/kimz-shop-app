@@ -3,10 +3,10 @@ import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
 import { View } from "react-native";
-import styles from "./addAddressScreenStyles";
+import styles from "./addNewAddressScreenStyles";
 import { GOVERNORATE_OPTIONS } from "./constants";
 
-const AddAddressScreen = () => {
+const AddNewAddressScreen = () => {
   const { t } = useTranslation();
 
   const addressTypeOptions = [
@@ -79,4 +79,4 @@ const AddAddressScreen = () => {
   );
 };
 
-export default AddAddressScreen;
+export default AddNewAddressScreen;
