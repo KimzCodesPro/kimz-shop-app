@@ -1,20 +1,13 @@
 import { Button, Dropdown, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
-import { useTranslation } from "@/hooks";
 import { View } from "react-native";
 import styles from "./addNewAddressScreenStyles";
 import { GOVERNORATE_OPTIONS } from "./constants";
+import useAddNewAddressScreen from "./useAddNewAddressScreen";
 
 const AddNewAddressScreen = () => {
-  const { t } = useTranslation();
-
-  const addressTypeOptions = [
-    { label: t("account_addressTypeHome"), value: "home" },
-    { label: t("account_addressTypeApartment"), value: "apartment" },
-    { label: t("account_addressTypeOffice"), value: "office" },
-    { label: t("account_addressTypeOther"), value: "other" },
-  ];
+  const { t, addressTypeOptions } = useAddNewAddressScreen();
 
   return (
     <ScreenLayout

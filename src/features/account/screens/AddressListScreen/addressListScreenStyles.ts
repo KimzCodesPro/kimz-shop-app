@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   list: {
-    gap: spacing.space16.height,
+    marginBottom: spacing.space16.height,
   },
 });
 

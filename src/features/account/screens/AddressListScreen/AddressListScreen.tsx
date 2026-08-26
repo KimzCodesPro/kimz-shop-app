@@ -1,26 +1,23 @@
-import { AddressCard } from "@/components/ui/display";
 import { Button } from "@/components/ui/inputs";
 import { ScreenLayout, VerticalScrollView } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 
 import { BottomSheet } from "@/components/ui/overlay";
-import { View } from "react-native";
-import styles from "./addressListScreenStyles";
-import { AddressDetails } from "./components";
+import { AddressDetails, AddressesList } from "./components";
+import addressesList from "./components/AddressesList/data";
 import useAddressListScreen from "./useAddressListScreen";
 
 const AddressListScreen = () => {
   const {
-    addressesList,
     t,
     router,
-    selectedId,
-    selectedAddress,
-    AddressFullInfoHandler,
+    selectedItemId,
     addressBottomSheetRef,
-    setAddressAsDefaultHandler,
-    editAddressHandler,
+    AddressOpenFullInfoHandler,
+    selectedAddressInfo,
     deleteAddressHandler,
+    editAddressHandler,
+    setAddressAsDefaultHandler,
   } = useAddressListScreen();
 
   return (
@@ -29,18 +26,11 @@ const AddressListScreen = () => {
         renderTopBar={() => <TopBar title={t("account_address")} goBack />}
       >
         <VerticalScrollView>
-          <View style={styles.list}>
-            {addressesList.map((item) => (
-              <AddressCard
-                key={item.id}
-                city={item.governorate}
-                address={`${item.buildingNum} ${item.streetName}, ${item.city}`}
-                type={item.type}
-                isSelected={selectedId === item.id}
-                onPress={() => AddressFullInfoHandler(item.id)}
-              />
-            ))}
-          </View>
+          <AddressesList
+            items={addressesList}
+            selectedItem={selectedItemId}
+            onPress={AddressOpenFullInfoHandler}
+          />
         </VerticalScrollView>
 
         <Button
@@ -56,16 +46,16 @@ const AddressListScreen = () => {
       >
         <BottomSheet.Content>
           <AddressDetails
-            type={selectedAddress.type}
-            governorate={selectedAddress.governorate}
-            streetName={selectedAddress.streetName}
-            buildingNum={selectedAddress.buildingNum}
-            city={selectedAddress.city}
-            floorNum={selectedAddress.floorNum}
-            landMark={selectedAddress.landMark}
-            setAsDefaultHandler={setAddressAsDefaultHandler}
+            type={selectedAddressInfo.type}
+            governorate={selectedAddressInfo.governorate}
+            streetName={selectedAddressInfo.streetName}
+            buildingNum={selectedAddressInfo.buildingNum}
+            city={selectedAddressInfo.city}
+            floorNum={selectedAddressInfo.floorNum}
+            landMark={selectedAddressInfo.landMark}
             editHandler={editAddressHandler}
             deleteHandler={deleteAddressHandler}
+            setAsDefaultHandler={setAddressAsDefaultHandler}
           />
         </BottomSheet.Content>
       </BottomSheet>

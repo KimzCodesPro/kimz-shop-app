@@ -12,6 +12,7 @@ const useStyles = (isSelected?: boolean) => {
       alignSelf: "stretch",
       alignItems: "center",
       justifyContent: "space-between",
+      gap: spacing.space8.width,
       flexDirection: "row",
       minHeight: VS(96),
       paddingVertical: spacing.space16.height,
