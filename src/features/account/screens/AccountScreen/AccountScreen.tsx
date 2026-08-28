@@ -1,12 +1,17 @@
 import { userPlaceholder } from "@/assets/images";
 import { UserGreeting } from "@/components/ui/display";
-import { Button, RadioGroup, SwitchGroup } from "@/components/ui/inputs";
+import {
+  Button,
+  ImageRadioGroup,
+  RadioGroup,
+  SwitchGroup,
+} from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { BottomSheet, Modal } from "@/components/ui/overlay";
 import { View } from "react-native";
 import styles from "./accountScreenStyles";
-import { NavigationList, ThemeRadioGroup } from "./components";
+import { NavigationList } from "./components";
 import useAccountScreen from "./useAccountScreen";
 
 const AccountScreen = () => {
@@ -65,7 +70,7 @@ const AccountScreen = () => {
         title={t("account_theme")}
       >
         <BottomSheet.Content>
-          <ThemeRadioGroup
+          <ImageRadioGroup
             options={themeOptions}
             selectedValue={selectedTheme}
             onValueChange={onSelectTheme}

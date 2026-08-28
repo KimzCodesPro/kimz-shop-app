@@ -1,6 +1,8 @@
 export { default as Button } from "./Button/Button";
 export { default as CheckBox } from "./CheckBox/CheckBox";
 export { default as Dropdown } from "./fields/Dropdown/Dropdown";
+export { default as ImageRadioGroup } from "./ImageRadioGroup/ImageRadioGroup";
+export type { ImageRadioGroupOption } from "./ImageRadioGroup/types";
 export { default as TextInput } from "./fields/TextInput/TextInput";
 export { default as Radio } from "./Radio/Radio";
 export { default as RadioGroup } from "./RadioGroup/RadioGroup";
