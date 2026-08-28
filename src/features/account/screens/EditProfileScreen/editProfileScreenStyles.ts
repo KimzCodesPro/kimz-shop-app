@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     gap: spacing.space16.height,
   },
   avatar: {
-    alignSelf: "center",
     marginBottom: spacing.space24.height,
   },
   // Main-axis auto margin: eats the leftover height of the flexGrow content
