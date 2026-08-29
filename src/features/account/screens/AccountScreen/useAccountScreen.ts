@@ -1,12 +1,11 @@
 import { themeDark, themeLight, themeSystem } from "@/assets/images";
-import { SwitchGroupChange } from "@/components/ui/inputs";
+import { ImageRadioGroupOption, SwitchGroupChange } from "@/components/ui/inputs";
 import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation, useUserPreferences } from "@/hooks";
 import { Language, Theme } from "@/types";
 import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
 import { PageNavigationList } from "./components/NavigationList/types";
-import { ThemeOption } from "./components/ThemeRadioGroup/types";
 
 const useAccountScreen = () => {
   const router = useRouter();
@@ -35,7 +34,7 @@ const useAccountScreen = () => {
     await setLanguage(value as Language);
   };
 
-  const themeOptions: ThemeOption[] = [
+  const themeOptions: ImageRadioGroupOption[] = [
     { label: t("common_light"), value: "light", image: themeLight },
     { label: t("common_dark"), value: "dark", image: themeDark },
     { label: t("common_system"), value: "system", image: themeSystem },
@@ -44,9 +43,9 @@ const useAccountScreen = () => {
   const selectedThemeLabel =
     themeOptions.find((option) => option.value === selectedTheme)?.label ?? "";
 
-  const onSelectTheme = (value: Theme) => {
+  const onSelectTheme = (value: string) => {
     themeBottomSheetRef.current?.close();
-    setTheme(value);
+    setTheme(value as Theme);
   };
 
   const notificationOptions = [
