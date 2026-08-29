@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   addressInfoSlot: {
     flexDirection: "row",
     gap: spacing.space8.height,
-    alignItems: "baseline",
+    alignItems: "center",
   },
   actions: {
     marginTop: spacing.space24.height,
