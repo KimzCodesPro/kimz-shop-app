@@ -1,0 +1,53 @@
+name: Protect main
+
+# Fails loudly when a commit lands on main without going through a pull request.
+# GitHub Actions cannot reject a push (only paid rulesets can), but this leaves a
+# red X on the commit, emails you, and shows exactly what slipped through.
+
+on:
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  direct-push-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the pushed commits came from a PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.after }}
+          ACTOR: ${{ github.actor }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          # Branch creation / force-push from an empty ref: nothing to judge.
+          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            echo "New branch push — skipping."
+            exit 0
+          fi
+
+          pr=$(gh api "repos/$REPO/commits/$AFTER/pulls" \
+                --header 'Accept: application/vnd.github.groot-preview+json' \
+                --jq 'length' 2>/dev/null || echo 0)
+
+          if [ "$pr" -gt 0 ]; then
+            echo "✅ $AFTER is associated with a pull request."
+            exit 0
+          fi
+
+          echo "::error title=Direct push to $BRANCH::$ACTOR pushed $AFTER to $BRANCH without a pull request."
+          echo
+          echo "Commits pushed directly:"
+          gh api "repos/$REPO/compare/$BEFORE...$AFTER" \
+            --jq '.commits[] | "  \(.sha[0:7])  \(.commit.message | split("\n")[0])  — \(.commit.author.name)"'
+          echo
+          echo "Undo with:"
+          echo "  git push origin $BEFORE:$BRANCH --force"
+          exit 1
