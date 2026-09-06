@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 
-const MainLayout = () => {
+const ProtectedLayout = () => {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="(tabs)" />
@@ -9,4 +9,4 @@ const MainLayout = () => {
   );
 };
 
-export default MainLayout;
+export default ProtectedLayout;

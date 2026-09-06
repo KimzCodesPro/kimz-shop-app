@@ -8,12 +8,17 @@ const AppNavigator = () => {
     ...DefaultTheme,
     colors: { ...DefaultTheme.colors, background: colors.background.base },
   };
+  const isLoggedIn = false;
 
   return (
     <ThemeProvider value={navigationTheme}>
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="index" />
-        <Stack.Screen name="(main)" />
+        <Stack.Protected guard={isLoggedIn}>
+          <Stack.Screen name="(protected)" />
+        </Stack.Protected>
+        <Stack.Protected guard={!isLoggedIn}>
+          <Stack.Screen name="(public)" />
+        </Stack.Protected>
       </Stack>
     </ThemeProvider>
   );
