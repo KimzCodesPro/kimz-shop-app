@@ -84,7 +84,20 @@
       "account_home": "المنزل",
       "account_office": "العمل",
       "account_apartment": "شقه سكنيه",
-      "account_other": "اخري"
+      "account_other": "اخري",
+      "auth_loginTitle": "تسجيل الدخول",
+      "auth_loginSub": "يرجى تسجيل الدخول بحساب مسجل",
+      "auth_fieldEmail": "البريد الإلكتروني أو رقم الهاتف",
+      "auth_placeholderEmail": "أدخل بريدك الإلكتروني أو رقم هاتفك",
+      "auth_fieldPassword": "كلمة المرور",
+      "auth_placeholderPassword": "أنشئ كلمة المرور",
+      "auth_forgotPasswordLink": "نسيت كلمة المرور؟",
+      "auth_signInButton": "تسجيل الدخول",
+      "auth_noAccountLabel": "ليس لديك حساب؟",
+      "auth_createAccountTitle": "إنشاء حساب",
+      "auth_createAccountSubtitle": "ابدأ التعلم بإنشاء حسابك",
+      "auth_fieldUserName": "اسم المستخدم",
+      "auth_placeholderUserName": "أنشئ اسم المستخدم"
     }
   },
   "en": {
@@ -172,7 +185,20 @@
       "account_home": "Home",
       "account_office": "Office",
       "account_apartment": "Apartment",
-      "account_other": "Other"
+      "account_other": "Other",
+      "auth_loginTitle": "Login Account",
+      "auth_loginSub": "Please login with registered account",
+      "auth_fieldEmail": "Email or Phone Number",
+      "auth_placeholderEmail": "Enter your email or phone number",
+      "auth_fieldPassword": "Password",
+      "auth_placeholderPassword": "Create your password",
+      "auth_forgotPasswordLink": "Forgot Password?",
+      "auth_signInButton": "Sign In",
+      "auth_noAccountLabel": "Don't have an account?",
+      "auth_createAccountTitle": "Create Account",
+      "auth_createAccountSubtitle": "Start learning with create your account",
+      "auth_fieldUserName": "Username",
+      "auth_placeholderUserName": "Create your username"
     }
   }
 }
