@@ -36,6 +36,7 @@ const useCarouselStyles = () => {
     },
     paginationContainer: {
       justifyContent: "center",
+      gap: -spacing.space4.width,
     },
     dot: {
       width: spacing.space8.width,

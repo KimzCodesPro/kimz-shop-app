@@ -16,7 +16,8 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
   // React Navigation's theme, which paints every screen for us.
   const styles = StyleSheet.create({
     // Fixed content can't overflow, so it needs nothing to breathe against —
-    // only the inset that clears the home indicator.
+    // only the inset that clears the home indicator. A screen that wants room
+    // under a bottom-anchored CTA asks for it on the CTA itself.
     viewWrapper: {
       ...horizontalPadding,
       paddingTop,

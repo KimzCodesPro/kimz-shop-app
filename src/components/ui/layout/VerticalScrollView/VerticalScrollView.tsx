@@ -1,12 +1,6 @@
-import { scalingMethods } from "@/utils";
 import { ScrollView, StyleSheet } from "react-native";
+import { CONTENT_BOTTOM_GAP } from "../ScreenLayout/constants";
 import { VerticalScrollViewProps } from "./types";
-const { VS } = scalingMethods;
-
-// Breathing room under the last item, so content never ends flush against the
-// bottom of the screen. Design spec, not safe area — whatever sits outside the
-// scroll view owns the inset.
-const CONTENT_BOTTOM_GAP = VS(25);
 
 // Project defaults for every vertical scrollable surface. Any prop can be
 // overridden by the caller since props are spread after the defaults.

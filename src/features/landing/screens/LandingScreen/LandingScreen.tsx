@@ -7,7 +7,7 @@ import { LANDING_SLIDES } from "./constants";
 
 const LandingScreen = () => {
   return (
-    <ScreenLayout>
+    <ScreenLayout contentContainerStyle={styles.contentContainer}>
       <Carousel data={LANDING_SLIDES} />
       <View style={styles.actions}>
         <Button title="Create Account" onPress={() => {}} />
@@ -22,8 +22,10 @@ const LandingScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  // marginTop: auto eats the leftover space above the pair, pinning it to the
-  // bottom of the screen however tall the carousel ends up.
+  contentContainer: {
+    paddingTop: spacing.space16.height,
+  },
+
   actions: {
     marginTop: "auto",
     gap: spacing.space8.height,
