@@ -3,7 +3,7 @@ import { Button, IconButton, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
 import { useTranslation } from "@/hooks";
 import { router } from "expo-router";
-import { View } from "react-native";
+import { Pressable, View } from "react-native";
 import { Heading } from "../../components";
 import useStyles from "./useStyles";
 
@@ -55,12 +55,11 @@ const LoginScreen = () => {
           >
             {t("auth_noAccountLabel")}
           </Typography>
-          <Button
-            title={t("auth_createAccountTitle")}
-            variant="link"
-            size="sm"
-            onPress={() => router.push("/createAccount")}
-          />
+          <Pressable onPress={() => router.push("/createAccount")}>
+            <Typography variant="smallBold" color={colors.primary.base}>
+              {t("auth_createAccountTitle")}
+            </Typography>
+          </Pressable>
         </View>
       </View>
     </ScreenLayout>
