@@ -39,7 +39,7 @@ const LoginScreen = () => {
       </View>
 
       <View style={styles.actions}>
-        <View style={styles.actionsRow}>
+        <View style={styles.signInRow}>
           <Button
             title={t("auth_signInButton")}
             onPress={() => {}}

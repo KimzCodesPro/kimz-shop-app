@@ -20,7 +20,7 @@ const useStyles = () => {
       marginTop: "auto",
       gap: spacing.space8.height,
     },
-    actionsRow: {
+    signInRow: {
       flexDirection: "row",
       gap: spacing.space12.width,
     },
