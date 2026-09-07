@@ -9,7 +9,7 @@ const CreateAccountScreen = () => {
   const { t } = useTranslation();
 
   return (
-    <ScreenLayout dismissKeyboardOnTap>
+    <ScreenLayout dismissKeyboardOnTap contentContainerStyle={styles.container}>
       <Heading
         title={t("auth_createAccountTitle")}
         subtitle={t("auth_createAccountSubtitle")}
@@ -36,9 +36,11 @@ const CreateAccountScreen = () => {
         />
       </View>
 
-      <View style={styles.actions}>
-        <Button title={t("auth_createAccountTitle")} onPress={() => {}} />
-      </View>
+      <Button
+        style={styles.actions}
+        title={t("auth_createAccountTitle")}
+        onPress={() => {}}
+      />
     </ScreenLayout>
   );
 };

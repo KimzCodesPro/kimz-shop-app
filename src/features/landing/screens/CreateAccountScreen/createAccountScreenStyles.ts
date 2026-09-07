@@ -2,13 +2,14 @@ import { spacing } from "@/constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  container: {
+    paddingTop: spacing.space24.height,
+  },
   form: {
     gap: spacing.space16.height,
   },
   actions: {
     marginTop: "auto",
-    paddingTop: spacing.space32.height,
-    paddingBottom: spacing.space24.height,
   },
 });
 
