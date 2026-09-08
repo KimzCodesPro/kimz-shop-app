@@ -1,15 +1,15 @@
 import { Typography } from "@/components/ui/display";
 import { Button, IconButton, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
-import { useTranslation } from "@/hooks";
+import { useTheme, useTranslation } from "@/hooks";
 import { router } from "expo-router";
-import { Pressable, View } from "react-native";
+import { View } from "react-native";
 import { Heading } from "../../components";
-import useStyles from "./useStyles";
+import styles from "./LoginScreenStyles";
 
 const LoginScreen = () => {
   const { t } = useTranslation();
-  const { styles, colors } = useStyles();
+  const colors = useTheme();
 
   return (
     <ScreenLayout dismissKeyboardOnTap contentContainerStyle={styles.container}>
@@ -55,11 +55,13 @@ const LoginScreen = () => {
           >
             {t("auth_noAccountLabel")}
           </Typography>
-          <Pressable onPress={() => router.push("/createAccount")}>
-            <Typography variant="smallBold" color={colors.primary.base}>
-              {t("auth_createAccountTitle")}
-            </Typography>
-          </Pressable>
+          <Button
+            title={t("auth_createAccountTitle")}
+            variant="link"
+            size="sm"
+            onPress={() => router.push("/createAccount")}
+            style={styles.createAccountButton}
+          />
         </View>
       </View>
     </ScreenLayout>

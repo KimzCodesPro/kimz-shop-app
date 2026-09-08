@@ -1,6 +1,6 @@
 import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/display";
-import { ActivityIndicator, TouchableOpacity } from "react-native";
+import { ActivityIndicator, Pressable } from "react-native";
 import { ButtonProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -23,7 +23,7 @@ const Button = ({
   const typographySizeVariant = size === "sm" ? "smallBold" : "normalBold";
 
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={onPress}
       style={[styles.button, style]}
       disabled={isDisabled}
@@ -36,7 +36,7 @@ const Button = ({
       <Typography variant={typographySizeVariant} color={typographyColor}>
         {(isLoading && loadingText) || title}
       </Typography>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
