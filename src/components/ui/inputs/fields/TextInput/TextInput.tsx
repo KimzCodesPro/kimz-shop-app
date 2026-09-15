@@ -1,4 +1,8 @@
 import Icon from "@/components/icons";
+import {
+  BottomSheetTextInput,
+  useBottomSheetInternal,
+} from "@gorhom/bottom-sheet";
 import { useState } from "react";
 import { Pressable, TextInput as RNTextInput } from "react-native";
 import FieldWrapper from "../shared/FieldWrapper";
@@ -21,6 +25,14 @@ const TextInput = ({
   const [isFocused, setIsFocused] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
+  // Inside a sheet the input has to be gorhom's own: it registers the focused
+  // node with the sheet, which is the only way the sheet knows to shift above
+  // the keyboard. The unsafe flag returns null outside a sheet instead of
+  // throwing, and the context can't appear or disappear while mounted — so the
+  // component this picks stays the same for the field's whole lifetime.
+  const isInsideBottomSheet = useBottomSheetInternal(true) !== null;
+  const Input = isInsideBottomSheet ? BottomSheetTextInput : RNTextInput;
+
   const currentStatus: StatusType = fieldCurrentStatus(
     errorMessage,
     isFocused,
@@ -39,7 +51,7 @@ const TextInput = ({
       currentStatus={currentStatus}
       style={style}
     >
-      <RNTextInput
+      <Input
         style={styles.textInput}
         value={value}
         onChangeText={onChangeText}

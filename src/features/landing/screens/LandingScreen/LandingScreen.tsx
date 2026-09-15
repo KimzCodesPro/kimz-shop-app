@@ -19,7 +19,7 @@ const LandingScreen = () => {
           style={styles.linkButton}
           title="Already Have an Account"
           variant="link"
-          onPress={() => router.replace("/login")}
+          onPress={() => router.replace("/loginAccount")}
         />
       </View>
     </ScreenLayout>

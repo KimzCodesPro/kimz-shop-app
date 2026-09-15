@@ -1,12 +1,15 @@
 import { Button, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
-import { useTranslation } from "@/hooks";
+import { useTheme, useTranslation } from "@/hooks";
+import { Typography } from "@/src/components/ui/display";
+import { router } from "expo-router";
 import { View } from "react-native";
 import { Heading } from "../../components";
 import styles from "./createAccountScreenStyles";
 
 const CreateAccountScreen = () => {
   const { t } = useTranslation();
+  const colors = useTheme();
 
   return (
     <ScreenLayout dismissKeyboardOnTap contentContainerStyle={styles.container}>
@@ -35,12 +38,25 @@ const CreateAccountScreen = () => {
           value=""
         />
       </View>
-
-      <Button
-        style={styles.actions}
-        title={t("auth_createAccountTitle")}
-        onPress={() => {}}
-      />
+      <View style={styles.actions}>
+        <Button title={t("auth_createAccountTitle")} onPress={() => {}} />
+        {/* second option row - dont have an account  */}
+        <View style={styles.secondActionRow}>
+          <Typography
+            variant="smallRegular"
+            color={colors.foreground.secondary}
+          >
+            {t("auth_haveAccountLabel")}
+          </Typography>
+          <Button
+            title={t("auth_signIn")}
+            variant="link"
+            size="sm"
+            onPress={() => router.replace("/loginAccount")}
+            style={styles.secondActionCreateAccountButton}
+          />
+        </View>
+      </View>
     </ScreenLayout>
   );
 };

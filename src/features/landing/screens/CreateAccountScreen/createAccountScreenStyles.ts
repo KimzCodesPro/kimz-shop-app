@@ -10,6 +10,20 @@ const styles = StyleSheet.create({
   },
   actions: {
     marginTop: "auto",
+    gap: spacing.space24.height,
+  },
+  mainActionRow: {
+    flexDirection: "row",
+    gap: spacing.space12.width,
+  },
+  secondActionRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: spacing.space8.width,
+  },
+  secondActionCreateAccountButton: {
+    height: "auto",
   },
 });
 

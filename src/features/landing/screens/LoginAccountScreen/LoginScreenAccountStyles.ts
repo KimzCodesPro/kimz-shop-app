@@ -13,24 +13,27 @@ const styles = StyleSheet.create({
     height: "auto",
     marginTop: -spacing.space8.height,
   },
+  forgotPasswordSheetContent: {
+    gap: spacing.space16.height,
+  },
   actions: {
     marginTop: "auto",
     gap: spacing.space24.height,
   },
-  signInRow: {
+  mainActionRow: {
     flexDirection: "row",
     gap: spacing.space12.width,
   },
-  signInButton: {
+  mainActionSignInButton: {
     flex: 1,
   },
-  createAccountRow: {
+  secondActionRow: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: spacing.space8.width,
   },
-  createAccountButton: {
+  secondActionCreateAccountButton: {
     height: "auto",
   },
 });
