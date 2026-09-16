@@ -1,6 +1,6 @@
 import Icon from "@/components/icons";
 import { View } from "react-native";
-import Typography from "../Typography/Typography";
+import Typography from "../../typography/Typography/Typography";
 
 import { StatusBillProps } from "./types";
 import useStyles from "./useStyles";

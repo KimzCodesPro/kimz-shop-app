@@ -1,6 +1,6 @@
 import Icon from "@/components/icons";
 import { View } from "react-native";
-import { Typography } from "../../display";
+import { Typography } from "../../typography";
 import { RowNavTrailingProps } from "./types";
 import useStyles from "./useStyles";
 

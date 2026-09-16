@@ -1,7 +1,7 @@
 import Icon from "@/src/components/icons";
 import { useState } from "react";
 import { Pressable, View } from "react-native";
-import Typography from "../Typography/Typography";
+import Typography from "../../typography/Typography/Typography";
 import { AccordionProps } from "./types";
 import useStyles from "./useStyles";
 

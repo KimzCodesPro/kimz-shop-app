@@ -1,4 +1,4 @@
-export type OtpCodeInputProps = {
+export type OtpInputProps = {
   onFocus?: () => void;
   onBlur?: () => void;
   onTextChange?: (text: string) => void;

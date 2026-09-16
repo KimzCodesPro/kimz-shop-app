@@ -2,10 +2,12 @@ import {
   addressColorMapping,
   addressIcon,
   addressLabel,
-} from "@/components/ui/display/AddressCard/constants";
+} from "@/components/ui/card/AddressCard/constants";
 import { useTheme, useTranslation } from "@/hooks";
 import Icon from "@/src/components/icons";
-import { IconBadge, StatusBill, Typography } from "@/src/components/ui/display";
+import { IconBadge } from "@/src/components/ui/display";
+import { StatusBill } from "@/src/components/ui/feedback";
+import { Typography } from "@/src/components/ui/typography";
 import { Button } from "@/src/components/ui/inputs";
 import { Pressable, View } from "react-native";
 import styles from "./AddressDetailsStyles";

@@ -1,7 +1,7 @@
 import { Button, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
 import { useTheme, useTranslation } from "@/hooks";
-import { Typography } from "@/src/components/ui/display";
+import { Typography } from "@/src/components/ui/typography";
 import { router } from "expo-router";
 import { View } from "react-native";
 import { Heading } from "../../components";

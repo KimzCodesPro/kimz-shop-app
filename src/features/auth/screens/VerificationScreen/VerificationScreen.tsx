@@ -1,8 +1,8 @@
 import { useTranslation } from "@/hooks";
 import { StatusHalo } from "@/src/components/ui/feedback";
+import { OtpInput } from "@/src/components/ui/inputs";
 import { ScreenLayout } from "@/src/components/ui/layout";
 import { TopBar } from "@/src/components/ui/navigations";
-import { OtpCodeInput } from "./components";
 
 const VerificationScreen = () => {
   const { t } = useTranslation();
@@ -13,7 +13,7 @@ const VerificationScreen = () => {
       renderTopBar={() => <TopBar title={t("auth_verification")} goBack />}
     >
       <StatusHalo variant="info" icon="mail" />
-      <OtpCodeInput
+      <OtpInput
         onFocus={() => console.log("Focused")}
         onBlur={() => console.log("Blurred")}
         onTextChange={(text) => console.log(text)}

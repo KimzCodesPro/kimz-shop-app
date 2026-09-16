@@ -1,7 +1,7 @@
 import { spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StyleSheet } from "react-native";
-import { Typography } from "../../../display";
+import { Typography } from "../../../typography";
 import { FieldErrorMessageProps } from "./types";
 
 const FieldErrorMessage = ({ errorMessage }: FieldErrorMessageProps) => {

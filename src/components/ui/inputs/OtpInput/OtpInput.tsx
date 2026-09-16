@@ -1,17 +1,17 @@
-import { OtpInput } from "react-native-otp-entry";
-import { OtpCodeInputProps } from "./types";
+import { OtpInput as RNOtpInput } from "react-native-otp-entry";
+import { OtpInputProps } from "./types";
 import useStyles from "./useStyles";
 
-const OtpCodeInput = ({
+const OtpInput = ({
   onFocus,
   onBlur,
   onTextChange,
   onFilled,
-}: OtpCodeInputProps) => {
+}: OtpInputProps) => {
   const { styles } = useStyles();
 
   return (
-    <OtpInput
+    <RNOtpInput
       numberOfDigits={4}
       autoFocus={true}
       hideStick={true}
@@ -45,4 +45,4 @@ const OtpCodeInput = ({
   );
 };
 
-export default OtpCodeInput;
+export default OtpInput;

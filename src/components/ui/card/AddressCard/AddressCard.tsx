@@ -1,8 +1,8 @@
 import { useTranslation } from "@/src/hooks";
 import { StatusVariant } from "@/types/theme";
-import IconBadge from "../IconBadge/IconBadge";
+import IconBadge from "../../display/IconBadge/IconBadge";
 import InfoCard from "../InfoCard/InfoCard";
-import StatusBill from "../StatusBill/StatusBill";
+import StatusBill from "../../feedback/StatusBill/StatusBill";
 import { addressColorMapping, addressIcon, addressLabel } from "./constants";
 import { AddressCardProps } from "./types";
 

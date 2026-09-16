@@ -1,4 +1,4 @@
-import { Typography } from "@/components/ui/display";
+import { Typography } from "@/components/ui/typography";
 import { Image } from "expo-image";
 import { useRef } from "react";
 import { View } from "react-native";

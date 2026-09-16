@@ -1,4 +1,4 @@
-import { Typography } from "@/components/ui/display";
+import { Typography } from "@/components/ui/typography";
 import { Button, IconButton, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
 import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";

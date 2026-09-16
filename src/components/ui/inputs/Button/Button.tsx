@@ -1,5 +1,5 @@
 import Icon from "@/components/icons";
-import { Typography } from "@/components/ui/display";
+import { Typography } from "@/components/ui/typography";
 import { ActivityIndicator, Pressable } from "react-native";
 import { ButtonProps } from "./types";
 import useStyles from "./useStyles";

@@ -1,5 +1,5 @@
 import { Pressable, View } from "react-native";
-import Typography from "../Typography/Typography";
+import Typography from "../../typography/Typography/Typography";
 import {
   InfoCardLeadingProps,
   InfoCardProps,

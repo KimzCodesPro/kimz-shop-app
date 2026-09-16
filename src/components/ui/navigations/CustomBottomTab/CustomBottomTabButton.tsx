@@ -1,5 +1,5 @@
 import Icon from "@/components/icons";
-import Typography from "@/components/ui/display/Typography/Typography";
+import Typography from "@/components/ui/typography/Typography/Typography";
 import { scalingMethods } from "@/utils";
 import { Pressable, View } from "react-native";
 import { CustomBottomTabButtonProps } from "./types";

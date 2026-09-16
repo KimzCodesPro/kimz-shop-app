@@ -1,7 +1,7 @@
 import Icon from "@/components/icons";
 import { useTheme } from "@/hooks";
 import { Pressable } from "react-native";
-import { Typography } from "../../../display";
+import { Typography } from "../../../typography";
 import { DropdownListProps } from "./types";
 
 const DropdownList = ({

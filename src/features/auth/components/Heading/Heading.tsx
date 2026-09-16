@@ -1,4 +1,4 @@
-import { Typography } from "@/components/ui/display";
+import { Typography } from "@/components/ui/typography";
 import { View } from "react-native";
 import { HeadingProps } from "./types";
 import useStyles from "./useStyles";
