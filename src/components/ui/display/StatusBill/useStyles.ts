@@ -6,7 +6,10 @@ import { StyleSheet } from "react-native";
 import { StatusBillVariant } from "./types";
 const { HS } = scalingMethods;
 
-const useStyles = (colorSchema: StatusVariant, variant: StatusBillVariant) => {
+const useStyles = (
+  colorSchema: Exclude<StatusVariant, "secondary">,
+  variant: StatusBillVariant,
+) => {
   const colors = useTheme();
 
   const statusColors = {

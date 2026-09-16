@@ -15,7 +15,10 @@ const AddressCard = ({
   style,
 }: AddressCardProps) => {
   const { t } = useTranslation();
-  const colorSchema = addressColorMapping[type] as StatusVariant;
+  const colorSchema = addressColorMapping[type] as Exclude<
+    StatusVariant,
+    "secondary"
+  >;
   const StatusBillLabel = t(addressLabel[type]);
   return (
     <InfoCard onPress={onPress} style={style} isSelected={isSelected}>
