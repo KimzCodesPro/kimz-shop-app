@@ -1,16 +1,22 @@
 import { useTranslation } from "@/hooks";
 import { ScreenLayout } from "@/src/components/ui/layout";
 import { TopBar } from "@/src/components/ui/navigations";
-import { Text } from "react-native";
+import { OtpCodeInput } from "./components";
 
 const VerificationScreen = () => {
   const { t } = useTranslation();
+
   return (
     <ScreenLayout
       dismissKeyboardOnTap
       renderTopBar={() => <TopBar title={t("auth_verification")} goBack />}
     >
-      <Text>Verification Screen</Text>
+      <OtpCodeInput
+        onFocus={() => console.log("Focused")}
+        onBlur={() => console.log("Blurred")}
+        onTextChange={(text) => console.log(text)}
+        onFilled={(text) => console.log(`OTP is ${text}`)}
+      />
     </ScreenLayout>
   );
 };
