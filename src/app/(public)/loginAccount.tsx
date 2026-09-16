@@ -1,4 +1,4 @@
-import { LoginAccountScreen } from "@/features/landing";
+import { LoginAccountScreen } from "@/src/features/auth";
 
 const LoginAccountPage = () => {
   return <LoginAccountScreen />;
