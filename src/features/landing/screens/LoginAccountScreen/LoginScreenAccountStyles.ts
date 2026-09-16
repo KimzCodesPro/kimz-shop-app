@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
   forgotPasswordButton: {
     alignSelf: "flex-end",
     height: "auto",
-    marginTop: -spacing.space8.height,
   },
   forgotPasswordSheetContent: {
     gap: spacing.space16.height,

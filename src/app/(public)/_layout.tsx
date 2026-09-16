@@ -5,7 +5,7 @@ const PublicLayout = () => {
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="index" />
       <Stack.Screen name="createAccount" />
-      <Stack.Screen name="login" />
+      <Stack.Screen name="loginAccount" />
     </Stack>
   );
 };

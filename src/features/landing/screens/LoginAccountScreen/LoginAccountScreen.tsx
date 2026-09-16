@@ -15,6 +15,11 @@ const LoginAccountScreen = () => {
 
   const forgotPasswordSheetRef = useRef<BottomSheetRef | null>(null);
 
+  const sendCodeHandler = () => {
+    forgotPasswordSheetRef.current?.close();
+    router.push("/verification");
+  };
+
   return (
     <>
       <ScreenLayout
@@ -78,10 +83,6 @@ const LoginAccountScreen = () => {
         ref={forgotPasswordSheetRef}
         bottomSheetProps={{
           snapPoints: ["38%"],
-          // The sheet holds a text field, so it has to ride above the keyboard
-          // and drop back to its snap point once the keyboard is dismissed.
-          keyboardBehavior: "interactive",
-          keyboardBlurBehavior: "none",
         }}
         title={t("auth_forgotPasswordTitle")}
         description={t("auth_forgotPasswordSub")}
@@ -95,7 +96,7 @@ const LoginAccountScreen = () => {
           />
           <Button
             title={t("auth_forgotPasswordSendCodeButton")}
-            onPress={() => forgotPasswordSheetRef.current?.close()}
+            onPress={sendCodeHandler}
           />
         </BottomSheet.Content>
       </BottomSheet>

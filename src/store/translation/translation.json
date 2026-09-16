@@ -89,20 +89,21 @@
       "auth_loginTitle": "تسجيل الدخول",
       "auth_signIn": "تسجيل الدخول",
       "auth_loginSub": "يرجى تسجيل الدخول بحساب مسجل",
-      "auth_fieldEmail": "البريد الإلكتروني أو رقم الهاتف",
-      "auth_placeholderEmail": "أدخل بريدك الإلكتروني أو رقم هاتفك",
+      "auth_fieldEmail": "البريد الإلكتروني",
+      "auth_placeholderEmail": "أدخل بريدك الإلكتروني",
       "auth_fieldPassword": "كلمة المرور",
       "auth_placeholderPassword": "أنشئ كلمة المرور",
       "auth_forgotPasswordLink": "نسيت كلمة المرور؟",
       "auth_forgotPasswordTitle": "نسيت كلمة المرور",
-      "auth_forgotPasswordSub": "أدخل بريدك الإلكتروني أو رقم هاتفك",
+      "auth_forgotPasswordSub": "أدخل بريدك الإلكتروني وسنرسل لك رمز التحقق",
       "auth_forgotPasswordSendCodeButton": "إرسال الرمز",
       "auth_signInButton": "تسجيل الدخول",
       "auth_noAccountLabel": "ليس لديك حساب؟",
       "auth_createAccountTitle": "إنشاء حساب",
       "auth_createAccountSubtitle": "ابدأ التعلم بإنشاء حسابك",
       "auth_fieldUserName": "اسم المستخدم",
-      "auth_placeholderUserName": "أنشئ اسم المستخدم"
+      "auth_placeholderUserName": "أنشئ اسم المستخدم",
+      "auth_verification": "التحقق"
     }
   },
   "en": {
@@ -195,20 +196,21 @@
       "auth_loginTitle": "Login Account",
       "auth_signIn": "Sign In",
       "auth_loginSub": "Please login with registered account",
-      "auth_fieldEmail": "Email or Phone Number",
-      "auth_placeholderEmail": "Enter your email or phone number",
+      "auth_fieldEmail": "Email",
+      "auth_placeholderEmail": "Enter your email",
       "auth_fieldPassword": "Password",
       "auth_placeholderPassword": "Create your password",
       "auth_forgotPasswordLink": "Forgot Password?",
       "auth_forgotPasswordTitle": "Forgot Password",
-      "auth_forgotPasswordSub": "Enter your mail or phone number",
+      "auth_forgotPasswordSub": "Enter your email and we'll send you a verification code",
       "auth_forgotPasswordSendCodeButton": "Send Code",
       "auth_signInButton": "Sign In",
       "auth_noAccountLabel": "Don't have an account?",
       "auth_createAccountTitle": "Create Account",
       "auth_createAccountSubtitle": "Start learning with create your account",
       "auth_fieldUserName": "Username",
-      "auth_placeholderUserName": "Create your username"
+      "auth_placeholderUserName": "Create your username",
+      "auth_verification": "Verification"
     }
   }
 }
