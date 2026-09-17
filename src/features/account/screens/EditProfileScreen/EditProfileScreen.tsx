@@ -24,26 +24,26 @@ const EditProfileScreen = () => {
       <View style={styles.form}>
         <TextInput
           label={t("account_username")}
-          placeholder={t("account_usernamePlaceholder")}
+          placeholder={t("account_placeholderUserName")}
           iconName="user"
           value=""
         />
         <TextInput
           label={t("account_email")}
-          placeholder={t("account_emailPlaceholder")}
+          placeholder={t("account_placeholderEmail")}
           iconName="mail"
           value=""
         />
         <TextInput
           label={t("account_phoneNumber")}
-          placeholder={t("account_phoneNumberPlaceholder")}
+          placeholder={t("account_placeholderPhoneNumber")}
           iconName="bell"
           value=""
         />
         <TextInput
           type="password"
           label={t("account_passwordToConfirm")}
-          placeholder={t("account_passwordToConfirmPlaceholder")}
+          placeholder={t("account_placeholderPasswordToConfirm")}
           value=""
         />
       </View>

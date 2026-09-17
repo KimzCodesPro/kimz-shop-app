@@ -22,14 +22,14 @@ const PasswordChangedScreen = () => {
             textAlign="center"
             color={colors.foreground.primary}
           >
-            {t("auth_passwordChangedTitle")}
+            {t("auth_changePasswordSuccessTitle")}
           </Typography>
           <Typography
             variant="smallRegular"
             textAlign="center"
             color={colors.foreground.tertiary}
           >
-            {t("auth_passwordChangedDescription")}
+            {t("auth_changePasswordSuccessDesc")}
           </Typography>
         </View>
       </View>

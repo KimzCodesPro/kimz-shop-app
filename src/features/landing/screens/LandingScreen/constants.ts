@@ -1,23 +1,28 @@
 import { onBoard1, onBoard2, onBoard3 } from "@/assets/images";
+import { TranslationKey } from "@/types";
 import { CarouselSlide } from "./components/Carousel/types";
 
-const SLIDE_DESCRIPTION =
-  "Urna amet, suspendisse ullamcorper ac elit diam facilisis cursus vestibulum.";
+// Slides hold translation keys; LandingScreen resolves them with t() so the
+// carousel re-renders in the active language.
+type LandingSlide = Omit<CarouselSlide, "title" | "description"> & {
+  title: TranslationKey;
+  description: TranslationKey;
+};
 
-export const LANDING_SLIDES: CarouselSlide[] = [
+export const LANDING_SLIDES: LandingSlide[] = [
   {
     img: onBoard1,
-    title: "Various Collections Of The Latest Products",
-    description: SLIDE_DESCRIPTION,
+    title: "onBoarding_titleOne",
+    description: "onBoarding_description",
   },
   {
     img: onBoard2,
-    title: "Complete Collection Of Colors And Sizes",
-    description: SLIDE_DESCRIPTION,
+    title: "onBoarding_titleTwo",
+    description: "onBoarding_description",
   },
   {
     img: onBoard3,
-    title: "Fast Delivery And Secure Payment",
-    description: SLIDE_DESCRIPTION,
+    title: "onBoarding_titleThree",
+    description: "onBoarding_description",
   },
 ];

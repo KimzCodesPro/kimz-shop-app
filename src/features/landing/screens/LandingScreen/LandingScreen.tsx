@@ -1,3 +1,4 @@
+import { useTranslation } from "@/hooks";
 import { Button } from "@/src/components/ui/inputs";
 import { ScreenLayout } from "@/src/components/ui/layout";
 import { router } from "expo-router";
@@ -7,17 +8,25 @@ import { LANDING_SLIDES } from "./constants";
 import styles from "./LandingScreenStyle";
 
 const LandingScreen = () => {
+  const { t } = useTranslation();
+
+  const slides = LANDING_SLIDES.map((slide) => ({
+    ...slide,
+    title: t(slide.title),
+    description: t(slide.description),
+  }));
+
   return (
     <ScreenLayout contentContainerStyle={styles.contentContainer}>
-      <Carousel data={LANDING_SLIDES} />
+      <Carousel data={slides} />
       <View style={styles.actions}>
         <Button
-          title="Create Account"
+          title={t("onBoarding_createAccountButton")}
           onPress={() => router.replace("/createAccount")}
         />
         <Button
           style={styles.linkButton}
-          title="Already Have an Account"
+          title={t("onBoarding_alreadyHaveAccount")}
           variant="link"
           onPress={() => router.replace("/loginAccount")}
         />

@@ -15,7 +15,11 @@ const styles = StyleSheet.create({
     marginTop: spacing.space48.height,
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.space4.width,
+    justifyContent: "center",
+    gap: spacing.space8.width,
+  },
+  resendButton: {
+    height: "auto",
   },
   submitButton: {
     marginTop: "auto",

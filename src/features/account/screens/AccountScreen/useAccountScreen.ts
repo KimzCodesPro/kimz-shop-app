@@ -1,5 +1,8 @@
 import { themeDark, themeLight, themeSystem } from "@/assets/images";
-import { ImageRadioGroupOption, SwitchGroupChange } from "@/components/ui/inputs";
+import {
+  ImageRadioGroupOption,
+  SwitchGroupChange,
+} from "@/components/ui/inputs";
 import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation, useUserPreferences } from "@/hooks";
 import { Language, Theme } from "@/types";
@@ -64,45 +67,45 @@ const useAccountScreen = () => {
 
   const pageNavigationList: PageNavigationList = [
     {
-      title: t("account_account"),
+      title: t("account_sectionAccount"),
       rows: [
         {
           icon: "user",
-          title: t("account_editProfile"),
+          title: t("account_rowEditProfile"),
           trailing: "chevron",
           onPress: () => router.push("/account/editProfile"),
         },
         {
           icon: "lock",
-          title: t("account_changePassword"),
+          title: t("account_rowChangePassword"),
           trailing: "chevron",
           onPress: () => router.push("/account/changePassword"),
         },
       ],
     },
     {
-      title: t("account_shopping"),
+      title: t("account_sectionShopping"),
       rows: [
         {
           icon: "map-pin",
-          title: t("account_address"),
+          title: t("account_rowAddress"),
           trailing: "chevron",
           onPress: () => router.push("/account/addresses"),
         },
         {
           icon: "truck",
-          title: t("account_myOrders"),
+          title: t("account_rowMyOrders"),
           trailing: "chevron",
           onPress: () => {},
         },
       ],
     },
     {
-      title: t("account_preferences"),
+      title: t("account_sectionPreferences"),
       rows: [
         {
           icon: "bell",
-          title: t("account_notifications"),
+          title: t("account_rowNotifications"),
           trailing: "chevron",
           onPress: () => {
             notificationsBottomSheetRef.current?.expand();
@@ -111,7 +114,7 @@ const useAccountScreen = () => {
 
         {
           icon: "world",
-          title: t("account_language"),
+          title: t("account_rowLanguage"),
           trailing: "chevronWithValue",
           trailingValue:
             selectedLanguage === "en"
@@ -123,7 +126,7 @@ const useAccountScreen = () => {
         },
         {
           icon: "palette",
-          title: t("account_theme"),
+          title: t("account_rowTheme"),
           trailing: "chevronWithValue",
           trailingValue: selectedThemeLabel,
           onPress: () => {
@@ -133,24 +136,24 @@ const useAccountScreen = () => {
       ],
     },
     {
-      title: t("account_support"),
+      title: t("account_sectionSupport"),
       rows: [
         {
           icon: "help",
-          title: t("account_helpAndPolicies"),
+          title: t("account_rowHelp"),
           trailing: "chevron",
           onPress: () => router.push("/account/helpAndSupport"),
         },
         {
           icon: "file-text",
-          title: t("account_legalAndPolicies"),
+          title: t("account_rowLegal"),
           trailing: "chevron",
           onPress: () => router.push("/account/legalAndPolicies"),
         },
         {
           variant: "danger",
           icon: "logout",
-          title: t("account_logout"),
+          title: t("account_rowLogout"),
           trailing: "chevron",
           onPress: () => {
             setLogoutConfirm(true);

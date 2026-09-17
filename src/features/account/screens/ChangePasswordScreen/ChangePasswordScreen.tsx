@@ -17,19 +17,19 @@ const ChangePasswordScreen = () => {
         <TextInput
           type="password"
           label={t("account_currentPassword")}
-          placeholder={t("account_currentPasswordPlaceholder")}
+          placeholder={t("account_placeholderCurrentPassword")}
           value=""
         />
         <TextInput
           type="password"
           label={t("account_newPassword")}
-          placeholder={t("account_newPasswordPlaceholder")}
+          placeholder={t("account_placeholderNewPassword")}
           value=""
         />
         <TextInput
           type="password"
           label={t("account_confirmPassword")}
-          placeholder={t("account_confirmPasswordPlaceholder")}
+          placeholder={t("account_placeholderConfirmPassword")}
           value=""
         />
       </View>

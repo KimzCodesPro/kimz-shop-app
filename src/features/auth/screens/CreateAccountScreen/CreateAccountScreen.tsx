@@ -33,7 +33,7 @@ const CreateAccountScreen = () => {
         />
         <TextInput
           type="password"
-          label={t("auth_fieldPassword")}
+          label={t("auth_fieldNewPassword")}
           placeholder={t("auth_placeholderPassword")}
           value=""
         />
@@ -49,7 +49,7 @@ const CreateAccountScreen = () => {
             {t("auth_haveAccountLabel")}
           </Typography>
           <Button
-            title={t("auth_signIn")}
+            title={t("auth_signInButton")}
             variant="link"
             size="sm"
             onPress={() => router.replace("/loginAccount")}

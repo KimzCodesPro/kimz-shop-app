@@ -21,7 +21,7 @@ const VerificationScreen = () => {
         contentContainerStyle={styles.container}
         horizontalCenterAlignment
         dismissKeyboardOnTap
-        renderTopBar={() => <TopBar title={t("auth_verification")} goBack />}
+        renderTopBar={() => <TopBar title={t("auth_verificationTitle")} goBack />}
       >
         <StatusHalo variant="info" icon="mail-opened" />
         <View style={styles.infoContainer}>
@@ -31,14 +31,14 @@ const VerificationScreen = () => {
             color={colors.foreground.primary}
             style={styles.infoContainerHeader}
           >
-            {t("auth_verificationCode")}
+            {t("auth_verificationSub")}
           </Typography>
           <Typography
             textAlign="center"
             variant="smallRegular"
             color={colors.foreground.tertiary}
           >
-            {t("auth_verificationCodeInfo")}
+            {t("auth_verificationDesc")}
           </Typography>
           <Typography
             textAlign="center"
@@ -57,21 +57,25 @@ const VerificationScreen = () => {
           verifyFailed={false}
         />
         <View style={styles.actionRow}>
-          <Typography variant="smallRegular" color={colors.foreground.primary}>
-            {t("auth_verificationCodeResend")}
+          <Typography
+            variant="smallRegular"
+            color={colors.foreground.secondary}
+          >
+            {t("auth_verificationDidntReceive")}
           </Typography>
           <Button
             variant="link"
             size="sm"
             onPress={() => console.log("Resend OTP")}
-            title={t("common_resend")}
+            title={t("auth_verificationResend")}
+            style={styles.resendButton}
           />
         </View>
         <Button
           style={styles.submitButton}
           variant="primary"
           onPress={() => changePasswordSheetRef.current?.expand()}
-          title={t("common_submit")}
+          title={t("auth_verificationSubmit")}
         />
       </ScreenLayout>
       {/* Change Password Bottom Sheet */}
@@ -80,13 +84,13 @@ const VerificationScreen = () => {
         bottomSheetProps={{
           snapPoints: ["50%"],
         }}
-        title={t("auth_verificationCreateNewPassword")}
-        description={t("auth_verificationCreateNewPasswordDescription")}
+        title={t("auth_newPasswordTitle")}
+        description={t("auth_newPasswordSub")}
       >
         <BottomSheet.Content style={styles.bottomSheetContent}>
           <TextInput
             type="password"
-            label={t("auth_fieldPassword")}
+            label={t("auth_fieldNewPassword")}
             placeholder={t("auth_placeholderNewPassword")}
             value=""
           />
@@ -103,7 +107,7 @@ const VerificationScreen = () => {
               changePasswordSheetRef.current?.close();
               router.replace("/PasswordChanged");
             }}
-            title={t("auth_changePassword")}
+            title={t("auth_changePasswordTitle")}
           />
         </BottomSheet.Content>
       </BottomSheet>

@@ -38,9 +38,7 @@ const HelpAndSupportScreen = () => {
   return (
     <ScreenLayout
       scrollable
-      renderTopBar={() => (
-        <TopBar title={t("account_helpAndPolicies")} goBack />
-      )}
+      renderTopBar={() => <TopBar title={t("helpSupport_title")} goBack />}
     >
       <Accordion items={faqs} />
     </ScreenLayout>
