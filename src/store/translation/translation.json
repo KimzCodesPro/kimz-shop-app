@@ -117,8 +117,8 @@
       "auth_verificationCodeFailed": "رمز التحقق غير صحيح. حاول مرة أخرى.",
       "auth_verificationCreateNewPassword": "إنشاء كلمة مرور جديدة",
       "auth_verificationCreateNewPasswordDescription": "أدخل كلمة المرور الجديدة وقم بتأكيدها",
-      "auth_passwordChangedTitle": "Password Changed",
-      "auth_passwordChangedDescription": "Your password has been changed successfully",
+      "auth_passwordChangedTitle": "Password Changed!",
+      "auth_passwordChangedDescription": "Your password has been updated. Use your new password to sign in next time.",
       "auth_backToLogin": "Back to Login"
     }
   },
@@ -240,8 +240,8 @@
       "auth_verificationCodeFailed": "Invalid Code. Please try again.",
       "auth_verificationCreateNewPassword": "Create New Password",
       "auth_verificationCreateNewPasswordDescription": "Enter new password and confirm password",
-      "auth_passwordChangedTitle": "Password Changed",
-      "auth_passwordChangedDescription": "Your password has been changed successfully",
+      "auth_passwordChangedTitle": "Password Changed!",
+      "auth_passwordChangedDescription": "Your password has been updated. Use your new password to sign in next time.",
       "auth_backToLogin": "Back to Login"
     }
   }
