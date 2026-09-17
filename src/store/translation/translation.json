@@ -213,6 +213,7 @@
       "auth_fieldEmail": "Email",
       "auth_placeholderEmail": "Enter your email",
       "auth_fieldPassword": "Password",
+      "auth_placeholderPassword": "Create your password",
       "auth_placeholderNewPassword": "Enter your new password",
       "auth_forgotPasswordLink": "Forgot Password?",
       "auth_forgotPasswordTitle": "Forgot Password",
