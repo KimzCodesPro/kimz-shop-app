@@ -3,7 +3,12 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SIDE_PADDING, TOP_BAR_GAP } from "./constants";
 import { UseStylesArgs } from "./types";
 
-const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
+const useStyles = ({
+  hasTopBar,
+  hasTabBar,
+  paddingSides,
+  centerAlignment,
+}: UseStylesArgs) => {
   const insets = useSafeAreaInsets();
 
   // A TopBar applies insets.top itself and the tab bar already consumes
@@ -11,7 +16,7 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
   const paddingTop = hasTopBar ? 0 : insets.top;
   const bottomInset = hasTabBar ? 0 : insets.bottom;
   const horizontalPadding = SIDE_PADDING[paddingSides];
-
+  const alignItemsContent = centerAlignment === true ? "center" : "flex-start";
   // No backgroundColor here: RootLayout hands colors.background.base to
   // React Navigation's theme, which paints every screen for us.
   const styles = StyleSheet.create({
@@ -38,8 +43,9 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
     },
     // Content area of the non-scrollable branch. flex: 1 so children still
     // fill the screen now that they sit one View deeper than the wrapper.
-    container: {
+    viewContent: {
       flex: 1,
+      alignItems: alignItemsContent,
     },
     // Same role inside the scroll view, but flexGrow rather than flex: the
     // dismiss target has to fill the viewport when content is short and keep
@@ -47,6 +53,7 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
     // viewport and there would be nothing left to scroll.
     scrollContent: {
       flexGrow: 1,
+      alignItems: alignItemsContent,
     },
   });
 

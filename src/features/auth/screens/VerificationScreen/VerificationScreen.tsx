@@ -9,6 +9,7 @@ const VerificationScreen = () => {
 
   return (
     <ScreenLayout
+      centerAlignment
       dismissKeyboardOnTap
       renderTopBar={() => <TopBar title={t("auth_verification")} goBack />}
     >

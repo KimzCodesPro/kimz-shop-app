@@ -12,12 +12,14 @@ const ScreenLayout = ({
   contentContainerStyle,
   scrollProps,
   dismissKeyboardOnTap = false,
+  centerAlignment = false,
   children,
 }: ScreenLayoutProps) => {
   const { styles } = useStyles({
     hasTopBar: !!renderTopBar,
     hasTabBar,
     paddingSides,
+    centerAlignment,
   });
 
   const topBar = renderTopBar?.();
@@ -40,7 +42,7 @@ const ScreenLayout = ({
   return (
     <View style={styles.viewWrapper}>
       {topBar}
-      <ContentArea style={[styles.container, contentContainerStyle]}>
+      <ContentArea style={[styles.viewContent, contentContainerStyle]}>
         {children}
       </ContentArea>
     </View>

@@ -5,6 +5,7 @@ import { VerticalScrollViewProps } from "../VerticalScrollView/types";
 // left/right so the padding follows the writing direction under RTL.
 export type ScreenPaddingSides = "both" | "start" | "end" | "none";
 
+type CenterAlignment = boolean;
 type ScreenLayoutBaseProps = {
   // Rendered outside the scroll view so it stays pinned while content scrolls.
   // A function rather than an element so the layout can read its presence off
@@ -12,10 +13,10 @@ type ScreenLayoutBaseProps = {
   renderTopBar?: () => React.ReactNode;
   hasTabBar?: boolean;
   paddingSides?: ScreenPaddingSides;
+  centerAlignment?: CenterAlignment;
   // Styles the content area children sit in — the same element in both
   // branches, which is also what blurs a focused input when tapped.
   contentContainerStyle?: StyleProp<ViewStyle>;
-
   dismissKeyboardOnTap?: boolean;
   children: React.ReactNode;
 };
@@ -33,4 +34,5 @@ export type UseStylesArgs = {
   hasTopBar: boolean;
   hasTabBar: boolean;
   paddingSides: ScreenPaddingSides;
+  centerAlignment: CenterAlignment;
 };
