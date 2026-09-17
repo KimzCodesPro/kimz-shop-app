@@ -10,5 +10,5 @@ export type TypographyProps = {
   color?: ColorValue;
   forceLanguage?: Language;
   textTransform?: "none" | "capitalize" | "uppercase" | "lowercase";
-  textAlign?: "left" | "right";
+  textAlign?: "left" | "right" | "center";
 } & Omit<TextProps, "children">;

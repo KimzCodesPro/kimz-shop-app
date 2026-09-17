@@ -3,4 +3,5 @@ export type OtpInputProps = {
   onBlur?: () => void;
   onTextChange?: (text: string) => void;
   onFilled?: (text: string) => void;
+  verifyFailed: boolean;
 };

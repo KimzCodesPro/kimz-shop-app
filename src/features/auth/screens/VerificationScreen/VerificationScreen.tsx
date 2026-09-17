@@ -1,11 +1,15 @@
-import { useTranslation } from "@/hooks";
+import { useTheme, useTranslation } from "@/hooks";
 import { StatusHalo } from "@/src/components/ui/feedback";
-import { OtpInput } from "@/src/components/ui/inputs";
+import { Button, OtpInput } from "@/src/components/ui/inputs";
 import { ScreenLayout } from "@/src/components/ui/layout";
 import { TopBar } from "@/src/components/ui/navigations";
+import { Typography } from "@/src/components/ui/typography";
+import { View } from "react-native";
+import styles from "./VerificationScreenStyles";
 
 const VerificationScreen = () => {
   const { t } = useTranslation();
+  const colors = useTheme();
 
   return (
     <ScreenLayout
@@ -13,12 +17,55 @@ const VerificationScreen = () => {
       dismissKeyboardOnTap
       renderTopBar={() => <TopBar title={t("auth_verification")} goBack />}
     >
-      <StatusHalo variant="info" icon="mail" />
+      <StatusHalo variant="info" icon="mail-opened" style={styles.statusHalo} />
+      <View style={styles.infoContainer}>
+        <Typography
+          textAlign="center"
+          variant="largeBold"
+          color={colors.foreground.primary}
+          style={styles.infoContainerHeader}
+        >
+          {t("auth_verificationCode")}
+        </Typography>
+        <Typography
+          textAlign="center"
+          variant="smallRegular"
+          color={colors.foreground.tertiary}
+        >
+          {t("auth_verificationCodeInfo")}
+        </Typography>
+        <Typography
+          textAlign="center"
+          variant="smallRegular"
+          color={colors.foreground.primary}
+        >
+          magdalena83@mail.com
+        </Typography>
+      </View>
+
       <OtpInput
         onFocus={() => console.log("Focused")}
         onBlur={() => console.log("Blurred")}
         onTextChange={(text) => console.log(text)}
         onFilled={(text) => console.log(`OTP is ${text}`)}
+        verifyFailed={false}
+      />
+      <View style={styles.actionRow}>
+        <Typography variant="smallRegular" color={colors.foreground.primary}>
+          {t("auth_verificationCodeResend")}
+        </Typography>
+        <Button
+          variant="link"
+          size="sm"
+          onPress={() => console.log("Resend OTP")}
+          title={t("common_resend")}
+        />
+      </View>
+      <Button
+        style={styles.submitButton}
+        variant="primary"
+        onPress={() => console.log("Verify OTP")}
+        title={t("common_submit")}
       />
     </ScreenLayout>
   );

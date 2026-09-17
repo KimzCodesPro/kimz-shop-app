@@ -11,6 +11,8 @@
       "common_cancel": "إلغاء",
       "common_confirm": "تأكيد",
       "common_save": "حفظ",
+      "common_resend": "إعادة إرسال",
+      "common_submit": "إرسال",
       "bottomTab_home": "الرئيسية",
       "bottomTab_myOrder": "طلباتي",
       "bottomTab_myCard": "بطاقتي",
@@ -103,7 +105,11 @@
       "auth_createAccountSubtitle": "ابدأ التعلم بإنشاء حسابك",
       "auth_fieldUserName": "اسم المستخدم",
       "auth_placeholderUserName": "أنشئ اسم المستخدم",
-      "auth_verification": "التحقق"
+      "auth_verification": "التحقق",
+      "auth_verificationCode": "رمز التحقق",
+      "auth_verificationCodeInfo": "لقد أرسلنا رمز التحقق إلى",
+      "auth_verificationCodeResend": "لم تستلم الرمز؟",
+      "auth_verificationCodeFailed": "رمز التحقق غير صحيح. حاول مرة أخرى."
     }
   },
   "en": {
@@ -118,6 +124,8 @@
       "common_cancel": "Cancel",
       "common_confirm": "Confirm",
       "common_save": "Save",
+      "common_resend": "Resend",
+      "common_submit": "Submit",
       "bottomTab_home": "Home",
       "bottomTab_myOrder": "My Order",
       "bottomTab_myCard": "My Card",
@@ -210,7 +218,11 @@
       "auth_createAccountSubtitle": "Start learning with create your account",
       "auth_fieldUserName": "Username",
       "auth_placeholderUserName": "Create your username",
-      "auth_verification": "Verification"
+      "auth_verification": "Verification",
+      "auth_verificationCode": "Verification Code",
+      "auth_verificationCodeInfo": "We have to sent the code verification to",
+      "auth_verificationCodeResend": "Didn't receive the code?",
+      "auth_verificationCodeFailed": "Invalid Code. Please try again."
     }
   }
 }

@@ -16,7 +16,7 @@ const useStyles = ({
   const paddingTop = hasTopBar ? 0 : insets.top;
   const bottomInset = hasTabBar ? 0 : insets.bottom;
   const horizontalPadding = SIDE_PADDING[paddingSides];
-  const alignItemsContent = centerAlignment === true ? "center" : "flex-start";
+  const alignItemsContent = centerAlignment === true ? "center" : "stretch";
   // No backgroundColor here: RootLayout hands colors.background.base to
   // React Navigation's theme, which paints every screen for us.
   const styles = StyleSheet.create({
