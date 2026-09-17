@@ -2,8 +2,8 @@ import { spacing } from "@/src/constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  statusHalo: {
-    marginTop: spacing.space16.height,
+  container: {
+    paddingTop: spacing.space16.height,
   },
   infoContainer: {
     marginVertical: spacing.space32.height,
