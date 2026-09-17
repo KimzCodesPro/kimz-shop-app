@@ -9,7 +9,7 @@ const StatusHalo = ({ variant = "info", icon, style }: StatusHaloProps) => {
   return (
     <View style={[styles.halo, style]}>
       <View style={styles.inner}>
-        <Icon name={icon} color={colors.foreground.contrast} size={40} />
+        <Icon name={icon} color={colors.foreground.contrast} size={36} />
       </View>
     </View>
   );
