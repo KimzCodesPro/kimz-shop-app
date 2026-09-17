@@ -95,6 +95,7 @@
       "auth_placeholderEmail": "أدخل بريدك الإلكتروني",
       "auth_fieldPassword": "كلمة المرور",
       "auth_placeholderPassword": "أنشئ كلمة المرور",
+      "auth_placeholderNewPassword": "Enter your new password",
       "auth_forgotPasswordLink": "نسيت كلمة المرور؟",
       "auth_forgotPasswordTitle": "نسيت كلمة المرور",
       "auth_forgotPasswordSub": "أدخل بريدك الإلكتروني وسنرسل لك رمز التحقق",
@@ -105,11 +106,16 @@
       "auth_createAccountSubtitle": "ابدأ التعلم بإنشاء حسابك",
       "auth_fieldUserName": "اسم المستخدم",
       "auth_placeholderUserName": "أنشئ اسم المستخدم",
+      "auth_changePassword": "تغيير كلمة المرور",
+      "auth_fieldConfirmPassword": "تأكيد كلمة المرور",
+      "auth_placeholderConfirmPassword": "أكد كلمة المرور الخاصة بك",
       "auth_verification": "التحقق",
       "auth_verificationCode": "رمز التحقق",
       "auth_verificationCodeInfo": "لقد أرسلنا رمز التحقق إلى",
       "auth_verificationCodeResend": "لم تستلم الرمز؟",
-      "auth_verificationCodeFailed": "رمز التحقق غير صحيح. حاول مرة أخرى."
+      "auth_verificationCodeFailed": "رمز التحقق غير صحيح. حاول مرة أخرى.",
+      "auth_verificationCreateNewPassword": "إنشاء كلمة مرور جديدة",
+      "auth_verificationCreateNewPasswordDescription": "أدخل كلمة المرور الجديدة وقم بتأكيدها"
     }
   },
   "en": {
@@ -207,7 +213,7 @@
       "auth_fieldEmail": "Email",
       "auth_placeholderEmail": "Enter your email",
       "auth_fieldPassword": "Password",
-      "auth_placeholderPassword": "Create your password",
+      "auth_placeholderNewPassword": "Enter your new password",
       "auth_forgotPasswordLink": "Forgot Password?",
       "auth_forgotPasswordTitle": "Forgot Password",
       "auth_forgotPasswordSub": "Enter your email and we'll send you a verification code",
@@ -218,11 +224,16 @@
       "auth_createAccountSubtitle": "Start learning with create your account",
       "auth_fieldUserName": "Username",
       "auth_placeholderUserName": "Create your username",
+      "auth_changePassword": "Change Password",
+      "auth_fieldConfirmPassword": "Confirm Password",
+      "auth_placeholderConfirmPassword": "Confirm your password",
       "auth_verification": "Verification",
       "auth_verificationCode": "Verification Code",
       "auth_verificationCodeInfo": "We have to sent the code verification to",
       "auth_verificationCodeResend": "Didn't receive the code?",
-      "auth_verificationCodeFailed": "Invalid Code. Please try again."
+      "auth_verificationCodeFailed": "Invalid Code. Please try again.",
+      "auth_verificationCreateNewPassword": "Create New Password",
+      "auth_verificationCreateNewPasswordDescription": "Enter new password and confirm password"
     }
   }
 }

@@ -20,6 +20,12 @@ const styles = StyleSheet.create({
   submitButton: {
     marginTop: "auto",
   },
+  bottomSheetContent: {
+    gap: spacing.space16.height,
+  },
+  changePasswordButton: {
+    marginTop: spacing.space8.height,
+  },
 });
 
 export default styles;
