@@ -1,4 +1,4 @@
-import { Typography } from "@/components/ui/display";
+import { Typography } from "@/components/ui/typography";
 import BottomSheet, {
   BottomSheetBackdrop,
   BottomSheetFlatList,

@@ -1,4 +1,4 @@
-import { AddressTypes } from "@/src/components/ui/display/AddressCard/types";
+import { AddressTypes } from "@/src/components/ui/card/AddressCard/types";
 
 export type AddressDetailsProps = {
   type: AddressTypes;

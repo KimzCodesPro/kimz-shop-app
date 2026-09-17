@@ -1,7 +1,7 @@
 import Icon from "@/components/icons";
 import { useRef, useState } from "react";
 import { Keyboard, Pressable } from "react-native";
-import { Typography } from "../../../display";
+import { Typography } from "../../../typography";
 import { BottomSheet, BottomSheetRef } from "../../../overlay";
 import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";

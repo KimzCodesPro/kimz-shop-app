@@ -38,7 +38,7 @@ const AccountScreen = () => {
       <ScreenLayout
         scrollable
         hasTabBar
-        renderTopBar={() => <TopBar title={t("account_account")} />}
+        renderTopBar={() => <TopBar title={t("account_title")} />}
       >
         <UserGreeting
           size="lg"
@@ -53,7 +53,7 @@ const AccountScreen = () => {
       <BottomSheet
         ref={languageBottomSheetRef}
         bottomSheetProps={{ snapPoints: ["28%"] }}
-        title={t("account_language")}
+        title={t("account_rowLanguage")}
       >
         <BottomSheet.Content>
           <RadioGroup
@@ -67,7 +67,7 @@ const AccountScreen = () => {
       <BottomSheet
         ref={themeBottomSheetRef}
         bottomSheetProps={{ snapPoints: ["41%"] }}
-        title={t("account_theme")}
+        title={t("account_rowTheme")}
       >
         <BottomSheet.Content>
           <ImageRadioGroup
@@ -81,7 +81,7 @@ const AccountScreen = () => {
       <BottomSheet
         ref={notificationsBottomSheetRef}
         bottomSheetProps={{ snapPoints: ["19%"] }}
-        title={t("account_notifications")}
+        title={t("account_rowNotifications")}
       >
         <BottomSheet.Content>
           <SwitchGroup
@@ -91,7 +91,7 @@ const AccountScreen = () => {
         </BottomSheet.Content>
       </BottomSheet>
       {/* logout dialog */}
-      <Modal title={t("account_logoutConfirm")} visible={logoutConfirm}>
+      <Modal title={t("logoutDialog_prompt")} visible={logoutConfirm}>
         <View style={styles.logoutModalContent}>
           <Button
             title={t("common_cancel")}
@@ -99,7 +99,7 @@ const AccountScreen = () => {
           />
           <Button
             variant="link-danger"
-            title={t("account_logout")}
+            title={t("logoutDialog_confirmButton")}
             onPress={() => setLogoutConfirm(false)}
           />
         </View>

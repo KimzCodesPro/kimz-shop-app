@@ -1,5 +1,5 @@
 import Icon from "@/components/icons";
-import { Typography } from "@/components/ui/display";
+import { Typography } from "@/components/ui/typography";
 import { Pressable, Modal as RNModal, View } from "react-native";
 import { ModalProps } from "./types";
 import useStyles from "./useStyles";

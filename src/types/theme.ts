@@ -4,4 +4,9 @@ export type Theme = "light" | "dark" | "system";
 
 export type ThemeColors = typeof colors;
 
-export type StatusVariant = "success" | "warning" | "danger" | "info";
+export type StatusVariant =
+  | "success"
+  | "warning"
+  | "danger"
+  | "info"
+  | "secondary";

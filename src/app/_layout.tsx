@@ -7,6 +7,13 @@ import { useEffect } from "react";
 // as soon as the first frame renders and you see unstyled text.
 SplashScreen.preventAutoHideAsync();
 
+// (public)/index and (protected)/(tabs)/index both resolve to "/". Anchoring the
+// root stack here breaks that tie; otherwise it falls back to alphabetical order
+// and a cold launch lands on (protected).
+export const unstable_settings = {
+  initialRouteName: "(public)",
+};
+
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     "SpaceGrotesk-Light": require("@/assets/fonts/SpaceGrotesk-Light.ttf"),

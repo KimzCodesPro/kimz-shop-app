@@ -1,4 +1,4 @@
-import { Accordion } from "@/components/ui/display";
+import { Accordion } from "@/components/ui/list";
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
@@ -38,9 +38,7 @@ const HelpAndSupportScreen = () => {
   return (
     <ScreenLayout
       scrollable
-      renderTopBar={() => (
-        <TopBar title={t("account_helpAndPolicies")} goBack />
-      )}
+      renderTopBar={() => <TopBar title={t("helpSupport_title")} goBack />}
     >
       <Accordion items={faqs} />
     </ScreenLayout>
