@@ -8,15 +8,15 @@ const AppNavigator = () => {
     ...DefaultTheme,
     colors: { ...DefaultTheme.colors, background: colors.background.base },
   };
-  const isLoggedIn = false;
+  const isProtected = true;
 
   return (
     <ThemeProvider value={navigationTheme}>
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Protected guard={isLoggedIn}>
+        <Stack.Protected guard={isProtected}>
           <Stack.Screen name="(protected)" />
         </Stack.Protected>
-        <Stack.Protected guard={!isLoggedIn}>
+        <Stack.Protected guard={!isProtected}>
           <Stack.Screen name="(public)" />
         </Stack.Protected>
       </Stack>
