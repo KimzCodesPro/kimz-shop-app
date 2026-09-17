@@ -13,6 +13,7 @@
       "common_save": "حفظ",
       "common_resend": "إعادة إرسال",
       "common_submit": "إرسال",
+      "common_continue": "متابعة",
       "bottomTab_home": "الرئيسية",
       "bottomTab_myOrder": "طلباتي",
       "bottomTab_myCard": "بطاقتي",
@@ -115,7 +116,10 @@
       "auth_verificationCodeResend": "لم تستلم الرمز؟",
       "auth_verificationCodeFailed": "رمز التحقق غير صحيح. حاول مرة أخرى.",
       "auth_verificationCreateNewPassword": "إنشاء كلمة مرور جديدة",
-      "auth_verificationCreateNewPasswordDescription": "أدخل كلمة المرور الجديدة وقم بتأكيدها"
+      "auth_verificationCreateNewPasswordDescription": "أدخل كلمة المرور الجديدة وقم بتأكيدها",
+      "auth_passwordChangedTitle": "Password Changed",
+      "auth_passwordChangedDescription": "Your password has been changed successfully",
+      "auth_backToLogin": "Back to Login"
     }
   },
   "en": {
@@ -132,6 +136,7 @@
       "common_save": "Save",
       "common_resend": "Resend",
       "common_submit": "Submit",
+      "common_continue": "Continue",
       "bottomTab_home": "Home",
       "bottomTab_myOrder": "My Order",
       "bottomTab_myCard": "My Card",
@@ -234,7 +239,10 @@
       "auth_verificationCodeResend": "Didn't receive the code?",
       "auth_verificationCodeFailed": "Invalid Code. Please try again.",
       "auth_verificationCreateNewPassword": "Create New Password",
-      "auth_verificationCreateNewPasswordDescription": "Enter new password and confirm password"
+      "auth_verificationCreateNewPasswordDescription": "Enter new password and confirm password",
+      "auth_passwordChangedTitle": "Password Changed",
+      "auth_passwordChangedDescription": "Your password has been changed successfully",
+      "auth_backToLogin": "Back to Login"
     }
   }
 }

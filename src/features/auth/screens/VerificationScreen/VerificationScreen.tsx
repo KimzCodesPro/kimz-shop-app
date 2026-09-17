@@ -5,6 +5,7 @@ import { Button, OtpInput, TextInput } from "@/src/components/ui/inputs";
 import { ScreenLayout } from "@/src/components/ui/layout";
 import { TopBar } from "@/src/components/ui/navigations";
 import { Typography } from "@/src/components/ui/typography";
+import { useRouter } from "expo-router";
 import { useRef } from "react";
 import { View } from "react-native";
 import styles from "./VerificationScreenStyles";
@@ -12,11 +13,12 @@ import styles from "./VerificationScreenStyles";
 const VerificationScreen = () => {
   const { t } = useTranslation();
   const colors = useTheme();
+  const router = useRouter();
   const changePasswordSheetRef = useRef<BottomSheetRef | null>(null);
   return (
     <>
       <ScreenLayout
-        centerAlignment
+        horizontalCenterAlignment
         dismissKeyboardOnTap
         renderTopBar={() => <TopBar title={t("auth_verification")} goBack />}
       >
@@ -100,7 +102,10 @@ const VerificationScreen = () => {
           <Button
             style={styles.changePasswordButton}
             variant="primary"
-            onPress={() => {}}
+            onPress={() => {
+              changePasswordSheetRef.current?.close();
+              router.replace("/PasswordChanged");
+            }}
             title={t("auth_changePassword")}
           />
         </BottomSheet.Content>

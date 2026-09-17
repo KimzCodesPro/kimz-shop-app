@@ -7,7 +7,8 @@ const useStyles = ({
   hasTopBar,
   hasTabBar,
   paddingSides,
-  centerAlignment,
+  horizontalCenterAlignment,
+  verticalCenterAlignment,
 }: UseStylesArgs) => {
   const insets = useSafeAreaInsets();
 
@@ -16,7 +17,10 @@ const useStyles = ({
   const paddingTop = hasTopBar ? 0 : insets.top;
   const bottomInset = hasTabBar ? 0 : insets.bottom;
   const horizontalPadding = SIDE_PADDING[paddingSides];
-  const alignItemsContent = centerAlignment === true ? "center" : "stretch";
+  const horizontalAlignment =
+    horizontalCenterAlignment === true ? "center" : "stretch";
+  const verticalAlignment =
+    verticalCenterAlignment === true ? "center" : "flex-start";
   // No backgroundColor here: RootLayout hands colors.background.base to
   // React Navigation's theme, which paints every screen for us.
   const styles = StyleSheet.create({
@@ -45,7 +49,8 @@ const useStyles = ({
     // fill the screen now that they sit one View deeper than the wrapper.
     viewContent: {
       flex: 1,
-      alignItems: alignItemsContent,
+      alignItems: horizontalAlignment,
+      justifyContent: verticalAlignment,
     },
     // Same role inside the scroll view, but flexGrow rather than flex: the
     // dismiss target has to fill the viewport when content is short and keep
@@ -53,7 +58,8 @@ const useStyles = ({
     // viewport and there would be nothing left to scroll.
     scrollContent: {
       flexGrow: 1,
-      alignItems: alignItemsContent,
+      alignItems: horizontalAlignment,
+      justifyContent: verticalAlignment,
     },
   });
 
