@@ -10,7 +10,6 @@ const useStyles = () => {
   const styles = StyleSheet.create({
     container: {
       height: VS(100),
-      flex: 1,
       flexDirection: "row",
       borderRadius: radius.lg,
       overflow: "hidden",

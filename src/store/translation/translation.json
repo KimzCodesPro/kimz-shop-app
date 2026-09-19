@@ -187,7 +187,9 @@
       "auth_placeholderNewPassword": "أدخل كلمة المرور الجديدة",
       "auth_placeholderConfirmPassword": "أعد إدخال كلمة المرور الجديدة",
       "home_tabHome": "الرئيسية",
-      "home_tabCategory": "الفئات"
+      "home_tabCategory": "الفئات",
+      "common_product": "منتج",
+      "common_products": "منتجات"
     }
   },
   "en": {
@@ -378,7 +380,9 @@
       "auth_placeholderNewPassword": "Enter your new password",
       "auth_placeholderConfirmPassword": "Re-enter your new password",
       "home_tabHome": "Home",
-      "home_tabCategory": "Category"
+      "home_tabCategory": "Category",
+      "common_product": "Product",
+      "common_products": "Products"
     }
   }
 }

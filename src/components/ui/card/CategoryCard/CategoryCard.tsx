@@ -1,4 +1,5 @@
 import { categoryPlaceholder } from "@/assets/images";
+import { useTranslation } from "@/hooks";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import { Typography } from "../../typography";
@@ -13,6 +14,7 @@ const CategoryCard = ({
   style,
 }: CategoryCardProps) => {
   const { styles, colors } = useStyles();
+  const { t } = useTranslation();
 
   return (
     <Pressable onPress={onPress} style={[styles.container, style]}>
@@ -25,7 +27,8 @@ const CategoryCard = ({
           {categoryName}
         </Typography>
         <Typography variant="xsmallRegular" color={colors.foreground.primary}>
-          {productsCount} {productsCount === 1 ? "Product" : "Products"}
+          {productsCount}{" "}
+          {productsCount === 1 ? t("common_product") : t("common_products")}
         </Typography>
       </View>
       <Image
