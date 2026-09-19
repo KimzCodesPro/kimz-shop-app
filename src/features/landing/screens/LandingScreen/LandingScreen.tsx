@@ -3,8 +3,8 @@ import { Button } from "@/src/components/ui/inputs";
 import { ScreenLayout } from "@/src/components/ui/layout";
 import { router } from "expo-router";
 import { View } from "react-native";
-import { Carousel } from "./components";
-import { LANDING_SLIDES } from "./constants";
+import { Carousel } from "../../components";
+import { LANDING_SLIDES } from "../../components/Carousel/constants";
 import styles from "./LandingScreenStyle";
 
 const LandingScreen = () => {

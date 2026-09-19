@@ -1,7 +1,7 @@
 import { ScreenLayout } from "@/components/ui/layout";
 import { Tabs } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
-import { CategoryList, HomeList } from "../../categories";
+import { CategoryList, HomeList } from "../../components";
 
 const HomeScreen = () => {
   const { t } = useTranslation();

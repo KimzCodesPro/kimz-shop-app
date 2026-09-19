@@ -1,6 +1,6 @@
 import { onBoard1, onBoard2, onBoard3 } from "@/assets/images";
 import { TranslationKey } from "@/types";
-import { CarouselSlide } from "./components/Carousel/types";
+import { CarouselSlide } from "./types";
 
 // Slides hold translation keys; LandingScreen resolves them with t() so the
 // carousel re-renders in the active language.
