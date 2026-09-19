@@ -185,7 +185,9 @@
       "auth_changePasswordFieldConfirm": "تأكيد كلمة المرور الجديدة",
       "auth_verificationCodeFailed": "رمز التحقق غير صحيح. حاول مرة أخرى.",
       "auth_placeholderNewPassword": "أدخل كلمة المرور الجديدة",
-      "auth_placeholderConfirmPassword": "أعد إدخال كلمة المرور الجديدة"
+      "auth_placeholderConfirmPassword": "أعد إدخال كلمة المرور الجديدة",
+      "home_tabHome": "الرئيسية",
+      "home_tabCategory": "الفئات"
     }
   },
   "en": {
@@ -374,7 +376,9 @@
       "auth_changePasswordFieldConfirm": "Confirm New Password",
       "auth_verificationCodeFailed": "Invalid Code. Please try again.",
       "auth_placeholderNewPassword": "Enter your new password",
-      "auth_placeholderConfirmPassword": "Re-enter your new password"
+      "auth_placeholderConfirmPassword": "Re-enter your new password",
+      "home_tabHome": "Home",
+      "home_tabCategory": "Category"
     }
   }
 }

@@ -1,4 +1,4 @@
-import { userPlaceholder } from "@/assets/images";
+import { avatarSample } from "@/assets/images";
 import { Avatar } from "@/components/ui/display";
 import { Button, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
@@ -18,7 +18,7 @@ const EditProfileScreen = () => {
       <Avatar
         size="lg"
         enableUploader
-        imgSrc={userPlaceholder}
+        imgSrc={avatarSample}
         style={styles.avatar}
       />
       <View style={styles.form}>

@@ -1,6 +1,7 @@
 export const avatarPlaceholder = require("./placeholder-avatar.svg");
-export const userPlaceholder = require("./placeholder-user.webp");
+export const avatarSample = require("./avatar-sample.webp");
 export const productPlaceholder = require("./placeholder-product.svg");
+export const productSample = require("./product-sample.jpg");
 export const personTest = require("./person-test.webp");
 export const themeDark = require("./theme-dark.svg");
 export const themeLight = require("./theme-light.svg");
