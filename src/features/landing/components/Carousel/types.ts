@@ -7,6 +7,16 @@ export type CarouselSlide = {
   description: string;
 };
 
+type PaginationDotType = "pill" | "circle";
+
 export type CarouselProps = {
   data: CarouselSlide[];
+  height: number;
+  paginationDotType?: PaginationDotType;
+};
+
+export type PaginationDotProps = {
+  active: boolean;
+  onPress: () => void;
+  paginationDotType?: PaginationDotType;
 };

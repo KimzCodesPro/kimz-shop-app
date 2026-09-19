@@ -1,19 +1,21 @@
-import { Typography } from "@/components/ui/typography";
-import { Image } from "expo-image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { View } from "react-native";
-import { useSharedValue } from "react-native-reanimated";
-import {
-  Carousel,
-  CarouselRef,
-  Pagination,
-} from "react-native-reanimated-carousel";
+import { scalingMethods } from "@/utils";
+import { Carousel, CarouselRef } from "react-native-reanimated-carousel";
+import CarouselItem from "../CarouselItem/CarouselItem";
+import PaginationDot from "./PaginationDot";
 import { CarouselProps } from "./types";
 import useCarouselStyles from "./useCarouselStyles";
 
-const RNCarousel = ({ data }: CarouselProps) => {
+const { VS } = scalingMethods;
+
+const RNCarousel = ({
+  data,
+  height,
+  paginationDotType = "circle",
+}: CarouselProps) => {
   const ref = useRef<CarouselRef>(null);
-  const progress = useSharedValue(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const { styles } = useCarouselStyles();
 
   return (
@@ -21,38 +23,20 @@ const RNCarousel = ({ data }: CarouselProps) => {
       <Carousel
         ref={ref}
         data={data}
-        progress={progress}
-        style={styles.carousel}
-        renderItem={({ item }) => (
-          <View style={styles.item}>
-            <Image
-              source={item.img}
-              contentFit="cover"
-              transition={1000}
-              style={styles.image}
-            />
-            <View style={styles.textContainer}>
-              <Typography variant="largeBold" style={styles.title}>
-                {item.title}
-              </Typography>
-              <Typography variant="smallRegular" style={styles.description}>
-                {item.description}
-              </Typography>
-            </View>
-          </View>
-        )}
+        style={[styles.carousel, { height: VS(height) }]}
+        onSnapToItem={setActiveIndex}
+        renderItem={({ item }) => <CarouselItem item={item} />}
       />
-      <Pagination
-        count={data.length}
-        progress={progress}
-        containerStyle={styles.paginationContainer}
-        dotStyle={styles.dot}
-        activeDotStyle={styles.activeDot}
-        onPress={(index) => ref.current?.scrollTo({ index })}
-        getItemAccessibilityLabel={(index, count) =>
-          `Featured item ${index + 1} of ${count}`
-        }
-      />
+      <View style={styles.paginationContainer}>
+        {data.map((_, index) => (
+          <PaginationDot
+            paginationDotType={paginationDotType}
+            key={index}
+            active={index === activeIndex}
+            onPress={() => ref.current?.scrollTo({ index, animated: true })}
+          />
+        ))}
+      </View>
     </View>
   );
 };
