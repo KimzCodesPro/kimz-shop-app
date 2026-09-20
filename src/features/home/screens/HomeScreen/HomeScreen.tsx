@@ -1,13 +1,20 @@
 import { ScreenLayout } from "@/components/ui/layout";
 import { Tabs } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
-import { CategoryList, HomeList } from "../../components";
+import { avatarSample } from "@/assets/images";
+import { CategoryList, Header, HomeList } from "../../components";
 
 const HomeScreen = () => {
   const { t } = useTranslation();
 
   return (
     <ScreenLayout hasTabBar>
+      <Header
+        userName="Kareem Nour"
+        meta="Let's go shopping"
+        imgSrc={avatarSample}
+        notification
+      />
       <Tabs
         defaultTab="home"
         items={[

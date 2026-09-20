@@ -12,8 +12,9 @@ const useStyles = ({
 }: UseStylesArgs) => {
   const insets = useSafeAreaInsets();
 
-  // A TopBar applies insets.top itself and the tab bar already consumes
-  // insets.bottom, so we only add the inset nothing else is covering.
+  // A TopBar applies insets.top itself, so a headerless screen matches it by
+  // adding only insets.top — the same offset a TopBar sits at. The tab bar
+  // already consumes insets.bottom.
   const paddingTop = hasTopBar ? 0 : insets.top;
   const bottomInset = hasTabBar ? 0 : insets.bottom;
   const horizontalPadding = SIDE_PADDING[paddingSides];

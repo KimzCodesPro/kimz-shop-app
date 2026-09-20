@@ -11,7 +11,7 @@ const HomeList = () => {
   return (
     <View style={{ gap: spacing.space16.height }}>
       <PromoBannerCard
-        title="Summer Sale 50% Off xxxx xxx x"
+        title="Summer Sale 50% Off"
         shopLabel="Shop Now"
         imgSrc={productSample}
         onPress={() => {}}
