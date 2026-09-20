@@ -25,19 +25,19 @@ const EditProfileScreen = () => {
         <TextInput
           label={t("account_username")}
           placeholder={t("account_placeholderUserName")}
-          iconName="user"
+          icon="user"
           value=""
         />
         <TextInput
           label={t("account_email")}
           placeholder={t("account_placeholderEmail")}
-          iconName="mail"
+          icon="mail"
           value=""
         />
         <TextInput
           label={t("account_phoneNumber")}
           placeholder={t("account_placeholderPhoneNumber")}
-          iconName="bell"
+          icon="bell"
           value=""
         />
         <TextInput

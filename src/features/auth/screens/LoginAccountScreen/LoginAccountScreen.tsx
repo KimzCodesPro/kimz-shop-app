@@ -1,7 +1,7 @@
-import { Typography } from "@/components/ui/typography";
 import { Button, IconButton, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
 import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
+import { Typography } from "@/components/ui/typography";
 import { useTheme, useTranslation } from "@/hooks";
 import { router } from "expo-router";
 import { useRef } from "react";
@@ -30,7 +30,7 @@ const LoginAccountScreen = () => {
 
         <View style={styles.form}>
           <TextInput
-            iconName="mail"
+            icon="mail"
             label={t("auth_fieldEmail")}
             placeholder={t("auth_placeholderEmail")}
             value=""
@@ -89,7 +89,7 @@ const LoginAccountScreen = () => {
       >
         <BottomSheet.Content style={styles.forgotPasswordSheetContent}>
           <TextInput
-            iconName="mail"
+            icon="mail"
             label={t("auth_fieldEmail")}
             placeholder={t("auth_placeholderEmail")}
             value=""

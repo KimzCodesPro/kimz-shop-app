@@ -14,7 +14,7 @@ import { TextInputProps } from "./types";
 const TextInput = ({
   label,
   placeholder,
-  iconName,
+  icon,
   type,
   value,
   errorMessage,
@@ -41,7 +41,7 @@ const TextInput = ({
 
   const { styles, colors } = useSharedStyles(currentStatus);
 
-  const resolvedIconName = type === "password" ? "lock" : iconName;
+  const resolvedIconName = type === "password" ? "lock" : icon;
 
   return (
     <FieldWrapper

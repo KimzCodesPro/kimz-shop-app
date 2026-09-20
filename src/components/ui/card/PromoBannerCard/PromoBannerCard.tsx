@@ -1,14 +1,14 @@
 import { productPlaceholder } from "@/assets/images";
 import { Typography } from "@/components/ui/typography";
+import { useTranslation } from "@/src/hooks/";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import { PromoBannerCardProps } from "./types";
-import { useTranslation } from "@/src/hooks/";
 import useStyles from "./useStyles";
 
 const PromoBannerCard = ({
   title,
-  shopLabel,
+  shopName,
   imgSrc,
   onPress,
   style,
@@ -32,7 +32,7 @@ const PromoBannerCard = ({
           color={colors.foreground.secondary}
           numberOfLines={1}
         >
-          {t("common_by")} {shopLabel}
+          {t("common_by")} {shopName}
         </Typography>
       </View>
       <Image

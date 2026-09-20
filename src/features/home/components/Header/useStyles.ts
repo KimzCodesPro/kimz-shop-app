@@ -12,7 +12,7 @@ const useStyles = () => {
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      marginVertical: spacing.space16.height,
+      marginTop: spacing.space16.height,
     },
     iconContainer: {
       flexDirection: "row",

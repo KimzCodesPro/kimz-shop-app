@@ -1,21 +1,52 @@
 import { productSample } from "@/assets/images";
 import { ProductCard, PromoBannerCard } from "@/components/ui/card";
-import { spacing } from "@/constants";
+import { SectionTitle } from "@/components/ui/typography";
 import { useState } from "react";
 import { View } from "react-native";
-import { SectionTitle } from "@/components/ui/typography";
+import styles from "./homeListStyles";
+
+import { Carousel } from "@/components/ui/display";
+
+const slides = [
+  {
+    id: 1,
+    title: "Summer Sale 50% Off",
+    shopName: "Shop Now",
+    img: productSample,
+  },
+  {
+    id: 2,
+    title: "Winter Sale 30% Off",
+    shopName: "Shop Now",
+    img: productSample,
+  },
+  {
+    id: 3,
+    title: "Spring Sale 20% Off",
+    shopName: "Shop Now",
+    img: productSample,
+  },
+];
 
 const HomeList = () => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <View style={{ gap: spacing.space16.height }}>
-      <PromoBannerCard
-        title="Summer Sale 50% Off"
-        shopLabel="Shop Now"
-        imgSrc={productSample}
-        onPress={() => {}}
+    <View style={styles.container}>
+      <Carousel
+        data={slides}
+        height={130}
+        paginationDotType="circle"
+        renderItem={(item) => (
+          <PromoBannerCard
+            title={item.title}
+            shopName={item.shopName}
+            imgSrc={item.img}
+            onPress={() => {}}
+          />
+        )}
       />
+
       <SectionTitle
         title="Featured Products"
         actionText="See All"
