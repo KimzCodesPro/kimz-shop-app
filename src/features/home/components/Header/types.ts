@@ -4,5 +4,5 @@ export type HeaderProps = Pick<
   UserGreetingProps,
   "userName" | "meta" | "imgSrc"
 > & {
-  notification: boolean;
+  unReadNotifications: boolean;
 };

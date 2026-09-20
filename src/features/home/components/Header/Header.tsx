@@ -7,7 +7,12 @@ import { HeaderProps } from "./types";
 const Favorite_ICON_SIZE = 22;
 const Notification_ICON_SIZE = 22;
 
-const Header = ({ userName, meta, imgSrc, notification }: HeaderProps) => {
+const Header = ({
+  userName,
+  meta,
+  imgSrc,
+  unReadNotifications,
+}: HeaderProps) => {
   const { styles, colors } = useStyles();
   return (
     <View style={styles.container}>
@@ -21,7 +26,7 @@ const Header = ({ userName, meta, imgSrc, notification }: HeaderProps) => {
           />
         </Pressable>
         <Pressable>
-          {notification && <View style={styles.notifcationIndicator} />}
+          {unReadNotifications && <View style={styles.notifcationIndicator} />}
           <Icon
             name="bell"
             size={Notification_ICON_SIZE}

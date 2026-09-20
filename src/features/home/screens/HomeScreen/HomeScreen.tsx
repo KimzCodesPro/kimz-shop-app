@@ -13,7 +13,7 @@ const HomeScreen = () => {
         userName="Kareem Nour"
         meta="Let's go shopping"
         imgSrc={avatarSample}
-        notification
+        unReadNotifications={true}
       />
       <Tabs
         defaultTab="home"
