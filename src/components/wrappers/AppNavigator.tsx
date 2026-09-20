@@ -8,7 +8,7 @@ const AppNavigator = () => {
     ...DefaultTheme,
     colors: { ...DefaultTheme.colors, background: colors.background.base },
   };
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   return (
     <ThemeProvider value={navigationTheme}>

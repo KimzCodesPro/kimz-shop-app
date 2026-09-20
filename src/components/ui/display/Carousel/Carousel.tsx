@@ -2,18 +2,18 @@ import { useRef, useState } from "react";
 import { View } from "react-native";
 import { scalingMethods } from "@/utils";
 import { Carousel, CarouselRef } from "react-native-reanimated-carousel";
-import CarouselItem from "../CarouselItem/CarouselItem";
 import PaginationDot from "./PaginationDot";
 import { CarouselProps } from "./types";
 import useCarouselStyles from "./useCarouselStyles";
 
 const { VS } = scalingMethods;
 
-const RNCarousel = ({
+const RNCarousel = <T,>({
   data,
   height,
+  renderItem,
   paginationDotType = "circle",
-}: CarouselProps) => {
+}: CarouselProps<T>) => {
   const ref = useRef<CarouselRef>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const { styles } = useCarouselStyles();
@@ -25,7 +25,7 @@ const RNCarousel = ({
         data={data}
         style={[styles.carousel, { height: VS(height) }]}
         onSnapToItem={setActiveIndex}
-        renderItem={({ item }) => <CarouselItem item={item} />}
+        renderItem={({ item }) => renderItem(item)}
       />
       <View style={styles.paginationContainer}>
         {data.map((_, index) => (
