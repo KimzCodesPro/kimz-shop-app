@@ -1,9 +1,9 @@
 import { productSample } from "@/assets/images";
-import { ProductCard } from "@/components/ui/card";
+import { ProductCard, PromoBannerCard } from "@/components/ui/card";
 import { spacing } from "@/constants";
 import { useState } from "react";
 import { View } from "react-native";
-import PromoBannerCard from "../PromoBannerCard/PromoBannerCard";
+import { SectionTitle } from "@/components/ui/typography";
 
 const HomeList = () => {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -15,6 +15,11 @@ const HomeList = () => {
         shopLabel="Shop Now"
         imgSrc={productSample}
         onPress={() => {}}
+      />
+      <SectionTitle
+        title="Featured Products"
+        actionText="See All"
+        onActionPress={() => {}}
       />
       <ProductCard
         productName="Marc Jacobs Mini"
