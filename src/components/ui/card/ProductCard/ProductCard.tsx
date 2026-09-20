@@ -45,6 +45,7 @@ const ProductCard = ({
           textTransform="capitalize"
           variant="smallBold"
           color={colors.foreground.primary}
+          numberOfLines={1}
         >
           {productName}
         </Typography>
@@ -52,6 +53,7 @@ const ProductCard = ({
           textTransform="capitalize"
           variant="xsmallRegular"
           color={colors.foreground.tertiary}
+          numberOfLines={1}
         >
           {brand}
         </Typography>

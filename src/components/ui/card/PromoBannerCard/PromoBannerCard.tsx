@@ -23,10 +23,15 @@ const PromoBannerCard = ({
           textTransform="capitalize"
           variant="normalBold"
           color={colors.foreground.primary}
+          numberOfLines={2}
         >
           {title}
         </Typography>
-        <Typography variant="smallRegular" color={colors.foreground.secondary}>
+        <Typography
+          variant="smallRegular"
+          color={colors.foreground.secondary}
+          numberOfLines={1}
+        >
           {t("common_by")} {shopLabel}
         </Typography>
       </View>
