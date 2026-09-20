@@ -14,6 +14,7 @@
       "common_resend": "إعادة إرسال",
       "common_submit": "إرسال",
       "common_continue": "متابعة",
+      "common_by": "بواسطة",
       "bottomTab_home": "الرئيسية",
       "bottomTab_myOrder": "طلباتي",
       "bottomTab_myCard": "بطاقتي",
@@ -185,7 +186,11 @@
       "auth_changePasswordFieldConfirm": "تأكيد كلمة المرور الجديدة",
       "auth_verificationCodeFailed": "رمز التحقق غير صحيح. حاول مرة أخرى.",
       "auth_placeholderNewPassword": "أدخل كلمة المرور الجديدة",
-      "auth_placeholderConfirmPassword": "أعد إدخال كلمة المرور الجديدة"
+      "auth_placeholderConfirmPassword": "أعد إدخال كلمة المرور الجديدة",
+      "home_tabHome": "الرئيسية",
+      "home_tabCategory": "الفئات",
+      "common_product": "منتج",
+      "common_products": "منتجات"
     }
   },
   "en": {
@@ -203,6 +208,7 @@
       "common_resend": "Resend",
       "common_submit": "Submit",
       "common_continue": "Continue",
+      "common_by": "By",
       "bottomTab_home": "Home",
       "bottomTab_myOrder": "My Order",
       "bottomTab_myCard": "My Card",
@@ -374,7 +380,11 @@
       "auth_changePasswordFieldConfirm": "Confirm New Password",
       "auth_verificationCodeFailed": "Invalid Code. Please try again.",
       "auth_placeholderNewPassword": "Enter your new password",
-      "auth_placeholderConfirmPassword": "Re-enter your new password"
+      "auth_placeholderConfirmPassword": "Re-enter your new password",
+      "home_tabHome": "Home",
+      "home_tabCategory": "Category",
+      "common_product": "Product",
+      "common_products": "Products"
     }
   }
 }

@@ -1,10 +1,11 @@
 import { useTranslation } from "@/hooks";
 import { Button } from "@/src/components/ui/inputs";
 import { ScreenLayout } from "@/src/components/ui/layout";
+import { Carousel } from "@/src/components/ui/display";
 import { router } from "expo-router";
 import { View } from "react-native";
-import { Carousel } from "./components";
-import { LANDING_SLIDES } from "./constants";
+import { CarouselItem } from "../../components";
+import { LANDING_SLIDES } from "./data";
 import styles from "./LandingScreenStyle";
 
 const LandingScreen = () => {
@@ -18,7 +19,12 @@ const LandingScreen = () => {
 
   return (
     <ScreenLayout contentContainerStyle={styles.contentContainer}>
-      <Carousel data={slides} />
+      <Carousel
+        data={slides}
+        height={540}
+        paginationDotType="pill"
+        renderItem={(item) => <CarouselItem item={item} />}
+      />
       <View style={styles.actions}>
         <Button
           title={t("onBoarding_createAccountButton")}

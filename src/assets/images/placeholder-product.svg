@@ -2,8 +2,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
   <rect width="120" height="120" rx="12" ry="12" fill="#f1f5f9"/>
   <g transform="translate(32,32) scale(2.333)" stroke="#9ca3af" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M6 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/>
-    <path d="M17 17h-11v-14h-2"/>
-    <path d="M6 5l14 1l-1 7h-13"/>
+    <path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z"/>
+    <path d="M9 11v-5a3 3 0 0 1 6 0v5"/>
   </g>
 </svg>

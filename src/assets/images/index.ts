@@ -1,10 +1,17 @@
+// avatar
 export const avatarPlaceholder = require("./placeholder-avatar.svg");
-export const userPlaceholder = require("./placeholder-user.webp");
+export const avatarSample = require("./sample-avatar.webp");
+// product
 export const productPlaceholder = require("./placeholder-product.svg");
-export const personTest = require("./person-test.webp");
+export const productSample = require("./sample-product.jpg");
+// category
+export const categoryPlaceholder = require("./placeholder-category.svg");
+export const categorySample = require("./sample-category.jpg");
+// theme
 export const themeDark = require("./theme-dark.svg");
 export const themeLight = require("./theme-light.svg");
 export const themeSystem = require("./theme-system.svg");
-export const onBoard1 = require("./onb1.jpg");
-export const onBoard2 = require("./onb2.jpg");
-export const onBoard3 = require("./onb3.jpg");
+// onBoarding
+export const onBoard1 = require("./onBoard1.jpg");
+export const onBoard2 = require("./onBoard2.jpg");
+export const onBoard3 = require("./onBoard3.jpg");

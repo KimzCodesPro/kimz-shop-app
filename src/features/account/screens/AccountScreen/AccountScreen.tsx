@@ -1,4 +1,4 @@
-import { userPlaceholder } from "@/assets/images";
+import { avatarSample } from "@/assets/images";
 import { UserGreeting } from "@/components/ui/display";
 import {
   Button,
@@ -42,7 +42,7 @@ const AccountScreen = () => {
       >
         <UserGreeting
           size="lg"
-          imgSrc={userPlaceholder}
+          imgSrc={avatarSample}
           userName="Kareem Nour"
           meta="kareem@gmail.com"
         />
