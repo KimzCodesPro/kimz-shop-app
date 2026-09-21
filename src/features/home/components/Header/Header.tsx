@@ -12,20 +12,22 @@ const Header = ({
   meta,
   imgSrc,
   unReadNotifications,
+  onFavoritePress,
+  onNotificationPress,
 }: HeaderProps) => {
   const { styles, colors } = useStyles();
   return (
     <View style={styles.container}>
       <UserGreeting size="sm" userName={userName} meta={meta} imgSrc={imgSrc} />
       <View style={styles.iconContainer}>
-        <Pressable>
+        <Pressable onPress={onFavoritePress}>
           <Icon
             name="heart-filled"
             size={Favorite_ICON_SIZE}
             color={colors.foreground.primary}
           />
         </Pressable>
-        <Pressable>
+        <Pressable onPress={onNotificationPress}>
           {unReadNotifications && <View style={styles.notifcationIndicator} />}
           <Icon
             name="bell"

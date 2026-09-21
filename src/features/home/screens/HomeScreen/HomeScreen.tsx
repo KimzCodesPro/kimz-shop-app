@@ -3,11 +3,13 @@ import { ScreenLayout } from "@/components/ui/layout";
 import { Tabs } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
 import { TextInput } from "@/src/components/ui/inputs";
+import { useRouter } from "expo-router";
 import { CategoryList, Header, HomeList } from "../../components";
 import styles from "./homeScreenStyles";
 
 const HomeScreen = () => {
   const { t } = useTranslation();
+  const router = useRouter();
 
   return (
     <ScreenLayout scrollable hasTabBar contentContainerStyle={styles.container}>
@@ -16,6 +18,8 @@ const HomeScreen = () => {
         meta="Let's go shopping"
         imgSrc={avatarSample}
         unReadNotifications={true}
+        onFavoritePress={() => router.push("/favorites")}
+        onNotificationPress={() => router.push("/notifications")}
       />
       <TextInput
         icon="search"

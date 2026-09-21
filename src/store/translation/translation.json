@@ -125,6 +125,7 @@
       "notification_packageDesc": "مرحباً، تم إرسال طردك من ميناء نيويورك، يرجى التحقق من موعد الوصول المتوقع ✈️",
       "notification_timeNow": "منذ دقيقتين",
       "notification_time10m": "منذ 10 دقائق",
+      "favorite_title": "المفضلة",
       "helpSupport_title": "المساعدة والدعم",
       "legal_title": "الشروط والسياسات",
       "legal_termsTitle": "الشروط",
@@ -191,7 +192,9 @@
       "auth_placeholderConfirmPassword": "أعد إدخال كلمة المرور الجديدة",
       "home_tabHome": "الرئيسية",
       "home_tabCategory": "الفئات",
-      "home_searchPlaceholder": "ابحث هنا"
+      "home_searchPlaceholder": "ابحث هنا",
+      "home_newArrival": "وصل حديثاً",
+      "home_seeAll": "عرض الكل"
     }
   },
   "en": {
@@ -320,6 +323,7 @@
       "notification_packageDesc": "Hi your package has been sent from new york port, kindly check the estimated arrival ✈️",
       "notification_timeNow": "2m ago",
       "notification_time10m": "10m ago",
+      "favorite_title": "Favorites",
       "helpSupport_title": "Help and Support",
       "legal_title": "Legal & Policies",
       "legal_termsTitle": "Terms",
@@ -386,7 +390,9 @@
       "auth_placeholderConfirmPassword": "Re-enter your new password",
       "home_tabHome": "Home",
       "home_tabCategory": "Category",
-      "home_searchPlaceholder": "Search..."
+      "home_searchPlaceholder": "Search...",
+      "home_newArrival": "New Arrival",
+      "home_seeAll": "See All"
     }
   }
 }

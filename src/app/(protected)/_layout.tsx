@@ -5,6 +5,9 @@ const ProtectedLayout = () => {
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="account" />
+      <Stack.Screen name="home" />
+      <Stack.Screen name="notifications" />
+      <Stack.Screen name="favorites" />
     </Stack>
   );
 };
