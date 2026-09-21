@@ -20,6 +20,8 @@ const LandingScreen = () => {
   return (
     <ScreenLayout contentContainerStyle={styles.contentContainer}>
       <Carousel
+        autoplay={true}
+        autoplayInterval={4000}
         data={slides}
         height={540}
         paginationDotType="pill"
