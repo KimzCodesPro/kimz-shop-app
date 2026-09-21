@@ -24,6 +24,7 @@ const useStyles = () => {
       borderBottomColor: colors.primary.base,
     },
     tabContent: {
+      flex: 1,
       marginTop: spacing.space24.height,
     },
   });

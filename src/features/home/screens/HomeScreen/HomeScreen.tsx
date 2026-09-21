@@ -10,7 +10,7 @@ const HomeScreen = () => {
   const { t } = useTranslation();
 
   return (
-    <ScreenLayout hasTabBar contentContainerStyle={styles.container}>
+    <ScreenLayout scrollable hasTabBar contentContainerStyle={styles.container}>
       <Header
         userName="Kareem Nour"
         meta="Let's go shopping"

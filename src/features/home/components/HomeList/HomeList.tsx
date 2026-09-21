@@ -7,26 +7,7 @@ import styles from "./homeListStyles";
 
 import { Carousel } from "@/components/ui/display";
 
-const slides = [
-  {
-    id: 1,
-    title: "Summer Sale 50% Off",
-    shopName: "Shop Now",
-    img: productSample,
-  },
-  {
-    id: 2,
-    title: "Winter Sale 30% Off",
-    shopName: "Shop Now",
-    img: productSample,
-  },
-  {
-    id: 3,
-    title: "Spring Sale 20% Off",
-    shopName: "Shop Now",
-    img: productSample,
-  },
-];
+import { PRODUCTS_LIST, PRODUCTS_SLIDES } from "./data";
 
 const HomeList = () => {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -34,7 +15,7 @@ const HomeList = () => {
   return (
     <View style={styles.container}>
       <Carousel
-        data={slides}
+        data={PRODUCTS_SLIDES}
         height={130}
         paginationDotType="circle"
         renderItem={(item) => (
@@ -52,14 +33,21 @@ const HomeList = () => {
         actionText="See All"
         onActionPress={() => {}}
       />
-      <ProductCard
-        productName="Marc Jacobs Mini"
-        brand="Marc Jacobs"
-        price={149}
-        imgSrc={productSample}
-        isFavorite={isFavorite}
-        onToggleFavorite={() => setIsFavorite((prev) => !prev)}
-      />
+      <View style={styles.productsList}>
+        {PRODUCTS_LIST.map((item, index) => (
+          <ProductCard
+            onPress={() => console.log(`Product ${item.productName} pressed`)}
+            key={index}
+            productName={item.productName}
+            brand={item.brand}
+            price={item.price}
+            imgSrc={productSample}
+            isFavorite={isFavorite}
+            onToggleFavorite={() => setIsFavorite((prev) => !prev)}
+            style={styles.productCard}
+          />
+        ))}
+      </View>
     </View>
   );
 };
