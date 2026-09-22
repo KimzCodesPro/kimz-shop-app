@@ -2,7 +2,7 @@ import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
-const { HS, VS } = scalingMethods;
+const { VS } = scalingMethods;
 
 const useStyles = (isSelected?: boolean) => {
   const colors = useTheme();
@@ -18,7 +18,7 @@ const useStyles = (isSelected?: boolean) => {
       paddingVertical: spacing.space16.height,
       paddingHorizontal: spacing.space16.width,
       borderRadius: radius.lg,
-      borderWidth: HS(1),
+      borderWidth: 1,
       borderColor: isSelected ? colors.primary.base : colors.border.default,
     },
     leading: {

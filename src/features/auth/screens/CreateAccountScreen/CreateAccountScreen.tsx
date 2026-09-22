@@ -20,13 +20,13 @@ const CreateAccountScreen = () => {
 
       <View style={styles.form}>
         <TextInput
-          iconName="user"
+          icon="user"
           label={t("auth_fieldUserName")}
           placeholder={t("auth_placeholderUserName")}
           value=""
         />
         <TextInput
-          iconName="mail"
+          icon="mail"
           label={t("auth_fieldEmail")}
           placeholder={t("auth_placeholderEmail")}
           value=""

@@ -15,6 +15,7 @@ import ChevronUp from "./ChevronUp";
 import CircleCheck from "./CircleCheck";
 import Close from "./Close";
 import CreditCard from "./CreditCard";
+import CreditCardRefund from "./CreditCardRefund";
 import Discount from "./Discount";
 import DotsVertical from "./DotsVertical";
 import Download from "./Download";
@@ -98,6 +99,7 @@ const icons = {
   "box-off": BoxOff,
   "image-off": ImageOff,
   trash: Trash,
+  "credit-card-refund": CreditCardRefund,
 } as const;
 
 export default icons;

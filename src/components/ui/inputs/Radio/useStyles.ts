@@ -14,7 +14,7 @@ const useStyle = (isSelected: boolean, disabled?: boolean) => {
       width: HS(20),
       height: VS(20),
       borderRadius: radius.full,
-      borderWidth: HS(1.5),
+      borderWidth: 1.5,
       borderColor: isSelected ? colors.primary.base : colors.border.default,
       paddingVertical: spacing.space4.height,
       paddingHorizontal: spacing.space4.width,

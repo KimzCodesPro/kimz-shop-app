@@ -1,8 +1,8 @@
-import { View } from "react-native";
 import { useTheme } from "@/hooks";
-import { Typography } from "@/src/components/ui/typography";
+import { View } from "react-native";
+import Typography from "../Typography/Typography";
+import styles from "./sectionTitleStyles";
 import { SectionTitleProps } from "./types";
-import styles from "./SectionTitleStyles";
 
 const SectionTitle = ({
   title,
@@ -14,7 +14,7 @@ const SectionTitle = ({
 
   return (
     <View style={[style, styles.container]}>
-      <Typography variant="largeBold" color={colors.foreground.primary}>
+      <Typography variant="mediumBold" color={colors.foreground.primary}>
         {title}
       </Typography>
       <Typography

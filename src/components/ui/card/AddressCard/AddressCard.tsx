@@ -24,9 +24,9 @@ const AddressCard = ({
     <InfoCard onPress={onPress} style={style} isSelected={isSelected}>
       <InfoCard.Leading title={city} description={address} />
       <InfoCard.Trailing>
-        <IconBadge iconName="map-pin" variant={colorSchema} />
+        <IconBadge icon="map-pin" variant={colorSchema} />
         <StatusBill
-          iconName={addressIcon[type]}
+          icon={addressIcon[type]}
           label={StatusBillLabel}
           color={colorSchema}
         />

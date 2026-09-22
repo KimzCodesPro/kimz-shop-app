@@ -15,6 +15,8 @@
       "common_submit": "إرسال",
       "common_continue": "متابعة",
       "common_by": "بواسطة",
+      "common_product": "منتج",
+      "common_products": "منتجات",
       "bottomTab_home": "الرئيسية",
       "bottomTab_myOrder": "طلباتي",
       "bottomTab_myCard": "بطاقتي",
@@ -116,13 +118,15 @@
       "notification_emptyTitle": "لا توجد إشعارات بعد",
       "notification_emptyDesc": "كل شيء على ما يرام! سنخبرك عند وصول أي جديد.",
       "notification_purchaseTitle": "اكتمل الشراء!",
-      "notification_purchaseDesc": "لقد اشتريت بنجاح 334 سماعة، شكراً لك وانتظر وصول طردك ✨",
+      "notification_purchaseDesc": "لقد اشتريت بنجاح 334 سماعة، شكراً لك وانتظر وصول طردك",
       "notification_flashSaleTitle": "تخفيضات سريعة!",
-      "notification_flashSaleDesc": "احصل على خصم 20% على أول عملية شراء هذا الشهر! 😍",
+      "notification_flashSaleDesc": "احصل على خصم 20% على أول عملية شراء هذا الشهر!",
       "notification_packageTitle": "تم إرسال الطرد",
       "notification_packageDesc": "مرحباً، تم إرسال طردك من ميناء نيويورك، يرجى التحقق من موعد الوصول المتوقع ✈️",
       "notification_timeNow": "منذ دقيقتين",
       "notification_time10m": "منذ 10 دقائق",
+      "favorite_title": "المفضلة",
+      "search_title": "البحث",
       "helpSupport_title": "المساعدة والدعم",
       "legal_title": "الشروط والسياسات",
       "legal_termsTitle": "الشروط",
@@ -189,8 +193,9 @@
       "auth_placeholderConfirmPassword": "أعد إدخال كلمة المرور الجديدة",
       "home_tabHome": "الرئيسية",
       "home_tabCategory": "الفئات",
-      "common_product": "منتج",
-      "common_products": "منتجات"
+      "home_searchPlaceholder": "ابحث هنا",
+      "home_newArrival": "وصل حديثاً",
+      "home_seeAll": "عرض الكل"
     }
   },
   "en": {
@@ -209,6 +214,8 @@
       "common_submit": "Submit",
       "common_continue": "Continue",
       "common_by": "By",
+      "common_product": "Product",
+      "common_products": "Products",
       "bottomTab_home": "Home",
       "bottomTab_myOrder": "My Order",
       "bottomTab_myCard": "My Card",
@@ -310,13 +317,15 @@
       "notification_emptyTitle": "No Notifications Yet",
       "notification_emptyDesc": "You're all caught up! We'll let you know when something new arrives.",
       "notification_purchaseTitle": "Purchase Completed!",
-      "notification_purchaseDesc": "You have successfully purchased 334 headphones, thank you and wait for your package to arrive ✨",
+      "notification_purchaseDesc": "You have successfully purchased 334 headphones, thank you and wait for your package to arrive",
       "notification_flashSaleTitle": "Flash Sale!",
-      "notification_flashSaleDesc": "Get 20% discount for first transaction in this month! 😍",
+      "notification_flashSaleDesc": "Get 20% discount for first transaction in this month!",
       "notification_packageTitle": "Package Sent",
       "notification_packageDesc": "Hi your package has been sent from new york port, kindly check the estimated arrival ✈️",
       "notification_timeNow": "2m ago",
       "notification_time10m": "10m ago",
+      "favorite_title": "Favorites",
+      "search_title": "Search",
       "helpSupport_title": "Help and Support",
       "legal_title": "Legal & Policies",
       "legal_termsTitle": "Terms",
@@ -383,8 +392,9 @@
       "auth_placeholderConfirmPassword": "Re-enter your new password",
       "home_tabHome": "Home",
       "home_tabCategory": "Category",
-      "common_product": "Product",
-      "common_products": "Products"
+      "home_searchPlaceholder": "Search...",
+      "home_newArrival": "New Arrival",
+      "home_seeAll": "See All"
     }
   }
 }

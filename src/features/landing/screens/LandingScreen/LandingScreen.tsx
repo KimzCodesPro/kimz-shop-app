@@ -1,7 +1,7 @@
 import { useTranslation } from "@/hooks";
+import { Carousel } from "@/src/components/ui/display";
 import { Button } from "@/src/components/ui/inputs";
 import { ScreenLayout } from "@/src/components/ui/layout";
-import { Carousel } from "@/src/components/ui/display";
 import { router } from "expo-router";
 import { View } from "react-native";
 import { CarouselItem } from "../../components";
@@ -20,6 +20,8 @@ const LandingScreen = () => {
   return (
     <ScreenLayout contentContainerStyle={styles.contentContainer}>
       <Carousel
+        autoplay={true}
+        autoplayInterval={4000}
         data={slides}
         height={540}
         paginationDotType="pill"

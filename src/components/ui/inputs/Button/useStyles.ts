@@ -3,7 +3,7 @@ import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 import { SizeType, VariantType } from "./types";
-const { VS, HS } = scalingMethods;
+const { VS } = scalingMethods;
 
 const useStyle = (size: SizeType, variant: VariantType, disabled?: boolean) => {
   const color = useTheme();
@@ -54,7 +54,7 @@ const useStyle = (size: SizeType, variant: VariantType, disabled?: boolean) => {
       backgroundColor: currentVariantColors.background,
       alignItems: "center",
       justifyContent: "center",
-      borderWidth: HS(1),
+      borderWidth: 1,
       borderColor: currentVariantColors.border,
       opacity: disabled ? opacity.disabled : opacity.full,
     },

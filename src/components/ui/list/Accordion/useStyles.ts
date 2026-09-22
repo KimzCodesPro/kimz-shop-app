@@ -12,7 +12,7 @@ const useStyles = () => {
       alignSelf: "stretch",
     },
     itemContainer: {
-      borderBottomWidth: HS(1),
+      borderBottomWidth: 1,
       borderBottomColor: colors.border.default,
       justifyContent: "center",
       paddingVertical: spacing.space16.height,

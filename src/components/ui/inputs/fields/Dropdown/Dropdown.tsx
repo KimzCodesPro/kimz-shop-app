@@ -1,8 +1,8 @@
 import Icon from "@/components/icons";
 import { useRef, useState } from "react";
 import { Keyboard, Pressable } from "react-native";
-import { Typography } from "../../../typography";
 import { BottomSheet, BottomSheetRef } from "../../../overlay";
+import { Typography } from "../../../typography";
 import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
@@ -13,7 +13,7 @@ import { DropdownProps } from "./types";
 const Dropdown = ({
   label,
   placeholder,
-  iconName,
+  icon,
   options,
   value,
   onSelect,
@@ -52,7 +52,7 @@ const Dropdown = ({
       <Pressable onPress={handleOpenSheet} style={styles.pressableWrapper}>
         <FieldWrapper
           label={label}
-          fieldIconName={iconName}
+          fieldIconName={icon}
           errorMessage={errorMessage}
           currentStatus={currentStatus}
           style={style}

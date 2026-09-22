@@ -1,5 +1,5 @@
-import Icon from "@/components/icons";
 import { productPlaceholder } from "@/assets/images";
+import Icon from "@/components/icons";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import { Typography } from "../../typography";

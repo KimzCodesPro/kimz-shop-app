@@ -5,4 +5,7 @@ export type HeaderProps = Pick<
   "userName" | "meta" | "imgSrc"
 > & {
   unReadNotifications: boolean;
+  onUserPress: () => void;
+  onFavoritePress: () => void;
+  onNotificationPress: () => void;
 };

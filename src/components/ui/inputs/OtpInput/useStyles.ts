@@ -17,7 +17,7 @@ const useStyles = (verifyFailed: boolean) => {
     pinCodeContainer: {
       width: HS(48),
       height: VS(56),
-      borderWidth: HS(1),
+      borderWidth: 1,
       borderColor: verifyFailed ? colors.danger.base : colors.border.default,
       borderRadius: radius.sm,
       margin: HS(5),

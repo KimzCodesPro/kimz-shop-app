@@ -1,6 +1,6 @@
+import { scalingMethods } from "@/utils";
 import { useRef, useState } from "react";
 import { View } from "react-native";
-import { scalingMethods } from "@/utils";
 import { Carousel, CarouselRef } from "react-native-reanimated-carousel";
 import PaginationDot from "./PaginationDot";
 import { CarouselProps } from "./types";
@@ -13,6 +13,9 @@ const RNCarousel = <T,>({
   height,
   renderItem,
   paginationDotType = "circle",
+  loop = false,
+  autoplay = false,
+  autoplayInterval = 3000,
 }: CarouselProps<T>) => {
   const ref = useRef<CarouselRef>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -23,6 +26,9 @@ const RNCarousel = <T,>({
       <Carousel
         ref={ref}
         data={data}
+        loop={loop}
+        autoplay={autoplay}
+        autoplayInterval={autoplayInterval}
         style={[styles.carousel, { height: VS(height) }]}
         onSnapToItem={setActiveIndex}
         renderItem={({ item }) => renderItem(item)}
