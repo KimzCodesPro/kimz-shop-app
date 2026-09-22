@@ -11,7 +11,7 @@ const UserGreeting = ({
   meta,
   style,
 }: UserGreetingProps) => {
-  const { styles, TypographyMapping } = useStyles();
+  const { styles, typographyMapping } = useStyles();
 
   const avatarSize = size === "lg" ? "md" : "sm";
 
@@ -20,15 +20,15 @@ const UserGreeting = ({
       <Avatar imgSrc={imgSrc} size={avatarSize} />
       <View style={styles.textContainer}>
         <Typography
-          variant={TypographyMapping[size].userName.font}
-          color={TypographyMapping[size].userName.color}
+          variant={typographyMapping[size].userName.font}
+          color={typographyMapping[size].userName.color}
           forceLanguage="en"
         >
           {userName}
         </Typography>
         <Typography
-          variant={TypographyMapping[size].meta.font}
-          color={TypographyMapping[size].meta.color}
+          variant={typographyMapping[size].meta.font}
+          color={typographyMapping[size].meta.color}
           forceLanguage="en"
         >
           {meta}

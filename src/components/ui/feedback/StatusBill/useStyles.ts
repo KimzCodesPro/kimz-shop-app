@@ -2,6 +2,7 @@ import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StatusVariant } from "@/types";
 import { StyleSheet } from "react-native";
+import { statusBillColor } from "./constants";
 import { StatusBillVariant } from "./types";
 
 const useStyles = (
@@ -10,14 +11,7 @@ const useStyles = (
 ) => {
   const colors = useTheme();
 
-  const statusColors = {
-    success: { tint: colors.success.tint, strong: colors.success.strong },
-    warning: { tint: colors.warning.tint, strong: colors.warning.base },
-    info: { tint: colors.primary.tint, strong: colors.primary.pressed },
-    danger: { tint: colors.danger.tint, strong: colors.danger.strong },
-  } as const;
-
-  const currentStatusColors = statusColors[colorSchema];
+  const currentStatusColors = statusBillColor(colors)[colorSchema];
 
   const styles = StyleSheet.create({
     container: {

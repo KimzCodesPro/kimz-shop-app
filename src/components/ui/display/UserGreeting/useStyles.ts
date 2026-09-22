@@ -1,32 +1,12 @@
 import { useTheme } from "@/hooks";
 import { spacing } from "@/src/constants";
 import { StyleSheet } from "react-native";
+import { userGreetingTypography } from "./constants";
 
 const useStyles = () => {
   const colors = useTheme();
 
-  const TypographyMapping = {
-    lg: {
-      userName: {
-        font: "mediumBold",
-        color: colors.foreground.primary,
-      },
-      meta: {
-        font: "smallRegular",
-        color: colors.foreground.tertiary,
-      },
-    },
-    sm: {
-      userName: {
-        font: "normalBold",
-        color: colors.foreground.primary,
-      },
-      meta: {
-        font: "smallRegular",
-        color: colors.foreground.secondary,
-      },
-    },
-  } as const;
+  const typographyMapping = userGreetingTypography(colors);
 
   const styles = StyleSheet.create({
     container: {
@@ -40,7 +20,7 @@ const useStyles = () => {
     },
   });
 
-  return { styles, colors, TypographyMapping };
+  return { styles, colors, typographyMapping };
 };
 
 export default useStyles;

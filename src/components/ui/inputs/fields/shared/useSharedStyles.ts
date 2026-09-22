@@ -2,6 +2,7 @@ import { radius, spacing } from "@/constants";
 import { useFontStyles, useTheme, useTranslation } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { Platform, StyleSheet } from "react-native";
+import { fieldStatusColor } from "./constants";
 import { StatusType } from "./types";
 const { VS } = scalingMethods;
 
@@ -18,20 +19,7 @@ const useSharedStyles = (currentStatus: StatusType) => {
   const textAlign = isRTL ? "right" : "left";
   const writingDirection = isRTL ? "rtl" : "ltr";
 
-  const colorMapping = {
-    mainColor: {
-      default: colors.border.default,
-      focused: colors.primary.base,
-      filled: colors.primary.base,
-      error: colors.danger.base,
-    },
-    iconColor: {
-      default: colors.foreground.tertiary,
-      focused: colors.primary.base,
-      filled: colors.primary.base,
-      error: colors.danger.base,
-    },
-  };
+  const colorMapping = fieldStatusColor(colors);
 
   const mainColor = colorMapping.mainColor[currentStatus];
   const iconColor = colorMapping.iconColor[currentStatus];

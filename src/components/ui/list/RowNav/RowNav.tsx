@@ -2,6 +2,7 @@ import Icon from "@/components/icons";
 import { Pressable, View } from "react-native";
 import { Typography } from "../../typography";
 import RowNavTrailing from "./RowNavTrailing";
+import { rowNavColor } from "./constants";
 import { RowNavProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -15,10 +16,7 @@ const RowNav = ({
 }: RowNavProps) => {
   const { styles, colors } = useStyles();
 
-  const conditionalColor = {
-    default: colors.foreground.primary,
-    danger: colors.danger.base,
-  };
+  const conditionalColor = rowNavColor(colors);
 
   return (
     <Pressable style={[styles.container, style]} onPress={onPress}>
