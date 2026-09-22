@@ -19,7 +19,7 @@ const NotificationItem = ({
     "package-sent": "truck",
     "payment-successful": "credit-card",
     "rate-purchase": "star",
-    "refund-processed": "circle-check",
+    "refund-processed": "credit-card-refund",
     "security-alert": "alert-triangle",
     "share-your-feedback": "file-text",
   } as const;
