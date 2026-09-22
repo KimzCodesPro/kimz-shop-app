@@ -9,7 +9,7 @@ import styles from "./homeListStyles";
 
 import { Carousel } from "@/components/ui/display";
 
-import { PRODUCTS_LIST, PRODUCTS_SLIDES } from "./data";
+import { PRODUCTS_LIST, PRODUCTS_SLIDES } from "../../data";
 
 const HomeList = () => {
   const { t } = useTranslation();

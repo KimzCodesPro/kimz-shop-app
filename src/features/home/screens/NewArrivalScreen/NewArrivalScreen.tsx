@@ -5,7 +5,7 @@ import { TopBar } from "@/components/ui/navigations";
 import { Typography } from "@/components/ui/typography";
 import { useTheme, useTranslation } from "@/hooks";
 import { FlashList } from "@shopify/flash-list";
-import { PRODUCTS_LIST } from "../../components/HomeList/data";
+import { PRODUCTS_LIST } from "../../data";
 import styles from "./newArrivalScreenStyles";
 
 const NewArrivalScreen = () => {

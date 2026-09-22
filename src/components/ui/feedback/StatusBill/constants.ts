@@ -4,8 +4,8 @@ import { ThemePalette } from "@/types";
 // theme, so they can only be read once useTheme has run.
 export const statusBillColor = (colors: ThemePalette) =>
   ({
-    success: { tint: colors.success.tint, strong: colors.success.strong },
-    warning: { tint: colors.warning.tint, strong: colors.warning.base },
-    info: { tint: colors.primary.tint, strong: colors.primary.pressed },
-    danger: { tint: colors.danger.tint, strong: colors.danger.strong },
+    success: { tint: colors.success.base, strong: colors.success.strong },
+    warning: { tint: colors.warning.base, strong: colors.warning.base },
+    info: { tint: colors.primary.base, strong: colors.primary.pressed },
+    danger: { tint: colors.danger.base, strong: colors.danger.strong },
   }) as const;

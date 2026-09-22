@@ -1,6 +1,7 @@
 import { ScreenLayout } from "@/components/ui/layout";
 import { Tabs, TopBar } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
+import { HistoryList, MyOrderList } from "../../components";
 
 const MyOrderScreen = () => {
   const { t } = useTranslation();
@@ -16,12 +17,12 @@ const MyOrderScreen = () => {
           {
             tabPrefix: "myOrder",
             tabTitle: t("myOrder_tabMyOrder"),
-            tabContent: null,
+            tabContent: <MyOrderList />,
           },
           {
             tabPrefix: "history",
             tabTitle: t("myOrder_tabHistory"),
-            tabContent: null,
+            tabContent: <HistoryList />,
           },
         ]}
       />

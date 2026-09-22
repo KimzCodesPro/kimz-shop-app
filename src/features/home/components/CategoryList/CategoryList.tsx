@@ -1,7 +1,7 @@
 import { CategoryCard } from "@/components/ui/card";
 import { View } from "react-native";
 import styles from "./catgoryListStyles";
-import { CATEGORIES_LIST } from "./data";
+import { CATEGORIES_LIST } from "../../data";
 
 const CategoryList = () => {
   return (
