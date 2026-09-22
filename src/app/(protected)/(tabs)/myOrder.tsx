@@ -1,9 +1,5 @@
-import { Text, View } from "react-native";
+import { MyOrderScreen } from "@/src/features/myOrder";
 
 export default function MyOrder() {
-  return (
-    <View>
-      <Text>M</Text>
-    </View>
-  );
+  return <MyOrderScreen />;
 }
