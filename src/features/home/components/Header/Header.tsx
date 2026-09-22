@@ -12,13 +12,21 @@ const Header = ({
   meta,
   imgSrc,
   unReadNotifications,
+  onUserPress,
   onFavoritePress,
   onNotificationPress,
 }: HeaderProps) => {
   const { styles, colors } = useStyles();
   return (
     <View style={styles.container}>
-      <UserGreeting size="sm" userName={userName} meta={meta} imgSrc={imgSrc} />
+      <Pressable onPress={onUserPress}>
+        <UserGreeting
+          size="sm"
+          userName={userName}
+          meta={meta}
+          imgSrc={imgSrc}
+        />
+      </Pressable>
       <View style={styles.iconContainer}>
         <Pressable onPress={onFavoritePress}>
           <Icon

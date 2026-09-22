@@ -3,7 +3,7 @@ import { useFontStyles, useTheme, useTranslation } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { Platform, StyleSheet } from "react-native";
 import { StatusType } from "./types";
-const { HS, VS } = scalingMethods;
+const { VS } = scalingMethods;
 
 const useSharedStyles = (currentStatus: StatusType) => {
   const colors = useTheme();
@@ -46,7 +46,7 @@ const useSharedStyles = (currentStatus: StatusType) => {
       alignItems: "center",
       paddingHorizontal: spacing.space12.width,
       paddingVertical: spacing.space12.height,
-      borderWidth: HS(1),
+      borderWidth: 1,
       borderColor: mainColor,
       borderRadius: radius.sm,
       gap: spacing.space8.width,
@@ -62,7 +62,7 @@ const useSharedStyles = (currentStatus: StatusType) => {
       alignItems: "center",
       justifyContent: "space-between",
       height: VS(47),
-      borderBottomWidth: HS(1),
+      borderBottomWidth: 1,
       borderBottomColor: colors.border.default,
     },
     textInput: {

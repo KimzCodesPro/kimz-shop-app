@@ -28,7 +28,7 @@ const useStyle = (variant: IconButtonVariant, disabled?: boolean) => {
       justifyContent: "center",
       borderRadius: radius.sm,
       backgroundColor: currentVariantColors.background,
-      borderWidth: HS(1.5),
+      borderWidth: 1.5,
       borderColor: currentVariantColors.border,
       opacity: disabled ? opacity.disabled : opacity.full,
     },

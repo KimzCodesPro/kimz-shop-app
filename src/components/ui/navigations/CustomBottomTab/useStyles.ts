@@ -26,7 +26,7 @@ const useStyles = (focused?: boolean) => {
     tabBar: {
       // Bar height from the design. The safe area sits below it.
       height: VS(71),
-      borderTopWidth: HS(1),
+      borderTopWidth: 1,
       borderTopColor: colors.border.default,
     },
     // TabList only lays the triggers out in a row, so each button claims an
@@ -41,7 +41,7 @@ const useStyles = (focused?: boolean) => {
       alignItems: "center",
       justifyContent: "center",
       gap: spacing.space8.height,
-      borderTopWidth: HS(2),
+      borderTopWidth: 2,
       borderTopColor: focused ? colors.primary.base : "transparent",
       width: "80%",
       paddingVertical: VS(12),

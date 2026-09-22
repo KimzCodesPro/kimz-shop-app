@@ -1,10 +1,8 @@
 import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StatusVariant } from "@/types";
-import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 import { StatusBillVariant } from "./types";
-const { HS } = scalingMethods;
 
 const useStyles = (
   colorSchema: Exclude<StatusVariant, "secondary">,
@@ -28,7 +26,7 @@ const useStyles = (
       justifyContent: "center",
       backgroundColor:
         variant === "outlined" ? "transparent" : currentStatusColors.tint,
-      borderWidth: HS(1),
+      borderWidth: 1,
       borderColor:
         variant === "outlined"
           ? currentStatusColors.strong
