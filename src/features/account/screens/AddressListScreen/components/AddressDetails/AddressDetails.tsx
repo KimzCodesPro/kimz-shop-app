@@ -35,12 +35,12 @@ const AddressDetails = ({
     <>
       <View style={styles.header}>
         <StatusBill
-          iconName={statusIcon}
+          icon={statusIcon}
           color={statusColor}
           label={statusLabel}
         />
         <Pressable onPress={deleteHandler}>
-          <IconBadge iconName="trash" variant="danger" />
+          <IconBadge icon="trash" variant="danger" />
         </Pressable>
       </View>
       {/* main address */}

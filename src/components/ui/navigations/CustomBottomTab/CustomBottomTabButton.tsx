@@ -19,7 +19,7 @@ const ICON_SIZE = VS(25);
  * passes it as a plain prop, so no `forwardRef` wrapper is involved.
  */
 const CustomBottomTabButton = ({
-  iconName,
+  icon,
   label,
   badge = 0,
   isFocused,
@@ -47,7 +47,7 @@ const CustomBottomTabButton = ({
     >
       <View style={styles.tabItem}>
         <View style={styles.iconWrapper}>
-          <Icon size={ICON_SIZE} name={iconName} color={focusedColor} />
+          <Icon size={ICON_SIZE} name={icon} color={focusedColor} />
           {!!badge && (
             <View style={styles.badge}>
               <Typography

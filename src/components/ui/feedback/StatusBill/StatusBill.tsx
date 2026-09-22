@@ -7,7 +7,7 @@ import useStyles from "./useStyles";
 
 const StatusBill = ({
   style,
-  iconName,
+  icon,
   variant = "filled",
   label,
   color,
@@ -15,7 +15,7 @@ const StatusBill = ({
   const { styles, strongColor } = useStyles(color, variant);
   return (
     <View style={[styles.container, style]}>
-      {iconName && <Icon name={iconName} size={13} color={strongColor} />}
+      {icon && <Icon name={icon} size={13} color={strongColor} />}
       <Typography
         variant="xsmallBold"
         color={strongColor}

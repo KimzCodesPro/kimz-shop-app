@@ -5,7 +5,7 @@ import { StyleProp, ViewStyle } from "react-native";
 export type StatusBillVariant = "filled" | "outlined";
 
 export type StatusBillProps = {
-  iconName?: IconName;
+  icon?: IconName;
   variant?: StatusBillVariant;
   label: string;
   color: Exclude<StatusVariant, "secondary">;

@@ -54,7 +54,7 @@ const TopBar = ({ title, goBack, forceBack, actionBtn }: TopBarProps) => {
             style={[styles.slot, styles.actionSlot]}
           >
             <Icon
-              name={actionBtn.iconName}
+              name={actionBtn.icon}
               size={ICON_SIZE}
               color={colors.foreground.primary}
               flipOnRTL={actionBtn?.flipOnRTL}
