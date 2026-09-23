@@ -1,4 +1,5 @@
-export const ICON_SIZE = 22;
+import { iconSize } from "@/constants";
+export const ICON_SIZE = iconSize.lg;
 
 // Measured from ChevronLeft's path "M15 6l-6 6l6 6" (viewBox 0 0 24 24):
 // M15 6 starts at x=15, l-6 goes to x=9, l6 returns to x=15 — glyph spans

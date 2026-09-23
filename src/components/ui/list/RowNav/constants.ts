@@ -1,3 +1,4 @@
+import { iconSize } from "@/constants";
 import { ThemePalette } from "@/types";
 
 // A function rather than a plain object: the values come from the resolved
@@ -9,7 +10,7 @@ export const rowNavColor = (colors: ThemePalette) =>
   }) as const;
 
 // Glyph that opens the row, before its title.
-export const LEADING_ICON_SIZE = 24;
+export const LEADING_ICON_SIZE = iconSize.lg;
 
 // Chevron at the row's end, pointing to the next screen.
-export const CHEVRON_ICON_SIZE = 22;
+export const CHEVRON_ICON_SIZE = iconSize.lg;

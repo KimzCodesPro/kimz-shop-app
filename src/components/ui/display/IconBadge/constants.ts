@@ -1,3 +1,4 @@
+import { iconSize } from "@/constants";
 import { ThemePalette } from "@/types";
 
 // A function rather than a plain object: the values come from the resolved
@@ -11,4 +12,4 @@ export const iconBadgeColor = (colors: ThemePalette) =>
   }) as const;
 
 // The single glyph the badge exists to frame.
-export const BADGE_ICON_SIZE = 22;
+export const BADGE_ICON_SIZE = iconSize.lg;

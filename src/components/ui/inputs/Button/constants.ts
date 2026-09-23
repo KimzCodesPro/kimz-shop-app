@@ -1,3 +1,4 @@
+import { iconSize } from "@/constants";
 import { ThemePalette } from "@/types";
 
 // A function rather than a plain object: the values come from the resolved
@@ -37,4 +38,4 @@ export const buttonVariantColor = (colors: ThemePalette) =>
   }) as const;
 
 // Optional glyph before the button title.
-export const LEADING_ICON_SIZE = 20;
+export const LEADING_ICON_SIZE = iconSize.md;

@@ -1,3 +1,4 @@
+import { iconSize } from "@/constants";
 import { ThemePalette } from "@/types";
 
 // A function rather than a plain object: the values come from the resolved
@@ -19,4 +20,4 @@ export const fieldStatusColor = (colors: ThemePalette) =>
   }) as const;
 
 // Leading glyph every field wrapper renders.
-export const FIELD_ICON_SIZE = 20;
+export const FIELD_ICON_SIZE = iconSize.md;

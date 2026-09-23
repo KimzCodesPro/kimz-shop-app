@@ -1,3 +1,4 @@
+import { iconSize } from "@/constants";
 import { ThemePalette } from "@/types";
 
 // A function rather than a plain object: the values come from the resolved
@@ -27,4 +28,4 @@ export const statusHaloColor = (colors: ThemePalette) =>
   }) as const;
 
 // Glyph centred inside the halo's inner circle.
-export const HALO_ICON_SIZE = 36;
+export const HALO_ICON_SIZE = iconSize["2xl"];

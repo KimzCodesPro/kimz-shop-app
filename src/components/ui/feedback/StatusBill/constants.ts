@@ -1,3 +1,4 @@
+import { iconSize } from "@/constants";
 import { ThemePalette } from "@/types";
 
 // A function rather than a plain object: the values come from the resolved
@@ -11,4 +12,4 @@ export const statusBillColor = (colors: ThemePalette) =>
   }) as const;
 
 // Optional glyph before the bill's label.
-export const STATUS_ICON_SIZE = 13;
+export const STATUS_ICON_SIZE = iconSize.xs;
