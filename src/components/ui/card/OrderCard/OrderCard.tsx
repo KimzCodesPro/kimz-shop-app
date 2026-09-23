@@ -13,10 +13,14 @@ const OrderCard = ({
   products,
   total,
   status,
+  onDetailsPress,
+  onTrackingPress,
   style,
 }: OrderCardProps) => {
   const { t } = useTranslation();
   const { styles, colors } = useStyles();
+
+  const extraProductsCount = products.length - 1;
 
   return (
     <View style={[styles.container, style]}>
@@ -27,7 +31,7 @@ const OrderCard = ({
             variant="xsmallRegular"
             color={colors.foreground.tertiary}
           >
-            Order Number
+            {t("myOrder_orderNumber")}
           </Typography>
           <Typography
             textTransform="uppercase"
@@ -53,12 +57,17 @@ const OrderCard = ({
           >
             {products[0].title}
           </Typography>
-          {products.length > 1 && (
+          {extraProductsCount > 0 && (
             <Typography
               variant="xsmallRegular"
               color={colors.foreground.tertiary}
             >
-              +{products.length - 1} more items
+              {t(
+                extraProductsCount === 1
+                  ? "common_moreItem"
+                  : "common_moreItems",
+                { count: extraProductsCount },
+              )}
             </Typography>
           )}
         </View>
@@ -88,7 +97,7 @@ const OrderCard = ({
           title={t("myOrder_details")}
           variant="ghost"
           size="sm"
-          onPress={() => {}}
+          onPress={onDetailsPress}
           style={styles.action}
         />
         {status === "onProgress" && (
@@ -96,7 +105,7 @@ const OrderCard = ({
             title={t("myOrder_tracking")}
             variant="primary"
             size="sm"
-            onPress={() => {}}
+            onPress={onTrackingPress}
             style={styles.action}
           />
         )}

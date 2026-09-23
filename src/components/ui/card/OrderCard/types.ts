@@ -7,10 +7,14 @@ export type OrderProduct = {
   imgSrc: ImageProps["source"];
 };
 
+export type OrderStatus = "onProgress" | "completed" | "cancelled";
+
 export type OrderCardProps = {
   orderNumber: string;
   products: readonly OrderProduct[];
   total: number;
-  status: "onProgress" | "completed" | "cancelled";
+  status: OrderStatus;
+  onDetailsPress: () => void;
+  onTrackingPress: () => void;
   style?: StyleProp<ViewStyle>;
 };
