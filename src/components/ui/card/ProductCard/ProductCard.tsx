@@ -5,6 +5,7 @@ import { Pressable, View } from "react-native";
 import { Typography } from "../../typography";
 import { ProductCardProps } from "./types";
 import useStyles from "./useStyles";
+import { FAVORITE_ICON_SIZE } from "./constants";
 
 const ProductCard = ({
   productName,
@@ -34,7 +35,7 @@ const ProductCard = ({
           style={styles.headerFavoriteButton}
         >
           <Icon
-            size={18}
+            size={FAVORITE_ICON_SIZE}
             name={isFavorite ? "heart-filled" : "heart"}
             color={isFavorite ? colors.danger.base : colors.foreground.tertiary}
           />

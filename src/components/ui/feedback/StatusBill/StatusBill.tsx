@@ -4,6 +4,7 @@ import Typography from "../../typography/Typography/Typography";
 
 import { StatusBillProps } from "./types";
 import useStyles from "./useStyles";
+import { STATUS_ICON_SIZE } from "./constants";
 
 const StatusBill = ({
   style,
@@ -15,7 +16,7 @@ const StatusBill = ({
   const { styles, strongColor } = useStyles(color, variant);
   return (
     <View style={[styles.container, style]}>
-      {icon && <Icon name={icon} size={13} color={strongColor} />}
+      {icon && <Icon name={icon} size={STATUS_ICON_SIZE} color={strongColor} />}
       <Typography
         variant="xsmallBold"
         color={strongColor}

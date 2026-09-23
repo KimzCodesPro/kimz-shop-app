@@ -1,4 +1,4 @@
-import { CategoryCard } from "@/components/ui/card";
+import CategoryCard from "../CategoryCard/CategoryCard";
 import { View } from "react-native";
 import styles from "./catgoryListStyles";
 import { CATEGORIES_LIST } from "../../data";

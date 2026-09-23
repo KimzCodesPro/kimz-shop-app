@@ -1,4 +1,4 @@
-import { OrderCard } from "@/components/ui/card";
+import OrderCard from "../OrderCard/OrderCard";
 import { FlashList } from "@shopify/flash-list";
 import { useRouter } from "expo-router";
 import { View } from "react-native";

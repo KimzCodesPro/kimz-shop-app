@@ -1,7 +1,7 @@
 import Icon from "@/src/components/icons";
 import { Typography } from "@/src/components/ui/typography";
 import { View } from "react-native";
-import { notificationIcon } from "./constants";
+import { NOTIFICATION_ICON_SIZE, notificationIcon } from "./constants";
 import useStyles from "./useStyles";
 
 import type { NotificationItemProps } from "./types";
@@ -19,7 +19,7 @@ const NotificationItem = ({
       <View style={styles.iconWrapper}>
         <Icon
           name={notificationIcon[type]}
-          size={24}
+          size={NOTIFICATION_ICON_SIZE}
           color={colors.foreground.secondary}
         />
       </View>

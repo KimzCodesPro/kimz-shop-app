@@ -3,6 +3,7 @@ import { Typography } from "@/components/ui/typography";
 import { ActivityIndicator, Pressable } from "react-native";
 import { ButtonProps } from "./types";
 import useStyles from "./useStyles";
+import { LEADING_ICON_SIZE } from "./constants";
 
 const Button = ({
   title,
@@ -31,7 +32,9 @@ const Button = ({
       {isLoading ? (
         <ActivityIndicator size="small" color={typographyColor} />
       ) : (
-        icon && <Icon name={icon} size={20} color={typographyColor} />
+        icon && (
+          <Icon name={icon} size={LEADING_ICON_SIZE} color={typographyColor} />
+        )
       )}
       <Typography variant={typographySizeVariant} color={typographyColor}>
         {(isLoading && loadingText) || title}

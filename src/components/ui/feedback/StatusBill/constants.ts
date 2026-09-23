@@ -9,3 +9,6 @@ export const statusBillColor = (colors: ThemePalette) =>
     info: { tint: colors.primary.base, strong: colors.primary.pressed },
     danger: { tint: colors.danger.base, strong: colors.danger.strong },
   }) as const;
+
+// Optional glyph before the bill's label.
+export const STATUS_ICON_SIZE = 13;

@@ -7,3 +7,9 @@ export const rowNavColor = (colors: ThemePalette) =>
     default: colors.foreground.primary,
     danger: colors.danger.base,
   }) as const;
+
+// Glyph that opens the row, before its title.
+export const LEADING_ICON_SIZE = 24;
+
+// Chevron at the row's end, pointing to the next screen.
+export const CHEVRON_ICON_SIZE = 22;

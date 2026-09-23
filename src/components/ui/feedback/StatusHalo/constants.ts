@@ -25,3 +25,6 @@ export const statusHaloColor = (colors: ThemePalette) =>
       inner: colors.foreground.tertiary,
     },
   }) as const;
+
+// Glyph centred inside the halo's inner circle.
+export const HALO_ICON_SIZE = 36;

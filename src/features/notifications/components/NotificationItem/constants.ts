@@ -8,3 +8,6 @@ export const notificationIcon = {
   "security-alert": "alert-triangle",
   "share-your-feedback": "file-text",
 } as const;
+
+// Glyph picked per notification type, inside the leading wrapper.
+export const NOTIFICATION_ICON_SIZE = 24;

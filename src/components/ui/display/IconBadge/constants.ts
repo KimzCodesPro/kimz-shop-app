@@ -9,3 +9,6 @@ export const iconBadgeColor = (colors: ThemePalette) =>
     info: colors.primary.pressed,
     danger: colors.danger.base,
   }) as const;
+
+// The single glyph the badge exists to frame.
+export const BADGE_ICON_SIZE = 22;

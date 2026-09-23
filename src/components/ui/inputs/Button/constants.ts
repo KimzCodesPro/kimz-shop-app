@@ -35,3 +35,6 @@ export const buttonVariantColor = (colors: ThemePalette) =>
       border: colors.border.default,
     },
   }) as const;
+
+// Optional glyph before the button title.
+export const LEADING_ICON_SIZE = 20;

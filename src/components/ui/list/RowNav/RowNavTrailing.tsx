@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { Typography } from "../../typography";
 import { RowNavTrailingProps } from "./types";
 import useStyles from "./useStyles";
+import { CHEVRON_ICON_SIZE } from "./constants";
 
 const RowNavTrailing = ({ trailing, trailingValue }: RowNavTrailingProps) => {
   const { styles, colors } = useStyles();
@@ -21,7 +22,7 @@ const RowNavTrailing = ({ trailing, trailingValue }: RowNavTrailingProps) => {
       )}
       <Icon
         name="chevron-right"
-        size={22}
+        size={CHEVRON_ICON_SIZE}
         color={colors.foreground.tertiary}
         flipOnRTL
       />

@@ -9,6 +9,7 @@ import useSharedStyles from "../shared/useSharedStyles";
 import { fieldCurrentStatus } from "../shared/utils";
 import DropdownList from "./DropdownList";
 import { DropdownProps } from "./types";
+import { CHEVRON_ICON_SIZE } from "./constants";
 
 const Dropdown = ({
   label,
@@ -71,7 +72,7 @@ const Dropdown = ({
           </Typography>
           <Icon
             name={isOpen ? "chevron-up" : "chevron-down"}
-            size={22}
+            size={CHEVRON_ICON_SIZE}
             color={colors.foreground.tertiary}
           />
         </FieldWrapper>

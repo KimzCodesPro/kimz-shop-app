@@ -10,6 +10,7 @@ import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
 import { fieldCurrentStatus } from "../shared/utils";
 import { TextInputProps } from "./types";
+import { CLEAR_ICON_SIZE, PASSWORD_TOGGLE_ICON_SIZE } from "./constants";
 
 const TextInput = ({
   label,
@@ -65,7 +66,7 @@ const TextInput = ({
         <Pressable onPress={() => setPasswordVisible(!passwordVisible)}>
           <Icon
             name={passwordVisible ? "eye-off" : "eye"}
-            size={20}
+            size={PASSWORD_TOGGLE_ICON_SIZE}
             color={colors.foreground.tertiary}
           />
         </Pressable>
@@ -73,7 +74,11 @@ const TextInput = ({
 
       {type !== "password" && clearInput && value && (
         <Pressable onPress={clearInput}>
-          <Icon name="close" size={20} color={colors.foreground.tertiary} />
+          <Icon
+            name="close"
+            size={CLEAR_ICON_SIZE}
+            color={colors.foreground.tertiary}
+          />
         </Pressable>
       )}
     </FieldWrapper>

@@ -2,7 +2,7 @@ import { categoryPlaceholder } from "@/assets/images";
 import { useTranslation } from "@/hooks";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
-import { Typography } from "../../typography";
+import { Typography } from "@/components/ui/typography";
 import { CategoryCardProps } from "./types";
 import useStyles from "./useStyles";
 

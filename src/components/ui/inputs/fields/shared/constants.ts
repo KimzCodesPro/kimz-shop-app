@@ -17,3 +17,6 @@ export const fieldStatusColor = (colors: ThemePalette) =>
       error: colors.danger.base,
     },
   }) as const;
+
+// Leading glyph every field wrapper renders.
+export const FIELD_ICON_SIZE = 20;

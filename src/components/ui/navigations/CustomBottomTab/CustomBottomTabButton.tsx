@@ -1,13 +1,11 @@
 import Icon from "@/components/icons";
 import Typography from "@/components/ui/typography/Typography/Typography";
-import { scalingMethods } from "@/utils";
+import { TAB_ICON_SIZE } from "./constants";
 import { Pressable, View } from "react-native";
 import { CustomBottomTabButtonProps } from "./types";
 import useStyles from "./useStyles";
-const { VS } = scalingMethods;
 
 const MAX_BADGE_COUNT = 9;
-const ICON_SIZE = VS(25);
 
 /**
  * Rendered through `<TabTrigger asChild />`, which hands down `isFocused`,
@@ -30,8 +28,7 @@ const CustomBottomTabButton = ({
   ...rest
 }: CustomBottomTabButtonProps) => {
   const { styles, colors, focusedColor } = useStyles(isFocused);
-  const showBadge =
-    badge > MAX_BADGE_COUNT ? `${MAX_BADGE_COUNT}+` : badge;
+  const showBadge = badge > MAX_BADGE_COUNT ? `${MAX_BADGE_COUNT}+` : badge;
 
   // "9+" is a visual truncation, so announce the real count instead.
   const badgeLabel = badge ? `${label}, ${badge}` : label;
@@ -47,7 +44,7 @@ const CustomBottomTabButton = ({
     >
       <View style={styles.tabItem}>
         <View style={styles.iconWrapper}>
-          <Icon size={ICON_SIZE} name={icon} color={focusedColor} />
+          <Icon size={TAB_ICON_SIZE} name={icon} color={focusedColor} />
           {!!badge && (
             <View style={styles.badge}>
               <Typography

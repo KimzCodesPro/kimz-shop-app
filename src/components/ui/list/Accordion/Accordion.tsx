@@ -4,6 +4,7 @@ import { Pressable, View } from "react-native";
 import Typography from "../../typography/Typography/Typography";
 import { AccordionProps } from "./types";
 import useStyles from "./useStyles";
+import { CHEVRON_ICON_SIZE } from "./constants";
 
 const Accordion = ({ items, style }: AccordionProps) => {
   const [expandedId, setExpandedId] = useState<number>(0);
@@ -33,7 +34,7 @@ const Accordion = ({ items, style }: AccordionProps) => {
               </Typography>
               <Icon
                 name={isExpanded ? "chevron-up" : "chevron-down"}
-                size={22}
+                size={CHEVRON_ICON_SIZE}
                 color={colors.foreground.tertiary}
               />
             </View>

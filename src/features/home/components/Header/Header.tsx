@@ -3,9 +3,7 @@ import { UserGreeting } from "@/components/ui/display";
 import Icon from "@/src/components/icons";
 import useStyles from "./useStyles";
 import { HeaderProps } from "./types";
-
-const Favorite_ICON_SIZE = 22;
-const Notification_ICON_SIZE = 22;
+import { FAVORITE_ICON_SIZE, NOTIFICATION_ICON_SIZE } from "./constants";
 
 const Header = ({
   userName,
@@ -31,7 +29,7 @@ const Header = ({
         <Pressable onPress={onFavoritePress}>
           <Icon
             name="heart-filled"
-            size={Favorite_ICON_SIZE}
+            size={FAVORITE_ICON_SIZE}
             color={colors.foreground.primary}
           />
         </Pressable>
@@ -39,7 +37,7 @@ const Header = ({
           {unReadNotifications && <View style={styles.notifcationIndicator} />}
           <Icon
             name="bell"
-            size={Notification_ICON_SIZE}
+            size={NOTIFICATION_ICON_SIZE}
             color={colors.foreground.primary}
           />
         </Pressable>

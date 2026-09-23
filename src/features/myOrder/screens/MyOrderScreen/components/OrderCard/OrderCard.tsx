@@ -1,9 +1,9 @@
 import { useTranslation } from "@/hooks";
 import { Image } from "expo-image";
 import { View } from "react-native";
-import StatusBill from "../../feedback/StatusBill/StatusBill";
-import Button from "../../inputs/Button/Button";
-import { Typography } from "../../typography";
+import { StatusBill } from "@/components/ui/feedback";
+import { Button } from "@/components/ui/inputs";
+import { Typography } from "@/components/ui/typography";
 import { orderStatusColor, orderStatusLabel } from "./constants";
 import { OrderCardProps } from "./types";
 import useStyles from "./useStyles";
