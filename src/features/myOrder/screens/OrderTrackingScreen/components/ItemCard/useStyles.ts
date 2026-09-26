@@ -10,9 +10,7 @@ const useStyles = () => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: colors.background.surface,
-      paddingVertical: spacing.space12.height,
-      paddingHorizontal: spacing.space12.width,
-      borderRadius: radius.lg,
+      borderWidth: 0,
       flexDirection: "row",
       alignItems: "center",
       gap: spacing.space12.width,

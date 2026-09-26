@@ -1,5 +1,6 @@
 import { productSample } from "@/assets/images";
 import { Typography } from "@/components/ui/typography";
+import { CardWrapper } from "@/src/components/ui/card";
 import { Image } from "expo-image";
 import { View } from "react-native";
 import type { ItemCardProps } from "./types";
@@ -9,7 +10,7 @@ const ItemCard = ({ style }: ItemCardProps) => {
   const { styles, colors } = useStyles();
 
   return (
-    <View style={[styles.container, style]}>
+    <CardWrapper style={[styles.container, style]}>
       <Image source={productSample} style={styles.image} />
 
       <View style={styles.info}>
@@ -35,7 +36,7 @@ const ItemCard = ({ style }: ItemCardProps) => {
           Tracking # DHL-9847-2018
         </Typography>
       </View>
-    </View>
+    </CardWrapper>
   );
 };
 

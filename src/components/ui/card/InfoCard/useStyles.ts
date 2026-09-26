@@ -1,4 +1,4 @@
-import { radius, spacing } from "@/constants";
+import { spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
@@ -15,10 +15,6 @@ const useStyles = (isSelected?: boolean) => {
       gap: spacing.space8.width,
       flexDirection: "row",
       minHeight: VS(96),
-      paddingVertical: spacing.space16.height,
-      paddingHorizontal: spacing.space16.width,
-      borderRadius: radius.lg,
-      borderWidth: 1,
       borderColor: isSelected ? colors.primary.base : colors.border.default,
     },
     leading: {

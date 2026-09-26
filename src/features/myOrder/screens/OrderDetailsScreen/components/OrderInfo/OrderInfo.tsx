@@ -15,7 +15,7 @@ const OrderInfo = ({ style }: OrderInfoProps) => {
   const { t } = useTranslation();
 
   return (
-    <CardWrapper style={[styles.container, style]}>
+    <CardWrapper style={style}>
       <View style={styles.row}>
         <Typography variant="xsmallRegular" color={colors.foreground.tertiary}>
           {t("orders_detailsOrderNumber")}

@@ -15,9 +15,7 @@ const useStyles = () => {
       paddingVertical: spacing.space16.height,
       paddingHorizontal: spacing.space16.width,
       backgroundColor: colors.primary.tint,
-      borderWidth: 1,
       borderColor: colors.primary.base,
-      borderRadius: radius.lg,
     },
     iconContainer: {
       alignItems: "center",

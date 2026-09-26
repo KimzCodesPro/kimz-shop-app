@@ -10,10 +10,6 @@ const useStyles = () => {
   const styles = StyleSheet.create({
     container: {
       gap: spacing.space12.height,
-      padding: spacing.space12.width,
-      borderRadius: radius.lg,
-      borderWidth: 1,
-      borderColor: colors.border.default,
     },
     header: {
       flexDirection: "row",

@@ -1,5 +1,6 @@
 import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/typography";
+import { CardWrapper } from "@/src/components/ui/card";
 import { View } from "react-native";
 import { DELIVERY_ICON_SIZE } from "./constants";
 import { ETABannerProps } from "./types";
@@ -9,7 +10,7 @@ const ETABanner = ({ title, subTitle, style }: ETABannerProps) => {
   const { styles, colors } = useStyles();
 
   return (
-    <View style={[styles.container, style]}>
+    <CardWrapper style={[styles.container, style]}>
       <View style={styles.iconContainer}>
         <Icon
           name="truck"
@@ -26,7 +27,7 @@ const ETABanner = ({ title, subTitle, style }: ETABannerProps) => {
           {subTitle}
         </Typography>
       </View>
-    </View>
+    </CardWrapper>
   );
 };
 

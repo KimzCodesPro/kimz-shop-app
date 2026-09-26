@@ -10,7 +10,6 @@ const useStyles = () => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
-    container: {},
     row: {
       flexDirection: "row",
       justifyContent: "space-between",
