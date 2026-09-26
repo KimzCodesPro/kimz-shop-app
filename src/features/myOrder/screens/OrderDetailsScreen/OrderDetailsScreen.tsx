@@ -1,10 +1,9 @@
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
-import { useTheme, useTranslation } from "@/hooks";
+import { useTranslation } from "@/hooks";
 import { OrderInfo, SectionHead } from "./components";
 
 const OrderDetailsScreen = () => {
-  const colors = useTheme();
   const { t } = useTranslation();
 
   return (
