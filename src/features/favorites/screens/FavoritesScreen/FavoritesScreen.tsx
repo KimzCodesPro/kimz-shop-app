@@ -12,7 +12,9 @@ const FavoritesScreen = () => {
 
   return (
     <ScreenLayout
-      renderTopBar={() => <TopBar title={t("favorite_title")} goBack />}
+      renderTopBar={() => (
+        <TopBar title={t("common_bottomTabFavorite")} goBack />
+      )}
     >
       <FlashList
         data={FAVORITES_LIST}

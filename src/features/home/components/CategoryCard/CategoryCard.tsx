@@ -27,8 +27,7 @@ const CategoryCard = ({
           {categoryName}
         </Typography>
         <Typography variant="xsmallRegular" color={colors.foreground.primary}>
-          {productsCount}{" "}
-          {productsCount === 1 ? t("common_product") : t("common_products")}
+          {t("home_categoryProductCount", { count: productsCount })}
         </Typography>
       </View>
       <Image

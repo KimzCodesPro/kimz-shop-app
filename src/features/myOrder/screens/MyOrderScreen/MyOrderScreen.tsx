@@ -9,19 +9,19 @@ const MyOrderScreen = () => {
   return (
     <ScreenLayout
       hasTabBar
-      renderTopBar={() => <TopBar title={t("myOrder_title")} />}
+      renderTopBar={() => <TopBar title={t("orders_title")} />}
     >
       <Tabs
         defaultTab="myOrder"
         items={[
           {
             tabPrefix: "myOrder",
-            tabTitle: t("myOrder_tabMyOrder"),
+            tabTitle: t("orders_tabActive"),
             tabContent: <MyOrderList />,
           },
           {
             tabPrefix: "history",
-            tabTitle: t("myOrder_tabHistory"),
+            tabTitle: t("orders_tabHistory"),
             tabContent: <HistoryList />,
           },
         ]}

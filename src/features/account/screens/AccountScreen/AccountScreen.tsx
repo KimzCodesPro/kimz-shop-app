@@ -91,7 +91,7 @@ const AccountScreen = () => {
         </BottomSheet.Content>
       </BottomSheet>
       {/* logout dialog */}
-      <Modal title={t("logoutDialog_prompt")} visible={logoutConfirm}>
+      <Modal title={t("auth_logoutDialogPrompt")} visible={logoutConfirm}>
         <View style={styles.logoutModalContent}>
           <Button
             title={t("common_cancel")}
@@ -99,7 +99,7 @@ const AccountScreen = () => {
           />
           <Button
             variant="link-danger"
-            title={t("logoutDialog_confirmButton")}
+            title={t("auth_logoutDialogConfirmButton")}
             onPress={() => setLogoutConfirm(false)}
           />
         </View>

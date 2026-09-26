@@ -18,7 +18,7 @@ const NewArrivalScreen = () => {
     // Not scrollable: FlashList is the scroller here. Nesting it in a
     // ScrollView would hand it unbounded height and kill recycling.
     <ScreenLayout
-      renderTopBar={() => <TopBar title={t("home_newArrival")} goBack />}
+      renderTopBar={() => <TopBar title={t("home_newArrivals")} goBack />}
     >
       <FlashList
         data={PRODUCTS_LIST}
@@ -26,8 +26,7 @@ const NewArrivalScreen = () => {
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           <Typography variant="smallRegular" color={colors.foreground.tertiary}>
-            {productsCount}{" "}
-            {productsCount === 1 ? t("common_product") : t("common_products")}
+            {t("home_categoryProductCount", { count: productsCount })}
           </Typography>
         }
         ListHeaderComponentStyle={styles.listHeader}

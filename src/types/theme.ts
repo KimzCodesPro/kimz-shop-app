@@ -8,8 +8,4 @@ export type ThemeColors = typeof colors;
 export type ThemePalette = ThemeColors[keyof ThemeColors];
 
 export type StatusVariant =
-  | "success"
-  | "warning"
-  | "danger"
-  | "info"
-  | "secondary";
+  "success" | "warning" | "danger" | "info" | "secondary";

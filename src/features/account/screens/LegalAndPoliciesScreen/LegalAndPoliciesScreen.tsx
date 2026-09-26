@@ -3,6 +3,7 @@ import { ScreenLayout } from "@/src/components/ui/layout";
 import { TopBar } from "@/src/components/ui/navigations";
 import { useTranslation } from "@/src/hooks";
 import useStyles from "./useStyles";
+import { LEGAL_BODY_TEXT } from "./data";
 
 const LegalAndPoliciesScreen = () => {
   const { t } = useTranslation();
@@ -10,19 +11,19 @@ const LegalAndPoliciesScreen = () => {
 
   const source = {
     html: `
-<h1>${t("legal_termsTitle")}</h1>
-<p>${t("legal_loremLong")}</p>
-<p>${t("legal_loremLong")}</p>
-<h1>${t("legal_changesTitle")}</h1>
-<p>${t("legal_loremLong")}</p>
-<p>${t("legal_loremLong")}</p>
+<h1>${t("account_legalTermsTitle")}</h1>
+<p>${LEGAL_BODY_TEXT}</p>
+<p>${LEGAL_BODY_TEXT}</p>
+<h1>${t("account_legalChangesTitle")}</h1>
+<p>${LEGAL_BODY_TEXT}</p>
+<p>${LEGAL_BODY_TEXT}</p>
 `,
   };
 
   return (
     <ScreenLayout
       scrollable
-      renderTopBar={() => <TopBar title={t("legal_title")} goBack />}
+      renderTopBar={() => <TopBar title={t("account_legalTitle")} goBack />}
     >
       <RenderHtml source={source} tagsStyles={styles} />
     </ScreenLayout>

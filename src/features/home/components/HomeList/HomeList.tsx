@@ -36,7 +36,7 @@ const HomeList = () => {
       />
 
       <SectionTitle
-        title={t("home_newArrival")}
+        title={t("home_newArrivals")}
         actionText={t("home_seeAll")}
         onActionPress={() => router.push("/home/newArrival")}
       />

@@ -5,7 +5,7 @@ export const orderStatusColor = {
 } as const;
 
 export const orderStatusLabel = {
-  onProgress: "myOrder_statusOnProgress",
-  completed: "myOrder_statusCompleted",
-  cancelled: "myOrder_statusCancelled",
+  onProgress: "orders_statusOnProgress",
+  completed: "orders_statusCompleted",
+  cancelled: "orders_statusCancelled",
 } as const;

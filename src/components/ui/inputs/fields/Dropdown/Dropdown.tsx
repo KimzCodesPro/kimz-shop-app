@@ -19,6 +19,7 @@ const Dropdown = ({
   value,
   onSelect,
   errorMessage,
+  sheetTitle,
   style,
 }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,7 +80,7 @@ const Dropdown = ({
       </Pressable>
       <BottomSheet
         ref={sheetRef}
-        title={label ?? placeholder}
+        title={sheetTitle ?? label ?? placeholder}
         bottomSheetProps={{
           snapPoints: ["50%"],
           onClose: () => setIsOpen(false),

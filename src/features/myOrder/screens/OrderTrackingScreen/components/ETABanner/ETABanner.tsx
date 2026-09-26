@@ -2,25 +2,28 @@ import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/typography";
 import { View } from "react-native";
 import { DELIVERY_ICON_SIZE } from "./constants";
+import { ETABannerProps } from "./types";
 import useStyles from "./useStyles";
 
-const ETABanner = () => {
+const ETABanner = ({ title, subTitle, style }: ETABannerProps) => {
   const { styles, colors } = useStyles();
 
   return (
-    <View style={styles.container}>
-      <Icon
-        name="truck"
-        size={DELIVERY_ICON_SIZE}
-        color={colors.primary.base}
-      />
+    <View style={[styles.container, style]}>
+      <View style={styles.iconContainer}>
+        <Icon
+          name="truck"
+          size={DELIVERY_ICON_SIZE}
+          color={colors.primary.pressed}
+        />
+      </View>
 
       <View style={styles.info}>
-        <Typography variant="smallRegular" style={styles.title}>
-          Estimated Arrival
+        <Typography variant="smallBold" color={colors.foreground.primary}>
+          {title}
         </Typography>
-        <Typography variant="normalBold" style={styles.eta}>
-          25 September 2026
+        <Typography variant="xsmallRegular" color={colors.primary.pressed}>
+          {subTitle}
         </Typography>
       </View>
     </View>

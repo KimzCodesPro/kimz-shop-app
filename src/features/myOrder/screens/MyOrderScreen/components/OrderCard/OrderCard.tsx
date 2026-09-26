@@ -31,7 +31,7 @@ const OrderCard = ({
             variant="xsmallRegular"
             color={colors.foreground.tertiary}
           >
-            {t("myOrder_orderNumber")}
+            {t("orders_detailsOrderNumber")}
           </Typography>
           <Typography
             textTransform="uppercase"
@@ -62,11 +62,11 @@ const OrderCard = ({
               variant="xsmallRegular"
               color={colors.foreground.tertiary}
             >
+              +{extraProductsCount}{" "}
               {t(
                 extraProductsCount === 1
-                  ? "common_moreItem"
-                  : "common_moreItems",
-                { count: extraProductsCount },
+                  ? "orders_oneItem"
+                  : "orders_moreItems",
               )}
             </Typography>
           )}
@@ -85,7 +85,7 @@ const OrderCard = ({
 
       <View style={styles.total}>
         <Typography variant="xsmallRegular" color={colors.foreground.tertiary}>
-          {t("myOrder_total")}
+          {t("orders_detailsTotal")}
         </Typography>
         <Typography variant="mediumBold" color={colors.primary.base}>
           ${total}
@@ -94,7 +94,7 @@ const OrderCard = ({
 
       <View style={styles.actions}>
         <Button
-          title={t("myOrder_details")}
+          title={t("orders_detailButton")}
           variant="ghost"
           size="sm"
           onPress={onDetailsPress}
@@ -102,7 +102,7 @@ const OrderCard = ({
         />
         {status === "onProgress" && (
           <Button
-            title={t("myOrder_tracking")}
+            title={t("orders_trackingButton")}
             variant="primary"
             size="sm"
             onPress={onTrackingPress}

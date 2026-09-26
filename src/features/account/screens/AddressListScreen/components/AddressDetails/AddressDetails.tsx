@@ -96,12 +96,12 @@ const AddressDetails = ({
       <View style={styles.actions}>
         <Button
           variant="primary-outline"
-          title={t("account_setAsDefault")}
+          title={t("account_addressDetailSetDefault")}
           onPress={setAsDefaultHandler}
         />
         <Button
           variant="primary"
-          title={t("account_editAddress")}
+          title={t("account_addressDetailEdit")}
           onPress={editHandler}
         />
       </View>

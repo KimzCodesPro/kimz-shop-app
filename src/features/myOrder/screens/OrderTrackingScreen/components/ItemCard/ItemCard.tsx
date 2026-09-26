@@ -2,13 +2,14 @@ import { productSample } from "@/assets/images";
 import { Typography } from "@/components/ui/typography";
 import { Image } from "expo-image";
 import { View } from "react-native";
+import type { ItemCardProps } from "./types";
 import useStyles from "./useStyles";
 
-const ItemCard = () => {
+const ItemCard = ({ style }: ItemCardProps) => {
   const { styles, colors } = useStyles();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Image source={productSample} style={styles.image} />
 
       <View style={styles.info}>

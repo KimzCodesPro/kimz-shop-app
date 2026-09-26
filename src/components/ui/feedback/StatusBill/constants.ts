@@ -1,14 +1,57 @@
 import { iconSize } from "@/constants";
 import { ThemePalette } from "@/types";
 
-// A function rather than a plain object: the values come from the resolved
-// theme, so they can only be read once useTheme has run.
+export const VARIANT_TO_SCHEMA = {
+  outlined: "outline",
+  filled: "fill",
+} as const;
+
 export const statusBillColor = (colors: ThemePalette) =>
   ({
-    success: { tint: colors.success.base, strong: colors.success.strong },
-    warning: { tint: colors.warning.base, strong: colors.warning.base },
-    info: { tint: colors.primary.base, strong: colors.primary.pressed },
-    danger: { tint: colors.danger.base, strong: colors.danger.strong },
+    outline: {
+      success: {
+        border: colors.success.strong,
+        background: "transparent",
+        typography: colors.success.strong,
+      },
+      warning: {
+        border: colors.warning.base,
+        background: "transparent",
+        typography: colors.warning.base,
+      },
+      info: {
+        border: colors.primary.pressed,
+        background: "transparent",
+        typography: colors.primary.pressed,
+      },
+      danger: {
+        border: colors.danger.strong,
+        background: "transparent",
+        typography: colors.danger.strong,
+      },
+    },
+    fill: {
+      success: {
+        border: colors.success.base,
+        background: colors.success.base,
+        typography: colors.foreground.contrast,
+      },
+      warning: {
+        border: colors.warning.base,
+        background: colors.warning.base,
+        typography: colors.foreground.contrast,
+      },
+      info: {
+        border: colors.primary.base,
+        background: colors.primary.base,
+        typography: colors.foreground.contrast,
+      },
+      danger: {
+        border: colors.danger.base,
+        background: colors.danger.base,
+        typography: colors.foreground.contrast,
+      },
+    },
   }) as const;
 
 // Optional glyph before the bill's label.

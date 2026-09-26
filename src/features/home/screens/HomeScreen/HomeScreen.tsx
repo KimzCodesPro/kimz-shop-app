@@ -15,8 +15,8 @@ const HomeScreen = () => {
   return (
     <ScreenLayout scrollable hasTabBar contentContainerStyle={styles.container}>
       <Header
-        userName="Kareem Nour"
-        meta="Let's go shopping"
+        userName={t("home_greeting", { name: "Jonathan" })}
+        meta={t("home_greetingSub")}
         imgSrc={avatarSample}
         unReadNotifications={true}
         onUserPress={() => router.navigate("/account")}
@@ -36,12 +36,12 @@ const HomeScreen = () => {
         items={[
           {
             tabPrefix: "home",
-            tabTitle: t("home_tabHome"),
+            tabTitle: t("common_bottomTabHome"),
             tabContent: <HomeList />,
           },
           {
             tabPrefix: "category",
-            tabTitle: t("home_tabCategory"),
+            tabTitle: t("common_bottomTabCategory"),
             tabContent: <CategoryList />,
           },
         ]}

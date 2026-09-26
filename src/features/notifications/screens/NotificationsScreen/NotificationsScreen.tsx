@@ -20,7 +20,7 @@ const NotificationsScreen = () => {
             type={item.type}
             title={item.title}
             description={item.description}
-            timeAgo={item.timeAgo}
+            timeAgo={t(item.timeAgo)}
           />
         )}
       />

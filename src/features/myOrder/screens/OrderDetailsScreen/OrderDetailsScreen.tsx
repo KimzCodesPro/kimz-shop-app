@@ -8,7 +8,7 @@ const OrderDetailsScreen = () => {
   return (
     <ScreenLayout
       scrollable
-      renderTopBar={() => <TopBar title={t("myOrder_details")} goBack />}
+      renderTopBar={() => <TopBar title={t("orders_detailsTitle")} goBack />}
     >
       {null}
     </ScreenLayout>

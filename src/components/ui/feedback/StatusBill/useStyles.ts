@@ -2,7 +2,7 @@ import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StatusVariant } from "@/types";
 import { StyleSheet } from "react-native";
-import { statusBillColor } from "./constants";
+import { statusBillColor, VARIANT_TO_SCHEMA } from "./constants";
 import { StatusBillVariant } from "./types";
 
 const useStyles = (
@@ -11,20 +11,17 @@ const useStyles = (
 ) => {
   const colors = useTheme();
 
-  const currentStatusColors = statusBillColor(colors)[colorSchema];
+  const { border, background, typography } =
+    statusBillColor(colors)[VARIANT_TO_SCHEMA[variant]][colorSchema];
 
   const styles = StyleSheet.create({
     container: {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor:
-        variant === "outlined" ? "transparent" : currentStatusColors.tint,
+      backgroundColor: background,
       borderWidth: 1,
-      borderColor:
-        variant === "outlined"
-          ? currentStatusColors.strong
-          : currentStatusColors.tint,
+      borderColor: border,
       paddingHorizontal: spacing.space8.width,
       paddingVertical: spacing.space4.height,
       borderRadius: radius.full,
@@ -32,7 +29,7 @@ const useStyles = (
     },
   });
 
-  return { colors, styles, strongColor: currentStatusColors.strong };
+  return { colors, styles, typographyColor: typography };
 };
 
 export default useStyles;

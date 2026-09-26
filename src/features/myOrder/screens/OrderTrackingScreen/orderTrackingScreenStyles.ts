@@ -2,11 +2,11 @@ import { spacing } from "@/constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: spacing.space12.width,
+  itemCard: {
+    marginBottom: spacing.space16.height,
+  },
+  etaBanner: {
+    marginBottom: spacing.space24.height,
   },
 });
 
