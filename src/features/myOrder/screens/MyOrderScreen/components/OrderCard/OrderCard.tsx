@@ -1,10 +1,14 @@
-import { useTranslation } from "@/hooks";
-import { Image } from "expo-image";
-import { View } from "react-native";
 import { StatusBill } from "@/components/ui/feedback";
 import { Button } from "@/components/ui/inputs";
 import { Typography } from "@/components/ui/typography";
-import { orderStatusColor, orderStatusLabel } from "./constants";
+import { useTranslation } from "@/hooks";
+import { CardWrapper } from "@/src/components/ui/card";
+import {
+  orderStatusColor,
+  orderStatusLabel,
+} from "@/src/features/myOrder/constant";
+import { Image } from "expo-image";
+import { View } from "react-native";
 import { OrderCardProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -23,7 +27,7 @@ const OrderCard = ({
   const extraProductsCount = products.length - 1;
 
   return (
-    <View style={[styles.container, style]}>
+    <CardWrapper style={[styles.container, style]}>
       <View style={styles.header}>
         <View>
           <Typography
@@ -110,7 +114,7 @@ const OrderCard = ({
           />
         )}
       </View>
-    </View>
+    </CardWrapper>
   );
 };
 

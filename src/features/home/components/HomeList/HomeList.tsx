@@ -1,15 +1,13 @@
 import { productSample } from "@/assets/images";
 import { ProductCard, PromoBannerCard } from "@/components/ui/card";
-import { SectionTitle } from "@/components/ui/typography";
+import { Carousel } from "@/components/ui/display";
 import { useTranslation } from "@/hooks";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { View } from "react-native";
-import styles from "./homeListStyles";
-
-import { Carousel } from "@/components/ui/display";
-
 import { PRODUCTS_LIST, PRODUCTS_SLIDES } from "../../data";
+import SectionTitle from "../SectionTitle/SectionTitle";
+import styles from "./homeListStyles";
 
 const HomeList = () => {
   const { t } = useTranslation();

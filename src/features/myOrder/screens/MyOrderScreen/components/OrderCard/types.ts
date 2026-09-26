@@ -1,3 +1,4 @@
+import { OrderStatus } from "@/src/features/myOrder/types";
 import { ImageProps } from "expo-image";
 import { StyleProp, ViewStyle } from "react-native";
 
@@ -6,8 +7,6 @@ export type OrderProduct = {
   title: string;
   imgSrc: ImageProps["source"];
 };
-
-export type OrderStatus = "onProgress" | "completed" | "cancelled";
 
 export type OrderCardProps = {
   orderNumber: string;

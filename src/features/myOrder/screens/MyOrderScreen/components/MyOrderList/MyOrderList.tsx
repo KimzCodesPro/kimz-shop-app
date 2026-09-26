@@ -1,8 +1,8 @@
-import OrderCard from "../OrderCard/OrderCard";
 import { FlashList } from "@shopify/flash-list";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
 import { MY_ORDERS_LIST } from "../../data";
+import OrderCard from "../OrderCard/OrderCard";
 import styles from "./myOrderListStyles";
 
 const MyOrderList = () => {

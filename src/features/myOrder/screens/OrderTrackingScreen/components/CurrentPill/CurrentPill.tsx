@@ -1,8 +1,9 @@
 import { Typography } from "@/src/components/ui/typography";
 import { View } from "react-native";
+import { CurrentPillProps } from "./types";
 import useStyles from "./useStyles";
 
-const CurrentPill = ({ label }: { label: string }) => {
+const CurrentPill = ({ label }: CurrentPillProps) => {
   const { styles, colors } = useStyles();
 
   return (

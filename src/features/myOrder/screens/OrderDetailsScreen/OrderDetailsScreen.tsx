@@ -1,16 +1,19 @@
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
-import { useTranslation } from "@/hooks";
+import { useTheme, useTranslation } from "@/hooks";
+import { OrderInfo, SectionHead } from "./components";
 
 const OrderDetailsScreen = () => {
+  const colors = useTheme();
   const { t } = useTranslation();
-  // const { status } = useLocalSearchParams();
+
   return (
     <ScreenLayout
       scrollable
       renderTopBar={() => <TopBar title={t("orders_detailsTitle")} goBack />}
     >
-      {null}
+      <SectionHead title={t("orders_detailsOrderInfo")} isFirst />
+      <OrderInfo />
     </ScreenLayout>
   );
 };
