@@ -31,7 +31,7 @@ const useStyles = () => {
     },
     stepIndicatorLineDelivered: {
       backgroundColor: colors.border.default,
-      height: HS(60),
+      height: HS(50),
     },
     stepIndicatorDot: {
       alignItems: "center",

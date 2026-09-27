@@ -2,9 +2,9 @@ import { avatarPlaceholder } from "@/assets/images";
 import Icon from "@/components/icons";
 import { Image } from "expo-image";
 import { View } from "react-native";
+import { UPLOADER_ICON_SIZE } from "./constants";
 import { AvatarProps } from "./types";
 import useStyles from "./useStyles";
-import { UPLOADER_ICON_SIZE } from "./constants";
 
 const Avatar = ({
   size = "md",
@@ -18,9 +18,9 @@ const Avatar = ({
       <Image
         style={styles.img}
         source={imgSrc}
-        contentFit="cover"
+        contentFit="fill"
         placeholder={avatarPlaceholder}
-        placeholderContentFit="cover"
+        placeholderContentFit="fill"
         transition={1000}
       />
       {enableUploader && size === "lg" && (

@@ -10,7 +10,19 @@ const useStyles = () => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
-    container: {},
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: spacing.space12.width,
+    },
+    iconContainer: {
+      width: HS(32),
+      height: HS(22),
+      backgroundColor: colors.primary.tint,
+      borderRadius: radius.xs,
+      alignItems: "center",
+      justifyContent: "center",
+    },
   });
 
   return { styles, colors };

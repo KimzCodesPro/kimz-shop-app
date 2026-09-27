@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { SIDE_PADDING, TOP_BAR_GAP } from "./constants";
+import { CONTENT_BOTTOM_GAP, SIDE_PADDING, TOP_BAR_GAP } from "./constants";
 import { UseStylesArgs } from "./types";
 
 const useStyles = ({
@@ -31,12 +31,12 @@ const useStyles = ({
     viewWrapper: {
       ...horizontalPadding,
       paddingTop,
-      paddingBottom: bottomInset,
+      paddingBottom: bottomInset + CONTENT_BOTTOM_GAP,
       gap: TOP_BAR_GAP,
       flex: 1,
     },
     // Sits outside the scroll view, so it owns the hardware clearance — the
-    // scroll view then stops above the home indicator instead of drawing into
+    // scroll view then stops above the homex indicator instead of drawing into
     // it, and only the design gap rides along with the content.
     //dont add CONTENT_BOTTOM_GAP we already added in verticalScrollView Component
     scrollViewWrapper: {

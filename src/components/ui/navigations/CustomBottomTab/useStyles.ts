@@ -43,7 +43,7 @@ const useStyles = (focused?: boolean) => {
       gap: spacing.space8.height,
       borderTopWidth: 2,
       borderTopColor: focused ? colors.primary.base : "transparent",
-      width: "80%",
+      width: "90%",
       paddingVertical: VS(12),
     },
     // Anchor for the badge — absolute children position against this View.

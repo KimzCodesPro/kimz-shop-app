@@ -10,9 +10,12 @@ import {
 import { Language, Theme } from "@/types";
 import Constants, { ExecutionEnvironment } from "expo-constants";
 import * as Updates from "expo-updates";
-import { DevSettings, I18nManager } from "react-native";
+import { DevSettings, I18nManager, useColorScheme } from "react-native";
 
 const useUserPreferences = () => {
+  // Get the current system color scheme (light, dark or system).
+  const systemScheme = useColorScheme();
+
   const preferences = useAppSelector((state) => state.userPreferences);
   const dispatch = useAppDispatch();
 
@@ -57,8 +60,15 @@ const useUserPreferences = () => {
     }
   };
 
+  // resolve theme, we can derive the current theme from the preferences
+  // if it set to be system, we derive the theme from the device settings.
+  const getSystemSchema = systemScheme === "dark" ? "dark" : "light";
+  const resolvedTheme =
+    preferences.theme === "system" ? getSystemSchema : preferences.theme;
+
   return {
     ...preferences,
+    appResolvedTheme: resolvedTheme,
     setLanguage: changeLanguage,
     setTheme: (theme: Theme) => dispatch(setTheme(theme)),
     setEnableNotifications: (enable: boolean) =>
