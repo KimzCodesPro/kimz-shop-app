@@ -8,6 +8,13 @@ export type OrderProduct = {
   imgSrc: ImageProps["source"];
 };
 
+export type Order = {
+  orderNumber: string;
+  products: readonly OrderProduct[];
+  total: number;
+  status: OrderStatus;
+};
+
 export type OrderCardProps = {
   orderNumber: string;
   products: readonly OrderProduct[];

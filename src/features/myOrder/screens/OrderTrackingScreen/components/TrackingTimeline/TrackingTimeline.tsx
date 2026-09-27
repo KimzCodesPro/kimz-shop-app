@@ -14,15 +14,16 @@ const TrackingTimeline = ({
 }: TrackingTimelineProps) => {
   const { styles, colors } = useStyles();
   const { t } = useTranslation();
-  const activeStageIndex = steps.findIndex(
+  const currentStageIndex = steps.findIndex(
     (step) => step.stage === activeStage,
   );
   return (
     <View style={[styles.container, style]}>
       {steps.map((step, index) => {
-        const isStagePassed = index <= activeStageIndex;
+        const isStagePassed = index <= currentStageIndex;
         const isCurrentStage = activeStage === step.stage;
         const isLastStep = index === steps.length - 1;
+
         return (
           <View key={index} style={styles.stepContainer}>
             <View style={[styles.stepIndicator]}>

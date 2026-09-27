@@ -5,11 +5,11 @@ import { useTranslation } from "@/hooks";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { View } from "react-native";
-import { PRODUCTS_LIST, PRODUCTS_SLIDES } from "../../data";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import styles from "./homeListStyles";
+import { HomeListProps } from "./types";
 
-const HomeList = () => {
+const HomeList = ({ slides, products }: HomeListProps) => {
   const { t } = useTranslation();
   const router = useRouter();
   const [isFavorite, setIsFavorite] = useState(false);
@@ -20,7 +20,7 @@ const HomeList = () => {
         loop={true}
         autoplay={true}
         autoplayInterval={4000}
-        data={PRODUCTS_SLIDES}
+        data={slides}
         height={130}
         paginationDotType="circle"
         renderItem={(item) => (
@@ -39,7 +39,7 @@ const HomeList = () => {
         onActionPress={() => router.push("/home/newArrival")}
       />
       <View style={styles.productsList}>
-        {PRODUCTS_LIST.map((item, index) => (
+        {products.map((item, index) => (
           <ProductCard
             onPress={() => console.log(`Product ${item.productName} pressed`)}
             key={index}

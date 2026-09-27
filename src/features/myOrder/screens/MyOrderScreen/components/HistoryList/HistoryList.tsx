@@ -1,16 +1,16 @@
 import { FlashList } from "@shopify/flash-list";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
-import { HISTORY_ORDERS_LIST } from "../../data";
 import OrderCard from "../OrderCard/OrderCard";
 import styles from "./historyListStyles";
+import { HistoryListProps } from "./types";
 
-const HistoryList = () => {
+const HistoryList = ({ orders }: HistoryListProps) => {
   const router = useRouter();
 
   return (
     <FlashList
-      data={HISTORY_ORDERS_LIST}
+      data={orders}
       keyExtractor={(item) => item.orderNumber}
       showsVerticalScrollIndicator={false}
       ItemSeparatorComponent={() => <View style={styles.separator} />}

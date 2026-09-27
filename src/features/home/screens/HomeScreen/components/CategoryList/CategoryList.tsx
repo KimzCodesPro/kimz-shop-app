@@ -1,12 +1,12 @@
-import CategoryCard from "../CategoryCard/CategoryCard";
 import { View } from "react-native";
+import CategoryCard from "../CategoryCard/CategoryCard";
 import styles from "./catgoryListStyles";
-import { CATEGORIES_LIST } from "../../data";
+import { CategoryListProps } from "./types";
 
-const CategoryList = () => {
+const CategoryList = ({ categories }: CategoryListProps) => {
   return (
     <View style={styles.container}>
-      {CATEGORIES_LIST.map(({ id, categoryName, productsCount, img }) => (
+      {categories.map(({ id, categoryName, productsCount, img }) => (
         <CategoryCard
           onPress={() => console.log(`Category ${categoryName} pressed`)}
           key={id}

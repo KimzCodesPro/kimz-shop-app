@@ -10,7 +10,7 @@ import { View } from "react-native";
 import { OrderInfoProps } from "./types";
 import useStyles from "./useStyles";
 
-const OrderInfo = ({ style }: OrderInfoProps) => {
+const OrderInfo = ({ order, style }: OrderInfoProps) => {
   const { styles, colors } = useStyles();
   const { t } = useTranslation();
 
@@ -21,16 +21,16 @@ const OrderInfo = ({ style }: OrderInfoProps) => {
           {t("orders_detailsOrderNumber")}
         </Typography>
         <Typography variant="smallBold" color={colors.foreground.primary}>
-          #KMZ-2024-0142
+          {order.orderNumber}
         </Typography>
       </View>
 
       <View style={styles.row}>
         <Typography variant="xsmallRegular" color={colors.foreground.tertiary}>
-          {t("orders_detailsOrderNumber")}
+          {t("orders_detailsPlaced")}
         </Typography>
         <Typography variant="smallBold" color={colors.foreground.primary}>
-          May 15, 2024
+          {order.placedAt}
         </Typography>
       </View>
 
@@ -39,8 +39,8 @@ const OrderInfo = ({ style }: OrderInfoProps) => {
           {t("orders_detailsStatus")}
         </Typography>
         <StatusBill
-          color={orderStatusColor.onProgress}
-          label={t(orderStatusLabel.onProgress)}
+          color={orderStatusColor[order.status]}
+          label={t(orderStatusLabel[order.status])}
         />
       </View>
     </CardWrapper>

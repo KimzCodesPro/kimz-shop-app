@@ -3,9 +3,14 @@ import { ScreenLayout } from "@/components/ui/layout";
 import { Tabs } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
 import { TextInput } from "@/src/components/ui/inputs";
+import {
+  CATEGORIES_LIST,
+  PRODUCTS_LIST,
+  PRODUCTS_SLIDES,
+} from "@/src/features/home/data";
 import { useRouter } from "expo-router";
 import { Pressable } from "react-native";
-import { CategoryList, Header, HomeList } from "../../components";
+import { CategoryList, Header, HomeList } from "./components";
 import styles from "./homeScreenStyles";
 
 const HomeScreen = () => {
@@ -37,12 +42,14 @@ const HomeScreen = () => {
           {
             tabPrefix: "home",
             tabTitle: t("common_bottomTabHome"),
-            tabContent: <HomeList />,
+            tabContent: (
+              <HomeList slides={PRODUCTS_SLIDES} products={PRODUCTS_LIST} />
+            ),
           },
           {
             tabPrefix: "category",
             tabTitle: t("common_bottomTabCategory"),
-            tabContent: <CategoryList />,
+            tabContent: <CategoryList categories={CATEGORIES_LIST} />,
           },
         ]}
       />

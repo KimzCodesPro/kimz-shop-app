@@ -13,6 +13,7 @@ const useStyles = () => {
     row: {
       flexDirection: "row",
       justifyContent: "space-between",
+      alignItems: "center",
       borderBottomWidth: 1,
       borderBottomColor: colors.background.surfaceRaised,
       paddingBottom: spacing.space8.height,

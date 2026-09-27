@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   Firstcontainer: {
-    marginTop: spacing.space12.height,
     marginBottom: spacing.space12.height,
   },
   container: {

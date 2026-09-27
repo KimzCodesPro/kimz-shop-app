@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { radius, spacing } from "@/constants";
+import { spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
@@ -10,7 +10,18 @@ const useStyles = () => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
-    container: {},
+    info: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      marginBottom: spacing.space16.height,
+    },
+    sum: {
+      borderTopWidth: 1,
+      borderTopColor: colors.border.default,
+      paddingTop: spacing.space16.height,
+      flexDirection: "row",
+      justifyContent: "space-between",
+    },
   });
 
   return { styles, colors };
