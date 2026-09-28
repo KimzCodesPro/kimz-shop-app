@@ -16,22 +16,22 @@ export const buttonVariantColor = (colors: ThemePalette) =>
       border: colors.primary.base,
     },
     chip: {
-      background: "transparent",
+      background: colors.background.base,
       typography: colors.primary.base,
       border: colors.primary.base,
     },
     link: {
-      background: "transparent",
+      background: colors.background.base,
       typography: colors.primary.base,
-      border: "transparent",
+      border: colors.background.base,
     },
     "link-danger": {
-      background: "transparent",
+      background: colors.background.base,
       typography: colors.danger.base,
-      border: "transparent",
+      border: colors.background.base,
     },
     ghost: {
-      background: "transparent",
+      background: colors.background.base,
       typography: colors.foreground.primary,
       border: colors.border.default,
     },
