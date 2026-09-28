@@ -19,7 +19,7 @@ const useStyles = (verifyFailed: boolean) => {
       height: VS(56),
       borderWidth: 1,
       borderColor: verifyFailed ? colors.danger.base : colors.border.default,
-      borderRadius: radius.sm,
+      borderRadius: radius.lg,
       margin: HS(5),
     },
     pinCodeText: {

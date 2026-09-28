@@ -21,7 +21,9 @@ const VerificationScreen = () => {
         contentContainerStyle={styles.container}
         horizontalCenterAlignment
         dismissKeyboardOnTap
-        renderTopBar={() => <TopBar title={t("auth_verificationTitle")} goBack />}
+        renderTopBar={() => (
+          <TopBar title={t("auth_verificationTitle")} goBack />
+        )}
       >
         <StatusHalo variant="info" icon="mail-opened" />
         <View style={styles.infoContainer}>
