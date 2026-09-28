@@ -11,22 +11,22 @@ export const statusBillColor = (colors: ThemePalette) =>
     outline: {
       success: {
         border: colors.success.strong,
-        background: "transparent",
+        background: colors.background.base,
         typography: colors.success.strong,
       },
       warning: {
         border: colors.warning.base,
-        background: "transparent",
+        background: colors.background.base,
         typography: colors.warning.base,
       },
       info: {
         border: colors.primary.pressed,
-        background: "transparent",
+        background: colors.background.base,
         typography: colors.primary.pressed,
       },
       danger: {
         border: colors.danger.strong,
-        background: "transparent",
+        background: colors.background.base,
         typography: colors.danger.strong,
       },
     },

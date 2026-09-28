@@ -42,7 +42,7 @@ const useStyles = (focused?: boolean) => {
       justifyContent: "center",
       gap: spacing.space8.height,
       borderTopWidth: 2,
-      borderTopColor: focused ? colors.primary.base : "transparent",
+      borderTopColor: focused ? colors.primary.base : colors.background.base,
       width: "90%",
       paddingVertical: VS(12),
     },

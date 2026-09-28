@@ -16,7 +16,7 @@ const useStyles = () => {
       flex: 1,
       paddingVertical: spacing.space8.height,
       borderBottomWidth: 2,
-      borderBottomColor: "transparent",
+      borderBottomColor: colors.background.base,
     },
     activeTab: {
       borderBottomColor: colors.primary.base,
