@@ -66,7 +66,7 @@ const AccountScreen = () => {
       {/* theme bottom sheet */}
       <BottomSheet
         ref={themeBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["41%"] }}
+        bottomSheetProps={{ snapPoints: ["38%"] }}
         title={t("account_rowTheme")}
       >
         <BottomSheet.Content>
