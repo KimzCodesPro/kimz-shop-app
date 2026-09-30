@@ -7,6 +7,6 @@ type ListItem = {
 };
 
 export type AccordionProps = {
-  items: ListItem[];
+  items: readonly ListItem[];
   style?: StyleProp<ViewStyle>;
 };

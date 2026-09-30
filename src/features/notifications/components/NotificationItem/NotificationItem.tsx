@@ -1,6 +1,7 @@
 import Icon from "@/src/components/icons";
 import { Typography } from "@/src/components/ui/typography";
 import { View } from "react-native";
+import { NOTIFICATION_ICON_SIZE, notificationIcon } from "./constants";
 import useStyles from "./useStyles";
 
 import type { NotificationItemProps } from "./types";
@@ -13,23 +14,12 @@ const NotificationItem = ({
 }: NotificationItemProps) => {
   const { styles, colors } = useStyles();
 
-  const iconMapping = {
-    "purchase-completed": "shopping-cart",
-    "flash-sale": "discount",
-    "package-sent": "truck",
-    "payment-successful": "credit-card",
-    "rate-purchase": "star",
-    "refund-processed": "credit-card-refund",
-    "security-alert": "alert-triangle",
-    "share-your-feedback": "file-text",
-  } as const;
-
   return (
     <View style={styles.container}>
       <View style={styles.iconWrapper}>
         <Icon
-          name={iconMapping[type]}
-          size={24}
+          name={notificationIcon[type]}
+          size={NOTIFICATION_ICON_SIZE}
           color={colors.foreground.secondary}
         />
       </View>

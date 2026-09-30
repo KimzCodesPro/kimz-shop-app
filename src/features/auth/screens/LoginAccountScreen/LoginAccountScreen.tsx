@@ -16,7 +16,7 @@ const LoginAccountScreen = () => {
   const forgotPasswordSheetRef = useRef<BottomSheetRef | null>(null);
 
   const sendCodeHandler = () => {
-    forgotPasswordSheetRef.current?.close();
+    forgotPasswordSheetRef.current?.dismiss();
     router.push("/verification");
   };
 
@@ -46,7 +46,7 @@ const LoginAccountScreen = () => {
             title={t("auth_forgotPasswordLink")}
             variant="link"
             size="sm"
-            onPress={() => forgotPasswordSheetRef.current?.expand()}
+            onPress={() => forgotPasswordSheetRef.current?.present()}
             style={styles.forgotPasswordButton}
           />
         </View>

@@ -7,7 +7,7 @@ const SearchScreen = () => {
 
   return (
     <ScreenLayout
-      renderTopBar={() => <TopBar title={t("search_title")} goBack />}
+      renderTopBar={() => <TopBar title={t("home_searchPlaceholder")} goBack />}
     >
       {null}
     </ScreenLayout>

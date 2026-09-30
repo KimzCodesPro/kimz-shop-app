@@ -23,7 +23,7 @@ const AddressListScreen = () => {
   return (
     <>
       <ScreenLayout
-        renderTopBar={() => <TopBar title={t("account_address")} goBack />}
+        renderTopBar={() => <TopBar title={t("account_addressTitle")} goBack />}
       >
         <VerticalScrollView>
           <AddressesList
@@ -34,7 +34,7 @@ const AddressListScreen = () => {
         </VerticalScrollView>
 
         <Button
-          title={t("account_addNewAddress")}
+          title={t("account_addAddressTitle")}
           onPress={() => router.push("/account/addNewAddress")}
         />
       </ScreenLayout>
@@ -42,7 +42,7 @@ const AddressListScreen = () => {
       <BottomSheet
         ref={addressBottomSheetRef}
         bottomSheetProps={{ snapPoints: ["59%"] }}
-        title={t("account_addressDetails")}
+        title={t("account_addressDetailTitle")}
       >
         <BottomSheet.Content>
           <AddressDetails

@@ -4,6 +4,7 @@ import FieldErrorMessage from "./FieldErrorMessage";
 import FieldLabel from "./FieldLabel";
 import { FieldWrapperProps } from "./types";
 import useSharedStyles from "./useSharedStyles";
+import { FIELD_ICON_SIZE } from "./constants";
 
 const FieldWrapper = ({
   label,
@@ -19,7 +20,7 @@ const FieldWrapper = ({
     <View style={[styles.container, style]}>
       <FieldLabel label={label} />
       <View style={styles.fieldWrapper}>
-        <Icon name={fieldIconName} size={20} color={iconColor} />
+        <Icon name={fieldIconName} size={FIELD_ICON_SIZE} color={iconColor} />
         {children}
       </View>
       <FieldErrorMessage errorMessage={errorMessage} />

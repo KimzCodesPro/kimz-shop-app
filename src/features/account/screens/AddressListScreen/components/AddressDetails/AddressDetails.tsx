@@ -12,6 +12,7 @@ import { Button } from "@/src/components/ui/inputs";
 import { Pressable, View } from "react-native";
 import styles from "./AddressDetailsStyles";
 import { AddressDetailsProps } from "./types";
+import { INFO_ROW_ICON_SIZE } from "./constants";
 
 const AddressDetails = ({
   type,
@@ -34,11 +35,7 @@ const AddressDetails = ({
   return (
     <>
       <View style={styles.header}>
-        <StatusBill
-          icon={statusIcon}
-          color={statusColor}
-          label={statusLabel}
-        />
+        <StatusBill icon={statusIcon} color={statusColor} label={statusLabel} />
         <Pressable onPress={deleteHandler}>
           <IconBadge icon="trash" variant="danger" />
         </Pressable>
@@ -55,19 +52,31 @@ const AddressDetails = ({
       {/* info in list */}
       <View style={styles.addressInfoList}>
         <View style={styles.addressInfoSlot}>
-          <Icon name="map-pin" size={18} color={colors.foreground.tertiary} />
+          <Icon
+            name="map-pin"
+            size={INFO_ROW_ICON_SIZE}
+            color={colors.foreground.tertiary}
+          />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
             {city}
           </Typography>
         </View>
         <View style={styles.addressInfoSlot}>
-          <Icon name="building" color={colors.foreground.tertiary} size={18} />
+          <Icon
+            name="building"
+            color={colors.foreground.tertiary}
+            size={INFO_ROW_ICON_SIZE}
+          />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
             {t("account_building")} {buildingNum}
           </Typography>
         </View>
         <View style={styles.addressInfoSlot}>
-          <Icon name="layers" color={colors.foreground.tertiary} size={18} />
+          <Icon
+            name="layers"
+            color={colors.foreground.tertiary}
+            size={INFO_ROW_ICON_SIZE}
+          />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
             {t("account_floorNumber")} {floorNum}
           </Typography>
@@ -76,7 +85,7 @@ const AddressDetails = ({
           <Icon
             name="info-circle"
             color={colors.foreground.tertiary}
-            size={18}
+            size={INFO_ROW_ICON_SIZE}
           />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
             {landMark}
@@ -87,12 +96,12 @@ const AddressDetails = ({
       <View style={styles.actions}>
         <Button
           variant="primary-outline"
-          title={t("account_setAsDefault")}
+          title={t("account_addressDetailSetDefault")}
           onPress={setAsDefaultHandler}
         />
         <Button
           variant="primary"
-          title={t("account_editAddress")}
+          title={t("account_addressDetailEdit")}
           onPress={editHandler}
         />
       </View>

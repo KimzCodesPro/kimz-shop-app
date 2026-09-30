@@ -21,7 +21,9 @@ const VerificationScreen = () => {
         contentContainerStyle={styles.container}
         horizontalCenterAlignment
         dismissKeyboardOnTap
-        renderTopBar={() => <TopBar title={t("auth_verificationTitle")} goBack />}
+        renderTopBar={() => (
+          <TopBar title={t("auth_verificationTitle")} goBack />
+        )}
       >
         <StatusHalo variant="info" icon="mail-opened" />
         <View style={styles.infoContainer}>
@@ -74,7 +76,7 @@ const VerificationScreen = () => {
         <Button
           style={styles.submitButton}
           variant="primary"
-          onPress={() => changePasswordSheetRef.current?.expand()}
+          onPress={() => changePasswordSheetRef.current?.present()}
           title={t("auth_verificationSubmit")}
         />
       </ScreenLayout>
@@ -104,7 +106,7 @@ const VerificationScreen = () => {
             style={styles.changePasswordButton}
             variant="primary"
             onPress={() => {
-              changePasswordSheetRef.current?.close();
+              changePasswordSheetRef.current?.dismiss();
               router.replace("/PasswordChanged");
             }}
             title={t("auth_changePasswordTitle")}

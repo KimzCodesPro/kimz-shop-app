@@ -28,32 +28,40 @@ const useAccountScreen = () => {
   const notificationsBottomSheetRef = useRef<BottomSheetRef | null>(null);
 
   const languageOptions = [
-    { label: t("common_english"), value: "en" },
-    { label: t("common_arabic"), value: "ar" },
+    { label: t("account_settingLanguageEnglish"), value: "en" },
+    { label: t("account_settingLanguageArabic"), value: "ar" },
   ];
 
   const onSelectLanguage = async (value: string) => {
-    languageBottomSheetRef.current?.close();
+    languageBottomSheetRef.current?.dismiss();
     await setLanguage(value as Language);
   };
 
   const themeOptions: ImageRadioGroupOption[] = [
-    { label: t("common_light"), value: "light", image: themeLight },
-    { label: t("common_dark"), value: "dark", image: themeDark },
-    { label: t("common_system"), value: "system", image: themeSystem },
+    {
+      label: t("account_settingThemeLight"),
+      value: "light",
+      image: themeLight,
+    },
+    { label: t("account_settingThemeDark"), value: "dark", image: themeDark },
+    {
+      label: t("account_settingThemeSystem"),
+      value: "system",
+      image: themeSystem,
+    },
   ];
 
   const selectedThemeLabel =
     themeOptions.find((option) => option.value === selectedTheme)?.label ?? "";
 
   const onSelectTheme = (value: string) => {
-    themeBottomSheetRef.current?.close();
+    themeBottomSheetRef.current?.dismiss();
     setTheme(value as Theme);
   };
 
   const notificationOptions = [
     {
-      label: t("account_pushNotifications"),
+      label: t("account_settingPushNotifications"),
       value: "pushNotifications",
       enabled: enableNotifications,
     },
@@ -108,7 +116,7 @@ const useAccountScreen = () => {
           title: t("account_rowNotifications"),
           trailing: "chevron",
           onPress: () => {
-            notificationsBottomSheetRef.current?.expand();
+            notificationsBottomSheetRef.current?.present();
           },
         },
 
@@ -118,10 +126,10 @@ const useAccountScreen = () => {
           trailing: "chevronWithValue",
           trailingValue:
             selectedLanguage === "en"
-              ? t("common_english")
-              : t("common_arabic"),
+              ? t("account_settingLanguageEnglish")
+              : t("account_settingLanguageArabic"),
           onPress: () => {
-            languageBottomSheetRef.current?.expand();
+            languageBottomSheetRef.current?.present();
           },
         },
         {
@@ -130,7 +138,7 @@ const useAccountScreen = () => {
           trailing: "chevronWithValue",
           trailingValue: selectedThemeLabel,
           onPress: () => {
-            themeBottomSheetRef.current?.expand();
+            themeBottomSheetRef.current?.present();
           },
         },
       ],
@@ -153,7 +161,7 @@ const useAccountScreen = () => {
         {
           variant: "danger",
           icon: "logout",
-          title: t("account_rowLogout"),
+          title: t("auth_logoutRow"),
           trailing: "chevron",
           onPress: () => {
             setLogoutConfirm(true);

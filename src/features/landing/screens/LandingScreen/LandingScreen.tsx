@@ -4,7 +4,7 @@ import { Button } from "@/src/components/ui/inputs";
 import { ScreenLayout } from "@/src/components/ui/layout";
 import { router } from "expo-router";
 import { View } from "react-native";
-import { CarouselItem } from "../../components";
+import { CarouselItem } from "../components";
 import { LANDING_SLIDES } from "./data";
 import styles from "./LandingScreenStyle";
 

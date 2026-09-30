@@ -7,6 +7,7 @@ import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
 import { fieldCurrentStatus } from "../shared/utils";
+import { CHEVRON_ICON_SIZE } from "./constants";
 import DropdownList from "./DropdownList";
 import { DropdownProps } from "./types";
 
@@ -18,6 +19,7 @@ const Dropdown = ({
   value,
   onSelect,
   errorMessage,
+  sheetTitle,
   style,
 }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,11 +28,11 @@ const Dropdown = ({
   const handleOpenSheet = () => {
     Keyboard.dismiss();
     setIsOpen(true);
-    sheetRef.current?.expand();
+    sheetRef.current?.present();
   };
 
   const handleSelectValue = (val: string) => {
-    sheetRef.current?.close();
+    sheetRef.current?.dismiss();
     onSelect(val);
     setIsOpen(false);
   };
@@ -71,14 +73,14 @@ const Dropdown = ({
           </Typography>
           <Icon
             name={isOpen ? "chevron-up" : "chevron-down"}
-            size={22}
+            size={CHEVRON_ICON_SIZE}
             color={colors.foreground.tertiary}
           />
         </FieldWrapper>
       </Pressable>
       <BottomSheet
         ref={sheetRef}
-        title={label ?? placeholder}
+        title={sheetTitle ?? label ?? placeholder}
         bottomSheetProps={{
           snapPoints: ["50%"],
           onClose: () => setIsOpen(false),

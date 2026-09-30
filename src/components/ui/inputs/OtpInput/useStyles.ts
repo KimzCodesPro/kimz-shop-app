@@ -19,7 +19,7 @@ const useStyles = (verifyFailed: boolean) => {
       height: VS(56),
       borderWidth: 1,
       borderColor: verifyFailed ? colors.danger.base : colors.border.default,
-      borderRadius: radius.sm,
+      borderRadius: radius.lg,
       margin: HS(5),
     },
     pinCodeText: {
@@ -34,11 +34,12 @@ const useStyles = (verifyFailed: boolean) => {
     },
     placeholderText: {},
     filledPinCodeContainer: {
-      borderColor: verifyFailed ? colors.danger.base : colors.border.default,
-
+      borderColor: verifyFailed
+        ? colors.danger.base
+        : colors.background.surface,
       backgroundColor: verifyFailed
         ? colors.danger.tint
-        : colors.background.base,
+        : colors.background.surface,
     },
     disabledPinCodeContainer: {
       backgroundColor: colors.background.base,

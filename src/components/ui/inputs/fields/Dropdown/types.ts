@@ -11,6 +11,9 @@ export type DropdownProps = {
   icon: IconName;
   options: DropdownOption[];
   onSelect: (value: string) => void;
+  // Falls back to `label` when omitted — most dropdowns want the same text
+  // in the field and the sheet that opens under it.
+  sheetTitle?: string;
 } & FieldProps;
 
 export type DropdownListProps = {
