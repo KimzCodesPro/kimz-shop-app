@@ -23,7 +23,7 @@ const useStyles = () => {
       paddingBottom: 0,
       marginBottom: 0,
       borderBottomWidth: 0,
-      borderBottomColor: "transparent",
+      borderBottomColor: colors.background.base,
     },
   });
 

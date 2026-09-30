@@ -1,6 +1,7 @@
-import BottomSheet, { BottomSheetProps } from "@gorhom/bottom-sheet";
+import { BottomSheetModal, BottomSheetProps } from "@gorhom/bottom-sheet";
 import { ReactNode, Ref } from "react";
-export type BottomSheetRef = BottomSheet | null;
+
+export type BottomSheetRef = BottomSheetModal | null;
 
 export type AppBottomSheetProps = {
   title: string;

@@ -7,9 +7,9 @@ import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
 import { fieldCurrentStatus } from "../shared/utils";
+import { CHEVRON_ICON_SIZE } from "./constants";
 import DropdownList from "./DropdownList";
 import { DropdownProps } from "./types";
-import { CHEVRON_ICON_SIZE } from "./constants";
 
 const Dropdown = ({
   label,
@@ -28,11 +28,11 @@ const Dropdown = ({
   const handleOpenSheet = () => {
     Keyboard.dismiss();
     setIsOpen(true);
-    sheetRef.current?.expand();
+    sheetRef.current?.present();
   };
 
   const handleSelectValue = (val: string) => {
-    sheetRef.current?.close();
+    sheetRef.current?.dismiss();
     onSelect(val);
     setIsOpen(false);
   };

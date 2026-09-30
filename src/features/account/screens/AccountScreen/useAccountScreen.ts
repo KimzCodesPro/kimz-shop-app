@@ -33,7 +33,7 @@ const useAccountScreen = () => {
   ];
 
   const onSelectLanguage = async (value: string) => {
-    languageBottomSheetRef.current?.close();
+    languageBottomSheetRef.current?.dismiss();
     await setLanguage(value as Language);
   };
 
@@ -55,7 +55,7 @@ const useAccountScreen = () => {
     themeOptions.find((option) => option.value === selectedTheme)?.label ?? "";
 
   const onSelectTheme = (value: string) => {
-    themeBottomSheetRef.current?.close();
+    themeBottomSheetRef.current?.dismiss();
     setTheme(value as Theme);
   };
 
@@ -116,7 +116,7 @@ const useAccountScreen = () => {
           title: t("account_rowNotifications"),
           trailing: "chevron",
           onPress: () => {
-            notificationsBottomSheetRef.current?.expand();
+            notificationsBottomSheetRef.current?.present();
           },
         },
 
@@ -129,7 +129,7 @@ const useAccountScreen = () => {
               ? t("account_settingLanguageEnglish")
               : t("account_settingLanguageArabic"),
           onPress: () => {
-            languageBottomSheetRef.current?.expand();
+            languageBottomSheetRef.current?.present();
           },
         },
         {
@@ -138,7 +138,7 @@ const useAccountScreen = () => {
           trailing: "chevronWithValue",
           trailingValue: selectedThemeLabel,
           onPress: () => {
-            themeBottomSheetRef.current?.expand();
+            themeBottomSheetRef.current?.present();
           },
         },
       ],

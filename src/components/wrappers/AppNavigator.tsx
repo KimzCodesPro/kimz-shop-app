@@ -1,4 +1,5 @@
 import { useTheme, useUserPreferences } from "@/hooks";
+import { NavigationBar } from "expo-navigation-bar";
 import { DefaultTheme, Stack, ThemeProvider } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
@@ -15,6 +16,8 @@ const AppNavigator = () => {
     <ThemeProvider value={navigationTheme}>
       {/* Customizing system bars */}
       <StatusBar style={appResolvedTheme === "dark" ? "light" : "dark"} />
+      <NavigationBar style={appResolvedTheme} />
+
       {/* Navigation */}
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Protected guard={isLoggedIn}>
