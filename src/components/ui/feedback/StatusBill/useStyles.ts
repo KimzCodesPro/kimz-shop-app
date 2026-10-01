@@ -2,7 +2,8 @@ import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StatusVariant } from "@/types";
 import { StyleSheet } from "react-native";
-import { statusBillColor, VARIANT_TO_SCHEMA } from "./constants";
+import { VARIANT_TO_SCHEMA } from "./constants";
+import { statusBillColor } from "./helper";
 import { StatusBillVariant } from "./types";
 
 const useStyles = (
