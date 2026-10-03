@@ -3,7 +3,7 @@ import { radius } from "@/src/constants";
 import { StatusVariant } from "@/src/types";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
-import { statusHaloColor } from "./constants";
+import { statusHaloColor } from "./helper";
 const { HS, VS } = scalingMethods;
 
 const useStyles = (variant: StatusVariant) => {

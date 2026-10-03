@@ -1,7 +1,7 @@
 import { useTheme } from "@/hooks";
 import { spacing } from "@/src/constants";
 import { StyleSheet } from "react-native";
-import { userGreetingTypography } from "./constants";
+import { userGreetingTypography } from "./helper";
 
 const useStyles = () => {
   const colors = useTheme();

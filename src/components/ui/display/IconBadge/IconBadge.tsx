@@ -1,6 +1,7 @@
 import Icon from "@/components/icons";
 import { View } from "react-native";
-import { BADGE_ICON_SIZE, iconBadgeColor } from "./constants";
+import { BADGE_ICON_SIZE } from "./constants";
+import { iconBadgeColor } from "./helper";
 import { IconBadgeProps } from "./types";
 import useStyles from "./useStyles";
 

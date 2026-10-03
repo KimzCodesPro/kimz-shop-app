@@ -6,11 +6,11 @@ import {
 import { useState } from "react";
 import { Pressable, TextInput as RNTextInput } from "react-native";
 import FieldWrapper from "../shared/FieldWrapper";
+import { fieldCurrentStatus } from "../shared/helper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
-import { fieldCurrentStatus } from "../shared/utils";
-import { TextInputProps } from "./types";
 import { CLEAR_ICON_SIZE, PASSWORD_TOGGLE_ICON_SIZE } from "./constants";
+import { TextInputProps } from "./types";
 
 const TextInput = ({
   label,
@@ -31,7 +31,7 @@ const TextInput = ({
   // the keyboard. The unsafe flag returns null outside a sheet instead of
   // throwing, and the context can't appear or disappear while mounted — so the
   // component this picks stays the same for the field's whole lifetime.
-  const isInsideBottomSheet = useBottomSheetInternal(true) !== null;
+  const isInsideBottomSheet = !!useBottomSheetInternal(true);
   const Input = isInsideBottomSheet ? BottomSheetTextInput : RNTextInput;
 
   const currentStatus: StatusType = fieldCurrentStatus(
