@@ -1,10 +1,9 @@
-import { ImageProps } from "expo-image";
 
 export type Category = {
   id: number;
   categoryName: string;
   productsCount: number;
-  img: ImageProps["source"];
+  img: string;
 };
 
 export type CategoryListProps = {

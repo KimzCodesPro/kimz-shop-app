@@ -1,9 +1,8 @@
-import { ImageProps } from "expo-image";
 import { StyleProp, ViewStyle } from "react-native";
 
 export type OrderItem = {
   id: string;
-  image: ImageProps["source"];
+  image: string;
   title: string;
   color: string;
   quantity: number;

@@ -1,11 +1,10 @@
-import { ImageProps } from "expo-image";
 import { StyleProp, ViewStyle } from "react-native";
 
 export type ProductCardProps = {
   productName: string;
   price: number;
   brand: string;
-  imgSrc: ImageProps["source"];
+  imgSrc: string;
   isFavorite?: boolean;
   onToggleFavorite?: () => void;
   onPress?: () => void;

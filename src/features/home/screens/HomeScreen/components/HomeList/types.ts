@@ -1,10 +1,9 @@
-import { ImageProps } from "expo-image";
 
 export type ProductSlide = {
   id: number;
   title: string;
   shopName: string;
-  img: ImageProps["source"];
+  img: string;
 };
 
 export type Product = {

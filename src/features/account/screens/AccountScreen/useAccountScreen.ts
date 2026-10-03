@@ -104,7 +104,7 @@ const useAccountScreen = () => {
           icon: "truck",
           title: t("account_rowMyOrders"),
           trailing: "chevron",
-          onPress: () => {},
+          onPress: () => router.push("/(protected)/(tabs)/myOrder"),
         },
       ],
     },
