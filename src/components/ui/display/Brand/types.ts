@@ -1,6 +1,6 @@
 import { StyleProp, ViewStyle } from "react-native";
 
-export type BrandCardProps = {
+export type BrandProps = {
   name: string;
   logo?: string;
   onPress: () => void;

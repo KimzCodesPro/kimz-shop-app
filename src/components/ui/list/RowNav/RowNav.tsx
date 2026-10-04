@@ -16,7 +16,6 @@ const RowNav = ({
   ...trailingProps
 }: RowNavProps) => {
   const { styles, colors } = useStyles();
-
   const conditionalColor = rowNavColor(colors);
 
   return (

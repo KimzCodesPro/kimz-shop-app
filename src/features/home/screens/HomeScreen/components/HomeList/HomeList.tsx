@@ -1,18 +1,13 @@
-import { productSample } from "@/assets/images";
 import { ProductCard, PromoBannerCard } from "@/components/ui/card";
-import { Carousel } from "@/components/ui/display";
-import { useTranslation } from "@/hooks";
-import { useRouter } from "expo-router";
-import { useState } from "react";
+import { Brand, Carousel } from "@/components/ui/display";
+import { useTranslation } from "@/src/hooks";
 import { View } from "react-native";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import Section from "../Section/Section";
 import styles from "./homeListStyles";
 import { HomeListProps } from "./types";
 
-const HomeList = ({ slides, products }: HomeListProps) => {
+const HomeList = ({ slides, products, brands }: HomeListProps) => {
   const { t } = useTranslation();
-  const router = useRouter();
-  const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -33,26 +28,31 @@ const HomeList = ({ slides, products }: HomeListProps) => {
         )}
       />
 
-      <SectionTitle
+      <Section
+        title={t("home_popularBrands")}
+        actionText={t("home_seeAll")}
+        seeAllLink="/home/brands"
+        data={brands}
+        renderItem={(item) => (
+          <Brand name={item.name} logo={item.logo} onPress={() => {}} />
+        )}
+      />
+
+      <Section
         title={t("home_newArrivals")}
         actionText={t("home_seeAll")}
-        onActionPress={() => router.push("/home/newArrival")}
-      />
-      <View style={styles.productsList}>
-        {products.map((item, index) => (
+        seeAllLink="/home/newArrival"
+        data={products}
+        renderItem={(item) => (
           <ProductCard
-            onPress={() => console.log(`Product ${item.productName} pressed`)}
-            key={index}
             productName={item.productName}
             brand={item.brand}
             price={item.price}
-            imgSrc={productSample}
-            isFavorite={isFavorite}
-            onToggleFavorite={() => setIsFavorite((prev) => !prev)}
-            style={styles.productCard}
+            imgSrc={item.img}
+            onPress={() => {}}
           />
-        ))}
-      </View>
+        )}
+      />
     </View>
   );
 };

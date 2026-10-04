@@ -1,8 +1,8 @@
+import { Brand } from "@/components/ui/display";
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
 import { FlashList } from "@shopify/flash-list";
-import { BrandCard } from "../../components";
 import { BRANDS_LIST } from "../../data";
 import styles from "./brandsScreenStyles";
 
@@ -18,7 +18,7 @@ const BrandsScreen = () => {
         numColumns={3}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
-          <BrandCard
+          <Brand
             name={item.name}
             logo={item.logo}
             style={styles.card}

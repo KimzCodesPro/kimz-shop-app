@@ -1,13 +1,15 @@
+import {
+  brandSample,
+  brandSample2,
+  brandSample3,
+  brandSample4,
+} from "@/assets/images";
+
 const BRANDS_LIST = [
-  { id: 1, name: "Nike", logo: undefined },
-  { id: 2, name: "Adidas", logo: undefined },
-  { id: 3, name: "Puma", logo: undefined },
-  { id: 4, name: "Zara", logo: undefined },
-  { id: 5, name: "H&M", logo: undefined },
-  { id: 6, name: "Gucci", logo: undefined },
-  { id: 7, name: "Levi's", logo: undefined },
-  { id: 8, name: "Reebok", logo: undefined },
-  { id: 9, name: "Prada", logo: undefined },
+  { id: 1, name: "Adidas", logo: brandSample },
+  { id: 2, name: "Nike", logo: brandSample2 },
+  { id: 3, name: "Marc Jacobs", logo: brandSample3 },
+  { id: 4, name: "Prada", logo: brandSample4 },
 ];
 
 export default BRANDS_LIST;

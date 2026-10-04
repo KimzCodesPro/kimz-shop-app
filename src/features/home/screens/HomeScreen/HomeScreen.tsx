@@ -4,6 +4,7 @@ import { Tabs } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
 import { TextInput } from "@/src/components/ui/inputs";
 import {
+  BRANDS_LIST,
   CATEGORIES_LIST,
   PRODUCTS_LIST,
   PRODUCTS_SLIDES,
@@ -43,7 +44,11 @@ const HomeScreen = () => {
             tabPrefix: "home",
             tabTitle: t("common_bottomTabHome"),
             tabContent: (
-              <HomeList slides={PRODUCTS_SLIDES} products={PRODUCTS_LIST} />
+              <HomeList
+                slides={PRODUCTS_SLIDES}
+                products={PRODUCTS_LIST}
+                brands={BRANDS_LIST.slice(0, 5)}
+              />
             ),
           },
           {

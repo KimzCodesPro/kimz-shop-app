@@ -4,7 +4,7 @@ export type ProductCardProps = {
   productName: string;
   price: number;
   brand: string;
-  imgSrc: string;
+  imgSrc?: string;
   isFavorite?: boolean;
   onToggleFavorite?: () => void;
   onPress?: () => void;

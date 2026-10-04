@@ -32,7 +32,7 @@ const useStyles = () => {
       justifyContent: "center",
     },
     body: {
-      alignItems: "center",
+      alignItems: "flex-start",
     },
   });
 

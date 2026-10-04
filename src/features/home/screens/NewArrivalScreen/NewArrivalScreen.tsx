@@ -1,4 +1,3 @@
-import { productSample } from "@/assets/images";
 import { ProductCard } from "@/components/ui/card";
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
@@ -35,7 +34,7 @@ const NewArrivalScreen = () => {
             productName={item.productName}
             brand={item.brand}
             price={item.price}
-            imgSrc={productSample}
+            imgSrc={item.img}
             isFavorite={false}
             onToggleFavorite={() => {}}
             style={index % 2 === 0 ? styles.cardStart : styles.cardEnd}

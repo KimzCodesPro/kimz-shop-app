@@ -1,5 +1,6 @@
 import { useTheme } from "@/hooks";
 import { Typography } from "@/src/components/ui/typography";
+import { useRouter } from "expo-router";
 import { View } from "react-native";
 import styles from "./sectionTitleStyles";
 import { SectionTitleProps } from "./types";
@@ -7,10 +8,11 @@ import { SectionTitleProps } from "./types";
 const SectionTitle = ({
   title,
   actionText,
-  onActionPress,
+  seeAllLink,
   style,
 }: SectionTitleProps) => {
   const colors = useTheme();
+  const router = useRouter();
 
   return (
     <View style={[style, styles.container]}>
@@ -20,7 +22,7 @@ const SectionTitle = ({
       <Typography
         variant="smallBold"
         color={colors.primary.base}
-        onPress={onActionPress}
+        onPress={() => router.push(seeAllLink)}
       >
         {actionText}
       </Typography>
