@@ -16,6 +16,7 @@ const RNCarousel = <T,>({
   loop = false,
   autoplay = false,
   autoplayInterval = 3000,
+  style,
 }: CarouselProps<T>) => {
   const ref = useRef<CarouselRef>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -29,7 +30,7 @@ const RNCarousel = <T,>({
         loop={loop}
         autoplay={autoplay}
         autoplayInterval={autoplayInterval}
-        style={[styles.carousel, { height: VS(height) }]}
+        style={[styles.carousel, { height: VS(height) }, style]}
         onSnapToItem={setActiveIndex}
         renderItem={({ item }) => renderItem(item)}
       />

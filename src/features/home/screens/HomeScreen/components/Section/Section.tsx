@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import SectionScroll from "./SectionScroll/SectionScroll";
+import styles from "./sectionStyles";
 import SectionTitle from "./SectionTitle/SectionTitle";
 import { SectionProps } from "./types";
 
@@ -7,19 +8,22 @@ const Section = <T,>({
   title,
   actionText,
   seeAllLink,
-  style,
   data,
   renderItem,
 }: SectionProps<T>) => {
   return (
-    <View>
+    <View style={styles.container}>
       <SectionTitle
+        style={styles.title}
         title={title}
         actionText={actionText}
         seeAllLink={seeAllLink}
-        style={style}
       />
-      <SectionScroll data={data} renderItem={renderItem} />
+      <SectionScroll
+        style={styles.scrolling}
+        data={data}
+        renderItem={renderItem}
+      />
     </View>
   );
 };

@@ -19,8 +19,14 @@ const HomeScreen = () => {
   const router = useRouter();
 
   return (
-    <ScreenLayout scrollable hasTabBar contentContainerStyle={styles.container}>
+    <ScreenLayout
+      paddingSides="none"
+      scrollable
+      hasTabBar
+      contentContainerStyle={styles.container}
+    >
       <Header
+        style={styles.horizontalPadding}
         userName={t("home_greeting", { name: "Jonathan" })}
         meta={t("home_greetingSub")}
         imgSrc={avatarSample}
@@ -29,7 +35,10 @@ const HomeScreen = () => {
         onFavoritePress={() => router.push("/favorites")}
         onNotificationPress={() => router.push("/notifications")}
       />
-      <Pressable onPress={() => router.push("/search")}>
+      <Pressable
+        onPress={() => router.push("/search")}
+        style={styles.horizontalPadding}
+      >
         <TextInput
           icon="search"
           value=""
@@ -47,7 +56,7 @@ const HomeScreen = () => {
               <HomeList
                 slides={PRODUCTS_SLIDES}
                 products={PRODUCTS_LIST}
-                brands={BRANDS_LIST.slice(0, 5)}
+                brands={BRANDS_LIST}
               />
             ),
           },

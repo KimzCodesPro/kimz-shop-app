@@ -1,4 +1,5 @@
 import { UserGreetingProps } from "@/components/ui/display/UserGreeting/types";
+import { StyleProp, ViewStyle } from "react-native";
 
 export type HeaderProps = Pick<
   UserGreetingProps,
@@ -8,4 +9,5 @@ export type HeaderProps = Pick<
   onUserPress: () => void;
   onFavoritePress: () => void;
   onNotificationPress: () => void;
+  style?: StyleProp<ViewStyle>;
 };

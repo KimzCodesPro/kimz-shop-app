@@ -1,9 +1,9 @@
-import { View, Pressable } from "react-native";
 import { UserGreeting } from "@/components/ui/display";
 import Icon from "@/src/components/icons";
-import useStyles from "./useStyles";
-import { HeaderProps } from "./types";
+import { Pressable, View } from "react-native";
 import { FAVORITE_ICON_SIZE, NOTIFICATION_ICON_SIZE } from "./constants";
+import { HeaderProps } from "./types";
+import useStyles from "./useStyles";
 
 const Header = ({
   userName,
@@ -13,10 +13,11 @@ const Header = ({
   onUserPress,
   onFavoritePress,
   onNotificationPress,
+  style,
 }: HeaderProps) => {
   const { styles, colors } = useStyles();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Pressable onPress={onUserPress}>
         <UserGreeting
           size="sm"

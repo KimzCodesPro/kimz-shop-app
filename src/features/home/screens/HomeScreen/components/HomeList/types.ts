@@ -1,4 +1,3 @@
-
 export type ProductSlide = {
   id: number;
   title: string;
@@ -10,6 +9,7 @@ export type Product = {
   productName: string;
   brand: string;
   price: number;
+  salePrice?: number;
   img: string;
 };
 

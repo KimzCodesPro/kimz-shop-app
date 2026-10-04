@@ -3,14 +3,18 @@ import { ScrollView } from "react-native";
 import useStyles from "./sectionScrollStyles";
 import { SectionScrollProps } from "./types";
 
-const SectionScroll = <T,>({ data, renderItem }: SectionScrollProps<T>) => {
+const SectionScroll = <T,>({
+  data,
+  renderItem,
+  style,
+}: SectionScrollProps<T>) => {
   const styles = useStyles();
 
   return (
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.content}
+      contentContainerStyle={[styles.content, style]}
     >
       {data.map((item, index) => (
         <Fragment key={index}>{renderItem(item)}</Fragment>

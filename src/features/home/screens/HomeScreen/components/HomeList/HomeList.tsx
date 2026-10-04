@@ -10,8 +10,9 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
   const { t } = useTranslation();
 
   return (
-    <View style={styles.container}>
+    <>
       <Carousel
+        style={styles.horizontalPadding}
         loop={true}
         autoplay={true}
         autoplayInterval={4000}
@@ -27,33 +28,54 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
           />
         )}
       />
+      <View style={styles.scrollingSections}>
+        {/* brand sections */}
+        <Section
+          title={t("home_popularBrands")}
+          actionText={t("home_seeAll")}
+          seeAllLink="/home/brands"
+          data={brands}
+          renderItem={(item) => (
+            <Brand name={item.name} logo={item.logo} onPress={() => {}} />
+          )}
+        />
+        {/* new arrivals section */}
+        <Section
+          title={t("home_newArrivals")}
+          actionText={t("home_seeAll")}
+          seeAllLink="/home/newArrival"
+          data={products}
+          renderItem={(item) => (
+            <ProductCard
+              style={styles.product}
+              productName={item.productName}
+              brand={item.brand}
+              price={item.price}
+              imgSrc={item.img}
+              onPress={() => {}}
+            />
+          )}
+        />
 
-      <Section
-        title={t("home_popularBrands")}
-        actionText={t("home_seeAll")}
-        seeAllLink="/home/brands"
-        data={brands}
-        renderItem={(item) => (
-          <Brand name={item.name} logo={item.logo} onPress={() => {}} />
-        )}
-      />
-
-      <Section
-        title={t("home_newArrivals")}
-        actionText={t("home_seeAll")}
-        seeAllLink="/home/newArrival"
-        data={products}
-        renderItem={(item) => (
-          <ProductCard
-            productName={item.productName}
-            brand={item.brand}
-            price={item.price}
-            imgSrc={item.img}
-            onPress={() => {}}
-          />
-        )}
-      />
-    </View>
+        {/* Hot Deals sections */}
+        <Section
+          title={t("home_hotDeals")}
+          actionText={t("home_seeAll")}
+          seeAllLink="/home/newArrival"
+          data={products.filter((item) => item.salePrice != null)}
+          renderItem={(item) => (
+            <ProductCard
+              style={styles.product}
+              productName={item.productName}
+              brand={item.brand}
+              price={item.salePrice ?? item.price}
+              imgSrc={item.img}
+              onPress={() => {}}
+            />
+          )}
+        />
+      </View>
+    </>
   );
 };
 

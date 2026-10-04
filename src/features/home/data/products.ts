@@ -31,6 +31,7 @@ const PRODUCTS_LIST = [
     productName: "Marc Jacobs Mini",
     brand: "Marc Jacobs",
     price: 149,
+    salePrice: 99,
     img: productSample,
   },
   {
@@ -43,6 +44,7 @@ const PRODUCTS_LIST = [
     productName: "Third Item",
     brand: "Brand Name",
     price: 79,
+    salePrice: 49,
     img: productSample3,
   },
   {
@@ -55,6 +57,7 @@ const PRODUCTS_LIST = [
     productName: "Fifth Item",
     brand: "Brand Name",
     price: 59,
+    salePrice: 39,
     img: productSample,
   },
   {
@@ -67,6 +70,7 @@ const PRODUCTS_LIST = [
     productName: "Seventh Item",
     brand: "Brand Name",
     price: 109,
+    salePrice: 69,
     img: productSample3,
   },
 ];

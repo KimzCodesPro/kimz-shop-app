@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 const useStyles = () => {
   return StyleSheet.create({
     content: {
-      gap: spacing.space16.width,
+      gap: spacing.space12.width,
     },
   });
 };
