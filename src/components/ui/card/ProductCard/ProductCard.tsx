@@ -3,13 +3,15 @@ import Icon from "@/components/icons";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import { Typography } from "../../typography";
+import { FAVORITE_ICON_SIZE } from "./constants";
+import calculateDiscountPercentage from "./helper";
 import { ProductCardProps } from "./types";
 import useStyles from "./useStyles";
-import { FAVORITE_ICON_SIZE } from "./constants";
 
 const ProductCard = ({
   productName,
   price,
+  discountPrice,
   brand,
   imgSrc,
   isFavorite,
@@ -30,6 +32,13 @@ const ProductCard = ({
           style={styles.headerProductImage}
           transition={1000}
         />
+        {discountPrice && (
+          <View style={styles.headerDiscountBadge}>
+            <Typography variant="xsmallBold" color={colors.foreground.contrast}>
+              {calculateDiscountPercentage(price, discountPrice)}
+            </Typography>
+          </View>
+        )}
         <Pressable
           onPress={onToggleFavorite}
           style={styles.headerFavoriteButton}
@@ -41,7 +50,7 @@ const ProductCard = ({
           />
         </Pressable>
       </View>
-      <View style={styles.body}>
+      <View style={styles.info}>
         <Typography
           textTransform="capitalize"
           variant="smallBold"
@@ -58,13 +67,25 @@ const ProductCard = ({
         >
           {brand}
         </Typography>
-        <Typography
-          textTransform="capitalize"
-          variant="smallBold"
-          color={colors.foreground.primary}
-        >
-          ${price}
-        </Typography>
+        <View style={styles.priceContainer}>
+          <Typography
+            textTransform="capitalize"
+            variant="smallBold"
+            color={colors.foreground.primary}
+          >
+            ${discountPrice ? discountPrice : price}
+          </Typography>
+          {discountPrice && (
+            <Typography
+              textDecorationLine="line-through"
+              textTransform="capitalize"
+              variant="xsmallRegular"
+              color={colors.foreground.tertiary}
+            >
+              ${price}
+            </Typography>
+          )}
+        </View>
       </View>
     </Pressable>
   );

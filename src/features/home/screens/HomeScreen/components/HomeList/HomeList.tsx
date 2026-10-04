@@ -69,7 +69,8 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
               style={styles.product}
               productName={item.productName}
               brand={item.brand}
-              price={item.salePrice ?? item.price}
+              price={item.price}
+              discountPrice={item.salePrice}
               imgSrc={item.img}
               onPress={() => {}}
             />
