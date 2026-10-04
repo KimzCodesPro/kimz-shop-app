@@ -31,6 +31,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
       <View style={styles.scrollingSections}>
         {/* brand sections */}
         <Section
+          itemHorizontalSpace="large"
           title={t("home_popularBrands")}
           actionText={t("home_seeAll")}
           seeAllLink="/home/brands"

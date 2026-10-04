@@ -7,8 +7,9 @@ const SectionScroll = <T,>({
   data,
   renderItem,
   style,
+  itemHorizontalSpace,
 }: SectionScrollProps<T>) => {
-  const styles = useStyles();
+  const styles = useStyles(itemHorizontalSpace);
 
   return (
     <ScrollView

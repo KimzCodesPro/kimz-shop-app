@@ -1,10 +1,11 @@
-import { spacing } from "@/constants";
 import { StyleSheet } from "react-native";
+import { horizontalSpace } from "./helper";
+import { ItemHorizontalSpace } from "./types";
 
-const useStyles = () => {
+const useStyles = (itemHorizontalSpace?: ItemHorizontalSpace) => {
   return StyleSheet.create({
     content: {
-      gap: spacing.space12.width,
+      gap: horizontalSpace(itemHorizontalSpace || "small"),
     },
   });
 };

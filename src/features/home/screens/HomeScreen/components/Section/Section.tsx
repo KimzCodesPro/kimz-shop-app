@@ -10,6 +10,7 @@ const Section = <T,>({
   seeAllLink,
   data,
   renderItem,
+  itemHorizontalSpace,
 }: SectionProps<T>) => {
   return (
     <View style={styles.container}>
@@ -23,6 +24,7 @@ const Section = <T,>({
         style={styles.scrolling}
         data={data}
         renderItem={renderItem}
+        itemHorizontalSpace={itemHorizontalSpace}
       />
     </View>
   );
