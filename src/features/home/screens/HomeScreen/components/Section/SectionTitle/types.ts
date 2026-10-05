@@ -1,8 +1,9 @@
+import { Href } from "expo-router";
 import { StyleProp, ViewStyle } from "react-native";
 
 export type SectionTitleProps = {
   title: string;
   actionText: string;
-  onActionPress: () => void;
+  seeAllLink: Href;
   style?: StyleProp<ViewStyle>;
 };

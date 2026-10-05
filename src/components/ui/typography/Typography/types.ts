@@ -11,4 +11,9 @@ export type TypographyProps = {
   forceLanguage?: Language;
   textTransform?: "none" | "capitalize" | "uppercase" | "lowercase";
   textAlign?: "left" | "right" | "center";
+  textDecorationLine?:
+    | "none"
+    | "underline"
+    | "line-through"
+    | "underline line-through";
 } & Omit<TextProps, "children">;

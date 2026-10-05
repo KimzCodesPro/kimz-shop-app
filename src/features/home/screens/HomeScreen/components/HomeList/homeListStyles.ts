@@ -1,25 +1,19 @@
-import { spacing } from "@/constants";
-import { Dimensions, StyleSheet } from "react-native";
-
-const { width: screenWidth } = Dimensions.get("window");
-
-const PRODUCTS_COLUMN_GAP = spacing.space16.width;
-
-const PRODUCT_CARD_WIDTH =
-  (screenWidth - spacing.space24.width * 2 - PRODUCTS_COLUMN_GAP) / 2;
+import { CONTENT_PADDING_HORIZONTAL } from "@/src/components/ui/layout/ScreenLayout/constants";
+import { spacing } from "@/src/constants";
+import { scalingMethods } from "@/utils";
+import { StyleSheet } from "react-native";
+const { HS } = scalingMethods;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    gap: spacing.space16.height,
+  SectionsContainer: {
+    marginTop: spacing.space24.height,
+    gap: spacing.space24.height,
   },
-  productsList: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: PRODUCTS_COLUMN_GAP,
+  product: {
+    width: HS(140),
   },
-  productCard: {
-    width: PRODUCT_CARD_WIDTH,
+  horizontalPadding: {
+    paddingHorizontal: CONTENT_PADDING_HORIZONTAL,
   },
 });
 

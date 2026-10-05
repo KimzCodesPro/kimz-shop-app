@@ -1,4 +1,5 @@
 export { default as Avatar } from "./Avatar/Avatar";
+export { default as Brand } from "./Brand/Brand";
 export { default as Carousel } from "./Carousel/Carousel";
 export { default as IconBadge } from "./IconBadge/IconBadge";
 export { default as RenderHtml } from "./RenderHtml/RenderHtml";

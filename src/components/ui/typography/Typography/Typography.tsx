@@ -7,8 +7,9 @@ const Typography = ({
   children,
   style,
   color,
-  textTransform,
   forceLanguage,
+  textTransform,
+  textDecorationLine,
   textAlign = "left",
   ...props
 }: TypographyProps) => {
@@ -18,7 +19,7 @@ const Typography = ({
     <Text
       style={[
         typographyStyles[variant],
-        { color, textTransform, textAlign },
+        { color, textTransform, textAlign, textDecorationLine },
         style,
       ]}
       {...props}

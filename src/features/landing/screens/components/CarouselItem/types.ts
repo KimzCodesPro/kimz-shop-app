@@ -1,8 +1,7 @@
-import { ImageProps } from "expo-image";
 
 export type CarouselSlide = {
   // Artwork for the slide — an asset from `@/assets/images`.
-  img: ImageProps["source"];
+  img: string;
   title: string;
   description: string;
 };

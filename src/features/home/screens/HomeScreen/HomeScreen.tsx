@@ -4,6 +4,7 @@ import { Tabs } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
 import { TextInput } from "@/src/components/ui/inputs";
 import {
+  BRANDS_LIST,
   CATEGORIES_LIST,
   PRODUCTS_LIST,
   PRODUCTS_SLIDES,
@@ -18,8 +19,14 @@ const HomeScreen = () => {
   const router = useRouter();
 
   return (
-    <ScreenLayout scrollable hasTabBar contentContainerStyle={styles.container}>
+    <ScreenLayout
+      paddingSides="none"
+      scrollable
+      hasTabBar
+      contentContainerStyle={styles.container}
+    >
       <Header
+        style={styles.horizontalPadding}
         userName={t("home_greeting", { name: "Jonathan" })}
         meta={t("home_greetingSub")}
         imgSrc={avatarSample}
@@ -28,7 +35,10 @@ const HomeScreen = () => {
         onFavoritePress={() => router.push("/favorites")}
         onNotificationPress={() => router.push("/notifications")}
       />
-      <Pressable onPress={() => router.push("/search")}>
+      <Pressable
+        onPress={() => router.push("/search")}
+        style={styles.horizontalPadding}
+      >
         <TextInput
           icon="search"
           value=""
@@ -43,7 +53,11 @@ const HomeScreen = () => {
             tabPrefix: "home",
             tabTitle: t("common_bottomTabHome"),
             tabContent: (
-              <HomeList slides={PRODUCTS_SLIDES} products={PRODUCTS_LIST} />
+              <HomeList
+                slides={PRODUCTS_SLIDES}
+                products={PRODUCTS_LIST}
+                brands={BRANDS_LIST}
+              />
             ),
           },
           {

@@ -22,8 +22,8 @@ const useStyles = () => {
     },
     headerFavoriteButton: {
       position: "absolute",
-      top: spacing.space12.height,
-      end: spacing.space12.width,
+      top: spacing.space8.height,
+      end: spacing.space8.width,
       backgroundColor: colors.background.base,
       height: VS(32),
       width: HS(32),
@@ -31,8 +31,24 @@ const useStyles = () => {
       alignItems: "center",
       justifyContent: "center",
     },
-    body: {
+    headerDiscountBadge: {
+      position: "absolute",
+      top: spacing.space8.height,
+      start: spacing.space8.width,
+      backgroundColor: colors.danger.base,
+      borderRadius: radius.full,
       alignItems: "center",
+      justifyContent: "center",
+      paddingVertical: spacing.space4.height,
+      paddingHorizontal: spacing.space8.width,
+    },
+    info: {
+      alignItems: "flex-start",
+    },
+    priceContainer: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: spacing.space8.width,
     },
   });
 

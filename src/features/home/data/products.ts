@@ -1,4 +1,9 @@
-import { productSample } from "@/assets/images";
+import {
+  productSample,
+  productSample2,
+  productSample3,
+  productSample4,
+} from "@/assets/images";
 
 const PRODUCTS_SLIDES = [
   {
@@ -26,36 +31,47 @@ const PRODUCTS_LIST = [
     productName: "Marc Jacobs Mini",
     brand: "Marc Jacobs",
     price: 149,
+    salePrice: 99,
+    img: productSample,
   },
   {
     productName: "Second Item",
     brand: "Brand Name",
     price: 99,
+    img: productSample2,
   },
   {
     productName: "Third Item",
     brand: "Brand Name",
     price: 79,
+    salePrice: 49,
+    img: productSample3,
   },
   {
     productName: "Fourth Item",
     brand: "Brand Name",
     price: 129,
+    img: productSample4,
   },
   {
     productName: "Fifth Item",
     brand: "Brand Name",
     price: 59,
+    salePrice: 39,
+    img: productSample,
   },
   {
     productName: "Sixth Item",
     brand: "Brand Name",
     price: 89,
+    img: productSample2,
   },
   {
     productName: "Seventh Item",
     brand: "Brand Name",
     price: 109,
+    salePrice: 69,
+    img: productSample3,
   },
 ];
 

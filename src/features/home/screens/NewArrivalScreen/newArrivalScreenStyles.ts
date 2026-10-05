@@ -3,15 +3,15 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   listHeader: {
-    marginBottom: spacing.space8.height,
+    marginBottom: spacing.space12.height,
   },
   cardStart: {
     marginBottom: spacing.space16.height,
-    marginEnd: spacing.space8.width,
+    marginEnd: spacing.space16.width,
   },
   cardEnd: {
     marginBottom: spacing.space16.height,
-    marginStart: spacing.space8.width,
+    marginStart: spacing.space16.width,
   },
 });
 
