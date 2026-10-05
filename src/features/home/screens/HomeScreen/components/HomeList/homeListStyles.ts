@@ -5,8 +5,8 @@ import { StyleSheet } from "react-native";
 const { HS } = scalingMethods;
 
 const styles = StyleSheet.create({
-  scrollingSections: {
-    marginTop: spacing.space16.height,
+  SectionsContainer: {
+    marginTop: spacing.space24.height,
     gap: spacing.space24.height,
   },
   product: {

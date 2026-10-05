@@ -4,6 +4,7 @@ const HomeLayout = () => {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="newArrival" />
+      <Stack.Screen name="hotDeals" />
       <Stack.Screen name="brands" />
     </Stack>
   );

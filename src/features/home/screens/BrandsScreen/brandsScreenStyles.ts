@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   card: {
-    marginBottom: spacing.space16.height,
+    paddingBottom: spacing.space16.height,
   },
 });
 

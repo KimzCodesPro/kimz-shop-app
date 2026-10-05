@@ -22,8 +22,8 @@ const useStyles = () => {
     },
     headerFavoriteButton: {
       position: "absolute",
-      top: spacing.space12.height,
-      end: spacing.space12.width,
+      top: spacing.space8.height,
+      end: spacing.space8.width,
       backgroundColor: colors.background.base,
       height: VS(32),
       width: HS(32),
@@ -33,8 +33,8 @@ const useStyles = () => {
     },
     headerDiscountBadge: {
       position: "absolute",
-      top: spacing.space12.height,
-      start: spacing.space12.width,
+      top: spacing.space8.height,
+      start: spacing.space8.width,
       backgroundColor: colors.danger.base,
       borderRadius: radius.full,
       alignItems: "center",

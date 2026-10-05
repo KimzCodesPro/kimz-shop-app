@@ -28,7 +28,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
           />
         )}
       />
-      <View style={styles.scrollingSections}>
+      <View style={styles.SectionsContainer}>
         {/* brand sections */}
         <Section
           itemHorizontalSpace="large"
@@ -62,7 +62,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
         <Section
           title={t("home_hotDeals")}
           actionText={t("home_seeAll")}
-          seeAllLink="/home/newArrival"
+          seeAllLink="/home/hotDeals"
           data={products.filter((item) => item.salePrice != null)}
           renderItem={(item) => (
             <ProductCard

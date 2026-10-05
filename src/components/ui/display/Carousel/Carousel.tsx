@@ -31,7 +31,8 @@ const RNCarousel = <T,>({
         autoplay={autoplay}
         autoplayInterval={autoplayInterval}
         style={[styles.carousel, { height: VS(height) }, style]}
-        onSnapToItem={setActiveIndex}
+        // onProgressChange updates the dot mid-swipe (onSnapToItem waits until the swipe settles)
+        onProgressChange={(p) => setActiveIndex(Math.round(p) % data.length)}
         renderItem={({ item }) => renderItem(item)}
       />
       <View style={styles.paginationContainer}>
