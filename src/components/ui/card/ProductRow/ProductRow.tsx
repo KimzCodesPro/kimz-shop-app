@@ -1,12 +1,12 @@
-import { CardWrapper } from "@/src/components/ui/card";
-import { Typography } from "@/src/components/ui/typography";
+import CardWrapper from "../CardWrapper/CardWrapper";
+import Typography from "../../typography/Typography/Typography";
 import { useTranslation } from "@/src/hooks";
 import { Image } from "expo-image";
 import { View } from "react-native";
-import { ItemProps } from "./types";
+import { ProductRowProps } from "./types";
 import useStyles from "./useStyles";
 
-const Item = ({ item, style }: ItemProps) => {
+const ProductRow = ({ item, style }: ProductRowProps) => {
   const { styles, colors } = useStyles();
   const { t } = useTranslation();
 
@@ -55,4 +55,4 @@ const Item = ({ item, style }: ItemProps) => {
   );
 };
 
-export default Item;
+export default ProductRow;

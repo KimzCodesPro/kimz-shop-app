@@ -2,7 +2,7 @@ import { radius, spacing } from "@/constants";
 import { useFontStyles, useTheme, useTranslation } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { Platform, StyleSheet } from "react-native";
-import { fieldStatusColor } from "./helper";
+import { fieldStatusColor } from "./helpers";
 import { StatusType } from "./types";
 const { VS } = scalingMethods;
 

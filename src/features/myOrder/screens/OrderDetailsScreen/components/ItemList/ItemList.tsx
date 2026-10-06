@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import Item from "../Item/Item";
+import { ProductRow } from "@/components/ui/card";
 import { ItemListProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -9,7 +9,7 @@ const ItemList = ({ items }: ItemListProps) => {
   return (
     <View style={styles.container}>
       {items.map((item) => (
-        <Item key={item.id} item={item} />
+        <ProductRow key={item.id} item={item} />
       ))}
     </View>
   );

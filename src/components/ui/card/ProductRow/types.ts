@@ -9,7 +9,7 @@ export type OrderItem = {
   price: number;
 };
 
-export type ItemProps = {
+export type ProductRowProps = {
   item: OrderItem;
   style?: StyleProp<ViewStyle>;
 };

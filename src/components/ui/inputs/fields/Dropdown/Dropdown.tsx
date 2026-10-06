@@ -6,7 +6,7 @@ import { Typography } from "../../../typography";
 import FieldWrapper from "../shared/FieldWrapper";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
-import { fieldCurrentStatus } from "../shared/helper";
+import { fieldCurrentStatus } from "../shared/helpers";
 import { CHEVRON_ICON_SIZE } from "./constants";
 import DropdownList from "./DropdownList";
 import { DropdownProps } from "./types";
