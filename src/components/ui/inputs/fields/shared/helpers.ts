@@ -5,7 +5,7 @@ import { StatusType } from "./types";
 // theme, so they can only be read once useTheme has run.
 export const fieldStatusColor = (colors: ThemePalette) =>
   ({
-    mainColor: {
+    borderColor: {
       default: colors.border.default,
       focused: colors.primary.base,
       filled: colors.primary.base,

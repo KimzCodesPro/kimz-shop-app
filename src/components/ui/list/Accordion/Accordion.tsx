@@ -1,4 +1,4 @@
-import Icon from "@/src/components/icons";
+import Icon from "@/components/icons";
 import { useState } from "react";
 import { Pressable, View } from "react-native";
 import Typography from "../../typography/Typography/Typography";

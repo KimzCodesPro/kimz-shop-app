@@ -1,4 +1,4 @@
-import { OrderTrackingScreen } from "@/src/features/myOrder";
+import { OrderTrackingScreen } from "@/features/myOrder";
 
 const OrderTracking = () => {
   return <OrderTrackingScreen />;

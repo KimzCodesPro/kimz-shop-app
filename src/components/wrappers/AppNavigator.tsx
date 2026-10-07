@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 
 const AppNavigator = () => {
   const colors = useTheme();
-  const { appResolvedTheme } = useUserPreferences();
+  const { colorScheme } = useUserPreferences();
   const navigationTheme = {
     ...DefaultTheme,
     colors: { ...DefaultTheme.colors, background: colors.background.base },
@@ -13,21 +13,22 @@ const AppNavigator = () => {
   const isLoggedIn = true;
 
   return (
-    <ThemeProvider value={navigationTheme}>
+    <>
       {/* Customizing system bars */}
-      <StatusBar style={appResolvedTheme === "dark" ? "light" : "dark"} />
-      <NavigationBar style={appResolvedTheme} />
-
+      <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
+      <NavigationBar style={colorScheme} />
       {/* Navigation */}
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Protected guard={isLoggedIn}>
-          <Stack.Screen name="(protected)" />
-        </Stack.Protected>
-        <Stack.Protected guard={!isLoggedIn}>
-          <Stack.Screen name="(public)" />
-        </Stack.Protected>
-      </Stack>
-    </ThemeProvider>
+      <ThemeProvider value={navigationTheme}>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Protected guard={isLoggedIn}>
+            <Stack.Screen name="(protected)" />
+          </Stack.Protected>
+          <Stack.Protected guard={!isLoggedIn}>
+            <Stack.Screen name="(public)" />
+          </Stack.Protected>
+        </Stack>
+      </ThemeProvider>
+    </>
   );
 };
 

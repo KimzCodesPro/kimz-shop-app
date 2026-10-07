@@ -1,5 +1,5 @@
-import { CONTENT_PADDING_HORIZONTAL } from "@/src/components/ui/layout/ScreenLayout/constants";
-import { spacing } from "@/src/constants";
+import { CONTENT_PADDING_HORIZONTAL } from "@/components/ui/layout/ScreenLayout/constants";
+import { spacing } from "@/constants";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 const { HS } = scalingMethods;

@@ -1,4 +1,4 @@
-import { ChangePasswordScreen } from "@/src/features/account";
+import { ChangePasswordScreen } from "@/features/account";
 
 const ChangePassword = () => {
   return <ChangePasswordScreen />;

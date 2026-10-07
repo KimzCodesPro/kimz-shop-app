@@ -2,11 +2,11 @@ import { StatusBill } from "@/components/ui/feedback";
 import { Button } from "@/components/ui/inputs";
 import { Typography } from "@/components/ui/typography";
 import { useTranslation } from "@/hooks";
-import { CardWrapper } from "@/src/components/ui/card";
+import { CardWrapper } from "@/components/ui/card";
 import {
   orderStatusColor,
   orderStatusLabel,
-} from "@/src/features/myOrder/constant";
+} from "@/features/myOrder/constant";
 import { Image } from "expo-image";
 import { View } from "react-native";
 import { OrderCardProps } from "./types";

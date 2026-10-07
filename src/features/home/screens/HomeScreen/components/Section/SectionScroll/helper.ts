@@ -1,4 +1,4 @@
-import { spacing } from "@/src/constants";
+import { spacing } from "@/constants";
 
 import { ItemHorizontalSpace } from "./types";
 

@@ -1,4 +1,4 @@
-import { iconSize } from "@/src/constants";
+import { iconSize } from "@/constants";
 
 export const trackingStageLabel = {
   orderPlaced: "orders_statusPlaced",

@@ -1,7 +1,7 @@
 import { useTranslation } from "@/hooks";
-import { Carousel } from "@/src/components/ui/display";
-import { Button } from "@/src/components/ui/inputs";
-import { ScreenLayout } from "@/src/components/ui/layout";
+import { Carousel } from "@/components/ui/display";
+import { Button } from "@/components/ui/inputs";
+import { ScreenLayout } from "@/components/ui/layout";
 import { router } from "expo-router";
 import { View } from "react-native";
 import { CarouselItem } from "../components";

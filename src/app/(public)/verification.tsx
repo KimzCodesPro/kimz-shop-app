@@ -1,4 +1,4 @@
-import { VerificationScreen } from "@/src/features/auth";
+import { VerificationScreen } from "@/features/auth";
 
 const Verification = () => {
   return <VerificationScreen />;

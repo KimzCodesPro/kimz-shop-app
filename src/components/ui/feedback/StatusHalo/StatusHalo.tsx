@@ -1,4 +1,4 @@
-import Icon from "@/src/components/icons";
+import Icon from "@/components/icons";
 import { View } from "react-native";
 import { StatusHaloProps } from "./types";
 import useStyles from "./useStyles";

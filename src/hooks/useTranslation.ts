@@ -23,7 +23,7 @@ const useTranslation = () => {
     });
   };
 
-  return { t, direction, language };
+  return { t, direction };
 };
 
 export default useTranslation;

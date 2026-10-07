@@ -1,5 +1,5 @@
-import Icon from "@/src/components/icons";
-import { Typography } from "@/src/components/ui/typography";
+import Icon from "@/components/icons";
+import { Typography } from "@/components/ui/typography";
 import { View } from "react-native";
 import { NOTIFICATION_ICON_SIZE, notificationIcon } from "./constants";
 import useStyles from "./useStyles";

@@ -1,4 +1,4 @@
-import { OrderDetailsScreen } from "@/src/features/myOrder";
+import { OrderDetailsScreen } from "@/features/myOrder";
 
 const OrderDetails = () => {
   return <OrderDetailsScreen />;

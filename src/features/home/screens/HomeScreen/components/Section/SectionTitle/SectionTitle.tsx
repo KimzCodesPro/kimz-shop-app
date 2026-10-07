@@ -1,5 +1,5 @@
 import { useTheme } from "@/hooks";
-import { Typography } from "@/src/components/ui/typography";
+import { Typography } from "@/components/ui/typography";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
 import styles from "./sectionTitleStyles";

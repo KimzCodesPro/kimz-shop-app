@@ -1,7 +1,7 @@
-import { CardWrapper } from "@/src/components/ui/card";
-import { addressColorMapping } from "@/src/components/ui/card/AddressCard/constants";
-import { IconBadge } from "@/src/components/ui/display";
-import { Typography } from "@/src/components/ui/typography";
+import { CardWrapper } from "@/components/ui/card";
+import { addressColorMapping } from "@/components/ui/card/AddressCard/constants";
+import { IconBadge } from "@/components/ui/display";
+import { Typography } from "@/components/ui/typography";
 import { View } from "react-native";
 import { ShippingAddressProps } from "./types";
 import useStyles from "./useStyles";

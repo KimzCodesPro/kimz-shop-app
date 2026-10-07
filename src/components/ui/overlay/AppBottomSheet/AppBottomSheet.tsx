@@ -49,11 +49,15 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
       ref={ref}
       snapPoints={bottomSheetProps?.snapPoints ?? snapPoints}
       enableDynamicSizing={false}
+      enablePanDownToClose
       backdropComponent={RenderBackdrop}
       backgroundStyle={styles.bottomSheet}
       handleStyle={styles.handleStyle}
       handleIndicatorStyle={styles.handleIndicatorStyle}
       {...bottomSheetProps}
+      onChange={(index) => {
+        isOpen.current = index >= 0;
+      }}
     >
       <View style={styles.header}>
         <Typography variant="mediumBold" style={styles.title}>

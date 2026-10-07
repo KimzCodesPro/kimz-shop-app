@@ -21,7 +21,7 @@ const useSharedStyles = (currentStatus: StatusType) => {
 
   const colorMapping = fieldStatusColor(colors);
 
-  const mainColor = colorMapping.mainColor[currentStatus];
+  const borderColor = colorMapping.borderColor[currentStatus];
   const iconColor = colorMapping.iconColor[currentStatus];
 
   const styles = StyleSheet.create({
@@ -35,7 +35,7 @@ const useSharedStyles = (currentStatus: StatusType) => {
       paddingHorizontal: spacing.space12.width,
       paddingVertical: spacing.space12.height,
       borderWidth: 1,
-      borderColor: mainColor,
+      borderColor,
       borderRadius: radius.sm,
       gap: spacing.space8.width,
     },

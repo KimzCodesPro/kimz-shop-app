@@ -1,5 +1,5 @@
 import { UserGreeting } from "@/components/ui/display";
-import Icon from "@/src/components/icons";
+import Icon from "@/components/icons";
 import { Pressable, View } from "react-native";
 import { FAVORITE_ICON_SIZE, NOTIFICATION_ICON_SIZE } from "./constants";
 import { HeaderProps } from "./types";

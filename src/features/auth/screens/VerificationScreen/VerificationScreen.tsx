@@ -1,10 +1,10 @@
 import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
 import { useTheme, useTranslation } from "@/hooks";
-import { StatusHalo } from "@/src/components/ui/feedback";
-import { Button, OtpInput, TextInput } from "@/src/components/ui/inputs";
-import { ScreenLayout } from "@/src/components/ui/layout";
-import { TopBar } from "@/src/components/ui/navigations";
-import { Typography } from "@/src/components/ui/typography";
+import { StatusHalo } from "@/components/ui/feedback";
+import { Button, OtpInput, TextInput } from "@/components/ui/inputs";
+import { ScreenLayout } from "@/components/ui/layout";
+import { TopBar } from "@/components/ui/navigations";
+import { Typography } from "@/components/ui/typography";
 import { useRouter } from "expo-router";
 import { useRef } from "react";
 import { View } from "react-native";

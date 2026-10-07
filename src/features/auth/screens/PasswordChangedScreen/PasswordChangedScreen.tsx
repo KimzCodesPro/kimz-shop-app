@@ -1,8 +1,8 @@
 import { useTheme, useTranslation } from "@/hooks";
-import { StatusHalo } from "@/src/components/ui/feedback";
-import { Button } from "@/src/components/ui/inputs";
-import { ScreenLayout } from "@/src/components/ui/layout";
-import { Typography } from "@/src/components/ui/typography";
+import { StatusHalo } from "@/components/ui/feedback";
+import { Button } from "@/components/ui/inputs";
+import { ScreenLayout } from "@/components/ui/layout";
+import { Typography } from "@/components/ui/typography";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
 import styles from "./PasswordChangedScreenStyles";

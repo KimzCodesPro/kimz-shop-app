@@ -1,4 +1,4 @@
-import { NewArrivalScreen } from "@/src/features/home";
+import { NewArrivalScreen } from "@/features/home";
 
 const NewArrival = () => {
   return <NewArrivalScreen />;

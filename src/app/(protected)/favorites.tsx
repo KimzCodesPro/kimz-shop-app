@@ -1,4 +1,4 @@
-import { FavoritesScreen } from "@/src/features/favorites";
+import { FavoritesScreen } from "@/features/favorites";
 
 const Favorites = () => {
   return <FavoritesScreen />;

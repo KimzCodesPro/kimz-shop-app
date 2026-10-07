@@ -1,6 +1,6 @@
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
-import { useTranslation } from "@/src/hooks";
+import { useTranslation } from "@/hooks";
 import { ETABanner, ItemCard, TrackingTimeline } from "./components";
 import { ACTIVE_STAGE, TRACKING_STEPS } from "./data";
 import styles from "./orderTrackingScreenStyles";

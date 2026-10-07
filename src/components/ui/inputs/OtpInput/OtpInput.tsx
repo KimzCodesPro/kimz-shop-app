@@ -1,4 +1,4 @@
-import { useTranslation } from "@/src/hooks";
+import { useTranslation } from "@/hooks";
 import { OtpInput as RNOtpInput } from "react-native-otp-entry";
 import { Typography } from "../../typography";
 import { OtpInputProps } from "./types";

@@ -1,6 +1,6 @@
 import { productPlaceholder } from "@/assets/images";
 import { Typography } from "@/components/ui/typography";
-import { useTranslation } from "@/src/hooks/";
+import { useTranslation } from "@/hooks/";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import { PromoBannerCardProps } from "./types";

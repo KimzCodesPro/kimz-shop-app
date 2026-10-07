@@ -1,6 +1,6 @@
-import Icon from "@/src/components/icons";
-import { Typography } from "@/src/components/ui/typography";
-import useTranslation from "@/src/hooks/useTranslation";
+import Icon from "@/components/icons";
+import { Typography } from "@/components/ui/typography";
+import useTranslation from "@/hooks/useTranslation";
 import { View } from "react-native";
 import CurrentPill from "../CurrentPill/CurrentPill";
 import { MARK_ICON_SIZE, trackingStageLabel } from "./constants";

@@ -1,4 +1,4 @@
-import { HomeScreen } from "@/src/features/home";
+import { HomeScreen } from "@/features/home";
 
 export default function Home() {
   return <HomeScreen />;

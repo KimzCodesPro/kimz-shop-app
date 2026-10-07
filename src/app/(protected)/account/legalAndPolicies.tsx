@@ -1,4 +1,4 @@
-import { LegalAndPoliciesScreen } from "@/src/features/account";
+import { LegalAndPoliciesScreen } from "@/features/account";
 
 const LegalAndPoliciesRoute = () => {
   return <LegalAndPoliciesScreen />;

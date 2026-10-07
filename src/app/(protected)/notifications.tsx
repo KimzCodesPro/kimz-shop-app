@@ -1,4 +1,4 @@
-import { NotificationsScreen } from "@/src/features/notifications";
+import { NotificationsScreen } from "@/features/notifications";
 
 const Notifications = () => {
   return <NotificationsScreen />;

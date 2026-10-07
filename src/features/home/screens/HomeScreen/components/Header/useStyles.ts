@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
-import radius from "@/src/constants/radius";
-import spacing from "@/src/constants/spacing";
+import radius from "@/constants/radius";
+import spacing from "@/constants/spacing";
 const { HS } = scalingMethods;
 
 const useStyles = () => {

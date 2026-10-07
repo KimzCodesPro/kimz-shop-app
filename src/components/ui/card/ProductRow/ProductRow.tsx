@@ -1,6 +1,6 @@
 import CardWrapper from "../CardWrapper/CardWrapper";
 import Typography from "../../typography/Typography/Typography";
-import { useTranslation } from "@/src/hooks";
+import { useTranslation } from "@/hooks";
 import { Image } from "expo-image";
 import { View } from "react-native";
 import { ProductRowProps } from "./types";

@@ -3,5 +3,12 @@
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit",
     "source.sortMembers": "explicit"
+  },
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.tabActionLocation": "left",
+  "workbench.colorCustomizations": {
+    "tab.unfocusedActiveModifiedBorder": "#ff9800",
+    "tab.activeModifiedBorder": "#ff9800",
+    "tab.inactiveModifiedBorder": "#ff9800"
   }
 }

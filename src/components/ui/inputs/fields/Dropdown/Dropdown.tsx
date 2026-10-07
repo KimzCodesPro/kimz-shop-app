@@ -4,9 +4,9 @@ import { Keyboard, Pressable } from "react-native";
 import { BottomSheet, BottomSheetRef } from "../../../overlay";
 import { Typography } from "../../../typography";
 import FieldWrapper from "../shared/FieldWrapper";
+import { fieldCurrentStatus } from "../shared/helpers";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
-import { fieldCurrentStatus } from "../shared/helpers";
 import { CHEVRON_ICON_SIZE } from "./constants";
 import DropdownList from "./DropdownList";
 import { DropdownProps } from "./types";
@@ -83,7 +83,7 @@ const Dropdown = ({
         title={sheetTitle ?? label ?? placeholder}
         bottomSheetProps={{
           snapPoints: ["50%"],
-          onClose: () => setIsOpen(false),
+          onDismiss: () => setIsOpen(false),
         }}
       >
         <BottomSheet.Scroll>
