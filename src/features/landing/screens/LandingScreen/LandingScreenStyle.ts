@@ -5,6 +5,9 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: spacing.space8.height,
   },
+  languageSwitcher: {
+    marginBottom: spacing.space8.height,
+  },
   carousel: {
     marginTop: spacing.space8.height,
   },

@@ -1,2 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export type LanguageSwitcherProps = {};
+import { StyleProp, ViewStyle } from "react-native";
+
+export type LanguageSwitcherProps = {
+  style?: StyleProp<ViewStyle>;
+};

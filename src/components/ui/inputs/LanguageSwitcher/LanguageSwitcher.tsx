@@ -7,9 +7,10 @@ import { Pressable } from "react-native";
 import { BottomSheet, BottomSheetRef } from "../../overlay";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import { switcherTranslationKeys, WORLD_ICON_SIZE } from "./constants";
+import { LanguageSwitcherProps } from "./types";
 import useStyles from "./useStyles";
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ style }: LanguageSwitcherProps) => {
   const languageBottomSheetRef = useRef<BottomSheetRef | null>(null);
 
   const { styles, colors } = useStyles();
@@ -29,7 +30,7 @@ const LanguageSwitcher = () => {
   return (
     <>
       <Pressable
-        style={styles.switcherContainer}
+        style={[styles.switcherContainer, style]}
         onPress={() => languageBottomSheetRef.current?.present()}
       >
         <Icon

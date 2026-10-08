@@ -19,7 +19,7 @@ const LandingScreen = () => {
 
   return (
     <ScreenLayout contentContainerStyle={styles.container}>
-      <LanguageSwitcher />
+      <LanguageSwitcher style={styles.languageSwitcher} />
       <Carousel
         style={styles.carousel}
         autoplay={true}

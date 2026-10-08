@@ -13,7 +13,7 @@ const CreateAccountScreen = () => {
 
   return (
     <ScreenLayout dismissKeyboardOnTap contentContainerStyle={styles.container}>
-      <LanguageSwitcher />
+      <LanguageSwitcher style={styles.languageSwitcher} />
       <Heading
         title={t("auth_createAccountTitle")}
         subtitle={t("auth_createAccountSubtitle")}

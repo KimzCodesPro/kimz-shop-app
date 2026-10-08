@@ -3,7 +3,10 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: spacing.space8.height,
+    paddingTop: spacing.space12.height,
+  },
+  languageSwitcher: {
+    marginBottom: spacing.space24.height,
   },
   form: {
     gap: spacing.space16.height,

@@ -31,7 +31,7 @@ const LoginAccountScreen = () => {
         dismissKeyboardOnTap
         contentContainerStyle={styles.container}
       >
-        <LanguageSwitcher />
+        <LanguageSwitcher style={styles.languageSwitcher} />
 
         <Heading title={t("auth_loginTitle")} subtitle={t("auth_loginSub")} />
 

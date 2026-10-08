@@ -17,7 +17,6 @@ const useStyles = () => {
       borderWidth: 1,
       borderColor: colors.border.default,
       borderRadius: radius.full,
-      marginBottom: spacing.space16.height,
     },
   });
 
