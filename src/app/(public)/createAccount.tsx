@@ -1,4 +1,4 @@
-import { CreateAccountScreen } from "@/src/features/auth";
+import { CreateAccountScreen } from "@/features/auth";
 
 const CreateAccountPage = () => {
   return <CreateAccountScreen />;

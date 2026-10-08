@@ -1,4 +1,4 @@
-import { useTranslation } from "@/src/hooks";
+import { useTranslation } from "@/hooks";
 import IconBadge from "../../display/IconBadge/IconBadge";
 import StatusBill from "../../feedback/StatusBill/StatusBill";
 import InfoCard from "../InfoCard/InfoCard";

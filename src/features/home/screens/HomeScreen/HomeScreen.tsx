@@ -2,13 +2,13 @@ import { avatarSample } from "@/assets/images";
 import { ScreenLayout } from "@/components/ui/layout";
 import { Tabs } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
-import { TextInput } from "@/src/components/ui/inputs";
+import { TextInput } from "@/components/ui/inputs";
 import {
   BRANDS_LIST,
   CATEGORIES_LIST,
   PRODUCTS_LIST,
   PRODUCTS_SLIDES,
-} from "@/src/features/home/data";
+} from "@/features/home/data";
 import { useRouter } from "expo-router";
 import { Pressable } from "react-native";
 import { CategoryList, Header, HomeList } from "./components";

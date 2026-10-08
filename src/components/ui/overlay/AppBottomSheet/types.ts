@@ -1,4 +1,4 @@
-import { BottomSheetModal, BottomSheetProps } from "@gorhom/bottom-sheet";
+import { BottomSheetModal, BottomSheetModalProps } from "@gorhom/bottom-sheet";
 import { ReactNode, Ref } from "react";
 
 export type BottomSheetRef = BottomSheetModal | null;
@@ -14,7 +14,7 @@ export type AppBottomSheetProps = {
   // onChange is locked too — it drives the Android back handler. Use onClose or
   // onAnimate instead.
   bottomSheetProps?: Omit<
-    BottomSheetProps,
+    BottomSheetModalProps,
     "children" | "enableDynamicSizing" | "index" | "onChange"
   >;
   // The full Ref union, so callers may pass any ref shape. The Android back

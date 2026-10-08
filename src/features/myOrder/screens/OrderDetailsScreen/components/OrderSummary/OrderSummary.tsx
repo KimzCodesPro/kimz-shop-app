@@ -1,6 +1,6 @@
-import { CardWrapper } from "@/src/components/ui/card";
-import { Typography } from "@/src/components/ui/typography";
-import { useTranslation } from "@/src/hooks";
+import { CardWrapper } from "@/components/ui/card";
+import { Typography } from "@/components/ui/typography";
+import { useTranslation } from "@/hooks";
 import { View } from "react-native";
 import { OrderSummaryProps } from "./types";
 import useStyles from "./useStyles";

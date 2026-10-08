@@ -1,6 +1,6 @@
 import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/typography";
-import { CardWrapper } from "@/src/components/ui/card";
+import { CardWrapper } from "@/components/ui/card";
 import { View } from "react-native";
 import { DELIVERY_ICON_SIZE } from "./constants";
 import { ETABannerProps } from "./types";

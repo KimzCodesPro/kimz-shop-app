@@ -1,4 +1,4 @@
-import { BrandsScreen } from "@/src/features/home";
+import { BrandsScreen } from "@/features/home";
 
 const Brands = () => {
   return <BrandsScreen />;

@@ -2,10 +2,13 @@ import { radius } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
+import { iconBadgeColor } from "./helper";
 const { HS } = scalingMethods;
 
 const useStyles = () => {
   const colors = useTheme();
+
+  const iconColors = iconBadgeColor(colors);
 
   const styles = StyleSheet.create({
     container: {
@@ -18,7 +21,7 @@ const useStyles = () => {
     },
   });
 
-  return { styles, colors };
+  return { styles, colors, iconColors };
 };
 
 export default useStyles;

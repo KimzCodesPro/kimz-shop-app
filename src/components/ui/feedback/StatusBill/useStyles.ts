@@ -7,13 +7,13 @@ import { statusBillColor } from "./helper";
 import { StatusBillVariant } from "./types";
 
 const useStyles = (
-  colorSchema: Exclude<StatusVariant, "secondary">,
+  StatusVariant: Exclude<StatusVariant, "secondary">,
   variant: StatusBillVariant,
 ) => {
   const colors = useTheme();
 
   const { border, background, typography } =
-    statusBillColor(colors)[VARIANT_TO_SCHEMA[variant]][colorSchema];
+    statusBillColor(colors)[VARIANT_TO_SCHEMA[variant]][StatusVariant];
 
   const styles = StyleSheet.create({
     container: {

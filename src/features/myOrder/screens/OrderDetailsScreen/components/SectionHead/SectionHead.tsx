@@ -1,5 +1,5 @@
 import { useTheme } from "@/hooks";
-import { Typography } from "@/src/components/ui/typography";
+import { Typography } from "@/components/ui/typography";
 import { View } from "react-native";
 import styles from "./sectionHeadStyles";
 import { SectionHeadProps } from "./types";

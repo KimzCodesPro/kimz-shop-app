@@ -1,6 +1,6 @@
-import Icon from "@/src/components/icons";
-import { CardWrapper } from "@/src/components/ui/card";
-import { Typography } from "@/src/components/ui/typography";
+import Icon from "@/components/icons";
+import { CardWrapper } from "@/components/ui/card";
+import { Typography } from "@/components/ui/typography";
 import { View } from "react-native";
 import { CREDIT_CARD_ICON_SIZE } from "./constants";
 import { PaymentProps } from "./types";

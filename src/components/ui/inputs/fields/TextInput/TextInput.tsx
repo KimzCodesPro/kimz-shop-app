@@ -6,7 +6,7 @@ import {
 import { useState } from "react";
 import { Pressable, TextInput as RNTextInput } from "react-native";
 import FieldWrapper from "../shared/FieldWrapper";
-import { fieldCurrentStatus } from "../shared/helper";
+import { fieldCurrentStatus } from "../shared/helpers";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
 import { CLEAR_ICON_SIZE, PASSWORD_TOGGLE_ICON_SIZE } from "./constants";

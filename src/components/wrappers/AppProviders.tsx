@@ -1,4 +1,4 @@
-import { persistor, store } from "@/src/store";
+import { persistor, store } from "@/store";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { StyleSheet } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useTheme } from "@/hooks";
-import spacing from "@/src/constants/spacing";
+import spacing from "@/constants/spacing";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 

@@ -1,4 +1,4 @@
-import { SearchScreen } from "@/src/features/search";
+import { SearchScreen } from "@/features/search";
 
 const Search = () => {
   return <SearchScreen />;

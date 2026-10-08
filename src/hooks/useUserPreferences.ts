@@ -63,12 +63,12 @@ const useUserPreferences = () => {
   // resolve theme, we can derive the current theme from the preferences
   // if it set to be system, we derive the theme from the device settings.
   const getSystemSchema = systemScheme === "dark" ? "dark" : "light";
-  const resolvedTheme =
+  const colorScheme =
     preferences.theme === "system" ? getSystemSchema : preferences.theme;
 
   return {
     ...preferences,
-    appResolvedTheme: resolvedTheme,
+    colorScheme,
     setLanguage: changeLanguage,
     setTheme: (theme: Theme) => dispatch(setTheme(theme)),
     setEnableNotifications: (enable: boolean) =>

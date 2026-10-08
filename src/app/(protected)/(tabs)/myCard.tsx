@@ -1,9 +1,5 @@
-import { Text, View } from "react-native";
+import { CartScreen } from "@/features/cart";
 
-export default function MyCard() {
-  return (
-    <View>
-      <Text>myCard</Text>
-    </View>
-  );
+export default function MyCart() {
+  return <CartScreen />;
 }

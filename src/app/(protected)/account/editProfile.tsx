@@ -1,4 +1,4 @@
-import { EditProfileScreen } from "@/src/features/account";
+import { EditProfileScreen } from "@/features/account";
 
 const EditProfile = () => {
   return <EditProfileScreen />;

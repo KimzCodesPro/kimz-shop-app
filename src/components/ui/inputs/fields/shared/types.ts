@@ -1,4 +1,4 @@
-import { IconName } from "@/src/components/icons";
+import { IconName } from "@/components/icons";
 import React from "react";
 import { StyleProp, ViewStyle } from "react-native";
 

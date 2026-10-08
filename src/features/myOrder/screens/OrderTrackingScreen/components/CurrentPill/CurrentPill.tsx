@@ -1,4 +1,4 @@
-import { Typography } from "@/src/components/ui/typography";
+import { Typography } from "@/components/ui/typography";
 import { View } from "react-native";
 import { CurrentPillProps } from "./types";
 import useStyles from "./useStyles";

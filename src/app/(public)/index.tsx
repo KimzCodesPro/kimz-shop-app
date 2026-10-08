@@ -1,4 +1,4 @@
-import { LandingScreen } from "@/src/features/landing";
+import { LandingScreen } from "@/features/landing";
 
 const LandingPage = () => {
   return <LandingScreen />;

@@ -1,4 +1,4 @@
-import iconSize from "@/src/constants/iconSize";
+import iconSize from "@/constants/iconSize";
 
 const CREDIT_CARD_ICON_SIZE = iconSize.sm;
 

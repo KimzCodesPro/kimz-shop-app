@@ -1,6 +1,6 @@
 import { ProductCard, PromoBannerCard } from "@/components/ui/card";
 import { Brand, Carousel } from "@/components/ui/display";
-import { useTranslation } from "@/src/hooks";
+import { useTranslation } from "@/hooks";
 import { View } from "react-native";
 import Section from "../Section/Section";
 import styles from "./homeListStyles";

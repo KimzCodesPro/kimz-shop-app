@@ -2,32 +2,39 @@ import { useTheme, useUserPreferences } from "@/hooks";
 import { NavigationBar } from "expo-navigation-bar";
 import { DefaultTheme, Stack, ThemeProvider } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import * as SystemUI from "expo-system-ui";
+import { useEffect } from "react";
 
 const AppNavigator = () => {
   const colors = useTheme();
-  const { appResolvedTheme } = useUserPreferences();
+  const { colorScheme } = useUserPreferences();
   const navigationTheme = {
     ...DefaultTheme,
     colors: { ...DefaultTheme.colors, background: colors.background.base },
   };
-  const isLoggedIn = true;
+  const isLoggedIn = false;
+
+  useEffect(() => {
+    SystemUI.setBackgroundColorAsync(colors.background.base);
+  }, [colors.background.base]);
 
   return (
-    <ThemeProvider value={navigationTheme}>
+    <>
       {/* Customizing system bars */}
-      <StatusBar style={appResolvedTheme === "dark" ? "light" : "dark"} />
-      <NavigationBar style={appResolvedTheme} />
-
+      <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
       {/* Navigation */}
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Protected guard={isLoggedIn}>
-          <Stack.Screen name="(protected)" />
-        </Stack.Protected>
-        <Stack.Protected guard={!isLoggedIn}>
-          <Stack.Screen name="(public)" />
-        </Stack.Protected>
-      </Stack>
-    </ThemeProvider>
+      <ThemeProvider value={navigationTheme}>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Protected guard={isLoggedIn}>
+            <Stack.Screen name="(protected)" />
+          </Stack.Protected>
+          <Stack.Protected guard={!isLoggedIn}>
+            <Stack.Screen name="(public)" />
+          </Stack.Protected>
+        </Stack>
+      </ThemeProvider>
+      <NavigationBar style={colorScheme === "dark" ? "light" : "dark"} />
+    </>
   );
 };
 

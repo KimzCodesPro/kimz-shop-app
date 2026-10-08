@@ -11,7 +11,7 @@ export const TOP_BAR_GAP = VS(20);
 // against the bottom of the screen. Design spec, not safe area — the fixed
 // branch has no use for it, since a screen that controls where its last
 // element sits asks for that spacing on the element itself.
-export const CONTENT_BOTTOM_GAP = VS(25);
+export const CONTENT_BOTTOM_GAP = VS(16);
 
 // Gutter between the screen's content and the device edges.
 export const CONTENT_PADDING_HORIZONTAL = spacing.space24.width;

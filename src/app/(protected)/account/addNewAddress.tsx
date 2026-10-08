@@ -1,4 +1,4 @@
-import { AddNewAddressScreen } from "@/src/features/account";
+import { AddNewAddressScreen } from "@/features/account";
 
 const AddNewAddress = () => {
   return <AddNewAddressScreen />;

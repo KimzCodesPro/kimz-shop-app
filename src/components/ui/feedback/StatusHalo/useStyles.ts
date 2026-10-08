@@ -1,6 +1,6 @@
 import { useTheme } from "@/hooks";
-import { radius } from "@/src/constants";
-import { StatusVariant } from "@/src/types";
+import { radius } from "@/constants";
+import { StatusVariant } from "@/types";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 import { statusHaloColor } from "./helper";

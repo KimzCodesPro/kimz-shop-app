@@ -1,5 +1,5 @@
 import { brandPlaceholder } from "@/assets/images";
-import { Typography } from "@/src/components/ui/typography";
+import { Typography } from "@/components/ui/typography";
 import { Image } from "expo-image";
 import { Pressable } from "react-native";
 import { BrandProps } from "./types";

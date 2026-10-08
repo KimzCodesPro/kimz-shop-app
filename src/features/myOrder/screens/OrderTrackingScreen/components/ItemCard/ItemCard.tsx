@@ -1,6 +1,6 @@
 import { productSample } from "@/assets/images";
 import { Typography } from "@/components/ui/typography";
-import { CardWrapper } from "@/src/components/ui/card";
+import { CardWrapper } from "@/components/ui/card";
 import { Image } from "expo-image";
 import { View } from "react-native";
 import type { ItemCardProps } from "./types";

@@ -1,4 +1,4 @@
-import { AccountScreen } from "@/src/features/account";
+import { AccountScreen } from "@/features/account";
 
 export default function Account() {
   return <AccountScreen />;

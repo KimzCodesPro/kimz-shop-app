@@ -1,4 +1,4 @@
-import { OrderStatus } from "@/src/features/myOrder/types";
+import { OrderStatus } from "@/features/myOrder/types";
 import { StyleProp, ViewStyle } from "react-native";
 
 export type OrderProduct = {

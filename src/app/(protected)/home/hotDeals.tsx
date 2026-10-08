@@ -1,4 +1,4 @@
-import { HotDealsScreen } from "@/src/features/home";
+import { HotDealsScreen } from "@/features/home";
 
 const HotDeals = () => {
   return <HotDealsScreen />;

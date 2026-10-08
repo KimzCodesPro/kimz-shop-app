@@ -3,4 +3,5 @@ export { default as CardWrapper } from "./CardWrapper/CardWrapper";
 export { default as InfoCard } from "./InfoCard/InfoCard";
 export { default as PaymentCard } from "./PaymentCard/PaymentCard";
 export { default as ProductCard } from "./ProductCard/ProductCard";
+export { default as ProductRow } from "./ProductRow/ProductRow";
 export { default as PromoBannerCard } from "./PromoBannerCard/PromoBannerCard";
