@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { Pressable } from "react-native";
 import { BottomSheet, BottomSheetRef } from "../../overlay";
 import RadioGroup from "../RadioGroup/RadioGroup";
-import { languageTranslationSwitchKeys, WORLD_ICON_SIZE } from "./constants";
+import { switcherTranslationKeys, WORLD_ICON_SIZE } from "./constants";
 import useStyles from "./useStyles";
 
 const LanguageSwitcher = () => {
@@ -38,7 +38,7 @@ const LanguageSwitcher = () => {
           color={colors.foreground.secondary}
         />
         <Typography variant="smallBold" color={colors.foreground.secondary}>
-          {t(languageTranslationSwitchKeys[language])}
+          {t(switcherTranslationKeys[language])}
         </Typography>
       </Pressable>
       <BottomSheet

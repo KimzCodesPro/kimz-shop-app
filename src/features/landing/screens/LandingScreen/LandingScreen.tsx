@@ -21,6 +21,7 @@ const LandingScreen = () => {
     <ScreenLayout contentContainerStyle={styles.container}>
       <LanguageSwitcher />
       <Carousel
+        style={styles.carousel}
         autoplay={true}
         autoplayInterval={4000}
         data={slides}

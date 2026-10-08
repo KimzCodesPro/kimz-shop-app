@@ -2,6 +2,8 @@ import { useTheme, useUserPreferences } from "@/hooks";
 import { NavigationBar } from "expo-navigation-bar";
 import { DefaultTheme, Stack, ThemeProvider } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import * as SystemUI from "expo-system-ui";
+import { useEffect } from "react";
 
 const AppNavigator = () => {
   const colors = useTheme();
@@ -12,11 +14,14 @@ const AppNavigator = () => {
   };
   const isLoggedIn = false;
 
+  useEffect(() => {
+    SystemUI.setBackgroundColorAsync(colors.background.base);
+  }, [colors.background.base]);
+
   return (
     <>
       {/* Customizing system bars */}
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
-      <NavigationBar style={colorScheme} />
       {/* Navigation */}
       <ThemeProvider value={navigationTheme}>
         <Stack screenOptions={{ headerShown: false }}>
@@ -28,6 +33,7 @@ const AppNavigator = () => {
           </Stack.Protected>
         </Stack>
       </ThemeProvider>
+      <NavigationBar style={colorScheme === "dark" ? "light" : "dark"} />
     </>
   );
 };
