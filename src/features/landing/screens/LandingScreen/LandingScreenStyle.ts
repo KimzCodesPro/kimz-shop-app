@@ -2,15 +2,15 @@ import { spacing } from "@/constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  contentContainer: {
-    paddingTop: spacing.space16.height,
+  container: {
+    paddingTop: spacing.space8.height,
   },
   linkButton: {
     height: "auto",
   },
   actions: {
     marginTop: "auto",
-    gap: spacing.space24.height,
+    gap: spacing.space16.height,
   },
 });
 

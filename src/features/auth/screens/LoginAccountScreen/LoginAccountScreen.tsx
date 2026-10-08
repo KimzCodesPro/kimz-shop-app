@@ -1,4 +1,9 @@
-import { Button, IconButton, TextInput } from "@/components/ui/inputs";
+import {
+  Button,
+  IconButton,
+  LanguageSwitcher,
+  TextInput,
+} from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
 import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
 import { Typography } from "@/components/ui/typography";
@@ -26,6 +31,8 @@ const LoginAccountScreen = () => {
         dismissKeyboardOnTap
         contentContainerStyle={styles.container}
       >
+        <LanguageSwitcher />
+
         <Heading title={t("auth_loginTitle")} subtitle={t("auth_loginSub")} />
 
         <View style={styles.form}>

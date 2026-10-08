@@ -13,14 +13,14 @@ const useCarouselItemStyles = () => {
     },
     image: {
       width: HS(325),
-      height: VS(394),
-      marginBottom: spacing.space24.height,
+      height: VS(380),
+      marginBottom: spacing.space16.height,
       borderRadius: radius.xl,
     },
     textContainer: {
       alignItems: "center",
       width: VS(287),
-      gap: spacing.space12.height,
+      gap: spacing.space4.height,
     },
     title: {
       color: colors.foreground.primary,

@@ -1,7 +1,7 @@
-import { useTranslation } from "@/hooks";
 import { Carousel } from "@/components/ui/display";
-import { Button } from "@/components/ui/inputs";
+import { Button, LanguageSwitcher } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
+import { useTranslation } from "@/hooks";
 import { router } from "expo-router";
 import { View } from "react-native";
 import { CarouselItem } from "../components";
@@ -18,12 +18,13 @@ const LandingScreen = () => {
   }));
 
   return (
-    <ScreenLayout contentContainerStyle={styles.contentContainer}>
+    <ScreenLayout contentContainerStyle={styles.container}>
+      <LanguageSwitcher />
       <Carousel
         autoplay={true}
         autoplayInterval={4000}
         data={slides}
-        height={540}
+        height={510}
         paginationDotType="pill"
         renderItem={(item) => <CarouselItem item={item} />}
       />

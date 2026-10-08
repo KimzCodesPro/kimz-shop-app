@@ -5,6 +5,7 @@ export { default as TextInput } from "./fields/TextInput/TextInput";
 export { default as IconButton } from "./IconButton/IconButton";
 export { default as ImageRadioGroup } from "./ImageRadioGroup/ImageRadioGroup";
 export type { ImageRadioGroupOption } from "./ImageRadioGroup/types";
+export { default as LanguageSwitcher } from "./LanguageSwitcher/LanguageSwitcher";
 export { default as OtpInput } from "./OtpInput/OtpInput";
 export { default as Radio } from "./Radio/Radio";
 export { default as RadioGroup } from "./RadioGroup/RadioGroup";

@@ -1,7 +1,7 @@
-import { Button, TextInput } from "@/components/ui/inputs";
+import { Button, LanguageSwitcher, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
-import { useTheme, useTranslation } from "@/hooks";
 import { Typography } from "@/components/ui/typography";
+import { useTheme, useTranslation } from "@/hooks";
 import { router } from "expo-router";
 import { View } from "react-native";
 import { Heading } from "../../components";
@@ -13,6 +13,7 @@ const CreateAccountScreen = () => {
 
   return (
     <ScreenLayout dismissKeyboardOnTap contentContainerStyle={styles.container}>
+      <LanguageSwitcher />
       <Heading
         title={t("auth_createAccountTitle")}
         subtitle={t("auth_createAccountSubtitle")}

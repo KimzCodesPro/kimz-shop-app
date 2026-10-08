@@ -3,14 +3,14 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: spacing.space24.height,
+    paddingTop: spacing.space8.height,
   },
   form: {
     gap: spacing.space16.height,
   },
   actions: {
     marginTop: "auto",
-    gap: spacing.space24.height,
+    gap: spacing.space16.height,
   },
   mainActionRow: {
     flexDirection: "row",
