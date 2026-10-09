@@ -18,6 +18,9 @@ const useStyles = () => {
       borderColor: colors.border.default,
       borderRadius: radius.full,
     },
+    confirmBtn: {
+      marginTop: spacing.space24.height,
+    },
   });
 
   return { styles, colors };
