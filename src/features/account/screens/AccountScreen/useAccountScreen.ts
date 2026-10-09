@@ -22,21 +22,30 @@ const useAccountScreen = () => {
     setEnableNotifications,
   } = useUserPreferences();
 
+  // local state and sheet refs
   const [logoutConfirm, setLogoutConfirm] = useState(false);
+  const [pendingLanguage, setPendingLanguage] = useState(selectedLanguage);
   const languageBottomSheetRef = useRef<BottomSheetRef | null>(null);
   const themeBottomSheetRef = useRef<BottomSheetRef | null>(null);
   const notificationsBottomSheetRef = useRef<BottomSheetRef | null>(null);
 
+  // language options
   const languageOptions = [
-    { label: t("account_settingLanguageEnglish"), value: "en" },
-    { label: t("account_settingLanguageArabic"), value: "ar" },
+    { label: t("common_settingLanguageEnglish"), value: "en" },
+    { label: t("common_settingLanguageArabic"), value: "ar" },
   ];
 
-  const onSelectLanguage = async (value: string) => {
-    languageBottomSheetRef.current?.dismiss();
-    await setLanguage(value as Language);
+  // language selection (applied on confirm)
+  const onSelectLanguage = (value: string) => {
+    setPendingLanguage(value as Language);
   };
 
+  const onConfirmLanguage = async () => {
+    languageBottomSheetRef.current?.dismiss();
+    await setLanguage(pendingLanguage);
+  };
+
+  // theme options
   const themeOptions: ImageRadioGroupOption[] = [
     {
       label: t("account_settingThemeLight"),
@@ -51,6 +60,7 @@ const useAccountScreen = () => {
     },
   ];
 
+  // theme selection
   const selectedThemeLabel =
     themeOptions.find((option) => option.value === selectedTheme)?.label ?? "";
 
@@ -59,6 +69,7 @@ const useAccountScreen = () => {
     setTheme(value as Theme);
   };
 
+  // notification options
   const notificationOptions = [
     {
       label: t("account_settingPushNotifications"),
@@ -67,13 +78,16 @@ const useAccountScreen = () => {
     },
   ];
 
+  // notification toggle
   const onToggleNotification = ({ value, enabled }: SwitchGroupChange) => {
     if (value === "pushNotifications") {
       setEnableNotifications(enabled);
     }
   };
 
+  // account page navigation rows
   const pageNavigationList: PageNavigationList = [
+    // account section
     {
       title: t("account_sectionAccount"),
       rows: [
@@ -91,6 +105,7 @@ const useAccountScreen = () => {
         },
       ],
     },
+    // shopping section
     {
       title: t("account_sectionShopping"),
       rows: [
@@ -108,6 +123,7 @@ const useAccountScreen = () => {
         },
       ],
     },
+    // preferences section
     {
       title: t("account_sectionPreferences"),
       rows: [
@@ -126,8 +142,8 @@ const useAccountScreen = () => {
           trailing: "chevronWithValue",
           trailingValue:
             selectedLanguage === "en"
-              ? t("account_settingLanguageEnglish")
-              : t("account_settingLanguageArabic"),
+              ? t("common_settingLanguageEnglish")
+              : t("common_settingLanguageArabic"),
           onPress: () => {
             languageBottomSheetRef.current?.present();
           },
@@ -143,6 +159,7 @@ const useAccountScreen = () => {
         },
       ],
     },
+    // support section
     {
       title: t("account_sectionSupport"),
       rows: [
@@ -176,9 +193,10 @@ const useAccountScreen = () => {
     t,
     logoutConfirm,
     setLogoutConfirm,
-    selectedLanguage,
+    pendingLanguage,
     languageOptions,
     onSelectLanguage,
+    onConfirmLanguage,
     languageBottomSheetRef,
     themeBottomSheetRef,
     themeOptions,

@@ -2,9 +2,10 @@ import Icon from "@/components/icons";
 import { Typography } from "@/components/ui/typography";
 import { useTranslation, useUserPreferences } from "@/hooks";
 import { Language } from "@/types";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Pressable } from "react-native";
 import { BottomSheet, BottomSheetRef } from "../../overlay";
+import Button from "../Button/Button";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import { switcherTranslationKeys, WORLD_ICON_SIZE } from "./constants";
 import { LanguageSwitcherProps } from "./types";
@@ -15,16 +16,21 @@ const LanguageSwitcher = ({ style }: LanguageSwitcherProps) => {
 
   const { styles, colors } = useStyles();
   const { t } = useTranslation();
-  const { language, setLanguage } = useUserPreferences();
+  const { language, setLanguage: setLanguagePreference } = useUserPreferences();
+  const [pendingLanguage, setPendingLanguage] = useState(language);
 
   const radioButtonsLanguageOptions = [
-    { label: t("account_settingLanguageEnglish"), value: "en" },
-    { label: t("account_settingLanguageArabic"), value: "ar" },
+    { label: t("common_settingLanguageEnglish"), value: "en" },
+    { label: t("common_settingLanguageArabic"), value: "ar" },
   ];
 
-  const onSelectLanguage = async (value: string) => {
+  const onSelectLanguage = (value: string) => {
+    setPendingLanguage(value as Language);
+  };
+
+  const confirmChangeLanguage = async () => {
     languageBottomSheetRef.current?.dismiss();
-    await setLanguage(value as Language);
+    await setLanguagePreference(pendingLanguage);
   };
 
   return (
@@ -44,14 +50,19 @@ const LanguageSwitcher = ({ style }: LanguageSwitcherProps) => {
       </Pressable>
       <BottomSheet
         ref={languageBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["25%"] }}
+        bottomSheetProps={{ snapPoints: ["33%"] }}
         title={t("account_rowLanguage")}
       >
         <BottomSheet.Content>
           <RadioGroup
             options={radioButtonsLanguageOptions}
-            selectedValue={language}
+            selectedValue={pendingLanguage}
             onValueChange={onSelectLanguage}
+          />
+          <Button
+            style={styles.confirmBtn}
+            title={t("common_confirm")}
+            onPress={() => confirmChangeLanguage()}
           />
         </BottomSheet.Content>
       </BottomSheet>

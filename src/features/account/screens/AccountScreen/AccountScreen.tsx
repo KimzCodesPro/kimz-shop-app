@@ -21,8 +21,9 @@ const AccountScreen = () => {
     logoutConfirm,
     setLogoutConfirm,
     languageOptions,
-    selectedLanguage,
+    pendingLanguage,
     onSelectLanguage,
+    onConfirmLanguage,
     languageBottomSheetRef,
     themeBottomSheetRef,
     themeOptions,
@@ -52,14 +53,19 @@ const AccountScreen = () => {
       {/* language bottom sheet */}
       <BottomSheet
         ref={languageBottomSheetRef}
-        bottomSheetProps={{ snapPoints: ["28%"] }}
+        bottomSheetProps={{ snapPoints: ["33%"] }}
         title={t("account_rowLanguage")}
       >
         <BottomSheet.Content>
           <RadioGroup
             options={languageOptions}
-            selectedValue={selectedLanguage}
+            selectedValue={pendingLanguage}
             onValueChange={onSelectLanguage}
+          />
+          <Button
+            style={styles.confirmBtn}
+            title={t("common_confirm")}
+            onPress={onConfirmLanguage}
           />
         </BottomSheet.Content>
       </BottomSheet>

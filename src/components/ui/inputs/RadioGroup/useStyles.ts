@@ -10,7 +10,7 @@ const useStyles = () => {
   const styles = StyleSheet.create({
     container: {
       alignSelf: "stretch",
-      gap: spacing.space16.height,
+      gap: spacing.space12.height,
     },
     radioItem: {
       alignSelf: "stretch",
