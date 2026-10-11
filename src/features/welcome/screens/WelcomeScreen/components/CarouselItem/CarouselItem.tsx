@@ -2,25 +2,25 @@ import { Typography } from "@/components/ui/typography";
 import { Image } from "expo-image";
 import { View } from "react-native";
 import { CarouselItemProps } from "./types";
-import useCarouselItemStyles from "./useCarouselItemStyles";
+import useStyles from "./useStyles";
 
-const CarouselItem = ({ item }: CarouselItemProps) => {
-  const { styles } = useCarouselItemStyles();
+const CarouselItem = ({ img, title, description }: CarouselItemProps) => {
+  const { styles } = useStyles();
 
   return (
     <View style={styles.item}>
       <Image
-        source={item.img}
+        source={img}
         contentFit="cover"
         transition={1000}
         style={styles.image}
       />
       <View style={styles.textContainer}>
         <Typography variant="largeBold" style={styles.title}>
-          {item.title}
+          {title}
         </Typography>
         <Typography variant="smallRegular" style={styles.description}>
-          {item.description}
+          {description}
         </Typography>
       </View>
     </View>

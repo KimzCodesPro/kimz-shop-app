@@ -1,7 +1,7 @@
-import { LandingScreen } from "@/features/landing";
+import { WelcomeScreen } from "@/features/welcome";
 
-const LandingPage = () => {
-  return <LandingScreen />;
+const WelcomePage = () => {
+  return <WelcomeScreen />;
 };
 
-export default LandingPage;
+export default WelcomePage;
