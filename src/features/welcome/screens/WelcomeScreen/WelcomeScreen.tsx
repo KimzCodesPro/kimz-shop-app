@@ -38,7 +38,7 @@ const WelcomeScreen = () => {
           style={styles.linkButton}
           title={t("onBoarding_alreadyHaveAccount")}
           variant="link"
-          onPress={() => router.replace("/loginAccount")}
+          onPress={() => router.replace("/login")}
         />
       </View>
     </ScreenLayout>
