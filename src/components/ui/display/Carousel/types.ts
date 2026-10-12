@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import type { StyleProp, ViewStyle } from "react-native";
 import { PaginationDotType } from "./PaginationDot/types";
 
-export type CarouselBaseProps<T> = {
+type CarouselBaseProps<T> = {
   data: T[];
   height: number;
   renderItem: (item: T) => ReactElement;
