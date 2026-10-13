@@ -12,12 +12,11 @@ import { LanguageSwitcherProps } from "./types";
 import useStyles from "./useStyles";
 
 const LanguageSwitcher = ({ style }: LanguageSwitcherProps) => {
-  const languageBottomSheetRef = useRef<BottomSheetRef | null>(null);
-
   const { styles, colors } = useStyles();
   const { t } = useTranslation();
   const { language, setLanguage: setLanguagePreference } = useUserPreferences();
   const [pendingLanguage, setPendingLanguage] = useState(language);
+  const languageBottomSheetRef = useRef<BottomSheetRef | null>(null);
 
   const radioButtonsLanguageOptions = [
     { label: t("common_settingLanguageEnglish"), value: "en" },

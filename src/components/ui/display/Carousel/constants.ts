@@ -1,0 +1,1 @@
+export const DEFAULT_AUTOPLAY_INTERVAL = 3000;

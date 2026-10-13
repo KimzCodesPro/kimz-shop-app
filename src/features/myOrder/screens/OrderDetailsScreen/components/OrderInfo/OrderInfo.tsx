@@ -4,7 +4,7 @@ import { Typography } from "@/components/ui/typography";
 import {
   orderStatusColor,
   orderStatusLabel,
-} from "@/features/myOrder/constant";
+} from "@/features/myOrder/constants";
 import { useTranslation } from "@/hooks";
 import { View } from "react-native";
 import { OrderInfoProps } from "./types";

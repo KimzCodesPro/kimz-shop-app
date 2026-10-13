@@ -53,7 +53,7 @@ const CreateAccountScreen = () => {
             title={t("auth_signInButton")}
             variant="link"
             size="sm"
-            onPress={() => router.replace("/loginAccount")}
+            onPress={() => router.replace("/login")}
             style={styles.secondActionCreateAccountButton}
           />
         </View>

@@ -1,9 +1,8 @@
 import { ReactElement } from "react";
 import type { StyleProp, ViewStyle } from "react-native";
+import { PaginationDotType } from "./PaginationDot/types";
 
-type PaginationDotType = "pill" | "circle";
-
-export type CarouselBaseProps<T> = {
+type CarouselBaseProps<T> = {
   data: T[];
   height: number;
   renderItem: (item: T) => ReactElement;
@@ -17,9 +16,3 @@ type CarouselPropsAutoplay =
   | { autoplay?: true; autoplayInterval?: number };
 
 export type CarouselProps<T> = CarouselBaseProps<T> & CarouselPropsAutoplay;
-
-export type PaginationDotProps = {
-  active: boolean;
-  onPress: () => void;
-  paginationDotType?: PaginationDotType;
-};

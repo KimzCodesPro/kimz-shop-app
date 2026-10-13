@@ -2,7 +2,7 @@ import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
 import { FlashList } from "@shopify/flash-list";
-import { NotificationItem } from "../../components";
+import { NotificationItem } from "./components";
 import { NOTIFICATIONS_LIST } from "./data";
 
 const NotificationsScreen = () => {

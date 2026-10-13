@@ -12,9 +12,9 @@ import { router } from "expo-router";
 import { useRef } from "react";
 import { View } from "react-native";
 import { Heading } from "../../components";
-import styles from "./LoginScreenAccountStyles";
+import styles from "./LoginScreenStyles";
 
-const LoginAccountScreen = () => {
+const LoginScreen = () => {
   const { t } = useTranslation();
   const colors = useTheme();
 
@@ -111,4 +111,4 @@ const LoginAccountScreen = () => {
   );
 };
 
-export default LoginAccountScreen;
+export default LoginScreen;

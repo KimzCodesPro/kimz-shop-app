@@ -107,7 +107,7 @@ const VerificationScreen = () => {
             variant="primary"
             onPress={() => {
               changePasswordSheetRef.current?.dismiss();
-              router.replace("/PasswordChanged");
+              router.replace("/changePassword");
             }}
             title={t("auth_changePasswordTitle")}
           />

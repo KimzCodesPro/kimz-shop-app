@@ -4,7 +4,7 @@ import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 const { VS, HS } = scalingMethods;
 
-const useCarouselItemStyles = () => {
+const useStyles = () => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
@@ -19,7 +19,7 @@ const useCarouselItemStyles = () => {
     },
     textContainer: {
       alignItems: "center",
-      width: VS(287),
+      width: HS(287),
       gap: spacing.space4.height,
     },
     title: {
@@ -35,4 +35,4 @@ const useCarouselItemStyles = () => {
   return { styles, colors };
 };
 
-export default useCarouselItemStyles;
+export default useStyles;

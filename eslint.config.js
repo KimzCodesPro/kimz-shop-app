@@ -25,13 +25,15 @@ module.exports = defineConfig([
       // Off: flags forwardRef components assigned to a const with an anonymous
       // arrow function, even though the const name is a valid display name.
       "react/display-name": "off",
+      // Disallow importing from certain restricted paths -> @/src directly.
       "no-restricted-imports": [
         "error",
         {
           patterns: [
             {
               group: ["@/src", "@/src/*"],
-              message: "Use '@/components', '@/utils', etc. instead of '@/src/...'.",
+              message:
+                "Use '@/components', '@/utils', etc. instead of '@/src/...'.",
             },
           ],
         },

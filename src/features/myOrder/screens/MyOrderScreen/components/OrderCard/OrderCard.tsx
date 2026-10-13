@@ -6,7 +6,7 @@ import { CardWrapper } from "@/components/ui/card";
 import {
   orderStatusColor,
   orderStatusLabel,
-} from "@/features/myOrder/constant";
+} from "@/features/myOrder/constants";
 import { Image } from "expo-image";
 import { View } from "react-native";
 import { OrderCardProps } from "./types";

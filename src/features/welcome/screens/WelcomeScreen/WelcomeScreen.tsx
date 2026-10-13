@@ -4,14 +4,14 @@ import { ScreenLayout } from "@/components/ui/layout";
 import { useTranslation } from "@/hooks";
 import { router } from "expo-router";
 import { View } from "react-native";
-import { CarouselItem } from "../components";
-import { LANDING_SLIDES } from "./data";
-import styles from "./LandingScreenStyle";
+import { CarouselItem } from "./components";
+import { WELCOME_SLIDES } from "./data";
+import styles from "./WelcomeScreenStyle";
 
-const LandingScreen = () => {
+const WelcomeScreen = () => {
   const { t } = useTranslation();
 
-  const slides = LANDING_SLIDES.map((slide) => ({
+  const slides = WELCOME_SLIDES.map((slide) => ({
     ...slide,
     title: t(slide.title),
     description: t(slide.description),
@@ -27,7 +27,7 @@ const LandingScreen = () => {
         data={slides}
         height={510}
         paginationDotType="pill"
-        renderItem={(item) => <CarouselItem item={item} />}
+        renderItem={(item) => <CarouselItem {...item} />}
       />
       <View style={styles.actions}>
         <Button
@@ -38,11 +38,11 @@ const LandingScreen = () => {
           style={styles.linkButton}
           title={t("onBoarding_alreadyHaveAccount")}
           variant="link"
-          onPress={() => router.replace("/loginAccount")}
+          onPress={() => router.replace("/login")}
         />
       </View>
     </ScreenLayout>
   );
 };
 
-export default LandingScreen;
+export default WelcomeScreen;
