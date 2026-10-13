@@ -9,8 +9,7 @@ const useStyles = (type: PaginationDotType) => {
 
   const styles = StyleSheet.create({
     dot: {
-      width: DOT_DEFAULT_SIZE,
-      height: DOT_SIZES.circle.height,
+      ...DOT_DEFAULT_SIZE,
       borderRadius: radius.full,
       backgroundColor: colors.border.default,
     },
