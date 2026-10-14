@@ -1,4 +1,4 @@
-export type HeadingProps = {
+export type HeaderProps = {
   title: string;
   subtitle: string;
 };

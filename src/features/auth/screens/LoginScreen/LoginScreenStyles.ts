@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   languageSwitcher: {
     marginBottom: spacing.space24.height,
   },
-  form: {
+  formContainer: {
     gap: spacing.space16.height,
   },
   forgotPasswordButton: {

@@ -1,8 +1,8 @@
 import Icon from "@/components/icons";
-import { TouchableOpacity } from "react-native";
+import { Pressable } from "react-native";
+import { ICON_SIZE } from "./constants";
 import { IconButtonProps } from "./types";
 import useStyles from "./useStyles";
-import { ACTION_ICON_SIZE } from "./constants";
 
 const IconButton = ({
   icon,
@@ -14,13 +14,13 @@ const IconButton = ({
   const { styles, iconColor } = useStyles(variant, disabled);
 
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={onPress}
       style={[styles.button, style]}
       disabled={disabled}
     >
-      <Icon name={icon} size={ACTION_ICON_SIZE} color={iconColor} />
-    </TouchableOpacity>
+      <Icon name={icon} size={ICON_SIZE} color={iconColor} />
+    </Pressable>
   );
 };
 

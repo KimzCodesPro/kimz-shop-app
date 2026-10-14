@@ -4,7 +4,7 @@ import { Typography } from "@/components/ui/typography";
 import { useTheme, useTranslation } from "@/hooks";
 import { router } from "expo-router";
 import { View } from "react-native";
-import { Heading } from "../../components";
+import { Header } from "../../components";
 import styles from "./createAccountScreenStyles";
 
 const CreateAccountScreen = () => {
@@ -14,12 +14,12 @@ const CreateAccountScreen = () => {
   return (
     <ScreenLayout dismissKeyboardOnTap contentContainerStyle={styles.container}>
       <LanguageSwitcher style={styles.languageSwitcher} />
-      <Heading
+      <Header
         title={t("auth_createAccountTitle")}
         subtitle={t("auth_createAccountSubtitle")}
       />
 
-      <View style={styles.form}>
+      <View style={styles.formContainer}>
         <TextInput
           icon="user"
           label={t("auth_fieldUserName")}
@@ -53,7 +53,7 @@ const CreateAccountScreen = () => {
             title={t("auth_signInButton")}
             variant="link"
             size="sm"
-            onPress={() => router.replace("/login")}
+            onPress={() => router.push("/login")}
             style={styles.secondActionCreateAccountButton}
           />
         </View>

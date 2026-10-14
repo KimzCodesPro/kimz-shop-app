@@ -6,7 +6,7 @@ const useStyles = () => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
-    heading: {
+    header: {
       marginBottom: spacing.space32.height,
       gap: spacing.space8.height,
     },

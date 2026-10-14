@@ -11,7 +11,7 @@ import { useTheme, useTranslation } from "@/hooks";
 import { router } from "expo-router";
 import { useRef } from "react";
 import { View } from "react-native";
-import { Heading } from "../../components";
+import { Header } from "../../components";
 import styles from "./LoginScreenStyles";
 
 const LoginScreen = () => {
@@ -33,9 +33,9 @@ const LoginScreen = () => {
       >
         <LanguageSwitcher style={styles.languageSwitcher} />
 
-        <Heading title={t("auth_loginTitle")} subtitle={t("auth_loginSub")} />
+        <Header title={t("auth_loginTitle")} subtitle={t("auth_loginSub")} />
 
-        <View style={styles.form}>
+        <View style={styles.formContainer}>
           <TextInput
             icon="mail"
             label={t("auth_fieldEmail")}
@@ -79,7 +79,7 @@ const LoginScreen = () => {
               title={t("auth_createAccountTitle")}
               variant="link"
               size="sm"
-              onPress={() => router.replace("/createAccount")}
+              onPress={() => router.push("/createAccount")}
               style={styles.secondActionCreateAccountButton}
             />
           </View>

@@ -15,14 +15,15 @@ const useStyle = (size: SizeType, variant: VariantType, disabled?: boolean) => {
   const styles = StyleSheet.create({
     button: {
       flexDirection: "row",
-      gap: spacing.space8.width,
-      alignSelf: "stretch",
-      height: buttonHeight,
-      borderRadius: variant === "chip" ? radius.full : radius.sm,
-      backgroundColor: currentVariantColors.background,
       alignItems: "center",
       justifyContent: "center",
+      alignSelf: "stretch",
+      height: buttonHeight,
+      gap: spacing.space8.width,
       borderWidth: 1,
+      borderRadius: variant === "chip" ? radius.full : radius.sm,
+      backgroundColor: currentVariantColors.background,
+
       borderColor: currentVariantColors.border,
       opacity: disabled ? opacity.disabled : opacity.full,
     },

@@ -1,13 +1,13 @@
 import { Typography } from "@/components/ui/typography";
 import { View } from "react-native";
-import { HeadingProps } from "./types";
+import { HeaderProps } from "./types";
 import useStyles from "./useStyles";
 
-const Heading = ({ title, subtitle }: HeadingProps) => {
+const Header = ({ title, subtitle }: HeaderProps) => {
   const { styles, colors } = useStyles();
 
   return (
-    <View style={styles.heading}>
+    <View style={styles.header}>
       <Typography variant="largeBold" color={colors.foreground.primary}>
         {title}
       </Typography>
@@ -18,4 +18,4 @@ const Heading = ({ title, subtitle }: HeadingProps) => {
   );
 };
 
-export default Heading;
+export default Header;

@@ -8,16 +8,12 @@ const styles = StyleSheet.create({
   languageSwitcher: {
     marginBottom: spacing.space24.height,
   },
-  form: {
+  formContainer: {
     gap: spacing.space16.height,
   },
   actions: {
     marginTop: "auto",
     gap: spacing.space16.height,
-  },
-  mainActionRow: {
-    flexDirection: "row",
-    gap: spacing.space12.width,
   },
   secondActionRow: {
     flexDirection: "row",
