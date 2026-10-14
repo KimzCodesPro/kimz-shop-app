@@ -1,14 +1,14 @@
-import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
-import { useTheme, useTranslation } from "@/hooks";
 import { StatusHalo } from "@/components/ui/feedback";
 import { Button, OtpInput, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
+import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
 import { Typography } from "@/components/ui/typography";
+import { useTheme, useTranslation } from "@/hooks";
 import { useRouter } from "expo-router";
 import { useRef } from "react";
 import { View } from "react-native";
-import styles from "./VerificationScreenStyles";
+import styles from "./verificationScreenStyles";
 
 const VerificationScreen = () => {
   const { t } = useTranslation();
@@ -85,6 +85,7 @@ const VerificationScreen = () => {
         ref={changePasswordSheetRef}
         bottomSheetProps={{
           snapPoints: ["50%"],
+          enablePanDownToClose: false,
         }}
         title={t("auth_newPasswordTitle")}
         description={t("auth_newPasswordSub")}

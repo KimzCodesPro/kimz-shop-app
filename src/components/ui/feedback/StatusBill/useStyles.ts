@@ -3,7 +3,7 @@ import { useTheme } from "@/hooks";
 import { StatusVariant } from "@/types";
 import { StyleSheet } from "react-native";
 import { VARIANT_TO_SCHEMA } from "./constants";
-import { statusBillColor } from "./helper";
+import { statusBillColor } from "./helpers";
 import { StatusBillVariant } from "./types";
 
 const useStyles = (

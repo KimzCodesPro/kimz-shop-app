@@ -5,7 +5,7 @@ import { ScreenLayout } from "@/components/ui/layout";
 import { Typography } from "@/components/ui/typography";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
-import styles from "./ChangePasswordScreenStyles";
+import styles from "./changePasswordScreenStyles";
 
 const ChangePasswordScreen = () => {
   const colors = useTheme();

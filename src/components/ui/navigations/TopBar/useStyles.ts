@@ -2,7 +2,7 @@ import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { GLYPH_INSET, ICON_SIZE } from "./constant";
+import { GLYPH_INSET, ICON_SIZE } from "./constants";
 const { VS, HS } = scalingMethods;
 
 const useStyles = () => {

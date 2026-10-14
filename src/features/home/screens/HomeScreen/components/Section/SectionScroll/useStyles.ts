@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { horizontalSpace } from "./helper";
+import { horizontalSpace } from "./helpers";
 import { ItemHorizontalSpace } from "./types";
 
 const useStyles = (itemHorizontalSpace?: ItemHorizontalSpace) => {

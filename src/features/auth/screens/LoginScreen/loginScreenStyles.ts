@@ -15,9 +15,6 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
     height: "auto",
   },
-  forgotPasswordSheetContent: {
-    gap: spacing.space16.height,
-  },
   actions: {
     marginTop: "auto",
     gap: spacing.space16.height,
@@ -37,6 +34,9 @@ const styles = StyleSheet.create({
   },
   secondActionCreateAccountButton: {
     height: "auto",
+  },
+  forgotPasswordSheetContent: {
+    gap: spacing.space12.height,
   },
 });
 

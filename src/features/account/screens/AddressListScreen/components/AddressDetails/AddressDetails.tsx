@@ -10,7 +10,7 @@ import { StatusBill } from "@/components/ui/feedback";
 import { Typography } from "@/components/ui/typography";
 import { Button } from "@/components/ui/inputs";
 import { Pressable, View } from "react-native";
-import styles from "./AddressDetailsStyles";
+import styles from "./addressDetailsStyles";
 import { AddressDetailsProps } from "./types";
 import { INFO_ROW_ICON_SIZE } from "./constants";
 

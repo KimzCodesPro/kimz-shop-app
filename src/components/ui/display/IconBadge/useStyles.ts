@@ -2,7 +2,7 @@ import { radius } from "@/constants";
 import { useTheme } from "@/hooks";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
-import { iconBadgeColor } from "./helper";
+import { iconBadgeColor } from "./helpers";
 const { HS } = scalingMethods;
 
 const useStyles = () => {

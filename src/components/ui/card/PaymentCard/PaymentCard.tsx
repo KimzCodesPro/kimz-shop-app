@@ -1,13 +1,13 @@
 import IconBadge from "../../display/IconBadge/IconBadge";
-import InfoCard from "../InfoCard/InfoCard";
 import StatusBill from "../../feedback/StatusBill/StatusBill";
+import InfoCard from "../InfoCard/InfoCard";
 import { PaymentCardProps } from "./types";
 
 const PaymentCard = ({
   cardNumber,
   cardType,
   expiryDate,
-  variant,
+  variant = "info",
   isSelected,
   isDefault,
   onPress,
@@ -23,9 +23,7 @@ const PaymentCard = ({
       />
       <InfoCard.Trailing>
         <IconBadge icon="credit-card" variant={variant} />
-        {isDefault && (
-          <StatusBill icon="check" label="Default" color="info" />
-        )}
+        {isDefault && <StatusBill icon="check" label="Default" color="info" />}
       </InfoCard.Trailing>
     </InfoCard>
   );

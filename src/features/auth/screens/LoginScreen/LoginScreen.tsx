@@ -12,16 +12,16 @@ import { router } from "expo-router";
 import { useRef } from "react";
 import { View } from "react-native";
 import { Header } from "../../components";
-import styles from "./LoginScreenStyles";
+import styles from "./loginScreenStyles";
 
 const LoginScreen = () => {
   const { t } = useTranslation();
   const colors = useTheme();
 
-  const forgotPasswordSheetRef = useRef<BottomSheetRef | null>(null);
+  const forgotPasswordBottomSheetRef = useRef<BottomSheetRef | null>(null);
 
   const sendCodeHandler = () => {
-    forgotPasswordSheetRef.current?.dismiss();
+    forgotPasswordBottomSheetRef.current?.dismiss();
     router.push("/verification");
   };
 
@@ -53,7 +53,7 @@ const LoginScreen = () => {
             title={t("auth_forgotPasswordLink")}
             variant="link"
             size="sm"
-            onPress={() => forgotPasswordSheetRef.current?.present()}
+            onPress={() => forgotPasswordBottomSheetRef.current?.present()}
             style={styles.forgotPasswordButton}
           />
         </View>
@@ -87,7 +87,7 @@ const LoginScreen = () => {
       </ScreenLayout>
       {/* forgot password bottom sheet */}
       <BottomSheet
-        ref={forgotPasswordSheetRef}
+        ref={forgotPasswordBottomSheetRef}
         bottomSheetProps={{
           snapPoints: ["38%"],
         }}

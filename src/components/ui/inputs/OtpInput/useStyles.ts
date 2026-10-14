@@ -1,5 +1,5 @@
+import { radius, spacing } from "@/constants";
 import { useFontStyles, useTheme } from "@/hooks";
-import { radius } from "@/constants";
 import { scalingMethods } from "@/utils";
 import { StyleSheet } from "react-native";
 
@@ -13,6 +13,8 @@ const useStyles = (verifyFailed: boolean) => {
     container: {
       justifyContent: "center",
       alignItems: "center",
+      gap: spacing.space12.width,
+      marginBottom: spacing.space8.height,
     },
     pinCodeContainer: {
       width: HS(48),
@@ -20,7 +22,6 @@ const useStyles = (verifyFailed: boolean) => {
       borderWidth: 1,
       borderColor: verifyFailed ? colors.danger.base : colors.border.default,
       borderRadius: radius.lg,
-      margin: HS(5),
     },
     pinCodeText: {
       ...fontStyles.largeBold,

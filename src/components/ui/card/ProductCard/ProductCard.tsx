@@ -4,7 +4,7 @@ import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import { Typography } from "../../typography";
 import { FAVORITE_ICON_SIZE } from "./constants";
-import calculateDiscountPercentage from "./helper";
+import calculateDiscountPercentage from "./helpers";
 import { ProductCardProps } from "./types";
 import useStyles from "./useStyles";
 
