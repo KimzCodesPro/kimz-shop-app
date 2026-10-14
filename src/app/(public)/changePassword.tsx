@@ -1,7 +1,7 @@
-import { ChangePasswordScreen } from "@/features/auth";
+import { PasswordChangedScreen } from "@/features/auth";
 
 const ChangePassword = () => {
-  return <ChangePasswordScreen />;
+  return <PasswordChangedScreen />;
 };
 
 export default ChangePassword;

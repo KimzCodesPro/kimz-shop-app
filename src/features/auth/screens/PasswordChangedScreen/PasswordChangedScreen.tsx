@@ -5,9 +5,9 @@ import { ScreenLayout } from "@/components/ui/layout";
 import { Typography } from "@/components/ui/typography";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
-import styles from "./changePasswordScreenStyles";
+import styles from "./passwordChangedScreenStyles";
 
-const ChangePasswordScreen = () => {
+const PasswordChangedScreen = () => {
   const colors = useTheme();
   const { t } = useTranslation();
   const router = useRouter();
@@ -45,4 +45,4 @@ const ChangePasswordScreen = () => {
   );
 };
 
-export default ChangePasswordScreen;
+export default PasswordChangedScreen;
