@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { ScrollView } from "react-native";
-import useStyles from "./useStyles";
 import { SectionScrollProps } from "./types";
+import useStyles from "./useStyles";
 
 const SectionScroll = <T,>({
   data,

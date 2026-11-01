@@ -24,7 +24,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
             title={item.title}
             shopName={item.shopName}
             imgSrc={item.img}
-            onPress={() => {}}
+            onPress={() => { }}
           />
         )}
       />
@@ -37,7 +37,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
           seeAllLink="/home/brands"
           data={brands}
           renderItem={(item) => (
-            <Brand name={item.name} logo={item.logo} onPress={() => {}} />
+            <Brand name={item.name} logo={item.logo} onPress={() => { }} />
           )}
         />
         {/* new arrivals section */}
@@ -45,6 +45,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
           title={t("home_newArrivals")}
           actionText={t("home_seeAll")}
           seeAllLink="/home/newArrival"
+
           data={products}
           renderItem={(item) => (
             <ProductCard
@@ -53,7 +54,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
               brand={item.brand}
               price={item.price}
               imgSrc={item.img}
-              onPress={() => {}}
+              onPress={() => { }}
             />
           )}
         />
@@ -72,7 +73,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
               price={item.price}
               discountPrice={item.salePrice}
               imgSrc={item.img}
-              onPress={() => {}}
+              onPress={() => { }}
             />
           )}
         />

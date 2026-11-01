@@ -12,7 +12,7 @@ const useStyles = () => {
       gap: spacing.space8.height,
     },
     header: {
-      height: VS(174),
+      height: VS(150),
       borderRadius: radius.lg,
       overflow: "hidden",
     },

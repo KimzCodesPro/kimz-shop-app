@@ -13,7 +13,7 @@ export default function TabLayout() {
       <TabSlot />
       <TabList asChild>
         <CustomBottomTab>
-          <TabTrigger name="home" href="/home" asChild>
+          <TabTrigger name="home" href="/" asChild>
             <CustomBottomTabButton
               icon="home"
               label={t("common_bottomTabHome")}
