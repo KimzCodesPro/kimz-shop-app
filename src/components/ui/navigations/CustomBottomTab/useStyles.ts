@@ -1,9 +1,8 @@
 import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
-import { scalingMethods } from "@/utils";
+import { HS, VS } from "@/utils";
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-const { HS, VS } = scalingMethods;
 
 const useStyles = (focused?: boolean) => {
   const colors = useTheme();

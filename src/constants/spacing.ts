@@ -1,5 +1,4 @@
-import { scalingMethods } from "../utils/";
-const { HS, VS } = scalingMethods;
+import { HS, VS } from "../utils/";
 
 const spacing = {
   space4: {

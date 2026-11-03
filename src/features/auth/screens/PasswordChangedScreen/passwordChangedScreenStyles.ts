@@ -2,6 +2,9 @@ import { spacing } from "@/constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+  },
   centerArea: {
     flex: 1,
     justifyContent: "center",

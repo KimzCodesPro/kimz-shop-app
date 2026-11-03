@@ -1,8 +1,7 @@
 import { opacity, radius } from "@/constants";
 import { useTheme } from "@/hooks";
-import { scalingMethods } from "@/utils";
+import { HS, VS } from "@/utils";
 import { StyleSheet } from "react-native";
-const { HS, VS } = scalingMethods;
 
 const useStyles = (isChecked: boolean, disabled?: boolean) => {
   const colors = useTheme();

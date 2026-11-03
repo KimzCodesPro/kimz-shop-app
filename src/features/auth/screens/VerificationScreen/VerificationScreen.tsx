@@ -19,7 +19,6 @@ const VerificationScreen = () => {
     <>
       <ScreenLayout
         contentContainerStyle={styles.container}
-        horizontalCenterAlignment
         dismissKeyboardOnTap
         renderTopBar={() => (
           <TopBar title={t("auth_verificationTitle")} goBack />

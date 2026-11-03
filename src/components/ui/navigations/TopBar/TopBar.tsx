@@ -6,11 +6,9 @@ import { ICON_SIZE } from "./constants";
 import { TopBarProps } from "./types";
 import useStyles from "./useStyles";
 
-const TopBar = ({ title, goBack, forceBack, actionBtn }: TopBarProps) => {
+const TopBar = ({ style, title, goBack, forceBack, actionBtn }: TopBarProps) => {
   const router = useRouter();
   const { styles, colors } = useStyles();
-
-  const hasForceBack = !!forceBack;
 
   const handleGoBack = () => {
     if (forceBack) {
@@ -24,8 +22,8 @@ const TopBar = ({ title, goBack, forceBack, actionBtn }: TopBarProps) => {
 
   return (
     <View style={styles.safeAreaView}>
-      <View style={styles.container}>
-        {goBack || hasForceBack ? (
+      <View style={[styles.container, style]}>
+        {goBack ? (
           <Pressable
             onPress={handleGoBack}
             style={[styles.slot, styles.backSlot]}
@@ -57,7 +55,7 @@ const TopBar = ({ title, goBack, forceBack, actionBtn }: TopBarProps) => {
               name={actionBtn.icon}
               size={ICON_SIZE}
               color={colors.foreground.primary}
-              flipOnRTL={actionBtn?.flipOnRTL}
+              flipOnRTL={actionBtn.flipOnRTL}
             />
           </Pressable>
         ) : (

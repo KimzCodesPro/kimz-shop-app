@@ -1,9 +1,8 @@
 import { StyleSheet } from "react-native";
 import { useTheme } from "@/hooks";
-import { scalingMethods } from "@/utils";
+import { HS } from "@/utils";
 import radius from "@/constants/radius";
 import spacing from "@/constants/spacing";
-const { HS } = scalingMethods;
 
 const useStyles = () => {
   const colors = useTheme();

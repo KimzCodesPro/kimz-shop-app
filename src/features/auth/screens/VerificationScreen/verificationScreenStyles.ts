@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     paddingTop: spacing.space16.height,
+    alignItems: "center",
   },
   infoContainer: {
     marginVertical: spacing.space32.height,

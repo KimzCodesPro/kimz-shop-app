@@ -1,10 +1,9 @@
 import { radius } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StatusVariant } from "@/types";
-import { scalingMethods } from "@/utils";
+import { HS, VS } from "@/utils";
 import { StyleSheet } from "react-native";
 import { statusHaloColor } from "./helpers";
-const { HS, VS } = scalingMethods;
 
 const useStyles = (variant: StatusVariant) => {
   const colors = useTheme();

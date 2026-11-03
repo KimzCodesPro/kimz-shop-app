@@ -49,7 +49,7 @@ const EditProfileScreen = () => {
       </View>
       <Button
         title={t("common_save")}
-        onPress={() => {}}
+        onPress={() => { }}
         style={styles.submitButton}
       />
     </ScreenLayout>

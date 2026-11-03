@@ -1,6 +1,5 @@
 import { spacing } from "@/constants";
-import { scalingMethods } from "@/utils";
-const { VS } = scalingMethods;
+import { VS } from "@/utils";
 
 // Space between the top bar and the content. Lives here rather than on the
 // bar so every renderTopBar gets it, and a screen can sit flush by omitting
@@ -16,8 +15,8 @@ export const CONTENT_BOTTOM_GAP = VS(16);
 // Gutter between the screen's content and the device edges.
 export const CONTENT_PADDING_HORIZONTAL = spacing.space24.width;
 
-// Sits on the content only, never the wrapper — TopBar carries its own
-// paddingHorizontal, so a wrapper-level gutter would double up on it.
+// Sits on the wrapper, so TopBar and content share one gutter — TopBar has no
+// horizontal padding of its own. paddingSides therefore moves the bar too.
 export const SIDE_PADDING = {
   both: { paddingHorizontal: CONTENT_PADDING_HORIZONTAL },
   start: { paddingStart: CONTENT_PADDING_HORIZONTAL },

@@ -13,7 +13,7 @@ const PasswordChangedScreen = () => {
   const router = useRouter();
 
   return (
-    <ScreenLayout horizontalCenterAlignment>
+    <ScreenLayout contentContainerStyle={styles.container}>
       <View style={styles.centerArea}>
         <StatusHalo variant="success" icon="check" />
         <View style={styles.containerInfo}>

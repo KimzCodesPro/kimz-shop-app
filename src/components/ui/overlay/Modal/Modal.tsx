@@ -3,7 +3,6 @@ import { Typography } from "@/components/ui/typography";
 import { Pressable, Modal as RNModal, View } from "react-native";
 import { ModalProps } from "./types";
 import useStyles from "./useStyles";
-import { CLOSE_ICON_SIZE } from "./constants";
 
 const Modal = ({
   title,
@@ -22,7 +21,7 @@ const Modal = ({
             <Pressable style={styles.contentCloseBTN} onPress={closeModal}>
               <Icon
                 name="close"
-                size={CLOSE_ICON_SIZE}
+                size="md"
                 color={colors.foreground.primary}
               />
             </Pressable>

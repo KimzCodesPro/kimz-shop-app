@@ -1,6 +1,6 @@
 import { fonts } from "@/constants";
 import { useWindowDimensions } from "react-native";
-import BaseRenderHtml from "react-native-render-html";
+import BaseRenderHtml from "@native-html/render";
 
 import { RenderHtmlProps } from "./types";
 

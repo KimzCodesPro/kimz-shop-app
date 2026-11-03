@@ -12,7 +12,7 @@ type CarouselBaseProps<T> = {
 };
 
 type CarouselPropsAutoplay =
-  | { autoplay?: false; autoplayInterval: never }
-  | { autoplay?: true; autoplayInterval?: number };
+  | { autoplay?: false; autoplayInterval?: never }
+  | { autoplay: true; autoplayInterval?: number };
 
 export type CarouselProps<T> = CarouselBaseProps<T> & CarouselPropsAutoplay;

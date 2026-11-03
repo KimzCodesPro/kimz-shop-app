@@ -1,6 +1,5 @@
 import Icon from "@/components/icons";
 import Typography from "@/components/ui/typography/Typography/Typography";
-import { TAB_ICON_SIZE } from "./constants";
 import { Pressable, View } from "react-native";
 import { CustomBottomTabButtonProps } from "./types";
 import useStyles from "./useStyles";
@@ -41,7 +40,7 @@ const CustomBottomTabButton = ({
     >
       <View style={styles.tabItem}>
         <View style={styles.iconWrapper}>
-          <Icon size={TAB_ICON_SIZE} name={icon} color={focusedColor} />
+          <Icon name={icon} color={focusedColor} />
           {!!badge && (
             <View style={styles.badge}>
               <Typography

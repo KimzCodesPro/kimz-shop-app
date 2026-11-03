@@ -3,7 +3,7 @@ import { Typography } from "@/components/ui/typography";
 import useTranslation from "@/hooks/useTranslation";
 import { View } from "react-native";
 import CurrentPill from "../CurrentPill/CurrentPill";
-import { MARK_ICON_SIZE, trackingStageLabel } from "./constants";
+import { trackingStageLabel } from "./constants";
 import { TrackingTimelineProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -40,7 +40,7 @@ const TrackingTimeline = ({
                     <Icon
                       color={colors.background.base}
                       name="check"
-                      size={MARK_ICON_SIZE}
+                      size="sm"
                     />
                   ))}
                 {isCurrentStage && (

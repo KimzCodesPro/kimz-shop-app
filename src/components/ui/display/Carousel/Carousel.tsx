@@ -1,4 +1,4 @@
-import { scalingMethods } from "@/utils";
+import { VS } from "@/utils";
 import { useRef, useState } from "react";
 import { View } from "react-native";
 import { Carousel, CarouselRef } from "react-native-reanimated-carousel";
@@ -6,8 +6,6 @@ import { DEFAULT_AUTOPLAY_INTERVAL } from "./constants";
 import PaginationDot from "./PaginationDot/PaginationDot";
 import { CarouselProps } from "./types";
 import useStyles from "./useStyles";
-
-const { VS } = scalingMethods;
 
 const RNCarousel = <T,>({
   data,

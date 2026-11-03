@@ -1,7 +1,6 @@
 import { UserGreeting } from "@/components/ui/display";
 import Icon from "@/components/icons";
 import { Pressable, View } from "react-native";
-import { FAVORITE_ICON_SIZE, NOTIFICATION_ICON_SIZE } from "./constants";
 import { HeaderProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -30,7 +29,6 @@ const Header = ({
         <Pressable onPress={onFavoritePress}>
           <Icon
             name="heart-filled"
-            size={FAVORITE_ICON_SIZE}
             color={colors.foreground.primary}
           />
         </Pressable>
@@ -38,7 +36,6 @@ const Header = ({
           {unReadNotifications && <View style={styles.notifcationIndicator} />}
           <Icon
             name="bell"
-            size={NOTIFICATION_ICON_SIZE}
             color={colors.foreground.primary}
           />
         </Pressable>

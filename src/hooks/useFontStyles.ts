@@ -1,8 +1,7 @@
 import { fonts } from "@/constants";
-import { scalingMethods } from "@/utils";
+import { FS, VS } from "@/utils";
 import { Language } from "../types";
 import useUserPreferences from "./useUserPreferences";
-const { VS, FS } = scalingMethods;
 
 const fontStyles = {
   en: {

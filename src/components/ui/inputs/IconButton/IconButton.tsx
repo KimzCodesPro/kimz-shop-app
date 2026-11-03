@@ -1,6 +1,5 @@
 import Icon from "@/components/icons";
 import { Pressable } from "react-native";
-import { ICON_SIZE } from "./constants";
 import { IconButtonProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -19,7 +18,7 @@ const IconButton = ({
       style={[styles.button, style]}
       disabled={disabled}
     >
-      <Icon name={icon} size={ICON_SIZE} color={iconColor} />
+      <Icon name={icon} size="xl" color={iconColor} />
     </Pressable>
   );
 };

@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/inputs";
 import { Pressable, View } from "react-native";
 import styles from "./addressDetailsStyles";
 import { AddressDetailsProps } from "./types";
-import { INFO_ROW_ICON_SIZE } from "./constants";
 
 const AddressDetails = ({
   type,
@@ -54,7 +53,7 @@ const AddressDetails = ({
         <View style={styles.addressInfoSlot}>
           <Icon
             name="map-pin"
-            size={INFO_ROW_ICON_SIZE}
+            size="md"
             color={colors.foreground.tertiary}
           />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
@@ -65,7 +64,7 @@ const AddressDetails = ({
           <Icon
             name="building"
             color={colors.foreground.tertiary}
-            size={INFO_ROW_ICON_SIZE}
+            size="md"
           />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
             {t("account_building")} {buildingNum}
@@ -75,7 +74,7 @@ const AddressDetails = ({
           <Icon
             name="layers"
             color={colors.foreground.tertiary}
-            size={INFO_ROW_ICON_SIZE}
+            size="md"
           />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
             {t("account_floorNumber")} {floorNum}
@@ -85,7 +84,7 @@ const AddressDetails = ({
           <Icon
             name="info-circle"
             color={colors.foreground.tertiary}
-            size={INFO_ROW_ICON_SIZE}
+            size="md"
           />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
             {landMark}

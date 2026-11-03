@@ -1,5 +1,4 @@
-import { scalingMethods } from "@/utils";
-const { HS } = scalingMethods;
+import { HS } from "@/utils";
 
 const radius = {
   xs: HS(4),

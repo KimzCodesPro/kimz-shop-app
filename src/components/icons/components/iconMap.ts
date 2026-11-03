@@ -25,6 +25,7 @@ import FileText from "./FileText";
 import Heart from "./Heart";
 import HeartFilled from "./HeartFilled";
 import Help from "./Help";
+import History from "./History";
 import Home from "./Home";
 import ImageOff from "./ImageOff";
 import InfoCircle from "./InfoCircle";
@@ -36,7 +37,9 @@ import Mail from "./Mail";
 import MailOpened from "./MailOpened";
 import MapPin from "./MapPin";
 import MapPinOther from "./MapPinOther";
+import Minus from "./Minus";
 import Palette from "./Palette";
+import Plus from "./Plus";
 import Search from "./Search";
 import Shield from "./Shield";
 import ShieldX from "./ShieldX";
@@ -49,7 +52,7 @@ import User from "./User";
 import WifiOff from "./WifiOff";
 import World from "./World";
 
-const icons = {
+const iconMap = {
   eye: Eye,
   "eye-off": EyeOff,
   lock: Lock,
@@ -100,6 +103,9 @@ const icons = {
   "image-off": ImageOff,
   trash: Trash,
   "credit-card-refund": CreditCardRefund,
+  minus: Minus,
+  plus: Plus,
+  history: History,
 } as const;
 
-export default icons;
+export default iconMap;

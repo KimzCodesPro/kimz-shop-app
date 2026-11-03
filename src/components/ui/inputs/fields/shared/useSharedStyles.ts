@@ -1,10 +1,9 @@
 import { radius, spacing } from "@/constants";
 import { useFontStyles, useTheme, useTranslation } from "@/hooks";
-import { scalingMethods } from "@/utils";
+import { VS } from "@/utils";
 import { Platform, StyleSheet } from "react-native";
 import { fieldStatusColor } from "./helpers";
 import { StatusType } from "./types";
-const { VS } = scalingMethods;
 
 const useSharedStyles = (currentStatus: StatusType) => {
   const colors = useTheme();

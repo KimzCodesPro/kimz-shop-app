@@ -1,9 +1,8 @@
 import { radius } from "@/constants";
 import { useTheme } from "@/hooks";
-import { scalingMethods } from "@/utils";
+import { HS } from "@/utils";
 import { StyleSheet } from "react-native";
 import { iconBadgeColor } from "./helpers";
-const { HS } = scalingMethods;
 
 const useStyles = () => {
   const colors = useTheme();

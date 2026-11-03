@@ -12,16 +12,12 @@ const ScreenLayout = ({
   contentContainerStyle,
   scrollProps,
   dismissKeyboardOnTap = false,
-  verticalCenterAlignment = false,
-  horizontalCenterAlignment = false,
   children,
 }: ScreenLayoutProps) => {
   const { styles } = useStyles({
     hasTopBar: !!renderTopBar,
     hasTabBar,
     paddingSides,
-    horizontalCenterAlignment,
-    verticalCenterAlignment,
   });
 
   const topBar = renderTopBar?.();

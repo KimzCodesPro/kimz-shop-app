@@ -1,7 +1,6 @@
-import { scalingMethods } from "@/utils";
+import { HS, VS } from "@/utils";
 import Svg, { Path } from "react-native-svg";
 import { IconBase } from "../types";
-const { HS, VS } = scalingMethods;
 
 const Check = ({ size = 24, color = "black", style }: IconBase) => (
   <Svg

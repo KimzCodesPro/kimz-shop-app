@@ -1,5 +1,7 @@
 import Icon from "./Icon";
-import { IconName, IconProps } from "./types";
+import { ICON_SIZES } from "./constants";
+import { IconName, IconProps, IconSize } from "./types";
 
-export type { IconName, IconProps };
+export type { IconName, IconProps, IconSize };
+export { ICON_SIZES };
 export default Icon;

@@ -18,14 +18,6 @@ import { Dimensions } from "react-native";
 //   • Small Android (360×640) → width -4%, height -21%
 // ============================================================================
 
-type ScalingMethods = {
-  HS: (size: number) => number;
-  VS: (size: number) => number;
-  FS: (size: number, factor?: number) => number;
-};
-
-let scalingMethods = {} as ScalingMethods;
-
 const guidelineBaseWidth = 375;
 const guidelineBaseHeight = 812;
 
@@ -70,7 +62,7 @@ const [shortDimension, longDimension] =
 //   where width and height scale by different ratios.
 // ============================================================================
 
-scalingMethods.HS = (size: number) =>
+const HS = (size: number) =>
   Math.round((shortDimension / guidelineBaseWidth) * size);
 
 // ============================================================================
@@ -96,7 +88,7 @@ scalingMethods.HS = (size: number) =>
 //   Example: width: HS(360), height: VS(180)
 // ============================================================================
 
-scalingMethods.VS = (size: number) =>
+const VS = (size: number) =>
   Math.round((longDimension / guidelineBaseHeight) * size);
 
 // ============================================================================
@@ -124,8 +116,8 @@ scalingMethods.VS = (size: number) =>
 //
 // 💡 MINIMUM font size: don't go below FS(12) for body text on old phones.
 // ============================================================================
-scalingMethods.FS = (size: number, factor = 0.5) =>
-  Math.round(size + (scalingMethods.HS(size) - size) * factor);
+const FS = (size: number, factor = 0.5) =>
+  Math.round(size + (HS(size) - size) * factor);
 
 // ============================================================================
 // DEBUG — Logs scaling info once at app start
@@ -138,18 +130,18 @@ scalingMethods.FS = (size: number, factor = 0.5) =>
 //   console.log(`HS ratio: ${(shortDimension / guidelineBaseWidth).toFixed(2)}`);
 //   console.log(`VS ratio: ${(longDimension / guidelineBaseHeight).toFixed(2)}`);
 //   console.log("--- HS test ---");
-//   console.log(`HS(100) = ${scalingMethods.HS(100)}`);
-//   console.log(`HS(200) = ${scalingMethods.HS(200)}`);
+//   console.log(`HS(100) = ${HS(100)}`);
+//   console.log(`HS(200) = ${HS(200)}`);
 //   console.log("--- VS test ---");
-//   console.log(`VS(100) = ${scalingMethods.VS(100)}`);
-//   console.log(`VS(200) = ${scalingMethods.VS(200)}`);
+//   console.log(`VS(100) = ${VS(100)}`);
+//   console.log(`VS(200) = ${VS(200)}`);
 //   console.log("--- FS test ---");
-//   console.log(`FS(12) = ${scalingMethods.FS(12)}   // smallest (caption)`);
-//   console.log(`FS(14) = ${scalingMethods.FS(14)}   // body`);
-//   console.log(`FS(16) = ${scalingMethods.FS(16)}   // default`);
-//   console.log(`FS(20) = ${scalingMethods.FS(20)}   // heading`);
-//   console.log(`FS(28) = ${scalingMethods.FS(28)}   // title`);
+//   console.log(`FS(12) = ${FS(12)}   // smallest (caption)`);
+//   console.log(`FS(14) = ${FS(14)}   // body`);
+//   console.log(`FS(16) = ${FS(16)}   // default`);
+//   console.log(`FS(20) = ${FS(20)}   // heading`);
+//   console.log(`FS(28) = ${FS(28)}   // title`);
 //   console.log("===================================");
 // }
 
-export default scalingMethods;
+export { FS, HS, VS };
