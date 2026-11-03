@@ -1,16 +1,16 @@
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 
-import { Typography } from "../../typography";
-import Radio from "../Radio/Radio";
-import { ImageRadioGroupProps } from "./types";
+import { Radio } from "@/components/ui/inputs";
+import { Typography } from "@/components/ui/typography";
+import { ThemeSelectorProps } from "./types";
 import useStyles from "./useStyles";
 
-const ImageRadioGroup = ({
+const ThemeSelector = ({
   options,
   selectedValue,
   onValueChange,
-}: ImageRadioGroupProps) => {
+}: ThemeSelectorProps) => {
   const { styles, colors } = useStyles();
 
   return (
@@ -54,4 +54,4 @@ const ImageRadioGroup = ({
   );
 };
 
-export default ImageRadioGroup;
+export default ThemeSelector;

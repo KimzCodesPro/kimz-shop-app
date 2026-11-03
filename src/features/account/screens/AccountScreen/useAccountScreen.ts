@@ -1,11 +1,9 @@
 import { themeDark, themeLight, themeSystem } from "@/assets/images";
-import {
-  ImageRadioGroupOption,
-  SwitchGroupChange,
-} from "@/components/ui/inputs";
+import { SwitchGroupChange } from "@/components/ui/inputs";
 import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation, useUserPreferences } from "@/hooks";
 import { Language, Theme } from "@/types";
+import { ThemeSelectorOption } from "./components";
 import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
 import { PageNavigationList } from "./components/NavigationList/types";
@@ -46,7 +44,7 @@ const useAccountScreen = () => {
   };
 
   // theme options
-  const themeOptions: ImageRadioGroupOption[] = [
+  const themeOptions: ThemeSelectorOption[] = [
     {
       label: t("account_settingThemeLight"),
       value: "light",

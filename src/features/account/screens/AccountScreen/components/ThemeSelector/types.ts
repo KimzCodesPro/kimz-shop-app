@@ -1,5 +1,5 @@
 
-export type ImageRadioGroupOption = {
+export type ThemeSelectorOption = {
   label: string;
   value: string;
   // Preview artwork for the option — e.g. a phone mock of what the theme looks like.
@@ -7,8 +7,8 @@ export type ImageRadioGroupOption = {
   disabled?: boolean;
 };
 
-export type ImageRadioGroupProps = {
-  options: ImageRadioGroupOption[];
+export type ThemeSelectorProps = {
+  options: ThemeSelectorOption[];
   selectedValue: string;
   onValueChange: (value: string) => void;
 };

@@ -25,7 +25,7 @@ export default function TabLayout() {
               label={t("common_bottomTabMyOrder")}
             />
           </TabTrigger>
-          <TabTrigger name="myCard" href="/myCard" asChild>
+          <TabTrigger name="myCart" href="/myCart" asChild>
             <CustomBottomTabButton
               icon="shopping-cart"
               label={t("common_bottomTabMyCart")}

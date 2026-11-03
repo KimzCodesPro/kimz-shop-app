@@ -3,7 +3,7 @@ import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
 
-const CartScreen = () => {
+const MyCartScreen = () => {
   const { t } = useTranslation();
 
 
@@ -23,4 +23,4 @@ const CartScreen = () => {
   );
 };
 
-export default CartScreen;
+export default MyCartScreen;
