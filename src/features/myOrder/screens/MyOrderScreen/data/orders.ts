@@ -34,4 +34,14 @@ const HISTORY_ORDERS_LIST = [
   },
 ] as const;
 
-export { HISTORY_ORDERS_LIST, MY_ORDERS_LIST };
+// Toggles to preview each tab with or without orders.
+const HAS_MY_ORDERS: boolean = false;
+const HAS_HISTORY_ORDERS: boolean = false;
+
+export {
+  HAS_HISTORY_ORDERS,
+  HAS_MY_ORDERS,
+  HISTORY_ORDERS_LIST,
+  MY_ORDERS_LIST
+};
+

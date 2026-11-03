@@ -1,1 +1,6 @@
-export { HISTORY_ORDERS_LIST, MY_ORDERS_LIST } from "./orders";
+export {
+  HAS_HISTORY_ORDERS,
+  HAS_MY_ORDERS,
+  HISTORY_ORDERS_LIST,
+  MY_ORDERS_LIST,
+} from "./orders";
