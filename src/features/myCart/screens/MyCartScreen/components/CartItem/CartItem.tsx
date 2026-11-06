@@ -7,18 +7,31 @@ import type { CartItemProps } from "./types";
 import useStyles from "./useStyles";
 
 const CartItem = ({
+  itemId,
   image,
   product,
   color,
   price,
   selected,
-  onToggleSelect,
+  quantity,
+  onItemSelected,
+  onQuantityChange,
 }: CartItemProps) => {
   const { styles, colors } = useStyles();
 
+  const checkBoxHandler = () => {
+    onItemSelected(itemId);
+  };
+
+  const onQuantityChangeHandler = (quantity: number) => {
+    onQuantityChange(itemId, quantity);
+  };
+
   return (
-    <Pressable style={styles.container} onPress={onToggleSelect}>
-      <CheckBox isChecked={selected} />
+    <View style={styles.container}>
+      <Pressable onPress={checkBoxHandler}>
+        <CheckBox isChecked={selected} />
+      </Pressable>
       <Image
         source={image}
         placeholder={productPlaceholder}
@@ -40,13 +53,16 @@ const CartItem = ({
           </Typography>
         </View>
         <View style={styles.detailsContainerQuantity}>
-          <QuantityStepper />
+          <QuantityStepper
+            startQuantity={quantity}
+            currentQuantity={onQuantityChangeHandler}
+          />
           <Typography variant="mediumBold" color={colors.foreground.primary}>
             $ {price}
           </Typography>
         </View>
       </View>
-    </Pressable>
+    </View>
   );
 };
 

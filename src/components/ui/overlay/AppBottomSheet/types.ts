@@ -4,7 +4,7 @@ import { ReactNode, Ref } from "react";
 export type BottomSheetRef = BottomSheetModal | null;
 
 export type AppBottomSheetProps = {
-  title: string;
+  title?: string;
   description?: string;
   // Required: the sheet is meaningless without content, and ref is the only way
   // to open it (it starts closed and exposes no other trigger).

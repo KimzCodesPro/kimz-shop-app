@@ -1,4 +1,8 @@
-import { productSample } from "@/assets/images";
+import {
+  productSample,
+  productSample2,
+  productSample3,
+} from "@/assets/images";
 
 const CART_SHIPPING = 4;
 
@@ -10,22 +14,25 @@ const CART_ITEMS = [
     color: "Black",
     quantity: 1,
     price: 149,
+    selected: false,
   },
   {
     id: "2",
-    image: productSample,
+    image: productSample2,
     title: "Second Item",
     color: "Beige",
     quantity: 2,
     price: 42.5,
+    selected: false,
   },
   {
     id: "3",
-    image: productSample,
+    image: productSample3,
     title: "Third Item",
     color: "Navy",
     quantity: 1,
     price: 0.95,
+    selected: false,
   },
 ];
 
