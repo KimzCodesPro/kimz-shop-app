@@ -12,7 +12,12 @@ const CheckBox = ({ isChecked, disabled, style }: CheckBoxProps) => {
     <View style={[styles.container, style]}>
       {isChecked && (
         <View style={styles.indicator}>
-          <Icon name="check" size="sm" color={colors.foreground.contrast} />
+          <Icon
+            name="check"
+            size="sm"
+            strokeWidth={2}
+            color={colors.foreground.contrast}
+          />
         </View>
       )}
     </View>

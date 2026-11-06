@@ -10,6 +10,7 @@ export type IconSize = keyof typeof ICON_SIZES;
 export type IconBase = {
   size?: number;
   color?: ColorValue;
+  strokeWidth?: number;
   style?: StyleProp<ViewStyle>;
 };
 

@@ -2,14 +2,19 @@ import { HS } from "@/utils";
 import Svg, { Path } from "react-native-svg";
 import { IconBase } from "../types";
 
-const Plus = ({ size = 24, color = "black", style }: IconBase) => (
+const Plus = ({
+  size = 24,
+  color = "black",
+  style,
+  strokeWidth = 1.5,
+}: IconBase) => (
   <Svg
     width={HS(size)}
     height={HS(size)}
     viewBox="0 0 24 24"
     fill="none"
     stroke={color}
-    strokeWidth={1.5}
+    strokeWidth={strokeWidth}
     strokeLinecap="round"
     strokeLinejoin="round"
     style={style}

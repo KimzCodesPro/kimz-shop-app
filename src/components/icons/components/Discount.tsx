@@ -2,7 +2,7 @@ import { HS, VS } from "@/utils";
 import Svg, { Path } from "react-native-svg";
 import { IconBase } from "../types";
 
-function Discount({ size = 24, color, style }: IconBase) {
+function Discount({ size = 24, color, style, strokeWidth = 1.5 }: IconBase) {
   return (
     <Svg
       width={HS(size)}
@@ -10,7 +10,7 @@ function Discount({ size = 24, color, style }: IconBase) {
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
-      strokeWidth={1.5}
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       style={style}
