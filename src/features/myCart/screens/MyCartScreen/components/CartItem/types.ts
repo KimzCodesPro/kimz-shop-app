@@ -5,4 +5,5 @@ export type CartItemProps = {
   price: number;
   quantity: number;
   selected: boolean;
+  onToggleSelect: () => void;
 };

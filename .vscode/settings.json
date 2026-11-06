@@ -5,6 +5,8 @@
     "source.organizeImports": "explicit",
     "source.sortMembers": "explicit"
   },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.tabActionLocation": "left",
   "workbench.colorCustomizations": {

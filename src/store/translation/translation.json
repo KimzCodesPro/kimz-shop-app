@@ -260,7 +260,11 @@
       "checkoutSuccess_trackDesc": "انتقل إلى الحساب ← طلباتي لمتابعة حالة الشحن في أي وقت.",
       "checkoutSuccess_continueButton": "متابعة التسوق",
       "checkoutSuccess_viewOrders": "عرض طلباتي",
-      "myCart_itemColorLabel": "اللون:"
+      "myCart_itemColorLabel": "اللون:",
+      "favorite_title": "المفضلة",
+      "favorite_emptyTitle": "لا توجد مفضلات بعد",
+      "favorite_emptyDesc": "اضغط على القلب في أي منتج لحفظه هنا.",
+      "favorite_exploreButton": "تصفح المنتجات"
     }
   },
   "en": {
@@ -524,7 +528,11 @@
       "checkoutSuccess_trackDesc": "Go to Account → My Orders to follow your shipment status anytime.",
       "checkoutSuccess_continueButton": "Continue Shopping",
       "checkoutSuccess_viewOrders": "View My Orders",
-      "myCart_itemColorLabel": "Color:"
+      "myCart_itemColorLabel": "Color:",
+      "favorite_title": "My Favorite",
+      "favorite_emptyTitle": "No favorites yet",
+      "favorite_emptyDesc": "Tap the heart on any product to save it here.",
+      "favorite_exploreButton": "Explore Products"
     }
   }
 }

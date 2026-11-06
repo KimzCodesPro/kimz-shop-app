@@ -29,4 +29,7 @@ const CART_ITEMS = [
   },
 ];
 
-export { CART_ITEMS, CART_SHIPPING };
+// Toggle to preview the screen with or without cart items.
+const HAS_CART_ITEMS: boolean = true;
+
+export { CART_ITEMS, CART_SHIPPING, HAS_CART_ITEMS };
