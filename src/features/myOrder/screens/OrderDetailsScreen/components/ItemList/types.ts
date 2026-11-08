@@ -1,5 +1,5 @@
-import { OrderItem } from "@/components/ui/card/ProductRow/types";
+import { ProductLineItem } from "@/components/ui/card/ProductLineItemCard/types";
 
 export type ItemListProps = {
-  items: OrderItem[];
+  items: ProductLineItem[];
 };

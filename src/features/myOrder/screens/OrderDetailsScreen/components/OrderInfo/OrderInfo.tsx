@@ -1,10 +1,7 @@
 import { CardWrapper } from "@/components/ui/card";
 import { StatusBill } from "@/components/ui/feedback";
 import { Typography } from "@/components/ui/typography";
-import {
-  orderStatusColor,
-  orderStatusLabel,
-} from "@/features/myOrder/constants";
+import { orderStatusConfig } from "@/features/myOrder/constants";
 import { useTranslation } from "@/hooks";
 import { View } from "react-native";
 import { OrderInfoProps } from "./types";
@@ -39,8 +36,8 @@ const OrderInfo = ({ order, style }: OrderInfoProps) => {
           {t("orders_detailsStatus")}
         </Typography>
         <StatusBill
-          color={orderStatusColor[order.status]}
-          label={t(orderStatusLabel[order.status])}
+          color={orderStatusConfig[order.status].color}
+          label={t(orderStatusConfig[order.status].label)}
         />
       </View>
     </CardWrapper>

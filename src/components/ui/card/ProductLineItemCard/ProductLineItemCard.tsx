@@ -1,12 +1,12 @@
-import CardWrapper from "../CardWrapper/CardWrapper";
-import Typography from "../../typography/Typography/Typography";
 import { useTranslation } from "@/hooks";
 import { Image } from "expo-image";
 import { View } from "react-native";
-import { ProductRowProps } from "./types";
+import Typography from "../../typography/Typography/Typography";
+import CardWrapper from "../CardWrapper/CardWrapper";
+import { ProductLineItemCardProps } from "./types";
 import useStyles from "./useStyles";
 
-const ProductRow = ({ item, style }: ProductRowProps) => {
+const ProductLineItemCard = ({ item, style }: ProductLineItemCardProps) => {
   const { styles, colors } = useStyles();
   const { t } = useTranslation();
 
@@ -17,7 +17,7 @@ const ProductRow = ({ item, style }: ProductRowProps) => {
       <View style={styles.info}>
         <Typography
           variant="smallBold"
-          numberOfLines={2}
+          numberOfLines={1}
           color={colors.foreground.primary}
         >
           {item.title}
@@ -28,7 +28,7 @@ const ProductRow = ({ item, style }: ProductRowProps) => {
             variant="xsmallRegular"
             color={colors.foreground.tertiary}
           >
-            {t("orders_color")}: {item.color}
+            {t("common_color")}: {item.color}
           </Typography>
           <Typography
             variant="xsmallRegular"
@@ -40,7 +40,7 @@ const ProductRow = ({ item, style }: ProductRowProps) => {
             variant="xsmallRegular"
             color={colors.foreground.tertiary}
           >
-            {t("orders_qty")}: {item.quantity}
+            {t("common_qty")}: {item.quantity}
           </Typography>
         </View>
       </View>
@@ -55,4 +55,4 @@ const ProductRow = ({ item, style }: ProductRowProps) => {
   );
 };
 
-export default ProductRow;
+export default ProductLineItemCard;

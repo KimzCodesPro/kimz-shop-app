@@ -1,6 +1,6 @@
 import { StyleProp, ViewStyle } from "react-native";
 
-export type OrderItem = {
+export type ProductLineItem = {
   id: string;
   image: string;
   title: string;
@@ -9,7 +9,7 @@ export type OrderItem = {
   price: number;
 };
 
-export type ProductRowProps = {
-  item: OrderItem;
+export type ProductLineItemCardProps = {
+  item: ProductLineItem;
   style?: StyleProp<ViewStyle>;
 };

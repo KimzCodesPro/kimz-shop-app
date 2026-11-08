@@ -1,8 +1,4 @@
-import {
-  productSample,
-  productSample2,
-  productSample3,
-} from "@/assets/images";
+import { productSample, productSample2, productSample3 } from "@/assets/images";
 
 const CART_SHIPPING = 4;
 
@@ -10,7 +6,7 @@ const CART_ITEMS = [
   {
     id: "1",
     image: productSample,
-    title: "Bix Bag Limited Edition",
+    title: "Bix Bag2 Limited Edition Edition Edition ",
     color: "Black",
     quantity: 1,
     price: 149,
@@ -19,7 +15,7 @@ const CART_ITEMS = [
   {
     id: "2",
     image: productSample2,
-    title: "Second Item",
+    title: "Seconds Item",
     color: "Beige",
     quantity: 2,
     price: 42.5,

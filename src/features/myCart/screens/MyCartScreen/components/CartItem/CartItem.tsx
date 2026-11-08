@@ -41,7 +41,11 @@ const CartItem = ({
         transition={1000}
       />
       <View style={styles.detailsContainer}>
-        <Typography variant="normalBold" color={colors.foreground.primary}>
+        <Typography
+          variant="normalBold"
+          numberOfLines={1}
+          color={colors.foreground.primary}
+        >
           {product}
         </Typography>
         <View style={styles.detailsContainerColor}>
