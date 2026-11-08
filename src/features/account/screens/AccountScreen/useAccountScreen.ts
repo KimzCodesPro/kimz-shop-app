@@ -3,9 +3,9 @@ import { SwitchGroupChange } from "@/components/ui/inputs";
 import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation, useUserPreferences } from "@/hooks";
 import { Language, Theme } from "@/types";
-import { ThemeSelectorOption } from "./components";
 import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
+import { ThemeSelectorOption } from "./components";
 import { PageNavigationSection } from "./components/NavigationList/types";
 
 const useAccountScreen = () => {
@@ -112,6 +112,18 @@ const useAccountScreen = () => {
           title: t("account_rowAddress"),
           trailing: "chevron",
           onPress: () => router.push("/account/addresses"),
+        },
+        {
+          icon: "credit-card",
+          title: t("account_rowPayment"),
+          trailing: "chevron",
+          onPress: () => router.push("/account/addresses"),
+        },
+        {
+          icon: "shopping-bag",
+          title: t("account_rowStoresYouFollow"),
+          trailing: "chevron",
+          onPress: () => router.push("/account/storesYouFollow"),
         },
         {
           icon: "truck",

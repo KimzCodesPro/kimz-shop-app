@@ -5,3 +5,4 @@ export { default as EditProfileScreen } from "./screens/EditProfileScreen/EditPr
 export { default as HelpAndSupportScreen } from "./screens/HelpAndSupportScreen/HelpAndSupportScreen";
 export { default as AccountScreen } from "./screens/AccountScreen/AccountScreen";
 export { default as LegalAndPoliciesScreen } from "./screens/LegalAndPoliciesScreen/LegalAndPoliciesScreen";
+export { default as StoresYouFollowScreen } from "./screens/StoresYouFollowScreen/StoresYouFollowScreen";
