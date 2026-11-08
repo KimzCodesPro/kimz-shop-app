@@ -7,7 +7,7 @@ import { Pressable } from "react-native";
 import { BottomSheet, BottomSheetRef } from "../../overlay";
 import Button from "../Button/Button";
 import RadioGroup from "../RadioGroup/RadioGroup";
-import { switcherTranslationKeys } from "./constants";
+import { LANGUAGE_SWITCHER_LABEL } from "./constants";
 import { LanguageSwitcherProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -44,7 +44,7 @@ const LanguageSwitcher = ({ style }: LanguageSwitcherProps) => {
           color={colors.foreground.secondary}
         />
         <Typography variant="smallBold" color={colors.foreground.secondary}>
-          {t(switcherTranslationKeys[language])}
+          {t(LANGUAGE_SWITCHER_LABEL[language])}
         </Typography>
       </Pressable>
       <BottomSheet

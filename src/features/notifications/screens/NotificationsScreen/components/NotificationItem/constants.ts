@@ -1,4 +1,4 @@
-export const notificationIcon = {
+export const NOTIFICATION_ICON = {
   "purchase-completed": "shopping-cart",
   "flash-sale": "discount",
   "package-sent": "truck",

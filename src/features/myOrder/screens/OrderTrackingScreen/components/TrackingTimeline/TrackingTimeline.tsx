@@ -3,7 +3,7 @@ import { Typography } from "@/components/ui/typography";
 import useTranslation from "@/hooks/useTranslation";
 import { View } from "react-native";
 import CurrentPill from "../CurrentPill/CurrentPill";
-import { trackingStageLabel } from "./constants";
+import { TRACKING_STAGE_LABEL } from "./constants";
 import { TrackingTimelineProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -68,7 +68,7 @@ const TrackingTimeline = ({
                       : colors.foreground.tertiary
                   }
                 >
-                  {t(trackingStageLabel[step.stage])}
+                  {t(TRACKING_STAGE_LABEL[step.stage])}
                 </Typography>
 
                 {isCurrentStage && <CurrentPill label={t("orders_current")} />}

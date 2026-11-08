@@ -3,7 +3,7 @@ import Icon from "@/components/icons";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import { Typography } from "../../typography";
-import calculateDiscountPercentage from "./helpers";
+import { calculateDiscountPercentage } from "./helpers";
 import { ProductCardProps } from "./types";
 import useStyles from "./useStyles";
 

@@ -2,9 +2,8 @@ import Icon from "@/components/icons";
 import Typography from "@/components/ui/typography/Typography/Typography";
 import { Pressable, View } from "react-native";
 import { CustomBottomTabButtonProps } from "./types";
+import { MAX_BADGE_COUNT } from "./constants";
 import useStyles from "./useStyles";
-
-const MAX_BADGE_COUNT = 9;
 
 /**
  * Rendered through `<TabTrigger asChild />`, which hands down `isFocused`,

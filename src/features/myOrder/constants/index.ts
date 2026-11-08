@@ -1,4 +1,4 @@
-export const orderStatusConfig = {
+export const ORDER_STATUS_CONFIG = {
   onProgress: { label: "orders_statusOnProgress", color: "info" },
   completed: { label: "orders_statusCompleted", color: "success" },
   cancelled: { label: "orders_statusCancelled", color: "danger" },

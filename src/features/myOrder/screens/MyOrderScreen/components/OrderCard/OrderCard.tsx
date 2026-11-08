@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/inputs";
 import { Typography } from "@/components/ui/typography";
 import { useTranslation } from "@/hooks";
 import { CardWrapper } from "@/components/ui/card";
-import { orderStatusConfig } from "@/features/myOrder/constants";
+import { ORDER_STATUS_CONFIG } from "@/features/myOrder/constants";
 import { Image } from "expo-image";
 import { View } from "react-native";
 import { OrderCardProps } from "./types";
@@ -44,8 +44,8 @@ const OrderCard = ({
         </View>
         <StatusBill
           variant="outlined"
-          label={t(orderStatusConfig[status].label)}
-          color={orderStatusConfig[status].color}
+          label={t(ORDER_STATUS_CONFIG[status].label)}
+          color={ORDER_STATUS_CONFIG[status].color}
         />
       </View>
 

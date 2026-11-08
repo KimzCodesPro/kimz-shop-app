@@ -6,7 +6,7 @@ import { Language, Theme } from "@/types";
 import { ThemeSelectorOption } from "./components";
 import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
-import { PageNavigationList } from "./components/NavigationList/types";
+import { PageNavigationSection } from "./components/NavigationList/types";
 
 const useAccountScreen = () => {
   const router = useRouter();
@@ -84,7 +84,7 @@ const useAccountScreen = () => {
   };
 
   // account page navigation rows
-  const pageNavigationList: PageNavigationList = [
+  const pageNavigationList: PageNavigationSection[] = [
     // account section
     {
       title: t("account_sectionAccount"),

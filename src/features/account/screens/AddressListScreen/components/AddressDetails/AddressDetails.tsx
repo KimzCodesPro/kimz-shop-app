@@ -1,8 +1,4 @@
-import {
-  addressColorMapping,
-  addressIcon,
-  addressLabel,
-} from "@/components/ui/card/AddressCard/constants";
+import { ADDRESS_TYPE_CONFIG } from "@/components/ui/card/AddressCard/constants";
 import { useTheme, useTranslation } from "@/hooks";
 import Icon from "@/components/icons";
 import { IconBadge } from "@/components/ui/display";
@@ -27,14 +23,12 @@ const AddressDetails = ({
 }: AddressDetailsProps) => {
   const colors = useTheme();
   const { t } = useTranslation();
-  const statusColor = addressColorMapping[type];
-  const statusIcon = addressIcon[type];
-  const statusLabel = t(addressLabel[type]);
+  const { color, icon, label } = ADDRESS_TYPE_CONFIG[type];
 
   return (
     <>
       <View style={styles.header}>
-        <StatusBill icon={statusIcon} color={statusColor} label={statusLabel} />
+        <StatusBill icon={icon} color={color} label={t(label)} />
         <Pressable onPress={deleteHandler}>
           <IconBadge icon="trash" variant="danger" />
         </Pressable>
@@ -51,31 +45,19 @@ const AddressDetails = ({
       {/* info in list */}
       <View style={styles.addressInfoList}>
         <View style={styles.addressInfoSlot}>
-          <Icon
-            name="map-pin"
-            size="md"
-            color={colors.foreground.tertiary}
-          />
+          <Icon name="map-pin" size="md" color={colors.foreground.tertiary} />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
             {city}
           </Typography>
         </View>
         <View style={styles.addressInfoSlot}>
-          <Icon
-            name="building"
-            color={colors.foreground.tertiary}
-            size="md"
-          />
+          <Icon name="building" color={colors.foreground.tertiary} size="md" />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
             {t("account_building")} {buildingNum}
           </Typography>
         </View>
         <View style={styles.addressInfoSlot}>
-          <Icon
-            name="layers"
-            color={colors.foreground.tertiary}
-            size="md"
-          />
+          <Icon name="layers" color={colors.foreground.tertiary} size="md" />
           <Typography color={colors.foreground.tertiary} variant="smallRegular">
             {t("account_floorNumber")} {floorNum}
           </Typography>
