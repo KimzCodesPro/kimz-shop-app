@@ -2,7 +2,7 @@ import { EmptyState } from "@/components/ui/feedback";
 import { ScreenLayout } from "@/components/ui/layout";
 import { Tabs, TopBar } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
-import { HistoryList, MyOrderList } from "./components";
+import { OrderList } from "./components";
 import {
   HAS_HISTORY_ORDERS,
   HAS_MY_ORDERS,
@@ -32,7 +32,7 @@ const MyOrderScreen = () => {
                 description={t("orders_emptyActiveDesc")}
               />
             ) : (
-              <MyOrderList orders={MY_ORDERS_LIST} />
+              <OrderList orders={MY_ORDERS_LIST} />
             ),
           },
           {
@@ -46,7 +46,7 @@ const MyOrderScreen = () => {
                 description={t("orders_emptyHistoryDesc")}
               />
             ) : (
-              <HistoryList orders={HISTORY_ORDERS_LIST} />
+              <OrderList orders={HISTORY_ORDERS_LIST} />
             ),
           },
         ]}

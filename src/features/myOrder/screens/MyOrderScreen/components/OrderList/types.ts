@@ -1,5 +1,5 @@
 import { Order } from "../OrderCard/types";
 
-export type MyOrderListProps = {
+export type OrderListProps = {
   orders: readonly Order[];
 };

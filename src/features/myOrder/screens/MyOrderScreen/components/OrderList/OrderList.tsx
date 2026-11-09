@@ -2,10 +2,10 @@ import { FlashList } from "@shopify/flash-list";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
 import OrderCard from "../OrderCard/OrderCard";
-import styles from "./historyListStyles";
-import { HistoryListProps } from "./types";
+import styles from "./orderListStyles";
+import { OrderListProps } from "./types";
 
-const HistoryList = ({ orders }: HistoryListProps) => {
+const OrderList = ({ orders }: OrderListProps) => {
   const router = useRouter();
 
   return (
@@ -35,4 +35,4 @@ const HistoryList = ({ orders }: HistoryListProps) => {
   );
 };
 
-export default HistoryList;
+export default OrderList;
