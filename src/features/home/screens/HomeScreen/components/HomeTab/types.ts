@@ -19,7 +19,7 @@ export type BrandItem = {
   logo: string;
 };
 
-export type HomeListProps = {
+export type HomeTabProps = {
   slides: ProductSlide[];
   products: Product[];
   brands: BrandItem[];

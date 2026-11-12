@@ -26,8 +26,8 @@ export const statusBillColor = (colors: ThemePalette) =>
     },
     fill: {
       success: {
-        border: colors.success.base,
-        background: colors.success.base,
+        border: colors.success.strong,
+        background: colors.success.strong,
         typography: colors.foreground.contrast,
       },
       warning: {

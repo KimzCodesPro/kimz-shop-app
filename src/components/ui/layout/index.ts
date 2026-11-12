@@ -2,3 +2,4 @@ export { default as DismissKeyboard } from "./DismissKeyboard/DismissKeyboard";
 export { default as ScreenLayout } from "./ScreenLayout/ScreenLayout";
 export { default as VerticalScrollView } from "./VerticalScrollView/VerticalScrollView";
 export { default as Separator } from "./Separator/Separator";
+export { default as SectionTitle } from "./SectionTitle/SectionTitle";

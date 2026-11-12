@@ -1,4 +1,5 @@
+import { SectionTitleProps } from "@/components/ui/layout/SectionTitle/types";
 import { SectionScrollProps } from "./SectionScroll/types";
-import { SectionTitleProps } from "./SectionTitle/types";
 
-export type SectionProps<T> = SectionTitleProps & SectionScrollProps<T>;
+export type SectionProps<T> = Omit<SectionTitleProps, "style"> &
+  SectionScrollProps<T>;

@@ -1,13 +1,13 @@
+import { SectionTitle } from "@/components/ui/layout";
 import { View } from "react-native";
 import SectionScroll from "./SectionScroll/SectionScroll";
 import styles from "./sectionStyles";
-import SectionTitle from "./SectionTitle/SectionTitle";
 import { SectionProps } from "./types";
 
 const Section = <T,>({
   title,
   actionText,
-  seeAllLink,
+  onActionPress,
   data,
   renderItem,
   itemHorizontalSpace,
@@ -18,7 +18,7 @@ const Section = <T,>({
         style={styles.title}
         title={title}
         actionText={actionText}
-        seeAllLink={seeAllLink}
+        onActionPress={onActionPress}
       />
       <SectionScroll
         style={styles.scrolling}

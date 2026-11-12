@@ -11,7 +11,7 @@ import {
 } from "@/features/home/data";
 import { useRouter } from "expo-router";
 import { Pressable } from "react-native";
-import { CategoryList, Header, HomeList } from "./components";
+import { CategoryTab, Header, HomeTab } from "./components";
 import styles from "./homeScreenStyles";
 
 const HomeScreen = () => {
@@ -53,7 +53,7 @@ const HomeScreen = () => {
             tabPrefix: "home",
             tabTitle: t("common_bottomTabHome"),
             tabContent: (
-              <HomeList
+              <HomeTab
                 slides={PRODUCTS_SLIDES}
                 products={PRODUCTS_LIST}
                 brands={BRANDS_LIST}
@@ -63,7 +63,7 @@ const HomeScreen = () => {
           {
             tabPrefix: "category",
             tabTitle: t("common_bottomTabCategory"),
-            tabContent: <CategoryList categories={CATEGORIES_LIST} />,
+            tabContent: <CategoryTab categories={CATEGORIES_LIST} />,
           },
         ]}
       />

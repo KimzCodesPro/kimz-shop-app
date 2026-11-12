@@ -6,6 +6,6 @@ export type Category = {
   img: string;
 };
 
-export type CategoryListProps = {
+export type CategoryTabProps = {
   categories: Category[];
 };

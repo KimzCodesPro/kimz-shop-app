@@ -1,9 +1,9 @@
 import { View } from "react-native";
 import CategoryCard from "../CategoryCard/CategoryCard";
-import styles from "./catgoryListStyles";
-import { CategoryListProps } from "./types";
+import styles from "./categoryTabStyles";
+import { CategoryTabProps } from "./types";
 
-const CategoryList = ({ categories }: CategoryListProps) => {
+const CategoryTab = ({ categories }: CategoryTabProps) => {
   return (
     <View style={styles.container}>
       {categories.map(({ id, categoryName, productsCount, img }) => (
@@ -19,4 +19,4 @@ const CategoryList = ({ categories }: CategoryListProps) => {
   );
 };
 
-export default CategoryList;
+export default CategoryTab;

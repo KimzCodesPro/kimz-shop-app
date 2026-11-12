@@ -1,13 +1,15 @@
 import { ProductCard, PromoBannerCard } from "@/components/ui/card";
 import { Brand, Carousel } from "@/components/ui/display";
 import { useTranslation } from "@/hooks";
+import { useRouter } from "expo-router";
 import { View } from "react-native";
 import Section from "../Section/Section";
-import styles from "./homeListStyles";
-import { HomeListProps } from "./types";
+import styles from "./homeTabStyles";
+import { HomeTabProps } from "./types";
 
-const HomeList = ({ slides, products, brands }: HomeListProps) => {
+const HomeTab = ({ slides, products, brands }: HomeTabProps) => {
   const { t } = useTranslation();
+  const router = useRouter();
 
   return (
     <>
@@ -34,7 +36,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
           itemHorizontalSpace="large"
           title={t("home_popularBrands")}
           actionText={t("home_seeAll")}
-          seeAllLink="/home/brands"
+          onActionPress={() => router.push("/home/brands")}
           data={brands}
           renderItem={(item) => (
             <Brand name={item.name} logo={item.logo} onPress={() => { }} />
@@ -44,7 +46,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
         <Section
           title={t("home_newArrivals")}
           actionText={t("home_seeAll")}
-          seeAllLink="/home/newArrival"
+          onActionPress={() => router.push("/home/newArrival")}
 
           data={products}
           renderItem={(item) => (
@@ -63,7 +65,7 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
         <Section
           title={t("home_hotDeals")}
           actionText={t("home_seeAll")}
-          seeAllLink="/home/hotDeals"
+          onActionPress={() => router.push("/home/hotDeals")}
           data={products.filter((item) => item.salePrice != null)}
           renderItem={(item) => (
             <ProductCard
@@ -82,4 +84,4 @@ const HomeList = ({ slides, products, brands }: HomeListProps) => {
   );
 };
 
-export default HomeList;
+export default HomeTab;
