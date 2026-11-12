@@ -26,4 +26,7 @@ const FAVORITES_LIST = [
   },
 ];
 
-export { FAVORITES_LIST };
+// Toggle to preview the screen with or without favorites.
+const HAS_FAVORITES: boolean = false;
+
+export { FAVORITES_LIST, HAS_FAVORITES };

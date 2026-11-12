@@ -1,10 +1,8 @@
 import { useTheme } from "@/hooks";
 import { radius } from "@/constants";
-import { scalingMethods } from "@/utils";
+import { HS, VS } from "@/utils";
 import { StyleSheet } from "react-native";
 import { Sizes } from "./types";
-
-const { HS, VS } = scalingMethods;
 
 const sizes = {
   sm: {

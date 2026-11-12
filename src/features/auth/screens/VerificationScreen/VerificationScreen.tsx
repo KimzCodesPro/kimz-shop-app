@@ -1,25 +1,31 @@
-import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
-import { useTheme, useTranslation } from "@/hooks";
 import { StatusHalo } from "@/components/ui/feedback";
 import { Button, OtpInput, TextInput } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
+import { BottomSheet } from "@/components/ui/overlay";
 import { Typography } from "@/components/ui/typography";
-import { useRouter } from "expo-router";
-import { useRef } from "react";
 import { View } from "react-native";
-import styles from "./VerificationScreenStyles";
+import useVerificationScreen from "./useVerificationScreen";
+import styles from "./verificationScreenStyles";
 
 const VerificationScreen = () => {
-  const { t } = useTranslation();
-  const colors = useTheme();
-  const router = useRouter();
-  const changePasswordSheetRef = useRef<BottomSheetRef | null>(null);
+  const {
+    t,
+    colors,
+    changePasswordSheetRef,
+    otpFocusHandler,
+    otpBlurHandler,
+    otpChangeHandler,
+    otpFilledHandler,
+    resendCodeHandler,
+    openChangePasswordSheetHandler,
+    changePasswordHandler,
+  } = useVerificationScreen();
+
   return (
     <>
       <ScreenLayout
         contentContainerStyle={styles.container}
-        horizontalCenterAlignment
         dismissKeyboardOnTap
         renderTopBar={() => (
           <TopBar title={t("auth_verificationTitle")} goBack />
@@ -52,10 +58,10 @@ const VerificationScreen = () => {
         </View>
 
         <OtpInput
-          onFocus={() => console.log("Focused")}
-          onBlur={() => console.log("Blurred")}
-          onTextChange={(text) => console.log(text)}
-          onFilled={(text) => console.log(`OTP is ${text}`)}
+          onFocus={otpFocusHandler}
+          onBlur={otpBlurHandler}
+          onTextChange={otpChangeHandler}
+          onFilled={otpFilledHandler}
           verifyFailed={false}
         />
         <View style={styles.actionRow}>
@@ -68,7 +74,7 @@ const VerificationScreen = () => {
           <Button
             variant="link"
             size="sm"
-            onPress={() => console.log("Resend OTP")}
+            onPress={resendCodeHandler}
             title={t("auth_verificationResend")}
             style={styles.resendButton}
           />
@@ -76,7 +82,7 @@ const VerificationScreen = () => {
         <Button
           style={styles.submitButton}
           variant="primary"
-          onPress={() => changePasswordSheetRef.current?.present()}
+          onPress={openChangePasswordSheetHandler}
           title={t("auth_verificationSubmit")}
         />
       </ScreenLayout>
@@ -85,6 +91,7 @@ const VerificationScreen = () => {
         ref={changePasswordSheetRef}
         bottomSheetProps={{
           snapPoints: ["50%"],
+          enablePanDownToClose: false,
         }}
         title={t("auth_newPasswordTitle")}
         description={t("auth_newPasswordSub")}
@@ -93,23 +100,20 @@ const VerificationScreen = () => {
           <TextInput
             type="password"
             label={t("auth_fieldNewPassword")}
-            placeholder={t("auth_placeholderNewPassword")}
+            placeholder={t("common_placeholderNewPassword")}
             value=""
           />
           <TextInput
             type="password"
             label={t("auth_fieldConfirmPassword")}
-            placeholder={t("auth_placeholderConfirmPassword")}
+            placeholder={t("common_placeholderConfirmPassword")}
             value=""
           />
           <Button
             style={styles.changePasswordButton}
             variant="primary"
-            onPress={() => {
-              changePasswordSheetRef.current?.dismiss();
-              router.replace("/changePassword");
-            }}
-            title={t("auth_changePasswordTitle")}
+            onPress={changePasswordHandler}
+            title={t("common_changePassword")}
           />
         </BottomSheet.Content>
       </BottomSheet>

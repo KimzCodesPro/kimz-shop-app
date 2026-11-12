@@ -2,7 +2,6 @@ import Icon from "@/components/icons";
 import { CardWrapper } from "@/components/ui/card";
 import { Typography } from "@/components/ui/typography";
 import { View } from "react-native";
-import { CREDIT_CARD_ICON_SIZE } from "./constants";
 import { PaymentProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -14,7 +13,7 @@ const Payment = ({ style, type, cardNumber }: PaymentProps) => {
       <View style={styles.iconContainer}>
         <Icon
           name="credit-card"
-          size={CREDIT_CARD_ICON_SIZE}
+          size="sm"
           color={colors.primary.pressed}
         />
       </View>

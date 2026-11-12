@@ -1,12 +1,13 @@
 import { useTheme } from "@/hooks";
 import { spacing } from "@/constants";
 import { StyleSheet } from "react-native";
-import { userGreetingTypography } from "./helper";
+import { getUserGreetingTypography } from "./helpers";
+import { UserGreetingProps } from "./types";
 
-const useStyles = () => {
+const useStyles = (size: UserGreetingProps["size"]) => {
   const colors = useTheme();
 
-  const typographyMapping = userGreetingTypography(colors);
+  const typography = getUserGreetingTypography(colors, size);
 
   const styles = StyleSheet.create({
     container: {
@@ -20,7 +21,7 @@ const useStyles = () => {
     },
   });
 
-  return { styles, colors, typographyMapping };
+  return { styles, colors, typography };
 };
 
 export default useStyles;

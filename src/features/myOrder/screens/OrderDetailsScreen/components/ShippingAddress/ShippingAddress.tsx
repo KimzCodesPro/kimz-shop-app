@@ -1,5 +1,5 @@
 import { CardWrapper } from "@/components/ui/card";
-import { addressColorMapping } from "@/components/ui/card/AddressCard/constants";
+import { ADDRESS_TYPE_CONFIG } from "@/components/ui/card/AddressCard/constants";
 import { IconBadge } from "@/components/ui/display";
 import { Typography } from "@/components/ui/typography";
 import { View } from "react-native";
@@ -14,7 +14,7 @@ const ShippingAddress = ({
   phoneNumber,
 }: ShippingAddressProps) => {
   const { styles, colors } = useStyles();
-  const colorSchema = addressColorMapping[type];
+  const colorSchema = ADDRESS_TYPE_CONFIG[type].color;
 
   return (
     <CardWrapper style={[styles.container, style]}>

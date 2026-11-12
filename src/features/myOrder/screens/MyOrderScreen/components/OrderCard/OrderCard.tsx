@@ -3,10 +3,7 @@ import { Button } from "@/components/ui/inputs";
 import { Typography } from "@/components/ui/typography";
 import { useTranslation } from "@/hooks";
 import { CardWrapper } from "@/components/ui/card";
-import {
-  orderStatusColor,
-  orderStatusLabel,
-} from "@/features/myOrder/constants";
+import { ORDER_STATUS_CONFIG } from "@/features/myOrder/constants";
 import { Image } from "expo-image";
 import { View } from "react-native";
 import { OrderCardProps } from "./types";
@@ -47,8 +44,8 @@ const OrderCard = ({
         </View>
         <StatusBill
           variant="outlined"
-          label={t(orderStatusLabel[status])}
-          color={orderStatusColor[status]}
+          label={t(ORDER_STATUS_CONFIG[status].label)}
+          color={ORDER_STATUS_CONFIG[status].color}
         />
       </View>
 
@@ -89,7 +86,7 @@ const OrderCard = ({
 
       <View style={styles.total}>
         <Typography variant="xsmallRegular" color={colors.foreground.tertiary}>
-          {t("orders_detailsTotal")}
+          {t("common_total")}
         </Typography>
         <Typography variant="mediumBold" color={colors.primary.base}>
           ${total}

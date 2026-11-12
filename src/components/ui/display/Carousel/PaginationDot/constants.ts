@@ -1,5 +1,4 @@
-import { scalingMethods } from "@/utils";
-const { HS, VS } = scalingMethods;
+import { HS, VS } from "@/utils";
 
 export const DOT_DEFAULT_SIZE = { width: HS(8), height: VS(8) };
 

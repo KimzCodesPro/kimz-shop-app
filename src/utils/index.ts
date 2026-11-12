@@ -1,1 +1,1 @@
-export { default as scalingMethods } from "./scaling";
+export { FS, HS, VS } from "./scaling";

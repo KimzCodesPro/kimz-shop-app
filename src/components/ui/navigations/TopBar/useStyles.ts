@@ -1,9 +1,9 @@
+import { ICON_SIZES } from "@/components/icons";
 import { useTheme } from "@/hooks";
-import { scalingMethods } from "@/utils";
+import { HS, VS } from "@/utils";
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { GLYPH_INSET, ICON_SIZE } from "./constant";
-const { VS, HS } = scalingMethods;
+import { GLYPH_INSET, ICON_SIZE } from "./constants";
 
 const useStyles = () => {
   const colors = useTheme();
@@ -21,7 +21,7 @@ const useStyles = () => {
       justifyContent: "space-between",
     },
     slot: {
-      width: HS(ICON_SIZE),
+      width: HS(ICON_SIZES[ICON_SIZE]),
       justifyContent: "center",
     },
     backSlot: {

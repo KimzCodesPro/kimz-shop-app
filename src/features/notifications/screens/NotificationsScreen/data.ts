@@ -25,4 +25,7 @@ const NOTIFICATIONS_LIST = [
   },
 ] as const;
 
-export { NOTIFICATIONS_LIST };
+// Toggle to preview the screen with or without notifications.
+const HAS_NOTIFICATIONS: boolean = false;
+
+export { HAS_NOTIFICATIONS, NOTIFICATIONS_LIST };

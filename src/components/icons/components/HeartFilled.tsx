@@ -1,9 +1,8 @@
-import { scalingMethods } from "@/utils";
+import { HS, VS } from "@/utils";
 import Svg, { Path } from "react-native-svg";
 import { IconBase } from "../types";
-const { HS, VS } = scalingMethods;
 
-function HeartFilled({ size = 24, color, style }: IconBase) {
+function HeartFilled({ size = 24, color, style, strokeWidth = 1.5 }: IconBase) {
   return (
     <Svg
       width={HS(size)}
@@ -11,12 +10,15 @@ function HeartFilled({ size = 24, color, style }: IconBase) {
       viewBox="0 0 24 24"
       fill={color}
       stroke={color}
-      strokeWidth={1.5}
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       style={style}
     >
-      <Path stroke="none" d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" />
+      <Path
+        stroke="none"
+        d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z"
+      />
     </Svg>
   );
 }

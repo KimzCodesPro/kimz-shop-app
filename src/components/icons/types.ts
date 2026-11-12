@@ -1,12 +1,21 @@
 import { ColorValue, StyleProp, ViewStyle } from "react-native";
-import iconList from "./components/iconMapper";
+import { ICON_SIZES } from "./constants";
+import iconMap from "./components/iconMap";
 
-export type IconName = keyof typeof iconList;
+export type IconName = keyof typeof iconMap;
 
+export type IconSize = keyof typeof ICON_SIZES;
+
+// What each glyph in iconMap receives: a raw number, resolved by Icon.
 export type IconBase = {
   size?: number;
   color?: ColorValue;
+  strokeWidth?: number;
   style?: StyleProp<ViewStyle>;
 };
 
-export type IconProps = { name: IconName; flipOnRTL?: boolean } & IconBase;
+export type IconProps = {
+  name: IconName;
+  size?: IconSize;
+  flipOnRTL?: boolean;
+} & Omit<IconBase, "size">;

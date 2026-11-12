@@ -5,4 +5,6 @@ export type PageNavigationSection = {
   rows: RowNavProps[];
 };
 
-export type PageNavigationList = PageNavigationSection[];
+export type PageNavigationList = {
+  navigationList: PageNavigationSection[];
+};

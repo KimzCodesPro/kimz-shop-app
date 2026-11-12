@@ -12,7 +12,7 @@ const ChangePasswordScreen = () => {
     <ScreenLayout
       dismissKeyboardOnTap
       renderTopBar={() => (
-        <TopBar title={t("auth_changePasswordTitle")} goBack />
+        <TopBar title={t("common_changePassword")} goBack />
       )}
     >
       <View style={styles.form}>
@@ -25,13 +25,13 @@ const ChangePasswordScreen = () => {
         <TextInput
           type="password"
           label={t("auth_changePasswordFieldNew")}
-          placeholder={t("account_placeholderNewPassword")}
+          placeholder={t("common_placeholderNewPassword")}
           value=""
         />
         <TextInput
           type="password"
           label={t("auth_changePasswordFieldConfirm")}
-          placeholder={t("account_placeholderConfirmPassword")}
+          placeholder={t("common_placeholderConfirmPassword")}
           value=""
         />
       </View>

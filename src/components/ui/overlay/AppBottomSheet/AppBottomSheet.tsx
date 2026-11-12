@@ -60,9 +60,11 @@ const AppBottomSheet = (props: AppBottomSheetProps) => {
       }}
     >
       <View style={styles.header}>
-        <Typography variant="mediumBold" style={styles.title}>
-          {title}
-        </Typography>
+        {title && (
+          <Typography variant="mediumBold" style={styles.title}>
+            {title}
+          </Typography>
+        )}
         {description && (
           <Typography variant="smallRegular" style={styles.description}>
             {description}

@@ -9,7 +9,6 @@ import FieldWrapper from "../shared/FieldWrapper";
 import { fieldCurrentStatus } from "../shared/helpers";
 import { StatusType } from "../shared/types";
 import useSharedStyles from "../shared/useSharedStyles";
-import { CLEAR_ICON_SIZE, PASSWORD_TOGGLE_ICON_SIZE } from "./constants";
 import { TextInputProps } from "./types";
 
 const TextInput = ({
@@ -20,6 +19,8 @@ const TextInput = ({
   value,
   errorMessage,
   onChangeText,
+  maxLength,
+  keyboardType,
   clearInput,
   style,
 }: TextInputProps) => {
@@ -56,6 +57,8 @@ const TextInput = ({
         style={styles.textInput}
         value={value}
         onChangeText={onChangeText}
+        maxLength={maxLength}
+        keyboardType={keyboardType}
         placeholder={placeholder}
         placeholderTextColor={colors.foreground.tertiary}
         onFocus={() => setIsFocused(true)}
@@ -66,7 +69,7 @@ const TextInput = ({
         <Pressable onPress={() => setPasswordVisible(!passwordVisible)}>
           <Icon
             name={passwordVisible ? "eye-off" : "eye"}
-            size={PASSWORD_TOGGLE_ICON_SIZE}
+            size="md"
             color={colors.foreground.tertiary}
           />
         </Pressable>
@@ -76,7 +79,7 @@ const TextInput = ({
         <Pressable onPress={clearInput}>
           <Icon
             name="close"
-            size={CLEAR_ICON_SIZE}
+            size="md"
             color={colors.foreground.tertiary}
           />
         </Pressable>

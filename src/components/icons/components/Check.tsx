@@ -1,16 +1,20 @@
-import { scalingMethods } from "@/utils";
+import { HS, VS } from "@/utils";
 import Svg, { Path } from "react-native-svg";
 import { IconBase } from "../types";
-const { HS, VS } = scalingMethods;
 
-const Check = ({ size = 24, color = "black", style }: IconBase) => (
+const Check = ({
+  size = 24,
+  color = "black",
+  style,
+  strokeWidth = 1.5,
+}: IconBase) => (
   <Svg
     width={HS(size)}
     height={VS(size)}
     viewBox="0 0 24 24"
     fill="none"
     stroke={color}
-    strokeWidth={1.5}
+    strokeWidth={strokeWidth}
     strokeLinecap="round"
     strokeLinejoin="round"
     style={style}

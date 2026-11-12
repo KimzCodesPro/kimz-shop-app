@@ -1,14 +1,12 @@
 import { themeDark, themeLight, themeSystem } from "@/assets/images";
-import {
-  ImageRadioGroupOption,
-  SwitchGroupChange,
-} from "@/components/ui/inputs";
+import { SwitchGroupChange } from "@/components/ui/inputs";
 import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation, useUserPreferences } from "@/hooks";
 import { Language, Theme } from "@/types";
 import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
-import { PageNavigationList } from "./components/NavigationList/types";
+import { ThemeSelectorOption } from "./components";
+import { PageNavigationSection } from "./components/NavigationList/types";
 
 const useAccountScreen = () => {
   const router = useRouter();
@@ -46,7 +44,7 @@ const useAccountScreen = () => {
   };
 
   // theme options
-  const themeOptions: ImageRadioGroupOption[] = [
+  const themeOptions: ThemeSelectorOption[] = [
     {
       label: t("account_settingThemeLight"),
       value: "light",
@@ -86,7 +84,7 @@ const useAccountScreen = () => {
   };
 
   // account page navigation rows
-  const pageNavigationList: PageNavigationList = [
+  const pageNavigationList: PageNavigationSection[] = [
     // account section
     {
       title: t("account_sectionAccount"),
@@ -99,7 +97,7 @@ const useAccountScreen = () => {
         },
         {
           icon: "lock",
-          title: t("account_rowChangePassword"),
+          title: t("common_changePassword"),
           trailing: "chevron",
           onPress: () => router.push("/account/changePassword"),
         },
@@ -114,6 +112,18 @@ const useAccountScreen = () => {
           title: t("account_rowAddress"),
           trailing: "chevron",
           onPress: () => router.push("/account/addresses"),
+        },
+        {
+          icon: "credit-card",
+          title: t("common_paymentMethods"),
+          trailing: "chevron",
+          onPress: () => router.push("/account/paymentMethods"),
+        },
+        {
+          icon: "shopping-bag",
+          title: t("common_storesYouFollow"),
+          trailing: "chevron",
+          onPress: () => router.push("/account/storesYouFollow"),
         },
         {
           icon: "truck",

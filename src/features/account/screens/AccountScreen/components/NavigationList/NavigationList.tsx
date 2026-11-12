@@ -5,11 +5,7 @@ import useTheme from "@/hooks/useTheme";
 import { StyleSheet, View } from "react-native";
 import { PageNavigationList } from "./types";
 
-const NavigationList = ({
-  navigationList,
-}: {
-  navigationList: PageNavigationList;
-}) => {
+const NavigationList = ({ navigationList }: PageNavigationList) => {
   const colors = useTheme();
   return (
     <>

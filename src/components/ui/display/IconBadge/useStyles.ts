@@ -1,14 +1,14 @@
 import { radius } from "@/constants";
 import { useTheme } from "@/hooks";
-import { scalingMethods } from "@/utils";
+import { StatusVariant } from "@/types";
+import { HS } from "@/utils";
 import { StyleSheet } from "react-native";
-import { iconBadgeColor } from "./helper";
-const { HS } = scalingMethods;
+import { getIconBadgeColor } from "./helpers";
 
-const useStyles = () => {
+const useStyles = (variant: Exclude<StatusVariant, "secondary">) => {
   const colors = useTheme();
 
-  const iconColors = iconBadgeColor(colors);
+  const iconColor = getIconBadgeColor(colors, variant);
 
   const styles = StyleSheet.create({
     container: {
@@ -21,7 +21,7 @@ const useStyles = () => {
     },
   });
 
-  return { styles, colors, iconColors };
+  return { styles, colors, iconColor };
 };
 
 export default useStyles;

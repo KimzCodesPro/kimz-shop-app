@@ -1,0 +1,14 @@
+
+export type ThemeSelectorOption = {
+  label: string;
+  value: string;
+  // Preview artwork for the option — e.g. a phone mock of what the theme looks like.
+  image: string;
+  disabled?: boolean;
+};
+
+export type ThemeSelectorProps = {
+  options: ThemeSelectorOption[];
+  selectedValue: string;
+  onValueChange: (value: string) => void;
+};

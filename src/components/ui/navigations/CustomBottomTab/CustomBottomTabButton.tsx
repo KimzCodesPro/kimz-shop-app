@@ -1,27 +1,23 @@
 import Icon from "@/components/icons";
 import Typography from "@/components/ui/typography/Typography/Typography";
-import { TAB_ICON_SIZE } from "./constants";
 import { Pressable, View } from "react-native";
 import { CustomBottomTabButtonProps } from "./types";
+import { MAX_BADGE_COUNT } from "./constants";
 import useStyles from "./useStyles";
-
-const MAX_BADGE_COUNT = 9;
 
 /**
  * Rendered through `<TabTrigger asChild />`, which hands down `isFocused`,
  * `onPress`, `onLongPress` and the web `href` as props — so the button needs
  * no navigation hook of its own.
  *
- * `ref` reaches the underlying view so callers can measure the button, e.g.
- * to place a sliding indicator or anchor an overlay to a single tab. React 19
- * passes it as a plain prop, so no `forwardRef` wrapper is involved.
+ * `ref` is a plain prop in React 19 and reaches `Pressable` through `rest`,
+ * so callers can measure the button without a `forwardRef` wrapper.
  */
 const CustomBottomTabButton = ({
   icon,
   label,
   badge = 0,
   isFocused,
-  ref,
   // Dropped on purpose: TabTrigger lays its slot out as a row, and the
   // button owns its own layout.
   style: _style,
@@ -35,7 +31,6 @@ const CustomBottomTabButton = ({
 
   return (
     <Pressable
-      ref={ref}
       {...rest}
       style={styles.tabButton}
       role="tab"
@@ -44,7 +39,7 @@ const CustomBottomTabButton = ({
     >
       <View style={styles.tabItem}>
         <View style={styles.iconWrapper}>
-          <Icon size={TAB_ICON_SIZE} name={icon} color={focusedColor} />
+          <Icon name={icon} color={focusedColor} />
           {!!badge && (
             <View style={styles.badge}>
               <Typography

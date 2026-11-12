@@ -1,20 +1,10 @@
-export const addressColorMapping = {
-  home: "success",
-  apartment: "warning",
-  office: "info",
-  other: "danger",
-} as const;
-
-export const addressIcon = {
-  home: "home",
-  apartment: "building",
-  office: "briefcase",
-  other: "map-pin",
-} as const;
-
-export const addressLabel = {
-  home: "common_addressHome",
-  office: "common_addressOffice",
-  apartment: "common_addressApartment",
-  other: "common_addressOther",
+export const ADDRESS_TYPE_CONFIG = {
+  home: { color: "success", icon: "home", label: "common_addressHome" },
+  apartment: {
+    color: "warning",
+    icon: "building",
+    label: "common_addressApartment",
+  },
+  office: { color: "info", icon: "briefcase", label: "common_addressOffice" },
+  other: { color: "danger", icon: "map-pin", label: "common_addressOther" },
 } as const;

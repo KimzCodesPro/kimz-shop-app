@@ -1,8 +1,4 @@
-import { iconSize } from "@/constants";
-// Chevron on the closed/open trigger.
-export const WORLD_ICON_SIZE = iconSize.sm;
-
-export const switcherTranslationKeys = {
+export const LANGUAGE_SWITCHER_LABEL = {
   ar: "common_settingLanguageEnglish",
   en: "common_settingLanguageArabic",
 } as const;

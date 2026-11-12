@@ -3,8 +3,7 @@ import Icon from "@/components/icons";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import { Typography } from "../../typography";
-import { FAVORITE_ICON_SIZE } from "./constants";
-import calculateDiscountPercentage from "./helper";
+import { calculateDiscountPercentage } from "./helpers";
 import { ProductCardProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -44,7 +43,7 @@ const ProductCard = ({
           style={styles.headerFavoriteButton}
         >
           <Icon
-            size={FAVORITE_ICON_SIZE}
+            size="md"
             name={isFavorite ? "heart-filled" : "heart"}
             color={isFavorite ? colors.danger.base : colors.foreground.tertiary}
           />

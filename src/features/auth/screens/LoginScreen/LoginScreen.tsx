@@ -5,25 +5,22 @@ import {
   TextInput,
 } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
-import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
+import { BottomSheet } from "@/components/ui/overlay";
 import { Typography } from "@/components/ui/typography";
-import { useTheme, useTranslation } from "@/hooks";
-import { router } from "expo-router";
-import { useRef } from "react";
 import { View } from "react-native";
-import { Heading } from "../../components";
-import styles from "./LoginScreenStyles";
+import { Header } from "../../components";
+import styles from "./loginScreenStyles";
+import useLoginScreen from "./useLoginScreen";
 
 const LoginScreen = () => {
-  const { t } = useTranslation();
-  const colors = useTheme();
-
-  const forgotPasswordSheetRef = useRef<BottomSheetRef | null>(null);
-
-  const sendCodeHandler = () => {
-    forgotPasswordSheetRef.current?.dismiss();
-    router.push("/verification");
-  };
+  const {
+    t,
+    colors,
+    forgotPasswordBottomSheetRef,
+    openForgotPasswordSheetHandler,
+    sendCodeHandler,
+    createAccountHandler,
+  } = useLoginScreen();
 
   return (
     <>
@@ -33,13 +30,13 @@ const LoginScreen = () => {
       >
         <LanguageSwitcher style={styles.languageSwitcher} />
 
-        <Heading title={t("auth_loginTitle")} subtitle={t("auth_loginSub")} />
+        <Header title={t("auth_loginTitle")} subtitle={t("auth_loginSub")} />
 
-        <View style={styles.form}>
+        <View style={styles.formContainer}>
           <TextInput
             icon="mail"
-            label={t("auth_fieldEmail")}
-            placeholder={t("auth_placeholderEmail")}
+            label={t("common_fieldEmail")}
+            placeholder={t("common_placeholderEmail")}
             value=""
           />
           <TextInput
@@ -53,7 +50,7 @@ const LoginScreen = () => {
             title={t("auth_forgotPasswordLink")}
             variant="link"
             size="sm"
-            onPress={() => forgotPasswordSheetRef.current?.present()}
+            onPress={openForgotPasswordSheetHandler}
             style={styles.forgotPasswordButton}
           />
         </View>
@@ -79,7 +76,7 @@ const LoginScreen = () => {
               title={t("auth_createAccountTitle")}
               variant="link"
               size="sm"
-              onPress={() => router.replace("/createAccount")}
+              onPress={createAccountHandler}
               style={styles.secondActionCreateAccountButton}
             />
           </View>
@@ -87,7 +84,7 @@ const LoginScreen = () => {
       </ScreenLayout>
       {/* forgot password bottom sheet */}
       <BottomSheet
-        ref={forgotPasswordSheetRef}
+        ref={forgotPasswordBottomSheetRef}
         bottomSheetProps={{
           snapPoints: ["38%"],
         }}
@@ -97,8 +94,8 @@ const LoginScreen = () => {
         <BottomSheet.Content style={styles.forgotPasswordSheetContent}>
           <TextInput
             icon="mail"
-            label={t("auth_fieldEmail")}
-            placeholder={t("auth_placeholderEmail")}
+            label={t("common_fieldEmail")}
+            placeholder={t("common_placeholderEmail")}
             value=""
           />
           <Button

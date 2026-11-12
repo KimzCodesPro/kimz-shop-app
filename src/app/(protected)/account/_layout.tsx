@@ -9,6 +9,9 @@ const AccountLayout = () => {
       <Stack.Screen name="legalAndPolicies" />
       <Stack.Screen name="addresses" />
       <Stack.Screen name="addNewAddress" />
+      <Stack.Screen name="storesYouFollow" />
+      <Stack.Screen name="paymentMethods" />
+      <Stack.Screen name="addNewPaymentMethod" />
     </Stack>
   );
 };

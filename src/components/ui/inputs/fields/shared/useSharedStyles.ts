@@ -1,10 +1,9 @@
 import { radius, spacing } from "@/constants";
 import { useFontStyles, useTheme, useTranslation } from "@/hooks";
-import { scalingMethods } from "@/utils";
+import { VS } from "@/utils";
 import { Platform, StyleSheet } from "react-native";
-import { fieldStatusColor } from "./helpers";
+import { getFieldColors } from "./helpers";
 import { StatusType } from "./types";
-const { VS } = scalingMethods;
 
 const useSharedStyles = (currentStatus: StatusType) => {
   const colors = useTheme();
@@ -19,10 +18,7 @@ const useSharedStyles = (currentStatus: StatusType) => {
   const textAlign = isRTL ? "right" : "left";
   const writingDirection = isRTL ? "rtl" : "ltr";
 
-  const colorMapping = fieldStatusColor(colors);
-
-  const borderColor = colorMapping.borderColor[currentStatus];
-  const iconColor = colorMapping.iconColor[currentStatus];
+  const { borderColor, iconColor } = getFieldColors(colors, currentStatus);
 
   const styles = StyleSheet.create({
     container: {

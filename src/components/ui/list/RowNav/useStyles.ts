@@ -1,14 +1,14 @@
 import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
-import { scalingMethods } from "@/utils";
+import { VS } from "@/utils";
 import { StyleSheet } from "react-native";
-import { rowNavColor } from "./helper";
-const { VS } = scalingMethods;
+import { getRowNavColor } from "./helpers";
+import { RowNavVariant } from "./types";
 
-const useStyles = () => {
+const useStyles = (variant: RowNavVariant = "default") => {
   const colors = useTheme();
 
-  const rowNavItemColor = rowNavColor(colors);
+  const itemColor = getRowNavColor(colors, variant);
 
   const styles = StyleSheet.create({
     container: {
@@ -35,7 +35,7 @@ const useStyles = () => {
       gap: spacing.space8.width,
     },
   });
-  return { styles, colors, rowNavItemColor };
+  return { styles, colors, itemColor };
 };
 
 export default useStyles;
