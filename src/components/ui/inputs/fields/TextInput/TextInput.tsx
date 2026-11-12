@@ -20,6 +20,7 @@ const TextInput = ({
   errorMessage,
   onChangeText,
   maxLength,
+  keyboardType,
   clearInput,
   style,
 }: TextInputProps) => {
@@ -57,6 +58,7 @@ const TextInput = ({
         value={value}
         onChangeText={onChangeText}
         maxLength={maxLength}
+        keyboardType={keyboardType}
         placeholder={placeholder}
         placeholderTextColor={colors.foreground.tertiary}
         onFocus={() => setIsFocused(true)}

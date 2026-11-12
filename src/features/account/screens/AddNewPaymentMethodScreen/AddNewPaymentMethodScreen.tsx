@@ -7,8 +7,14 @@ import styles from "./addNewPaymentMethodScreenStyles";
 import useAddNewPaymentMethodScreen from "./useAddNewPaymentMethodScreen";
 
 const AddNewPaymentMethodScreen = () => {
-  const { t, colors, isDefault, toggleDefaultHandler } =
-    useAddNewPaymentMethodScreen();
+  const {
+    t,
+    colors,
+    isDefault,
+    toggleDefaultHandler,
+    expiryDate,
+    expiryDateChangeHandler,
+  } = useAddNewPaymentMethodScreen();
 
   return (
     <ScreenLayout
@@ -22,6 +28,7 @@ const AddNewPaymentMethodScreen = () => {
           icon="credit-card"
           value=""
           maxLength={19}
+          keyboardType="number-pad"
         />
         <TextInput
           label={t("addCard_name")}
@@ -34,8 +41,10 @@ const AddNewPaymentMethodScreen = () => {
           label={t("addCard_expiry")}
           placeholder={t("addCard_placeholderExpiry")}
           icon="history"
-          value=""
+          value={expiryDate}
+          onChangeText={expiryDateChangeHandler}
           maxLength={5}
+          keyboardType="number-pad"
         />
         <TextInput
           label={t("addCard_cvv")}
@@ -43,6 +52,7 @@ const AddNewPaymentMethodScreen = () => {
           icon="lock"
           value=""
           maxLength={3}
+          keyboardType="number-pad"
         />
         {/* set as default */}
         <Pressable style={styles.setDefault} onPress={toggleDefaultHandler}>
