@@ -25,7 +25,13 @@ const PaymentCard = ({
       />
       <InfoCard.Trailing>
         <IconBadge icon="credit-card" variant={variant} />
-        {isDefault && <StatusBill icon="check" label={t("paymentMethods_paymentDefault")} color="info" />}
+        {isDefault && (
+          <StatusBill
+            icon="check"
+            label={t("paymentMethods_paymentDefault")}
+            color={variant}
+          />
+        )}
       </InfoCard.Trailing>
     </InfoCard>
   );

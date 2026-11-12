@@ -1,6 +1,6 @@
 import { EmptyState } from "@/components/ui/feedback";
 import { Button } from "@/components/ui/inputs";
-import { ScreenLayout, Separator } from "@/components/ui/layout";
+import { Divider, ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
 import { Typography } from "@/components/ui/typography";
@@ -75,7 +75,7 @@ const MyCartScreen = () => {
               data={cartItems}
               keyExtractor={(item) => item.id}
               showsVerticalScrollIndicator={false}
-              ItemSeparatorComponent={Separator}
+              ItemSeparatorComponent={<Divider space="lg" />}
               renderItem={({ item }) => (
                 <CartItem
                   itemId={item.id}
@@ -129,7 +129,7 @@ const MyCartScreen = () => {
               $ 6.00
             </Typography>
           </View>
-          <Separator space="sm" />
+          <Divider space="sm" />
           <View style={styles.row}>
             <Typography
               variant="normalBold"

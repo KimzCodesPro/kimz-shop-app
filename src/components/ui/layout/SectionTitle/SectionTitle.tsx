@@ -1,8 +1,7 @@
 import { Typography } from "@/components/ui/typography";
-import { useTheme } from "@/hooks";
 import { View } from "react-native";
-import styles from "./sectionTitleStyles";
 import { SectionTitleProps } from "./types";
+import useStyles from "./useStyles";
 
 const SectionTitle = ({
   title,
@@ -10,7 +9,7 @@ const SectionTitle = ({
   onActionPress,
   style,
 }: SectionTitleProps) => {
-  const colors = useTheme();
+  const { styles, colors } = useStyles();
 
   return (
     <View style={[style, styles.container]}>

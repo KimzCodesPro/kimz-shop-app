@@ -1,11 +1,11 @@
 import { View } from "react-native";
-import type { SeparatorProps } from "./types";
+import type { DividerProps } from "./types";
 import useStyles from "./useStyles";
 
-const Separator = ({ space = "lg" }: SeparatorProps) => {
+const Divider = ({ space = "none" }: DividerProps) => {
   const { styles } = useStyles(space);
 
-  return <View style={styles.separator} />;
+  return <View style={styles.divider} />;
 };
 
-export default Separator;
+export default Divider;

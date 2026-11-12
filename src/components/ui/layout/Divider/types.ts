@@ -1,7 +1,7 @@
-import { SEPARATOR_SPACE } from "./constants";
+import { DIVIDER_SPACE } from "./constants";
 
-export type SeparatorSpace = keyof typeof SEPARATOR_SPACE;
+export type DividerSpace = keyof typeof DIVIDER_SPACE;
 
-export type SeparatorProps = {
-  space?: SeparatorSpace;
+export type DividerProps = {
+  space?: DividerSpace;
 };

@@ -1,16 +1,16 @@
 import { useTheme } from "@/hooks";
 import { VS } from "@/utils";
 import { StyleSheet } from "react-native";
-import { SEPARATOR_SPACE } from "./constants";
-import type { SeparatorSpace } from "./types";
+import { DIVIDER_SPACE } from "./constants";
+import type { DividerSpace } from "./types";
 
-const useStyles = (space: SeparatorSpace) => {
+const useStyles = (space: DividerSpace) => {
   const colors = useTheme();
 
   const styles = StyleSheet.create({
-    separator: {
+    divider: {
       height: VS(1),
-      marginVertical: SEPARATOR_SPACE[space],
+      marginVertical: DIVIDER_SPACE[space],
       backgroundColor: colors.border.default,
     },
   });

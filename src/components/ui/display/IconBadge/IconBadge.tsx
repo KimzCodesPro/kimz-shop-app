@@ -8,7 +8,7 @@ const IconBadge = ({ icon, variant = "info", style }: IconBadgeProps) => {
 
   return (
     <View style={[styles.container, style]}>
-      <Icon name={icon} color={iconColors[variant]} />
+      <Icon name={icon} color={iconColors[variant]} strokeWidth={2} />
     </View>
   );
 };

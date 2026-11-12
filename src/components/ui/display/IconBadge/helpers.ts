@@ -6,6 +6,6 @@ export const iconBadgeColor = (colors: ThemePalette) =>
   ({
     success: colors.success.strong,
     warning: colors.warning.base,
-    info: colors.primary.pressed,
+    info: colors.primary.base,
     danger: colors.danger.base,
   }) as const;
