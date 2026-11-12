@@ -13,7 +13,7 @@ const OrderSummary = ({ summary, style }: OrderSummaryProps) => {
     <CardWrapper style={style}>
       <View style={styles.info}>
         <Typography variant="smallRegular" color={colors.foreground.tertiary}>
-          {t("orders_detailsSubtotal")}
+          {t("common_subtotal")}
         </Typography>
         <Typography variant="smallBold" color={colors.foreground.primary}>
           $ {summary.subtotal.toFixed(2)}
@@ -21,7 +21,7 @@ const OrderSummary = ({ summary, style }: OrderSummaryProps) => {
       </View>
       <View style={styles.info}>
         <Typography variant="smallRegular" color={colors.foreground.tertiary}>
-          {t("orders_detailsShippingFee")}
+          {t("common_shipping")}
         </Typography>
         <Typography variant="smallBold" color={colors.foreground.primary}>
           $ {summary.shipping.toFixed(2)}
@@ -29,7 +29,7 @@ const OrderSummary = ({ summary, style }: OrderSummaryProps) => {
       </View>
       <View style={styles.sum}>
         <Typography variant="smallBold" color={colors.foreground.primary}>
-          {t("orders_detailsTotal")}
+          {t("common_total")}
         </Typography>
         <Typography variant="largeBold" color={colors.primary.base}>
           $ {summary.total.toFixed(2)}

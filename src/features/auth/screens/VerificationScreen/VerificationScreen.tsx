@@ -100,20 +100,20 @@ const VerificationScreen = () => {
           <TextInput
             type="password"
             label={t("auth_fieldNewPassword")}
-            placeholder={t("auth_placeholderNewPassword")}
+            placeholder={t("common_placeholderNewPassword")}
             value=""
           />
           <TextInput
             type="password"
             label={t("auth_fieldConfirmPassword")}
-            placeholder={t("auth_placeholderConfirmPassword")}
+            placeholder={t("common_placeholderConfirmPassword")}
             value=""
           />
           <Button
             style={styles.changePasswordButton}
             variant="primary"
             onPress={changePasswordHandler}
-            title={t("auth_changePasswordTitle")}
+            title={t("common_changePassword")}
           />
         </BottomSheet.Content>
       </BottomSheet>

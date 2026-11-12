@@ -19,7 +19,7 @@ const AddNewPaymentMethodScreen = () => {
   return (
     <ScreenLayout
       scrollable
-      renderTopBar={() => <TopBar title={t("addCard_title")} goBack />}
+      renderTopBar={() => <TopBar title={t("common_addNewCard")} goBack />}
     >
       <View style={styles.form}>
         <TextInput

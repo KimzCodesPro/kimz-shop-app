@@ -22,14 +22,14 @@ const CreateAccountScreen = () => {
       <View style={styles.formContainer}>
         <TextInput
           icon="user"
-          label={t("auth_fieldUserName")}
-          placeholder={t("auth_placeholderUserName")}
+          label={t("common_fieldUserName")}
+          placeholder={t("common_placeholderUserName")}
           value=""
         />
         <TextInput
           icon="mail"
-          label={t("auth_fieldEmail")}
-          placeholder={t("auth_placeholderEmail")}
+          label={t("common_fieldEmail")}
+          placeholder={t("common_placeholderEmail")}
           value=""
         />
         <TextInput

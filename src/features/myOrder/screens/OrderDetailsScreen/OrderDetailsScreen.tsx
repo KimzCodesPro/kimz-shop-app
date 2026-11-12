@@ -28,7 +28,7 @@ const OrderDetailsScreen = () => {
       <ItemList items={ORDER_ITEMS} />
 
       {/* shipping address section */}
-      <SectionHead title={t("orders_detailsShipping")} />
+      <SectionHead title={t("common_shippingAddress")} />
       <ShippingAddress
         type="home"
         userName="John Doe"
@@ -40,7 +40,7 @@ const OrderDetailsScreen = () => {
       <Payment type="Visa" cardNumber="1234" />
 
       {/* Order Summary Section */}
-      <SectionHead title={t("orders_detailsSummary")} />
+      <SectionHead title={t("common_orderSummary")} />
       <OrderSummary summary={ORDER_SUMMARY} />
     </ScreenLayout>
   );

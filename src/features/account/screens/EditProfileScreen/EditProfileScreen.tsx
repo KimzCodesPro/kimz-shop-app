@@ -23,14 +23,14 @@ const EditProfileScreen = () => {
       />
       <View style={styles.form}>
         <TextInput
-          label={t("account_profileFieldUserName")}
-          placeholder={t("account_placeholderUserName")}
+          label={t("common_fieldUserName")}
+          placeholder={t("common_placeholderUserName")}
           icon="user"
           value=""
         />
         <TextInput
-          label={t("account_profileFieldEmail")}
-          placeholder={t("account_placeholderEmail")}
+          label={t("common_fieldEmail")}
+          placeholder={t("common_placeholderEmail")}
           icon="mail"
           value=""
         />

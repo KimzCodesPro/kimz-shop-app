@@ -97,7 +97,7 @@ const useAccountScreen = () => {
         },
         {
           icon: "lock",
-          title: t("account_rowChangePassword"),
+          title: t("common_changePassword"),
           trailing: "chevron",
           onPress: () => router.push("/account/changePassword"),
         },
@@ -115,13 +115,13 @@ const useAccountScreen = () => {
         },
         {
           icon: "credit-card",
-          title: t("account_rowPayment"),
+          title: t("common_paymentMethods"),
           trailing: "chevron",
           onPress: () => router.push("/account/paymentMethods"),
         },
         {
           icon: "shopping-bag",
-          title: t("account_rowStoresYouFollow"),
+          title: t("common_storesYouFollow"),
           trailing: "chevron",
           onPress: () => router.push("/account/storesYouFollow"),
         },

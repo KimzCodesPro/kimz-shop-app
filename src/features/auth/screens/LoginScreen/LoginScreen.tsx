@@ -35,8 +35,8 @@ const LoginScreen = () => {
         <View style={styles.formContainer}>
           <TextInput
             icon="mail"
-            label={t("auth_fieldEmail")}
-            placeholder={t("auth_placeholderEmail")}
+            label={t("common_fieldEmail")}
+            placeholder={t("common_placeholderEmail")}
             value=""
           />
           <TextInput
@@ -94,8 +94,8 @@ const LoginScreen = () => {
         <BottomSheet.Content style={styles.forgotPasswordSheetContent}>
           <TextInput
             icon="mail"
-            label={t("auth_fieldEmail")}
-            placeholder={t("auth_placeholderEmail")}
+            label={t("common_fieldEmail")}
+            placeholder={t("common_placeholderEmail")}
             value=""
           />
           <Button

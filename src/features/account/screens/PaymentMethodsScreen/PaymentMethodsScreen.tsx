@@ -21,7 +21,7 @@ const PaymentMethodsScreen = () => {
   return (
     <>
       <ScreenLayout
-        renderTopBar={() => <TopBar title={t("paymentMethods_title")} goBack />}
+        renderTopBar={() => <TopBar title={t("common_paymentMethods")} goBack />}
       >
         <VerticalScrollView>
           <PaymentMethodsList
@@ -32,7 +32,7 @@ const PaymentMethodsScreen = () => {
         </VerticalScrollView>
 
         <Button
-          title={t("paymentMethods_paymentAddNew")}
+          title={t("common_addNewCard")}
           onPress={addNewCardHandler}
         />
       </ScreenLayout>

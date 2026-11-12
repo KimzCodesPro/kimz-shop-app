@@ -38,7 +38,7 @@ const CheckoutScreen = () => {
           {/* shipping address */}
           <View style={styles.section}>
             <SectionTitle
-              title={t("checkout_shippingAddress")}
+              title={t("common_shippingAddress")}
               actionText={t("checkout_change")}
               onActionPress={openAddressSheetHandler}
             />
@@ -66,7 +66,7 @@ const CheckoutScreen = () => {
           </View>
           {/* order items */}
           <View style={styles.section}>
-            <SectionTitle title={t("checkout_orderSummary")} />
+            <SectionTitle title={t("common_orderSummary")} />
             <OrderSummaryList items={CHECKOUT_ITEMS} />
           </View>
           {/* price info */}
@@ -131,7 +131,7 @@ const CheckoutScreen = () => {
           <Button
             icon="map-pin"
             variant="link"
-            title={t("checkout_paymentAddNew")}
+            title={t("common_addNewCard")}
             onPress={addNewPaymentHandler}
           />
         </BottomSheet.Content>

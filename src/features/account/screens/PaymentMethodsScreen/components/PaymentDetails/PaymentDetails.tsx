@@ -54,7 +54,7 @@ const PaymentDetails = ({
       <View style={styles.actions}>
         <Button
           variant="primary"
-          title={t("paymentMethods_paymentSetDefault")}
+          title={t("common_setAsDefault")}
           onPress={setAsDefaultHandler}
         />
       </View>

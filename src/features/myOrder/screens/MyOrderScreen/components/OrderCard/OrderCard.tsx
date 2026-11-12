@@ -86,7 +86,7 @@ const OrderCard = ({
 
       <View style={styles.total}>
         <Typography variant="xsmallRegular" color={colors.foreground.tertiary}>
-          {t("orders_detailsTotal")}
+          {t("common_total")}
         </Typography>
         <Typography variant="mediumBold" color={colors.primary.base}>
           ${total}

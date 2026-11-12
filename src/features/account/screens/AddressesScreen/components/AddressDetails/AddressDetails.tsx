@@ -77,7 +77,7 @@ const AddressDetails = ({
       <View style={styles.actions}>
         <Button
           variant="primary-outline"
-          title={t("account_addressDetailSetDefault")}
+          title={t("common_setAsDefault")}
           onPress={setAsDefaultHandler}
         />
         <Button

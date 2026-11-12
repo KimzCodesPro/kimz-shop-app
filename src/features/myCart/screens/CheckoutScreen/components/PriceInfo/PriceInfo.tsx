@@ -15,7 +15,7 @@ const PriceInfo = ({ subtotal, shipping, tax, total }: PriceInfoProps) => {
       {/* subtotal */}
       <View style={styles.row}>
         <Typography variant="normalRegular" color={colors.foreground.tertiary}>
-          {t("checkout_subtotal")}
+          {t("common_subtotal")}
         </Typography>
         <Typography variant="normalBold" color={colors.foreground.primary}>
           {`$${subtotal.toFixed(2)}`}
@@ -24,7 +24,7 @@ const PriceInfo = ({ subtotal, shipping, tax, total }: PriceInfoProps) => {
       {/* shipping */}
       <View style={styles.row}>
         <Typography variant="normalRegular" color={colors.foreground.tertiary}>
-          {t("checkout_shipping")}
+          {t("common_shipping")}
         </Typography>
         <Typography variant="normalBold" color={colors.foreground.primary}>
           {`$${shipping.toFixed(2)}`}
@@ -43,7 +43,7 @@ const PriceInfo = ({ subtotal, shipping, tax, total }: PriceInfoProps) => {
       {/* total */}
       <View style={styles.row}>
         <Typography variant="mediumBold" color={colors.foreground.tertiary}>
-          {t("checkout_total")}
+          {t("common_total")}
         </Typography>
         <Typography variant="largeBold" color={colors.primary.base}>
           {`$${total.toFixed(2)}`}

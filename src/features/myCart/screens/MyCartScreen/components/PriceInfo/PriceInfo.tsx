@@ -14,7 +14,7 @@ const PriceInfo = ({ subtotal, shipping, total }: PriceInfoProps) => {
       {/* subtotal */}
       <View style={styles.row}>
         <Typography variant="normalBold" color={colors.foreground.secondary}>
-          {t("myCart_subtotal")}
+          {t("common_subtotal")}
         </Typography>
         <Typography variant="normalBold" color={colors.foreground.primary}>
           $ {subtotal.toFixed(2)}
@@ -23,7 +23,7 @@ const PriceInfo = ({ subtotal, shipping, total }: PriceInfoProps) => {
       {/* shipping */}
       <View style={styles.row}>
         <Typography variant="normalBold" color={colors.foreground.secondary}>
-          {t("myCart_shipping")}
+          {t("common_shipping")}
         </Typography>
         <Typography variant="normalBold" color={colors.foreground.primary}>
           $ {shipping.toFixed(2)}

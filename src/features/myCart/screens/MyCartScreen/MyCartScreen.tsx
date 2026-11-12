@@ -38,7 +38,7 @@ const MyCartScreen = () => {
             title={t("myCart_emptyTitle")}
             description={t("myCart_emptyDesc")}
             action={{
-              title: t("myCart_startShopping"),
+              title: t("common_startShopping"),
               onPress: startShoppingHandler,
             }}
           />
@@ -73,7 +73,7 @@ const MyCartScreen = () => {
       </ScreenLayout>
       {/* checkout bottom sheet */}
       <BottomSheet
-        title={t("myCart_orderSummary")}
+        title={t("common_orderSummary")}
         ref={checkoutBottomSheetRef}
         bottomSheetProps={{
           snapPoints: ["35%"],

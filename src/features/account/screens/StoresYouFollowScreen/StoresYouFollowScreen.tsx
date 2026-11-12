@@ -14,7 +14,7 @@ const StoresYouFollowScreen = () => {
 
   return (
     <ScreenLayout
-      renderTopBar={() => <TopBar title={t("stores_title")} goBack />}
+      renderTopBar={() => <TopBar title={t("common_storesYouFollow")} goBack />}
     >
       {!HAS_STORES ? (
         <EmptyState
