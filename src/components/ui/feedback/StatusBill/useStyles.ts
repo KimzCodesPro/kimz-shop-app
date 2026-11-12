@@ -2,18 +2,20 @@ import { radius, spacing } from "@/constants";
 import { useTheme } from "@/hooks";
 import { StatusVariant } from "@/types";
 import { StyleSheet } from "react-native";
-import { VARIANT_TO_SCHEMA } from "./constants";
-import { statusBillColor } from "./helpers";
+import { getStatusBillColors } from "./helpers";
 import { StatusBillVariant } from "./types";
 
 const useStyles = (
-  StatusVariant: Exclude<StatusVariant, "secondary">,
+  selectedColor: Exclude<StatusVariant, "secondary">,
   variant: StatusBillVariant,
 ) => {
   const colors = useTheme();
 
-  const { border, background, typography } =
-    statusBillColor(colors)[VARIANT_TO_SCHEMA[variant]][StatusVariant];
+  const { border, background, typography } = getStatusBillColors(
+    colors,
+    variant,
+    selectedColor,
+  );
 
   const styles = StyleSheet.create({
     container: {

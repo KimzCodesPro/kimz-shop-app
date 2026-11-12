@@ -1,9 +1,10 @@
 import { ThemePalette } from "@/types";
+import { VariantType } from "./types";
 
-// A function rather than a plain object: the values come from the resolved
-// theme, so they can only be read once useTheme has run.
-export const buttonVariantColor = (colors: ThemePalette) =>
-  ({
+// Built inside a function because the values come from the resolved theme,
+// so they can only be read once useTheme has run.
+export const getButtonColors = (colors: ThemePalette, variant: VariantType) => {
+  const palette = {
     primary: {
       background: colors.primary.base,
       typography: colors.foreground.contrast,
@@ -34,4 +35,7 @@ export const buttonVariantColor = (colors: ThemePalette) =>
       typography: colors.foreground.primary,
       border: colors.border.default,
     },
-  }) as const;
+  } as const;
+
+  return palette[variant];
+};

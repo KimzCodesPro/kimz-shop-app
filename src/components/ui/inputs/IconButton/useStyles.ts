@@ -2,13 +2,13 @@ import { opacity, radius } from "@/constants";
 import { useTheme } from "@/hooks";
 import { HS, VS } from "@/utils";
 import { StyleSheet } from "react-native";
-import { iconButtonVariantColor } from "./helpers";
+import { getIconButtonColors } from "./helpers";
 import { IconButtonVariant } from "./types";
 
 const useStyle = (variant: IconButtonVariant, disabled?: boolean) => {
   const colors = useTheme();
 
-  const currentVariantColor = iconButtonVariantColor(colors)[variant];
+  const currentVariantColor = getIconButtonColors(colors, variant);
 
   const styles = StyleSheet.create({
     button: {

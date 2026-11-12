@@ -1,9 +1,12 @@
-import { ThemePalette } from "@/types";
+import { StatusVariant, ThemePalette } from "@/types";
 
-// A function rather than a plain object: the values come from the resolved
-// theme, so they can only be read once useTheme has run.
-export const statusHaloColor = (colors: ThemePalette) =>
-  ({
+// Built inside a function because the values come from the resolved theme,
+// so they can only be read once useTheme has run.
+export const getStatusHaloColors = (
+  colors: ThemePalette,
+  variant: StatusVariant,
+) => {
+  const palette = {
     success: {
       halo: colors.success.tint,
       inner: colors.success.base,
@@ -24,4 +27,7 @@ export const statusHaloColor = (colors: ThemePalette) =>
       halo: colors.background.surface,
       inner: colors.foreground.tertiary,
     },
-  }) as const;
+  } as const;
+
+  return palette[variant];
+};

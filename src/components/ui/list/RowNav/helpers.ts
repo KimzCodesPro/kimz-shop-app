@@ -1,9 +1,16 @@
 import { ThemePalette } from "@/types";
+import { RowNavVariant } from "./types";
 
-// A function rather than a plain object: the values come from the resolved
-// theme, so they can only be read once useTheme has run.
-export const rowNavColor = (colors: ThemePalette) =>
-  ({
+// Built inside a function because the values come from the resolved theme,
+// so they can only be read once useTheme has run.
+export const getRowNavColor = (
+  colors: ThemePalette,
+  variant: RowNavVariant,
+) => {
+  const palette = {
     default: colors.foreground.primary,
     danger: colors.danger.base,
-  }) as const;
+  } as const;
+
+  return palette[variant];
+};

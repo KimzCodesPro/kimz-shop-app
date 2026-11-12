@@ -1,10 +1,10 @@
 import { ThemePalette } from "@/types";
 import { StatusType } from "./types";
 
-// A function rather than a plain object: the values come from the resolved
-// theme, so they can only be read once useTheme has run.
-export const fieldStatusColor = (colors: ThemePalette) =>
-  ({
+// Built inside a function because the values come from the resolved theme,
+// so they can only be read once useTheme has run.
+export const getFieldColors = (colors: ThemePalette, status: StatusType) => {
+  const palette = {
     borderColor: {
       default: colors.border.default,
       focused: colors.primary.base,
@@ -17,7 +17,13 @@ export const fieldStatusColor = (colors: ThemePalette) =>
       filled: colors.primary.base,
       error: colors.danger.base,
     },
-  }) as const;
+  } as const;
+
+  return {
+    borderColor: palette.borderColor[status],
+    iconColor: palette.iconColor[status],
+  };
+};
 
 export const fieldCurrentStatus = (
   errorMessage: string | undefined,

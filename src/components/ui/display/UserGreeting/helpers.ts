@@ -1,10 +1,14 @@
 import { ThemePalette } from "@/types";
+import { UserGreetingProps } from "./types";
 
 // A function rather than a plain object: the colors come from the resolved
 // theme, so they can only be read once useTheme has run. The `as const` keeps
 // the font names as literals, which Typography's `variant` prop requires.
-export const userGreetingTypography = (colors: ThemePalette) =>
-  ({
+export const getUserGreetingTypography = (
+  colors: ThemePalette,
+  size: UserGreetingProps["size"],
+) => {
+  const palette = {
     lg: {
       userName: {
         font: "mediumBold",
@@ -25,4 +29,7 @@ export const userGreetingTypography = (colors: ThemePalette) =>
         color: colors.foreground.secondary,
       },
     },
-  }) as const;
+  } as const;
+
+  return palette[size];
+};

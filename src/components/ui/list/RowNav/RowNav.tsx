@@ -13,16 +13,13 @@ const RowNav = ({
   onPress,
   ...trailingProps
 }: RowNavProps) => {
-  const { styles, rowNavItemColor } = useStyles();
+  const { styles, itemColor } = useStyles(variant);
 
   return (
     <Pressable style={[styles.container, style]} onPress={onPress}>
       <View style={styles.mainInfo}>
-        <Icon
-          name={icon}
-          color={rowNavItemColor[variant]}
-        />
-        <Typography variant="smallBold" color={rowNavItemColor[variant]}>
+        <Icon name={icon} color={itemColor} />
+        <Typography variant="smallBold" color={itemColor}>
           {title}
         </Typography>
       </View>

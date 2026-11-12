@@ -3,12 +3,12 @@ import { useTheme } from "@/hooks";
 import { StatusVariant } from "@/types";
 import { HS, VS } from "@/utils";
 import { StyleSheet } from "react-native";
-import { statusHaloColor } from "./helpers";
+import { getStatusHaloColors } from "./helpers";
 
 const useStyles = (variant: StatusVariant) => {
   const colors = useTheme();
 
-  const colorVariant = statusHaloColor(colors)[variant];
+  const colorVariant = getStatusHaloColors(colors, variant);
 
   const styles = StyleSheet.create({
     halo: {

@@ -1,8 +1,10 @@
 import { IconName } from "@/components/icons";
 import { StyleProp, ViewStyle } from "react-native";
 
+export type RowNavVariant = "default" | "danger";
+
 export type RowNavBaseProps = {
-  variant?: "default" | "danger";
+  variant?: RowNavVariant;
   onPress: () => void;
   title: string;
   icon: IconName;

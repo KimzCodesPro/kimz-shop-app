@@ -1,11 +1,17 @@
-import { ThemePalette } from "@/types";
+import { StatusVariant, ThemePalette } from "@/types";
 
-// A function rather than a plain object: the values come from the resolved
-// theme, so they can only be read once useTheme has run.
-export const iconBadgeColor = (colors: ThemePalette) =>
-  ({
+// Built inside a function because the values come from the resolved theme,
+// so they can only be read once useTheme has run.
+export const getIconBadgeColor = (
+  colors: ThemePalette,
+  variant: Exclude<StatusVariant, "secondary">,
+) => {
+  const palette = {
     success: colors.success.strong,
     warning: colors.warning.base,
     info: colors.primary.base,
     danger: colors.danger.base,
-  }) as const;
+  } as const;
+
+  return palette[variant];
+};

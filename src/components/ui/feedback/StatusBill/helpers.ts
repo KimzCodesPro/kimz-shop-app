@@ -1,8 +1,14 @@
-import { ThemePalette } from "@/types";
+import { StatusVariant, ThemePalette } from "@/types";
+import { StatusBillVariant } from "./types";
 
-export const statusBillColor = (colors: ThemePalette) =>
-  ({
-    outline: {
+// Returns the border, background and text colors for one variant + color.
+export const getStatusBillColors = (
+  colors: ThemePalette,
+  variant: StatusBillVariant,
+  selectedColor: Exclude<StatusVariant, "secondary">,
+) => {
+  const palette = {
+    outlined: {
       success: {
         border: colors.success.strong,
         background: colors.background.base,
@@ -24,7 +30,7 @@ export const statusBillColor = (colors: ThemePalette) =>
         typography: colors.danger.strong,
       },
     },
-    fill: {
+    filled: {
       success: {
         border: colors.success.strong,
         background: colors.success.strong,
@@ -46,4 +52,7 @@ export const statusBillColor = (colors: ThemePalette) =>
         typography: colors.foreground.contrast,
       },
     },
-  }) as const;
+  } as const;
+
+  return palette[variant][selectedColor];
+};
