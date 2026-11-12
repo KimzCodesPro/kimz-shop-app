@@ -2,9 +2,9 @@ import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation } from "@/hooks";
 import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
-import addressesList from "./components/AddressesList/data";
+import addressesList from "./data";
 
-const useAddressListScreen = () => {
+const useAddressesScreen = () => {
   const router = useRouter();
 
   const addressBottomSheetRef = useRef<BottomSheetRef | null>(null);
@@ -42,6 +42,7 @@ const useAddressListScreen = () => {
 
   return {
     t,
+    addressesList,
     router,
     selectedItemId,
     addressBottomSheetRef,
@@ -53,4 +54,4 @@ const useAddressListScreen = () => {
   };
 };
 
-export default useAddressListScreen;
+export default useAddressesScreen;

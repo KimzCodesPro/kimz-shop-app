@@ -117,7 +117,7 @@ const useAccountScreen = () => {
           icon: "credit-card",
           title: t("account_rowPayment"),
           trailing: "chevron",
-          onPress: () => router.push("/account/addresses"),
+          onPress: () => router.push("/account/paymentMethods"),
         },
         {
           icon: "shopping-bag",

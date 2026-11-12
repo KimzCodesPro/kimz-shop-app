@@ -1,5 +1,5 @@
 import { AddressCard } from "@/components/ui/card";
-import styles from "../../addressListScreenStyles";
+import styles from "../../addressesScreenStyles";
 import { AddressListProps } from "./types";
 
 const AddressesList = ({ items, selectedItem, onPress }: AddressListProps) => {

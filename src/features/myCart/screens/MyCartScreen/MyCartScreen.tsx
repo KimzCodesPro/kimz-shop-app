@@ -100,6 +100,7 @@ const MyCartScreen = () => {
       </ScreenLayout>
       {/* checkout bottom sheet */}
       <BottomSheet
+        title={t("myCart_orderSummary")}
         ref={checkoutBottomSheetRef}
         bottomSheetProps={{
           snapPoints: ["32%"],

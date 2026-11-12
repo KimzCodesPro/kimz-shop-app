@@ -1,4 +1,4 @@
-import { AddressItemInfo } from "./types";
+import { AddressItemInfo } from "./components/AddressesList/types";
 
 const addressesList: AddressItemInfo[] = [
   {

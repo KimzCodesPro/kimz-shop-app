@@ -19,6 +19,7 @@ const TextInput = ({
   value,
   errorMessage,
   onChangeText,
+  maxLength,
   clearInput,
   style,
 }: TextInputProps) => {
@@ -55,6 +56,7 @@ const TextInput = ({
         style={styles.textInput}
         value={value}
         onChangeText={onChangeText}
+        maxLength={maxLength}
         placeholder={placeholder}
         placeholderTextColor={colors.foreground.tertiary}
         onFocus={() => setIsFocused(true)}

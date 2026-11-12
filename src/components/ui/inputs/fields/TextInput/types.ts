@@ -7,5 +7,6 @@ type TextInputTypePros =
 
 export type TextInputProps = {
   onChangeText?: (text: string) => void;
+  maxLength?: number;
 } & FieldProps &
   TextInputTypePros;

@@ -4,13 +4,13 @@ import { TopBar } from "@/components/ui/navigations";
 
 import { BottomSheet } from "@/components/ui/overlay";
 import { AddressDetails, AddressesList } from "./components";
-import addressesList from "./components/AddressesList/data";
-import useAddressListScreen from "./useAddressListScreen";
+import useAddressesScreen from "./useAddressesScreen";
 
-const AddressListScreen = () => {
+const AddressesScreen = () => {
   const {
     t,
     router,
+    addressesList,
     selectedItemId,
     addressBottomSheetRef,
     AddressOpenFullInfoHandler,
@@ -18,7 +18,7 @@ const AddressListScreen = () => {
     deleteAddressHandler,
     editAddressHandler,
     setAddressAsDefaultHandler,
-  } = useAddressListScreen();
+  } = useAddressesScreen();
 
   return (
     <>
@@ -63,4 +63,4 @@ const AddressListScreen = () => {
   );
 };
 
-export default AddressListScreen;
+export default AddressesScreen;
