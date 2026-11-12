@@ -145,7 +145,8 @@ const MyCartScreen = () => {
             style={styles.checkOutButton}
             title={t("myCart_checkout")}
             onPress={() => {
-              // Handle checkout action here
+              checkoutBottomSheetRef.current?.dismiss();
+              router.push("/myCart/checkout");
             }}
           />
         </BottomSheet.Content>
