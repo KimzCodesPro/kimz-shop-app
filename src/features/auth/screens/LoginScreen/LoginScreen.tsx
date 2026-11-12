@@ -5,25 +5,22 @@ import {
   TextInput,
 } from "@/components/ui/inputs";
 import { ScreenLayout } from "@/components/ui/layout";
-import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
+import { BottomSheet } from "@/components/ui/overlay";
 import { Typography } from "@/components/ui/typography";
-import { useTheme, useTranslation } from "@/hooks";
-import { router } from "expo-router";
-import { useRef } from "react";
 import { View } from "react-native";
 import { Header } from "../../components";
 import styles from "./loginScreenStyles";
+import useLoginScreen from "./useLoginScreen";
 
 const LoginScreen = () => {
-  const { t } = useTranslation();
-  const colors = useTheme();
-
-  const forgotPasswordBottomSheetRef = useRef<BottomSheetRef | null>(null);
-
-  const sendCodeHandler = () => {
-    forgotPasswordBottomSheetRef.current?.dismiss();
-    router.push("/verification");
-  };
+  const {
+    t,
+    colors,
+    forgotPasswordBottomSheetRef,
+    openForgotPasswordSheetHandler,
+    sendCodeHandler,
+    createAccountHandler,
+  } = useLoginScreen();
 
   return (
     <>
@@ -53,7 +50,7 @@ const LoginScreen = () => {
             title={t("auth_forgotPasswordLink")}
             variant="link"
             size="sm"
-            onPress={() => forgotPasswordBottomSheetRef.current?.present()}
+            onPress={openForgotPasswordSheetHandler}
             style={styles.forgotPasswordButton}
           />
         </View>
@@ -79,7 +76,7 @@ const LoginScreen = () => {
               title={t("auth_createAccountTitle")}
               variant="link"
               size="sm"
-              onPress={() => router.push("/createAccount")}
+              onPress={createAccountHandler}
               style={styles.secondActionCreateAccountButton}
             />
           </View>

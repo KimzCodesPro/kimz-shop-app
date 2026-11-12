@@ -8,13 +8,9 @@ const styles = StyleSheet.create({
   section: {
     gap: spacing.space8.height,
   },
-  totalInfo: {
-    gap: spacing.space8.height,
-  },
-  totalInfoRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+  sheetList: {
+    gap: spacing.space12.height,
+    marginBottom: spacing.space16.height,
   },
 });
 

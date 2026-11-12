@@ -2,53 +2,28 @@ import { EmptyState } from "@/components/ui/feedback";
 import { Button } from "@/components/ui/inputs";
 import { Divider, ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
-import { BottomSheet, BottomSheetRef } from "@/components/ui/overlay";
-import { Typography } from "@/components/ui/typography";
-import { useTheme, useTranslation } from "@/hooks";
-import { useRouter } from "expo-router";
-import { useRef, useState } from "react";
-import { FlatList, View } from "react-native";
-import { CartItem } from "./components";
-import { CART_ITEMS, HAS_CART_ITEMS } from "./data";
+import { BottomSheet } from "@/components/ui/overlay";
+import { FlatList } from "react-native";
+import { CartItem, PriceInfo } from "./components";
 import styles from "./myCartScreenStyles";
+import useMyCartScreen from "./useMyCartScreen";
 
 const MyCartScreen = () => {
-  const { t } = useTranslation();
-  const colors = useTheme();
-  const router = useRouter();
-  const [cartItems, setCartItems] = useState(CART_ITEMS);
-  const checkoutBottomSheetRef = useRef<BottomSheetRef | null>(null);
-  const hasSelectedItems = cartItems.some((item) => item.selected);
-  const totalAmount = cartItems.reduce((total, item) => {
-    if (item.selected) {
-      return total + item.price * item.quantity;
-    }
-    return total;
-  }, 0);
-
-  const handleItemSelected = (itemId: string) => {
-    setCartItems((prevItems) => {
-      const updateItems = prevItems.map((item) => {
-        if (item.id === itemId) {
-          return { ...item, selected: !item.selected };
-        }
-        return item;
-      });
-      return updateItems;
-    });
-  };
-
-  const handleQuantityChange = (itemId: string, quantity: number) => {
-    setCartItems((prevItems) => {
-      const updateItems = prevItems.map((item) => {
-        if (item.id === itemId) {
-          return { ...item, quantity };
-        }
-        return item;
-      });
-      return updateItems;
-    });
-  };
+  const {
+    t,
+    hasCartItems,
+    cartItems,
+    checkoutBottomSheetRef,
+    hasSelectedItems,
+    subtotal,
+    shipping,
+    total,
+    handleItemSelected,
+    handleQuantityChange,
+    startShoppingHandler,
+    openCheckoutSheetHandler,
+    checkoutHandler,
+  } = useMyCartScreen();
 
   return (
     <>
@@ -56,7 +31,7 @@ const MyCartScreen = () => {
         hasTabBar
         renderTopBar={() => <TopBar title={t("myCart_title")} />}
       >
-        {!HAS_CART_ITEMS ? (
+        {!hasCartItems ? (
           <EmptyState
             type="cart"
             variant="info"
@@ -64,9 +39,7 @@ const MyCartScreen = () => {
             description={t("myCart_emptyDesc")}
             action={{
               title: t("myCart_startShopping"),
-              onPress: () => {
-                router.replace("/");
-              },
+              onPress: startShoppingHandler,
             }}
           />
         ) : (
@@ -92,7 +65,7 @@ const MyCartScreen = () => {
             />
             <Button
               title={t("myCart_proceed")}
-              onPress={() => checkoutBottomSheetRef.current?.present()}
+              onPress={openCheckoutSheetHandler}
               disabled={!hasSelectedItems}
             />
           </>
@@ -103,51 +76,15 @@ const MyCartScreen = () => {
         title={t("myCart_orderSummary")}
         ref={checkoutBottomSheetRef}
         bottomSheetProps={{
-          snapPoints: ["32%"],
+          snapPoints: ["35%"],
         }}
       >
         <BottomSheet.Content>
-          <View style={styles.row}>
-            <Typography
-              variant="normalBold"
-              color={colors.foreground.secondary}
-            >
-              {t("myCart_subtotal")}
-            </Typography>
-            <Typography variant="normalBold" color={colors.foreground.primary}>
-              $ {totalAmount.toFixed(2)}
-            </Typography>
-          </View>
-          <View style={styles.row}>
-            <Typography
-              variant="normalBold"
-              color={colors.foreground.secondary}
-            >
-              {t("myCart_shipping")}
-            </Typography>
-            <Typography variant="normalBold" color={colors.foreground.primary}>
-              $ 6.00
-            </Typography>
-          </View>
-          <Divider space="sm" />
-          <View style={styles.row}>
-            <Typography
-              variant="normalBold"
-              color={colors.foreground.secondary}
-            >
-              {t("myCart_totalAmount")}
-            </Typography>
-            <Typography variant="normalBold" color={colors.foreground.primary}>
-              $ {(totalAmount + 6).toFixed(2)}
-            </Typography>
-          </View>
+          <PriceInfo subtotal={subtotal} shipping={shipping} total={total} />
           <Button
             style={styles.checkOutButton}
             title={t("myCart_checkout")}
-            onPress={() => {
-              checkoutBottomSheetRef.current?.dismiss();
-              router.push("/myCart/checkout");
-            }}
+            onPress={checkoutHandler}
           />
         </BottomSheet.Content>
       </BottomSheet>

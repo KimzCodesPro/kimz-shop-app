@@ -1,103 +1,142 @@
 import { AddressCard, PaymentCard } from "@/components/ui/card";
-import { Divider, ScreenLayout, SectionTitle } from "@/components/ui/layout";
+import { Button } from "@/components/ui/inputs";
+import { ScreenLayout, SectionTitle } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
-import { Typography } from "@/components/ui/typography";
-import { useTheme, useTranslation } from "@/hooks";
+import { BottomSheet } from "@/components/ui/overlay";
 import { View } from "react-native";
 import styles from "./checkoutScreenStyles";
-import { OrderSummaryList } from "./components";
-import { CHECKOUT_ADDRESS, CHECKOUT_ITEMS, CHECKOUT_PAYMENT } from "./data";
+import { OrderSummaryList, PriceInfo } from "./components";
+import { CHECKOUT_ITEMS, CHECKOUT_PRICES } from "./data";
+import useCheckoutScreen from "./useCheckoutScreen";
 
 const CheckoutScreen = () => {
-  const { t } = useTranslation();
-  const colors = useTheme();
+  const {
+    t,
+    addNewAddressHandler,
+    addNewPaymentHandler,
+    addressBottomSheetRef,
+    paymentBottomSheetRef,
+    openAddressSheetHandler,
+    openPaymentSheetHandler,
+    addresses,
+    selectedAddressId,
+    setSelectedAddressId,
+    selectedAddress,
+    payments,
+    selectedPaymentId,
+    setSelectedPaymentId,
+    selectedPayment,
+  } = useCheckoutScreen();
 
   return (
-    <ScreenLayout
-      scrollable
-      renderTopBar={() => <TopBar title={t("checkout_title")} goBack />}
-    >
-      <View style={styles.content}>
-        {/* shipping address */}
-        <View style={styles.section}>
-          <SectionTitle
-            title={t("checkout_shippingAddress")}
-            actionText={t("checkout_change")}
-            onActionPress={() => {}}
-          />
-          <AddressCard
-            city={CHECKOUT_ADDRESS.city}
-            address={CHECKOUT_ADDRESS.address}
-            type={CHECKOUT_ADDRESS.type}
-          />
-        </View>
+    <>
+      <ScreenLayout
+        scrollable
+        renderTopBar={() => <TopBar title={t("checkout_title")} goBack />}
+      >
+        <View style={styles.content}>
+          {/* shipping address */}
+          <View style={styles.section}>
+            <SectionTitle
+              title={t("checkout_shippingAddress")}
+              actionText={t("checkout_change")}
+              onActionPress={openAddressSheetHandler}
+            />
+            <AddressCard
+              city={selectedAddress.city}
+              address={selectedAddress.address}
+              type={selectedAddress.type}
+            />
+          </View>
 
-        {/* payment method */}
-        <View style={styles.section}>
-          <SectionTitle
-            title={t("checkout_paymentMethod")}
-            actionText={t("checkout_change")}
-            onActionPress={() => {}}
+          {/* payment method */}
+          <View style={styles.section}>
+            <SectionTitle
+              title={t("checkout_paymentMethod")}
+              actionText={t("checkout_change")}
+              onActionPress={openPaymentSheetHandler}
+            />
+            <PaymentCard
+              cardNumber={selectedPayment.cardNumber}
+              cardType={selectedPayment.cardType}
+              expiryDate={selectedPayment.expiryDate}
+              variant={selectedPayment.variant}
+              isDefault={selectedPayment.isDefault}
+            />
+          </View>
+          {/* order items */}
+          <View style={styles.section}>
+            <SectionTitle title={t("checkout_orderSummary")} />
+            <OrderSummaryList items={CHECKOUT_ITEMS} />
+          </View>
+          {/* price info */}
+          <PriceInfo
+            subtotal={CHECKOUT_PRICES.subtotal}
+            shipping={CHECKOUT_PRICES.shipping}
+            tax={CHECKOUT_PRICES.tax}
+            total={CHECKOUT_PRICES.total}
           />
-          <PaymentCard
-            cardNumber={CHECKOUT_PAYMENT.cardNumber}
-            cardType={CHECKOUT_PAYMENT.cardType}
-            expiryDate={CHECKOUT_PAYMENT.expiryDate}
-            isDefault={CHECKOUT_PAYMENT.isDefault}
+        </View>
+      </ScreenLayout>
+
+      {/* change shipping address */}
+      <BottomSheet
+        ref={addressBottomSheetRef}
+        bottomSheetProps={{ snapPoints: ["60%"] }}
+        title={t("checkout_addressSheetTitle")}
+      >
+        <BottomSheet.Content>
+          <View style={styles.sheetList}>
+            {addresses.map((item) => (
+              <AddressCard
+                key={item.id}
+                city={item.city}
+                address={item.address}
+                type={item.type}
+                isSelected={item.id === selectedAddressId}
+                onPress={() => setSelectedAddressId(item.id)}
+              />
+            ))}
+          </View>
+          <Button
+            icon="map-pin"
+            variant="link"
+            title={t("account_addAddressTitle")}
+            onPress={addNewAddressHandler}
           />
-        </View>
-        {/* order items */}
-        <View style={styles.section}>
-          <SectionTitle title={t("checkout_orderSummary")} />
-          <OrderSummaryList items={CHECKOUT_ITEMS} />
-        </View>
-        <View style={styles.totalInfo}>
-          <Divider space="none" />
-          <View style={styles.totalInfoRow}>
-            <Typography
-              variant="normalRegular"
-              color={colors.foreground.tertiary}
-            >
-              {t("checkout_subtotal")}
-            </Typography>
-            <Typography variant="normalBold" color={colors.foreground.primary}>
-              {`$${(400).toFixed(2)}`}
-            </Typography>
+        </BottomSheet.Content>
+      </BottomSheet>
+
+      {/* change payment method */}
+      <BottomSheet
+        ref={paymentBottomSheetRef}
+        bottomSheetProps={{ snapPoints: ["60%"] }}
+        title={t("checkout_paymentSheetTitle")}
+      >
+        <BottomSheet.Content>
+          <View style={styles.sheetList}>
+            {payments.map((item) => (
+              <PaymentCard
+                key={item.id}
+                cardNumber={item.cardNumber}
+                cardType={item.cardType}
+                expiryDate={item.expiryDate}
+                variant={item.variant}
+                isDefault={item.isDefault}
+                isSelected={item.id === selectedPaymentId}
+                onPress={() => setSelectedPaymentId(item.id)}
+              />
+            ))}
           </View>
-          <View style={styles.totalInfoRow}>
-            <Typography
-              variant="normalRegular"
-              color={colors.foreground.tertiary}
-            >
-              {t("checkout_shipping")}
-            </Typography>
-            <Typography variant="normalBold" color={colors.foreground.primary}>
-              {`$${(8).toFixed(2)}`}
-            </Typography>
-          </View>
-          <View style={styles.totalInfoRow}>
-            <Typography
-              variant="normalRegular"
-              color={colors.foreground.tertiary}
-            >
-              {t("checkout_tax")}
-            </Typography>
-            <Typography variant="normalBold" color={colors.foreground.primary}>
-              {`$${(26.58).toFixed(2)}`}
-            </Typography>
-          </View>
-          <Divider />
-          <View style={styles.totalInfoRow}>
-            <Typography variant="mediumBold" color={colors.foreground.tertiary}>
-              {t("checkout_total")}
-            </Typography>
-            <Typography variant="largeBold" color={colors.primary.base}>
-              {`$${(477).toFixed(2)}`}
-            </Typography>
-          </View>
-        </View>
-      </View>
-    </ScreenLayout>
+          <Button
+            icon="map-pin"
+            variant="link"
+            title={t("checkout_paymentAddNew")}
+            onPress={addNewPaymentHandler}
+          />
+        </BottomSheet.Content>
+      </BottomSheet>
+    </>
   );
 };
 
