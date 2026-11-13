@@ -5,6 +5,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import AppNavigator from "./AppNavigator";
+import AppToaster from "./AppToaster";
 
 const AppProviders = () => {
   return (
@@ -12,7 +13,9 @@ const AppProviders = () => {
       <PersistGate loading={null} persistor={persistor}>
         <GestureHandlerRootView style={styles.container}>
           <BottomSheetModalProvider>
-            <AppNavigator />
+            <AppToaster>
+              <AppNavigator />
+            </AppToaster>
           </BottomSheetModalProvider>
         </GestureHandlerRootView>
       </PersistGate>

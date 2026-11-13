@@ -15,6 +15,7 @@ import {
 
 import { userPreferencesMigrations } from "./migrations";
 import themeReducer from "./theme/themeSlice";
+import toastReducer from "./toast/toastSlice";
 import translation from "./translation/translationSlice";
 import userPreferancesReducer from "./userPreferences/userPreferencesSlice";
 
@@ -28,6 +29,7 @@ const userPreferencesPersistConfig = {
 const rootReducer = combineReducers({
   theme: themeReducer,
   translation: translation,
+  toast: toastReducer,
   userPreferences: persistReducer(
     userPreferencesPersistConfig,
     userPreferancesReducer,
