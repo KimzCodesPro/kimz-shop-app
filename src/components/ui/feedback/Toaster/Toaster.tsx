@@ -4,6 +4,7 @@ import Animated, {
   FadeInUp,
   FadeOutUp,
   LinearTransition,
+  ReduceMotion,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -36,7 +37,11 @@ const Toaster = ({
 
     progressBarIndicator.value = withTiming(
       100,
-      { duration, easing: Easing.linear },
+      {
+        duration,
+        easing: Easing.linear,
+        reduceMotion: ReduceMotion.Never,
+      },
       (finished) => {
         if (finished) {
           scheduleOnRN(closeToast);
