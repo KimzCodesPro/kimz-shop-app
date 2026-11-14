@@ -1,5 +1,8 @@
 import { productPlaceholder } from "@/assets/images";
 import Icon from "@/components/icons";
+import { useTranslation } from "@/hooks";
+import { useAppDispatch } from "@/store/hooks";
+import { showToast } from "@/store/toast/toastSlice";
 import { Image } from "expo-image";
 import { Pressable, View } from "react-native";
 import { Typography } from "../../typography";
@@ -19,6 +22,21 @@ const ProductCard = ({
   style,
 }: ProductCardProps) => {
   const { styles, colors } = useStyles();
+  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
+  const handleToggleFavorite = () => {
+    dispatch(
+      showToast({
+        type: "success",
+        title: t(isFavorite ? "favorite_removedTitle" : "favorite_addedTitle"),
+        description: t(
+          isFavorite ? "favorite_removedDesc" : "favorite_addedDesc",
+        ),
+      }),
+    );
+    onToggleFavorite?.();
+  };
 
   return (
     <Pressable onPress={onPress} style={[styles.container, style]}>
@@ -39,7 +57,7 @@ const ProductCard = ({
           </View>
         )}
         <Pressable
-          onPress={onToggleFavorite}
+          onPress={handleToggleFavorite}
           style={styles.headerFavoriteButton}
         >
           <Icon

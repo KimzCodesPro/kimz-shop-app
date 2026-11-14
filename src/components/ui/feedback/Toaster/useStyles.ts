@@ -1,8 +1,8 @@
 import { spacing } from "@/constants";
 import radius from "@/constants/radius";
 import { useTheme } from "@/hooks";
-import { HS, VS } from "@/utils";
 import { ToastType } from "@/types";
+import { HS, VS } from "@/utils";
 import { StyleSheet } from "react-native";
 import { getToasterColors } from "./helpers";
 
@@ -36,6 +36,7 @@ const useStyles = (type: ToastType) => {
       backgroundColor: toasterColors.iconBackground,
     },
     messageContainer: {
+      flex: 1,
       alignSelf: "flex-start",
     },
     progress: {
