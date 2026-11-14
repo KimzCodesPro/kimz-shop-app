@@ -4,7 +4,7 @@ import { useTheme } from "@/hooks";
 import { HS, VS } from "@/utils";
 import { ToastType } from "@/types";
 import { StyleSheet } from "react-native";
-import { getToasterColors } from "./constants";
+import { getToasterColors } from "./helpers";
 
 const useStyles = (type: ToastType) => {
   const colors = useTheme();

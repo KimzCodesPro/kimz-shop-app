@@ -1,10 +1,16 @@
 import { View } from "react-native";
+import Animated, {
+  FadeInUp,
+  FadeOutUp,
+  LinearTransition,
+} from "react-native-reanimated";
 
 import Icon from "@/components/icons";
 import { useAppDispatch } from "@/store/hooks";
 import { hideToast } from "@/store/toast/toastSlice";
 import { useEffect, useState } from "react";
 import { Typography } from "../../typography";
+import { TOASTER_ICON } from "./constants";
 import { ToasterProps } from "./types";
 import useStyles from "./useStyles";
 
@@ -40,11 +46,19 @@ const Toaster = ({ id, type, title, description }: ToasterProps) => {
   }, [progressBarIndicator, dispatch, id]);
 
   return (
-    <View>
+    <Animated.View
+      entering={FadeInUp}
+      exiting={FadeOutUp}
+      layout={LinearTransition}
+    >
       <View style={styles.container}>
         <View style={styles.contentContainer}>
           <View style={styles.iconContainer}>
-            <Icon name="check" size="sm" color={toasterColors.icon} />
+            <Icon
+              name={TOASTER_ICON[type]}
+              size="sm"
+              color={toasterColors.icon}
+            />
           </View>
           <View style={styles.messageContainer}>
             <Typography variant="normalBold" color={colors.foreground.primary}>
@@ -64,7 +78,7 @@ const Toaster = ({ id, type, title, description }: ToasterProps) => {
           style={[styles.progress, { width: `${progressBarIndicator}%` }]}
         />
       </View>
-    </View>
+    </Animated.View>
   );
 };
 
