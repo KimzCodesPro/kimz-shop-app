@@ -16,7 +16,7 @@ const ProductCard = ({
   discountPrice,
   brand,
   imgSrc,
-  isFavorite,
+  isFavorite = true,
   onToggleFavorite,
   onPress,
   style,
@@ -28,7 +28,7 @@ const ProductCard = ({
   const handleToggleFavorite = () => {
     dispatch(
       showToast({
-        type: "success",
+        type: isFavorite ? "info" : "success",
         title: t(isFavorite ? "favorite_removedTitle" : "favorite_addedTitle"),
         description: t(
           isFavorite ? "favorite_removedDesc" : "favorite_addedDesc",
