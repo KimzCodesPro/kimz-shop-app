@@ -1,14 +1,19 @@
 import { View } from "react-native";
 import Animated, {
+  Easing,
   FadeInUp,
   FadeOutUp,
   LinearTransition,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
 } from "react-native-reanimated";
+import { scheduleOnRN } from "react-native-worklets";
 
 import Icon from "@/components/icons";
 import { useAppDispatch } from "@/store/hooks";
 import { hideToast } from "@/store/toast/toastSlice";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Typography } from "../../typography";
 import { TOASTER_ICON } from "./constants";
 import { ToasterProps } from "./types";
@@ -17,33 +22,30 @@ import useStyles from "./useStyles";
 const Toaster = ({ id, type, title, description }: ToasterProps) => {
   const { styles, colors, toasterColors } = useStyles(type);
   const dispatch = useAppDispatch();
-  const [progressBarIndicator, setProgressBarIndicator] = useState(0);
+  const progressBarIndicator = useSharedValue(0);
 
-  const totalWidth = 100;
   const duration = 4000; // Total duration in milliseconds
-  const intervalTime = duration / totalWidth; // Interval time in milliseconds
 
-  // progress bar indicator increment
+  // fill the progress bar, then close the toast when it is full
   useEffect(() => {
-    const timerId = setInterval(() => {
-      setProgressBarIndicator((prevState) => {
-        //if pause true stop incrementing progress
-        if (prevState < 100) {
-          return prevState + 1; //increase 1 pixel
+    const closeToast = () => dispatch(hideToast(id));
+
+    progressBarIndicator.value = withTiming(
+      100,
+      { duration, easing: Easing.linear },
+      (finished) => {
+        if (finished) {
+          scheduleOnRN(closeToast);
         }
-        return prevState;
-      });
-    }, intervalTime);
-
-    return () => clearInterval(timerId);
-  }, [intervalTime]);
-
-  // close toast when progress bar is full
-  useEffect(() => {
-    if (progressBarIndicator === 100) {
-      dispatch(hideToast(id));
-    }
+      },
+    );
   }, [progressBarIndicator, dispatch, id]);
+
+  const progressBarWidthAnimatedStyles = useAnimatedStyle(() => {
+    return {
+      width: `${progressBarIndicator.value}%`,
+    };
+  });
 
   return (
     <Animated.View
@@ -74,8 +76,8 @@ const Toaster = ({ id, type, title, description }: ToasterProps) => {
           </View>
         </View>
 
-        <View
-          style={[styles.progress, { width: `${progressBarIndicator}%` }]}
+        <Animated.View
+          style={[styles.progress, progressBarWidthAnimatedStyles]}
         />
       </View>
     </Animated.View>
