@@ -2,17 +2,20 @@ import { spacing } from "@/constants";
 import radius from "@/constants/radius";
 import { useTheme } from "@/hooks";
 import { HS, VS } from "@/utils";
+import { ToastType } from "@/types";
 import { StyleSheet } from "react-native";
+import { getToasterColors } from "./constants";
 
-const useStyles = () => {
+const useStyles = (type: ToastType) => {
   const colors = useTheme();
+  const toasterColors = getToasterColors(colors, type);
 
   const styles = StyleSheet.create({
     container: {
       backgroundColor: colors.background.base,
       borderWidth: 2,
       borderRadius: radius.lg,
-      borderColor: colors.success.base,
+      borderColor: toasterColors.border,
       marginHorizontal: spacing.space12.width,
       overflow: "hidden",
     },
@@ -30,7 +33,7 @@ const useStyles = () => {
       width: HS(28),
       height: VS(28),
       borderRadius: radius.full,
-      backgroundColor: colors.success.tint,
+      backgroundColor: toasterColors.iconBackground,
     },
     messageContainer: {
       alignSelf: "flex-start",
@@ -40,11 +43,11 @@ const useStyles = () => {
       bottom: 0,
       left: 0,
       height: VS(3),
-      backgroundColor: colors.success.base,
+      backgroundColor: toasterColors.border,
     },
   });
 
-  return { styles, colors };
+  return { styles, colors, toasterColors };
 };
 
 export default useStyles;

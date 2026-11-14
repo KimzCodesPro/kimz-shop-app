@@ -1,18 +1,37 @@
-import { ToastPayload, ToastType } from "@/types";
+import { Toast, ToastPayload } from "@/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type InitialStateType = {
-  isVisible: boolean;
-  type: ToastType;
-  title: string;
-  description?: string;
+  toasts: Toast[];
 };
 
 const initialState: InitialStateType = {
-  isVisible: false,
-  type: "info",
-  title: "",
-  description: undefined,
+  toasts: [
+    {
+      id: "1",
+      type: "success",
+      title: "Success!",
+      description: "Your action was successful.",
+    },
+    {
+      id: "2",
+      type: "warning",
+      title: "Warning!",
+      description: "Please check your information.",
+    },
+    {
+      id: "3",
+      type: "danger",
+      title: "Error!",
+      description: "Something went wrong.",
+    },
+    {
+      id: "4",
+      type: "info",
+      title: "Info",
+      description: "Here is some useful information.",
+    },
+  ],
 };
 
 const toastSlice = createSlice({
@@ -20,13 +39,12 @@ const toastSlice = createSlice({
   initialState,
   reducers: {
     showToast: (state, action: PayloadAction<ToastPayload>) => {
-      state.isVisible = true;
-      state.type = action.payload.type;
-      state.title = action.payload.title;
-      state.description = action.payload.description;
+      state.toasts.push({ id: Date.now().toString(), ...action.payload });
     },
-    hideToast: (state) => {
-      state.isVisible = false;
+    hideToast: (state, action: PayloadAction<string>) => {
+      state.toasts = state.toasts.filter(
+        (toast) => toast.id !== action.payload,
+      );
     },
   },
 });

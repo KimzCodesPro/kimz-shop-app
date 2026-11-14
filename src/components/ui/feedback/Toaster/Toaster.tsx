@@ -1,12 +1,16 @@
 import { View } from "react-native";
 
 import Icon from "@/components/icons";
+import { useAppDispatch } from "@/store/hooks";
+import { hideToast } from "@/store/toast/toastSlice";
 import { useEffect, useState } from "react";
 import { Typography } from "../../typography";
+import { ToasterProps } from "./types";
 import useStyles from "./useStyles";
 
-const Toaster = () => {
-  const { styles, colors } = useStyles();
+const Toaster = ({ id, type, title, description }: ToasterProps) => {
+  const { styles, colors, toasterColors } = useStyles(type);
+  const dispatch = useAppDispatch();
   const [progressBarIndicator, setProgressBarIndicator] = useState(0);
 
   const totalWidth = 100;
@@ -28,23 +32,30 @@ const Toaster = () => {
     return () => clearInterval(timerId);
   }, [intervalTime]);
 
+  // close toast when progress bar is full
+  useEffect(() => {
+    if (progressBarIndicator === 100) {
+      dispatch(hideToast(id));
+    }
+  }, [progressBarIndicator, dispatch, id]);
+
   return (
     <View>
       <View style={styles.container}>
         <View style={styles.contentContainer}>
           <View style={styles.iconContainer}>
-            <Icon name="check" size="sm" color={colors.success.strong} />
+            <Icon name="check" size="sm" color={toasterColors.icon} />
           </View>
           <View style={styles.messageContainer}>
             <Typography variant="normalBold" color={colors.foreground.primary}>
-              Success!
+              {title}
             </Typography>
             <Typography
               variant="smallRegular"
               color={colors.foreground.secondary}
               numberOfLines={2}
             >
-              Your action was successful.
+              {description}
             </Typography>
           </View>
         </View>

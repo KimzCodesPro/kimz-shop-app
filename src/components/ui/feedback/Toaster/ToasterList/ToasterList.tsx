@@ -1,17 +1,23 @@
 import { View } from "react-native";
 
+import { useAppSelector } from "@/store/hooks";
 import Toaster from "../Toaster";
 import useStyles from "./useStyles";
 
-const EXAMPLE_TOASTS = [1, 2, 3];
-
 const ToasterList = () => {
   const { styles } = useStyles();
+  const toasts = useAppSelector((state) => state.toast.toasts);
 
   return (
     <View style={styles.container} pointerEvents="box-none">
-      {EXAMPLE_TOASTS.map((id) => (
-        <Toaster key={id} />
+      {toasts.map((toast) => (
+        <Toaster
+          key={toast.id}
+          id={toast.id}
+          type={toast.type}
+          title={toast.title}
+          description={toast.description}
+        />
       ))}
     </View>
   );
