@@ -15,16 +15,20 @@ import { useAppDispatch } from "@/store/hooks";
 import { hideToast } from "@/store/toast/toastSlice";
 import { useEffect } from "react";
 import { Typography } from "../../typography";
-import { TOASTER_ICON } from "./constants";
+import { TOASTER_DEFAULT_DURATION, TOASTER_ICON } from "./constants";
 import { ToasterProps } from "./types";
 import useStyles from "./useStyles";
 
-const Toaster = ({ id, type, title, description }: ToasterProps) => {
+const Toaster = ({
+  id,
+  type,
+  title,
+  description,
+  duration = TOASTER_DEFAULT_DURATION,
+}: ToasterProps) => {
   const { styles, colors, toasterColors } = useStyles(type);
   const dispatch = useAppDispatch();
   const progressBarIndicator = useSharedValue(0);
-
-  const duration = 4000; // Total duration in milliseconds
 
   // fill the progress bar, then close the toast when it is full
   useEffect(() => {
@@ -39,7 +43,7 @@ const Toaster = ({ id, type, title, description }: ToasterProps) => {
         }
       },
     );
-  }, [progressBarIndicator, dispatch, id]);
+  }, [progressBarIndicator, dispatch, id, duration]);
 
   const progressBarWidthAnimatedStyles = useAnimatedStyle(() => {
     return {

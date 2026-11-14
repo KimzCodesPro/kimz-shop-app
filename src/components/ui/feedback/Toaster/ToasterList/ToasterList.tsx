@@ -17,6 +17,7 @@ const ToasterList = () => {
           type={toast.type}
           title={toast.title}
           description={toast.description}
+          duration={toast.duration}
         />
       ))}
     </View>
