@@ -4,6 +4,8 @@ import { ColorOption } from "./components/ColorSwitcher/types";
 // sample data until real product data is connected
 const PRODUCT_IMAGES = [productSample, productSample, productSample];
 
+const PRODUCT_PRICE = 149;
+
 const PRODUCT_STORE = {
   name: "Marc Jacobs",
   followerNumber: 860,
@@ -20,4 +22,4 @@ const PRODUCT_COLORS: ColorOption[] = [
   { name: "Orange", code: "#fb923c" },
 ];
 
-export { PRODUCT_COLORS, PRODUCT_IMAGES, PRODUCT_STORE };
+export { PRODUCT_COLORS, PRODUCT_IMAGES, PRODUCT_PRICE, PRODUCT_STORE };

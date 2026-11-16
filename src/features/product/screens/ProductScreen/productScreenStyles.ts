@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     marginBottom: spacing.space16.height,
   },
   descriptionRow: {
-    marginBottom: VS(129),
+    marginBottom: VS(140),
+    // extra space to accommodate the sticky footer
   },
 });
 
