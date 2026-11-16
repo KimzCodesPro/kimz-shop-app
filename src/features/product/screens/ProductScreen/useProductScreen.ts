@@ -1,8 +1,10 @@
-import { useTranslation } from "@/hooks";
+import { useTheme, useTranslation } from "@/hooks";
 import { Href, useLocalSearchParams, useRouter } from "expo-router";
-import { PRODUCT_IMAGES } from "./data";
+import { useState } from "react";
+import { PRODUCT_COLORS, PRODUCT_IMAGES, PRODUCT_STORE } from "./data";
 
 const useProductScreen = () => {
+  const colors = useTheme();
   const { t } = useTranslation();
   const router = useRouter();
   // route params arrive as strings, e.g. { itemId: "1", from: "/favorites" }
@@ -13,6 +15,8 @@ const useProductScreen = () => {
   }>();
   const productId = +itemId;
   const backTo = from as Href | undefined;
+  // first color is selected by default
+  const [selectedColor, setSelectedColor] = useState(PRODUCT_COLORS[0].name);
 
   const openCartHandler = () => {
     router.push({
@@ -23,9 +27,14 @@ const useProductScreen = () => {
 
   return {
     t,
+    colors,
     productId,
     backTo,
     productImages: PRODUCT_IMAGES,
+    store: PRODUCT_STORE,
+    colorPalette: PRODUCT_COLORS,
+    selectedColor,
+    colorChangeHandler: setSelectedColor,
     openCartHandler,
   };
 };

@@ -265,7 +265,18 @@
       "stores_browseButton": "تصفح المنتجات",
       "stores_storeDetailTitle": "المتجر",
       "stores_storeProductsHeading": "المنتجات",
-      "stores_followersCount": "{{count}} متابع"
+      "stores_followersCount": "{{count}} متابع",
+      "itemDetails_title": "تفاصيل المنتج",
+      "itemDetails_inStock": "متوفر",
+      "itemDetails_color": "اللون",
+      "itemDetails_followButton": "متابعة",
+      "itemDetails_readMoreButton": "اقرأ المزيد",
+      "itemDetails_readLessButton": "اقرأ أقل",
+      "itemDetails_chooseAmount": "اختر الكمية :",
+      "itemDetails_total": "الإجمالي",
+      "itemDetails_addToCartButton": "أضف إلى السلة",
+      "itemDetails_outOfStock": "غير متوفر",
+      "itemDetails_notifyMeButton": "أشعرني عند توفره"
     }
   },
   "en": {
@@ -534,7 +545,18 @@
       "stores_browseButton": "Browse Products",
       "stores_storeDetailTitle": "Store",
       "stores_storeProductsHeading": "Products",
-      "stores_followersCount": "{{count}} followers"
+      "stores_followersCount": "{{count}} followers",
+      "itemDetails_title": "Product Detail",
+      "itemDetails_inStock": "In Stock",
+      "itemDetails_color": "Color",
+      "itemDetails_followButton": "Follow",
+      "itemDetails_readMoreButton": "Read More",
+      "itemDetails_readLessButton": "Read Less",
+      "itemDetails_chooseAmount": "Choose amount :",
+      "itemDetails_total": "Total",
+      "itemDetails_addToCartButton": "Add to Cart",
+      "itemDetails_outOfStock": "Out of Stock",
+      "itemDetails_notifyMeButton": "Notify When Available"
     }
   }
 }
