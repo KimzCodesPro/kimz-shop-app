@@ -1,10 +1,10 @@
+import { StoreCard } from "@/components/ui/card";
 import { EmptyState } from "@/components/ui/feedback";
 import { ScreenLayout } from "@/components/ui/layout";
 import { TopBar } from "@/components/ui/navigations";
 import { useTranslation } from "@/hooks";
 import { FlashList } from "@shopify/flash-list";
 import { useRouter } from "expo-router";
-import { StoreCard } from "./components";
 import { HAS_STORES, STORES_LIST } from "./data";
 import styles from "./storesYouFollowScreenStyles";
 

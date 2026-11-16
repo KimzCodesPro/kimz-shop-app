@@ -5,3 +5,4 @@ export { default as PaymentCard } from "./PaymentCard/PaymentCard";
 export { default as ProductCard } from "./ProductCard/ProductCard";
 export { default as ProductLineItemCard } from "./ProductLineItemCard/ProductLineItemCard";
 export { default as PromoBannerCard } from "./PromoBannerCard/PromoBannerCard";
+export { default as StoreCard } from "./StoreCard/StoreCard";

@@ -10,6 +10,8 @@ const ProtectedLayout = () => {
       <Stack.Screen name="notifications" />
       <Stack.Screen name="favorites" />
       <Stack.Screen name="search" />
+      <Stack.Screen name="store" />
+      <Stack.Screen name="product" />
     </Stack>
   );
 };

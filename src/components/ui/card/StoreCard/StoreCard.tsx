@@ -1,10 +1,10 @@
 import { productPlaceholder } from "@/assets/images";
-import { CardWrapper } from "@/components/ui/card";
-import { Button } from "@/components/ui/inputs";
-import { Typography } from "@/components/ui/typography";
 import { useTranslation } from "@/hooks";
 import { Image } from "expo-image";
 import { View } from "react-native";
+import Button from "../../inputs/Button/Button";
+import Typography from "../../typography/Typography/Typography";
+import CardWrapper from "../CardWrapper/CardWrapper";
 import { StoreCardProps } from "./types";
 import useStyles from "./useStyles";
 
