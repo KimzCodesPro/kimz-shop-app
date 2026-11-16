@@ -4,11 +4,14 @@ import { TopBar } from "@/components/ui/navigations";
 import { Typography } from "@/components/ui/typography";
 import { useTheme, useTranslation } from "@/hooks";
 import { FlashList } from "@shopify/flash-list";
+import { usePathname, useRouter } from "expo-router";
 import { PRODUCTS_LIST } from "../../data";
 import styles from "./hotDealsScreenStyles";
 
 const HotDealsScreen = () => {
   const { t } = useTranslation();
+  const router = useRouter();
+  const pathname = usePathname();
   const colors = useTheme();
 
   const products = PRODUCTS_LIST.filter((item) => item.salePrice != null);
@@ -32,13 +35,18 @@ const HotDealsScreen = () => {
         ListHeaderComponentStyle={styles.listHeader}
         renderItem={({ item, index }) => (
           <ProductCard
+            onPress={() =>
+              router.push({
+                pathname: "/product",
+                params: { itemId: index + 1, from: pathname },
+              })
+            }
             productName={item.productName}
             brand={item.brand}
             price={item.price}
             discountPrice={item.salePrice}
             imgSrc={item.img}
             isFavorite={false}
-            onToggleFavorite={() => {}}
             style={index % 2 === 0 ? styles.cardStart : styles.cardEnd}
           />
         )}

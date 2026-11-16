@@ -1,12 +1,19 @@
 import { BottomSheetRef } from "@/components/ui/overlay";
 import { useTranslation } from "@/hooks";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useRef, useState } from "react";
 import { CART_ITEMS, CART_SHIPPING, HAS_CART_ITEMS } from "./data";
 
 const useMyCartScreen = () => {
   const { t } = useTranslation();
   const router = useRouter();
+  // route params arrive as strings, e.g. { productId: "1" }
+  // undefined when the cart is opened from the tab bar
+  const { productId: productIdParam } = useLocalSearchParams<{
+    productId?: string;
+  }>();
+
+  const productId = productIdParam ? +productIdParam : undefined;
 
   const [cartItems, setCartItems] = useState(CART_ITEMS);
   const checkoutBottomSheetRef = useRef<BottomSheetRef | null>(null);
@@ -52,6 +59,7 @@ const useMyCartScreen = () => {
 
   return {
     t,
+    productId,
     hasCartItems: HAS_CART_ITEMS,
     cartItems,
     checkoutBottomSheetRef,

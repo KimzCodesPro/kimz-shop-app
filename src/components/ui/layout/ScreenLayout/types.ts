@@ -11,6 +11,9 @@ type ScreenLayoutBaseProps = {
   // the prop itself — the top inset it carries changes the screen's padding.
   renderTopBar?: () => React.ReactNode;
   hasTabBar?: boolean;
+  // space between the TopBar and the content. Turn off for content that
+  // should sit right under the TopBar, e.g. a full-width image carousel.
+  hasTopBarGap?: boolean;
   paddingSides?: ScreenPaddingSides;
   // Styles the content area children sit in — the same element in both
   // branches, which is also what blurs a focused input when tapped.
@@ -31,5 +34,6 @@ export type ScreenLayoutProps = ScreenLayoutBaseProps &
 export type UseStylesArgs = {
   hasTopBar: boolean;
   hasTabBar: boolean;
+  hasTopBarGap: boolean;
   paddingSides: ScreenPaddingSides;
 };

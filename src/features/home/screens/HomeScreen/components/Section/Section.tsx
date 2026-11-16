@@ -1,4 +1,4 @@
-import { SectionTitle } from "@/components/ui/layout";
+import { Gutter, SectionTitle } from "@/components/ui/layout";
 import { View } from "react-native";
 import SectionScroll from "./SectionScroll/SectionScroll";
 import styles from "./sectionStyles";
@@ -14,12 +14,13 @@ const Section = <T,>({
 }: SectionProps<T>) => {
   return (
     <View style={styles.container}>
-      <SectionTitle
-        style={styles.title}
-        title={title}
-        actionText={actionText}
-        onActionPress={onActionPress}
-      />
+      <Gutter>
+        <SectionTitle
+          title={title}
+          actionText={actionText}
+          onActionPress={onActionPress}
+        />
+      </Gutter>
       <SectionScroll
         style={styles.scrolling}
         data={data}

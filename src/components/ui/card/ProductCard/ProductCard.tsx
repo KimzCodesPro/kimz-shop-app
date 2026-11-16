@@ -17,7 +17,6 @@ const ProductCard = ({
   brand,
   imgSrc,
   isFavorite = true,
-  onToggleFavorite,
   onPress,
   style,
 }: ProductCardProps) => {
@@ -35,7 +34,6 @@ const ProductCard = ({
         ),
       }),
     );
-    onToggleFavorite?.();
   };
 
   return (

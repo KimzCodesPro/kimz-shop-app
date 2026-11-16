@@ -11,6 +11,7 @@ import useMyCartScreen from "./useMyCartScreen";
 const MyCartScreen = () => {
   const {
     t,
+    productId,
     hasCartItems,
     cartItems,
     checkoutBottomSheetRef,
@@ -24,12 +25,27 @@ const MyCartScreen = () => {
     openCheckoutSheetHandler,
     checkoutHandler,
   } = useMyCartScreen();
-
+  // const  backToProduct = ;
   return (
     <>
       <ScreenLayout
         hasTabBar
-        renderTopBar={() => <TopBar title={t("myCart_title")} />}
+        renderTopBar={() =>
+          // opened from a product: show back arrow to that product
+          // opened from the tab bar: no back arrow
+          productId ? (
+            <TopBar
+              title={t("myCart_title")}
+              goBack
+              forceBack={{
+                pathname: "/product",
+                params: { itemId: productId },
+              }}
+            />
+          ) : (
+            <TopBar title={t("myCart_title")} />
+          )
+        }
       >
         {!hasCartItems ? (
           <EmptyState

@@ -18,7 +18,7 @@ const SectionScroll = <T,>({
       contentContainerStyle={[styles.content, style]}
     >
       {data.map((item, index) => (
-        <Fragment key={index}>{renderItem(item)}</Fragment>
+        <Fragment key={index}>{renderItem(item, index)}</Fragment>
       ))}
     </ScrollView>
   );

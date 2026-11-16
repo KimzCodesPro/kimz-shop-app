@@ -16,6 +16,7 @@ const RNCarousel = <T,>({
   autoplay = false,
   autoplayInterval = DEFAULT_AUTOPLAY_INTERVAL,
   style,
+  indicatorContainerStyle,
 }: CarouselProps<T>) => {
   const ref = useRef<CarouselRef>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -34,7 +35,7 @@ const RNCarousel = <T,>({
         onProgressChange={(p) => setActiveIndex(Math.round(p) % data.length)}
         renderItem={({ item }) => renderItem(item)}
       />
-      <View style={styles.paginationContainer}>
+      <View style={[styles.paginationContainer, indicatorContainerStyle]}>
         {data.map((_, index) => (
           <PaginationDot
             key={index}

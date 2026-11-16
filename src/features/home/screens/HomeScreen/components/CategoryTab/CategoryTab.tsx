@@ -1,11 +1,11 @@
-import { View } from "react-native";
+import { Gutter } from "@/components/ui/layout";
 import CategoryCard from "../CategoryCard/CategoryCard";
 import styles from "./categoryTabStyles";
 import { CategoryTabProps } from "./types";
 
 const CategoryTab = ({ categories }: CategoryTabProps) => {
   return (
-    <View style={styles.container}>
+    <Gutter style={styles.container}>
       {categories.map(({ id, categoryName, productsCount, img }) => (
         <CategoryCard
           onPress={() => console.log(`Category ${categoryName} pressed`)}
@@ -15,7 +15,7 @@ const CategoryTab = ({ categories }: CategoryTabProps) => {
           imgSrc={img}
         />
       ))}
-    </View>
+    </Gutter>
   );
 };
 

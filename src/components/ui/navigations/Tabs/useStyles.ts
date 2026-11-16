@@ -10,7 +10,6 @@ const useStyles = () => {
     },
     tabs: {
       flexDirection: "row",
-      paddingHorizontal: spacing.space24.width,
     },
     tab: {
       flex: 1,

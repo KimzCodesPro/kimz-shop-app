@@ -3,3 +3,4 @@ export { default as ScreenLayout } from "./ScreenLayout/ScreenLayout";
 export { default as VerticalScrollView } from "./VerticalScrollView/VerticalScrollView";
 export { default as Divider } from "./Divider/Divider";
 export { default as SectionTitle } from "./SectionTitle/SectionTitle";
+export { default as Gutter } from "./Gutter/Gutter";

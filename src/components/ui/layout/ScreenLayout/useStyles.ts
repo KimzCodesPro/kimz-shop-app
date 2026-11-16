@@ -3,7 +3,12 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CONTENT_BOTTOM_GAP, SIDE_PADDING, TOP_BAR_GAP } from "./constants";
 import { UseStylesArgs } from "./types";
 
-const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
+const useStyles = ({
+  hasTopBar,
+  hasTabBar,
+  hasTopBarGap,
+  paddingSides,
+}: UseStylesArgs) => {
   const insets = useSafeAreaInsets();
 
   // A TopBar applies insets.top itself, so a headerless screen matches it by
@@ -12,6 +17,7 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
   const paddingTop = hasTopBar ? 0 : insets.top;
   const bottomInset = hasTabBar ? 0 : insets.bottom;
   const horizontalPadding = SIDE_PADDING[paddingSides];
+  const gap = hasTopBarGap ? TOP_BAR_GAP : 0;
   // No backgroundColor here: RootLayout hands colors.background.base to
   // React Navigation's theme, which paints every screen for us.
   const styles = StyleSheet.create({
@@ -22,7 +28,7 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
       ...horizontalPadding,
       paddingTop,
       paddingBottom: bottomInset + CONTENT_BOTTOM_GAP,
-      gap: TOP_BAR_GAP,
+      gap,
       flex: 1,
     },
     // Sits outside the scroll view, so it owns the hardware clearance — the
@@ -33,7 +39,7 @@ const useStyles = ({ hasTopBar, hasTabBar, paddingSides }: UseStylesArgs) => {
       ...horizontalPadding,
       paddingTop,
       paddingBottom: bottomInset,
-      gap: TOP_BAR_GAP,
+      gap,
       flex: 1,
     },
     // Content area of the non-scrollable branch. flex: 1 so children still

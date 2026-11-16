@@ -9,6 +9,8 @@ type CarouselBaseProps<T> = {
   paginationDotType?: PaginationDotType;
   loop?: boolean;
   style?: StyleProp<ViewStyle>;
+  // style for the pagination dots container, e.g. to overlay them on the slides
+  indicatorContainerStyle?: StyleProp<ViewStyle>;
 };
 
 type CarouselPropsAutoplay =

@@ -8,6 +8,7 @@ const ScreenLayout = ({
   scrollable = false,
   renderTopBar,
   hasTabBar = false,
+  hasTopBarGap = true,
   paddingSides = "both",
   contentContainerStyle,
   scrollProps,
@@ -17,6 +18,7 @@ const ScreenLayout = ({
   const { styles } = useStyles({
     hasTopBar: !!renderTopBar,
     hasTabBar,
+    hasTopBarGap,
     paddingSides,
   });
 

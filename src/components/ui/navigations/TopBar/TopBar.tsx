@@ -6,13 +6,21 @@ import { ICON_SIZE } from "./constants";
 import { TopBarProps } from "./types";
 import useStyles from "./useStyles";
 
-const TopBar = ({ style, title, goBack, forceBack, actionBtn }: TopBarProps) => {
+const TopBar = ({
+  style,
+  title,
+  goBack,
+  forceBack,
+  actionBtn,
+}: TopBarProps) => {
   const router = useRouter();
   const { styles, colors } = useStyles();
 
   const handleGoBack = () => {
     if (forceBack) {
-      router.push(forceBack);
+      // go back down the stack to `forceBack` if it's there,
+      // otherwise replace this screen with it (no duplicate screens)
+      router.dismissTo(forceBack);
     } else {
       if (router.canGoBack()) {
         router.back();

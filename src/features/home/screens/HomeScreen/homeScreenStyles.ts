@@ -1,5 +1,4 @@
 import { spacing } from "@/constants";
-import { CONTENT_PADDING_HORIZONTAL } from "@/components/ui/layout/ScreenLayout/constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -8,9 +7,6 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     pointerEvents: "none",
-  },
-  horizontalPadding: {
-    paddingHorizontal: CONTENT_PADDING_HORIZONTAL,
   },
 });
 

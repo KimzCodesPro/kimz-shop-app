@@ -1,4 +1,3 @@
-import { CONTENT_PADDING_HORIZONTAL } from "@/components/ui/layout/ScreenLayout/constants";
 import { spacing } from "@/constants";
 import { HS } from "@/utils";
 import { StyleSheet } from "react-native";
@@ -10,9 +9,6 @@ const styles = StyleSheet.create({
   },
   product: {
     width: HS(140),
-  },
-  horizontalPadding: {
-    paddingHorizontal: CONTENT_PADDING_HORIZONTAL,
   },
 });
 

@@ -7,7 +7,6 @@ export type ProductCardProps = {
   brand: string;
   imgSrc?: string;
   isFavorite?: boolean;
-  onToggleFavorite?: () => void;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
 };
