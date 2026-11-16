@@ -33,6 +33,8 @@ const ProductScreen = () => {
     unitPrice,
     totalPrice,
     addToCartHandler,
+    isFollowingStore,
+    toggleFollowStoreHandler,
     openStoreHandler,
     openCartHandler,
     colors,
@@ -94,7 +96,8 @@ const ProductScreen = () => {
             name={store.name}
             imgSrc={store.imgSrc}
             followerNumber={store.followerNumber}
-            removeFollowing={() => {}}
+            isFollowing={isFollowingStore}
+            onFollowPress={toggleFollowStoreHandler}
             onPress={openStoreHandler}
           />
           <Typography

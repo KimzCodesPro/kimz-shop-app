@@ -23,10 +23,15 @@ const useProductScreen = () => {
   // first color is selected by default
   const [selectedColor, setSelectedColor] = useState(PRODUCT_COLORS[0].name);
   const [quantity, setQuantity] = useState(1);
+  const [isFollowingStore, setIsFollowingStore] = useState(false);
   const totalPrice = PRODUCT_PRICE * quantity;
 
   const addToCartHandler = () => {
     // TODO: add { productId, selectedColor, quantity } to the cart
+  };
+
+  const toggleFollowStoreHandler = () => {
+    setIsFollowingStore((prev) => !prev);
   };
 
   const openStoreHandler = () => {
@@ -55,6 +60,8 @@ const useProductScreen = () => {
     unitPrice: PRODUCT_PRICE,
     totalPrice,
     addToCartHandler,
+    isFollowingStore,
+    toggleFollowStoreHandler,
     openStoreHandler,
     openCartHandler,
   };

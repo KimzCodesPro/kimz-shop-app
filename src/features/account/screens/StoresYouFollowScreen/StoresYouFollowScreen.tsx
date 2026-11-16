@@ -39,7 +39,9 @@ const StoresYouFollowScreen = () => {
               name={item.name}
               imgSrc={item.imgSrc}
               followerNumber={item.followerNumber}
-              removeFollowing={() => {}}
+              // every store in this list is followed; pressing unfollows
+              isFollowing={true}
+              onFollowPress={() => {}}
               onPress={() => router.push("/store")}
               style={styles.card}
             />

@@ -2,8 +2,8 @@ import { spacing } from "@/constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  // store card + carousel above the products
-  listHeader: {
+  // store card + carousel, fixed above the products
+  header: {
     gap: spacing.space24.height,
     marginBottom: spacing.space16.height,
   },

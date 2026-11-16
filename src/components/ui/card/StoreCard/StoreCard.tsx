@@ -12,7 +12,8 @@ const StoreCard = ({
   name,
   imgSrc,
   followerNumber,
-  removeFollowing,
+  isFollowing,
+  onFollowPress,
   onPress,
   style,
 }: StoreCardProps) => {
@@ -48,13 +49,15 @@ const StoreCard = ({
             {t("stores_followersCount", { count: followerNumber })}
           </Typography>
         </View>
-        {/* unfollow */}
+        {/* follow / unfollow */}
         <Button
           style={styles.button}
           size="sm"
           variant="chip"
-          title={t("stores_followingButton")}
-          onPress={removeFollowing}
+          title={t(
+            isFollowing ? "stores_followingButton" : "itemDetails_followButton",
+          )}
+          onPress={onFollowPress}
         />
       </CardWrapper>
     </Pressable>
