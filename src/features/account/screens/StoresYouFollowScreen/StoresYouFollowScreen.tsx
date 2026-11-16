@@ -40,6 +40,7 @@ const StoresYouFollowScreen = () => {
               imgSrc={item.imgSrc}
               followerNumber={item.followerNumber}
               removeFollowing={() => {}}
+              onPress={() => router.push("/store")}
               style={styles.card}
             />
           )}

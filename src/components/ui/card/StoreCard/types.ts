@@ -5,5 +5,7 @@ export type StoreCardProps = {
   imgSrc: string;
   followerNumber: number;
   removeFollowing: () => void;
+  // tapping the card (outside the follow button), e.g. open the store page
+  onPress: () => void;
   style?: StyleProp<ViewStyle>;
 };

@@ -29,6 +29,10 @@ const useProductScreen = () => {
     // TODO: add { productId, selectedColor, quantity } to the cart
   };
 
+  const openStoreHandler = () => {
+    router.push("/store");
+  };
+
   const openCartHandler = () => {
     router.push({
       pathname: "/myCart",
@@ -51,6 +55,7 @@ const useProductScreen = () => {
     unitPrice: PRODUCT_PRICE,
     totalPrice,
     addToCartHandler,
+    openStoreHandler,
     openCartHandler,
   };
 };
